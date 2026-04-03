@@ -15,6 +15,7 @@
 
 {% load humanize %}
 {% load static %}
+{% load dynamic_images %}
  <style>
             .featured-car {
                 padding: 20px 0;
@@ -581,7 +582,10 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car-box-3">
                                 <div class="car-thumbnail">
-                                    {% if car.image %}
+                                    {% get_vehicle_image 'car' car.name car.category car.model car.image.url as dynamic_car_image %}
+                                    {% if dynamic_car_image %}
+                                        <img src="{{ dynamic_car_image }}" alt="{{ car.name }} {{ car.model }}">
+                                    {% elif car.image %}
                                         <img src="{{ car.image.url }}" alt="{{ car.name }} {{ car.model }}">
                                     {% else %}
                                         {% if 'AUDI' in car.category %}

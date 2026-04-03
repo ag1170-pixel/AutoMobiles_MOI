@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load dynamic_images %}
 
 {% block title %}
 {% if selected_brand %}{{ selected_brand }} Bikes in India | Maps of India{% else %}Bikes in India | Maps of India{% endif %}
@@ -654,7 +655,10 @@ select{
                     <div class="bike-box-3">
                         {% load static %}
                         <div class="bike-thumbnail">
-                            {% if bike.image %}
+                            {% get_vehicle_image 'bike' bike.Bikename bike.categoryBike bike.Bikemodel bike.image.url as dynamic_bike_image %}
+                            {% if dynamic_bike_image %}
+                                <img src="{{ dynamic_bike_image }}" alt="{{ bike.Bikename }}">
+                            {% elif bike.image %}
                                 <img src="{{ bike.image.url }}" alt="{{ bike.Bikename }}">
                             {% else %}
                                 {% if 'Kawasaki' in bike.Bikename %}

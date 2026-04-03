@@ -4,7 +4,8 @@ from django.urls import reverse
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage
 from django.shortcuts import redirect
-from .test_views import debug_bike_images
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 import os
 
 # Create your views here.
@@ -59,11 +60,11 @@ from images.models import DynamicImage
 
 def bikes(request):
     # Use cache for static data that doesn't change often
-    category_search = caches['default'].get('bike_categories')
+    category_search = cache.get('bike_categories')
     
     if not category_search:
         category_search = list(Bike.objects.values_list('categoryBike', flat=True).distinct())
-        caches['default'].set('bike_categories', category_search, 3600)  # Cache for 1 hour
+        cache.set('bike_categories', category_search, 3600)  # Cache for 1 hour
     
     categoryBike = request.GET.get('categoryBike')
     name = request.GET.get('name')
@@ -365,11 +366,11 @@ def compare_bikes(request):
 @cache_page(60 * 15)  # Cache for 15 minutes
 def get_bike_categories(request):
     cache_key = 'bike_categories_api'
-    categories = caches['default'].get(cache_key)
+    categories = cache.get(cache_key)
     
     if not categories:
         categories = list(Bike.objects.values_list('categoryBike', flat=True).distinct())
-        caches['default'].set(cache_key, categories, 3600)  # Cache for 1 hour
+        cache.set(cache_key, categories, 3600)  # Cache for 1 hour
     else:
         categories = list(categories)
         
@@ -379,14 +380,14 @@ def get_bike_categories(request):
 def get_bike_names(request):
     category = request.GET.get('category')
     cache_key = f'bike_names_{category}'
-    names = caches['default'].get(cache_key)
+    names = cache.get(cache_key)
     
     if not names:
         if category:
             names = list(Bike.objects.filter(categoryBike=category).values_list('Bikename', flat=True).distinct())
         else:
             names = []
-        caches['default'].set(cache_key, names, 1800)  # Cache for 30 minutes
+        cache.set(cache_key, names, 1800)  # Cache for 30 minutes
     else:
         names = list(names)
         
@@ -397,14 +398,14 @@ def get_bike_models(request):
     category = request.GET.get('category')
     name = request.GET.get('name')
     cache_key = f'bike_models_{category}_{name}'
-    models = caches['default'].get(cache_key)
+    models = cache.get(cache_key)
     
     if not models:
         if category and name:
             models = list(Bike.objects.filter(categoryBike=category, Bikename=name).values_list('Bikemodel', flat=True).distinct())
         else:
             models = []
-        caches['default'].set(cache_key, models, 1800)  # Cache for 30 minutes
+        cache.set(cache_key, models, 1800)  # Cache for 30 minutes
     else:
         models = list(models)
         
