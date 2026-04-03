@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block title %}Useful Information - Automobile Guide{% endblock %}
+
+{% block content %}
+<style>
+    .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+@media (max-width: 768px){
+    .container{
+        margin-top:15% !important;
+    }
+    h1{
+        font-size:1.5rem !important;
+        margin-bottom:30px !important;
+    }
+    h2{
+        font-size:16px !important;
+    }
+    p{
+        font-size:14px !important;
+    }
+}
+</style>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6 text-center">Useful Automobile Information</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for info in page_obj %}
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <h2 class="font-semibold mb-2">{{ info.title }}</h2>
+                        <p class="text-gray-600 mb-4">{{ info.content|truncatewords:30 }}</p>
+                        <p class="text-sm text-gray-500">Last updated: {{ info.last_updated }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-span-full">
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-center">
+                        <div class="mb-4">
+                            <svg class="mx-auto h-12 w-12 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium text-yellow-800 mb-2">No Information Available</h3>
+                        <p class="text-yellow-700 mb-4">We're currently updating our automobile information database. Check back soon for the latest tips and guides!</p>
+                        
+                        <!-- Fallback curated content -->
+                        <div class="mt-6 text-left">
+                            <h4 class="font-medium text-gray-900 mb-3">Quick Tips:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-medium text-gray-800 mb-2">🚗 Fuel Efficiency</h5>
+                                    <p class="text-sm text-gray-600">Maintain proper tire pressure and smooth acceleration to improve mileage by 10-15%.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-medium text-gray-800 mb-2">🔧 Regular Maintenance</h5>
+                                    <p class="text-sm text-gray-600">Service your vehicle every 5,000-10,000 km for optimal performance and longevity.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-medium text-gray-800 mb-2">⛽ Fuel Choice</h5>
+                                    <p class="text-sm text-gray-600">Choose petrol vs diesel based on your annual mileage and driving conditions.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded border border-gray-200">
+                                    <h5 class="font-medium text-gray-800 mb-2">🛡️ Safety First</h5>
+                                    <p class="text-sm text-gray-600">Always wear seatbelts, check brakes regularly, and keep emergency supplies in your vehicle.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if page_obj.has_other_pages %}
+            <div class="flex justify-center items-center space-x-2 mt-8">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">&laquo;</a>
+                {% else %}
+                    <span class="px-3 py-2 bg-gray-300 text-gray-500 rounded">&laquo;</span>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <span class="px-3 py-2 bg-blue-500 text-white rounded">{{ num }}</span>
+                    {% else %}
+                        <a href="?page={{ num }}" class="px-3 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">&raquo;</a>
+                {% else %}
+                    <span class="px-3 py-2 bg-gray-300 text-gray-500 rounded">&raquo;</span>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{#{% extends "base.html" %}#}
+{##}
+{#{% block title %}Useful Information - Automobile Guide{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <br>#}
+{#    <div class="container">#}
+{#        <h1 class="my-4">Useful Automobile Information</h1>#}
+{##}
+{#        <div class="row">#}
+{#            {% for info in page_obj %}#}
+{#                <div class="col-md-6 mb-4">#}
+{#                    <div class="card">#}
+{#                        <div class="card-body">#}
+{#                            <h2 class="card-title h5">#}
+{#                                <a href="{% url 'useful_info_detail' info.slug %}">{{ info.title }}</a>#}
+{#                            </h2>#}
+{#                            <p class="card-text">{{ info.content|truncatewords:30 }}</p>#}
+{#                            <p class="card-text"><small class="text-muted">Last updated: {{ info.last_updated }}</small></p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                {% empty %}#}
+{#                <div class="col-12">#}
+{#                    <p>No useful information available at the moment.</p>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{##}
+{#        {% if page_obj.has_other_pages %}#}
+{#            <nav aria-label="Page navigation">#}
+{#                <ul class="pagination justify-content-center">#}
+{#                    {% if page_obj.has_previous %}#}
+{#                        <li class="page-item">#}
+{#                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">#}
+{#                                <span aria-hidden="true">&laquo;</span>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    {% else %}#}
+{#                        <li class="page-item disabled">#}
+{#                            <span class="page-link" aria-hidden="true">&laquo;</span>#}
+{#                        </li>#}
+{#                    {% endif %}#}
+{##}
+{#                    {% for num in page_obj.paginator.page_range %}#}
+{#                        {% if page_obj.number == num %}#}
+{#                            <li class="page-item active"><span class="page-link">{{ num }}</span></li>#}
+{#                        {% else %}#}
+{#                            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{##}
+{#                    {% if page_obj.has_next %}#}
+{#                        <li class="page-item">#}
+{#                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">#}
+{#                                <span aria-hidden="true">&raquo;</span>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    {% else %}#}
+{#                        <li class="page-item disabled">#}
+{#                            <span class="page-link" aria-hidden="true">&raquo;</span>#}
+{#                        </li>#}
+{#                    {% endif %}#}
+{#                </ul>#}
+{#            </nav>#}
+{#        {% endif %}#}
+{#    </div>#}
+{#{% endblock %}#}

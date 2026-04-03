@@ -1,0 +1,321 @@
+[
+  {
+    "model": "carshanders.news",
+    "pk": 1,
+    "fields": {
+      "title": "BMW Unveils the All-New BMW X7: A Luxurious Adventure Awaits",
+      "summary": "BMW has just launched its latest luxury SUV, the BMW X7. Combining cutting-edge technology with unmatched comfort, the new X7 promises a refined driving experience with advanced features, spacious interiors, and a powerful engine lineup. Ideal for those seeking both performance and elegance in their next adventure.",
+      "image_url": "https://example.com/bmw-x7-launch-image.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/bmw-x7-launch-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 2,
+    "fields": {
+      "title": "Tesla Reveals New Model S Plaid: The Fastest Production Car Ever",
+      "summary": "Tesla has introduced the new Model S Plaid, boasting unprecedented acceleration and top speeds. With a refined design and advanced autopilot features, the Model S Plaid sets new standards for electric performance and luxury.",
+      "image_url": "https://example.com/tesla-model-s-plaid.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/tesla-model-s-plaid-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 3,
+    "fields": {
+      "title": "Audi Launches the New Audi Q5: A Perfect Blend of Style and Functionality",
+      "summary": "The latest Audi Q5 offers an enhanced driving experience with improved safety features, advanced technology, and a sophisticated design. This SUV is designed to cater to both urban and off-road adventures.",
+      "image_url": "https://example.com/audi-q5-launch.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/audi-q5-launch-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 4,
+    "fields": {
+      "title": "Mercedes-Benz Introduces the New E-Class: Innovation Meets Luxury",
+      "summary": "The new Mercedes-Benz E-Class combines elegance with cutting-edge technology. With its updated interior and advanced driver assistance systems, the E-Class sets a new benchmark in the luxury sedan segment.",
+      "image_url": "https://example.com/mercedes-e-class.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/mercedes-e-class-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 5,
+    "fields": {
+      "title": "Ford Debuts the 2024 Mustang GT: Power and Performance Redefined",
+      "summary": "The 2024 Ford Mustang GT brings a new level of performance to the iconic muscle car. Featuring a redesigned exterior and a more powerful engine, the Mustang GT continues to deliver an exhilarating driving experience.",
+      "image_url": "https://example.com/ford-mustang-gt.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/ford-mustang-gt-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 6,
+    "fields": {
+      "title": "Chevrolet Unveils the New Corvette Z06: Track-Ready Excellence",
+      "summary": "Chevrolet has introduced the Corvette Z06, designed for those who demand the ultimate performance. With its track-ready features and powerful engine, the Corvette Z06 promises a thrilling driving experience.",
+      "image_url": "https://example.com/corvette-z06.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/corvette-z06-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 8,
+    "fields": {
+      "title": "Porsche Launches the 2024 Porsche 911: Iconic Design and Modern Performance",
+      "summary": "The new Porsche 911 continues to impress with its classic design and updated performance features. The 2024 model offers enhanced handling and advanced technology, maintaining its status as a performance icon.",
+      "image_url": "https://example.com/porsche-911.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/porsche-911-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 9,
+    "fields": {
+      "title": "Jaguar Introduces the New F-Pace: Luxury and Innovation Combined",
+      "summary": "Jaguar’s latest F-Pace offers a blend of luxury and innovation, featuring a redesigned interior and advanced tech features. This SUV is designed to provide a sophisticated driving experience.",
+      "image_url": "https://example.com/jaguar-f-pace.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/jaguar-f-pace-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 10,
+    "fields": {
+      "title": "Land Rover Launches the New Range Rover Sport: Adventure Awaits",
+      "summary": "The new Range Rover Sport is ready for any adventure with its rugged design and advanced off-road capabilities. It combines luxury with versatility, making it perfect for both urban and off-road driving.",
+      "image_url": "https://example.com/range-rover-sport.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/range-rover-sport-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 11,
+    "fields": {
+      "title": "Hyundai Reveals the 2024 Hyundai Elantra: A Modern Sedan Experience",
+      "summary": "The 2024 Hyundai Elantra brings a fresh design and enhanced features to the sedan market. With its modern look and advanced technology, the Elantra is designed to offer a refined driving experience.",
+      "image_url": "https://example.com/hyundai-elantra.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/hyundai-elantra-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 12,
+    "fields": {
+      "title": "Nissan Introduces the New Nissan Altima: Comfort and Innovation",
+      "summary": "Nissan’s latest Altima model offers a blend of comfort and innovation. With a redesigned interior and updated tech features, the Altima is positioned as a top choice for modern drivers.",
+      "image_url": "https://example.com/nissan-altima.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/nissan-altima-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 13,
+    "fields": {
+      "title": "Subaru Launches the 2024 Subaru Outback: Ready for Any Journey",
+      "summary": "The new Subaru Outback is designed for those who seek adventure. With its rugged design and advanced safety features, the Outback is ready to tackle any journey while providing a comfortable ride.",
+      "image_url": "https://example.com/subaru-outback.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/subaru-outback-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 14,
+    "fields": {
+      "title": "Kia Unveils the New Kia Sportage: Style Meets Functionality",
+      "summary": "Kia’s latest Sportage model combines stylish design with practical features. With its modern look and advanced technology, the Sportage is set to attract attention in the compact SUV segment.",
+      "image_url": "https://example.com/kia-sportage.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/kia-sportage-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 15,
+    "fields": {
+      "title": "Volkswagen Introduces the 2024 VW Tiguan: A New Standard in SUVs",
+      "summary": "The 2024 VW Tiguan offers a new level of sophistication and performance. With its updated design and advanced features, the Tiguan sets a new standard for compact SUVs.",
+      "image_url": "https://example.com/vw-tiguan.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/vw-tiguan-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 16,
+    "fields": {
+      "title": "Mazda Launches the New Mazda CX-5: Refined Performance and Comfort",
+      "summary": "Mazda’s latest CX-5 combines refined performance with exceptional comfort. With its sleek design and advanced technology, the CX-5 is designed to offer a premium driving experience.",
+      "image_url": "https://example.com/mazda-cx-5.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/mazda-cx-5-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 17,
+    "fields": {
+      "title": "Chrysler Reveals the New Pacifica Hybrid: Family-Friendly and Efficient",
+      "summary": "The new Chrysler Pacifica Hybrid offers a family-friendly design with hybrid efficiency. With its spacious interior and advanced features, the Pacifica Hybrid is perfect for modern families.",
+      "image_url": "https://example.com/chrysler-pacifica-hybrid.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/chrysler-pacifica-hybrid-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 18,
+    "fields": {
+      "title": "Buick Introduces the New Enclave: A Luxurious Family SUV",
+      "summary": "Buick’s latest Enclave model offers a luxurious and spacious interior, combined with advanced technology. The new Enclave is designed to provide comfort and style for the entire family.",
+      "image_url": "https://example.com/buick-enclave.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/buick-enclave-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 19,
+    "fields": {
+      "title": "GMC Launches the 2024 GMC Sierra: Power and Capability Redefined",
+      "summary": "The 2024 GMC Sierra brings new levels of power and capability to the truck market. With its updated design and enhanced features, the Sierra is ready for any challenge.",
+      "image_url": "https://example.com/gmc-sierra.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/gmc-sierra-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 20,
+    "fields": {
+      "title": "Acura Unveils the New MDX: Advanced Technology Meets Luxury",
+      "summary": "The new Acura MDX offers a luxurious driving experience with advanced technology and refined design. The MDX is designed to provide comfort and sophistication for discerning drivers.",
+      "image_url": "https://example.com/acura-mdx.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/acura-mdx-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 21,
+    "fields": {
+      "title": "Toyota Launches the 2024 Toyota Highlander: A Family SUV with Advanced Features",
+      "summary": "The 2024 Toyota Highlander offers a spacious interior and advanced features for families. With its updated design and technology, the Highlander is set to be a top choice in the SUV segment.",
+      "image_url": "https://example.com/toyota-highlander.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/toyota-highlander-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 22,
+    "fields": {
+      "title": "Genesis Introduces the New G80: Elegance and Innovation Combined",
+      "summary": "Genesis has launched the new G80, offering a blend of elegance and innovation. With its refined design and advanced features, the G80 sets a new standard in luxury sedans.",
+      "image_url": "https://example.com/genesis-g80.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/genesis-g80-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 23,
+    "fields": {
+      "title": "Infiniti Reveals the 2024 QX60: A Premium SUV with Enhanced Features",
+      "summary": "The 2024 Infiniti QX60 combines premium features with advanced technology. With its luxurious interior and sophisticated design, the QX60 is designed to deliver a top-tier driving experience.",
+      "image_url": "https://example.com/infiniti-qx60.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/infiniti-qx60-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 24,
+    "fields": {
+      "title": "Mitsubishi Launches the New Outlander PHEV: Efficiency Meets Versatility",
+      "summary": "The new Mitsubishi Outlander PHEV offers an efficient and versatile driving experience. With its updated hybrid technology and spacious interior, the Outlander PHEV is perfect for modern drivers.",
+      "image_url": "https://example.com/mitsubishi-outlander-phev.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/mitsubishi-outlander-phev-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 25,
+    "fields": {
+      "title": "Rivian Unveils the R1T: A Revolutionary Electric Adventure Truck",
+      "summary": "Rivian has introduced the R1T, an electric adventure truck that promises to revolutionize the market. With its rugged design and impressive performance, the R1T is designed for adventure enthusiasts.",
+      "image_url": "https://example.com/rivian-r1t.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/rivian-r1t-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 26,
+    "fields": {
+      "title": "Lucid Motors Reveals the Air: A New Era of Luxury Electric Sedans",
+      "summary": "Lucid Motors has launched the Air, a luxury electric sedan that sets new standards for performance and comfort. With its sleek design and advanced technology, the Air is poised to make a significant impact in the electric vehicle market.",
+      "image_url": "https://example.com/lucid-air.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/lucid-air-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 27,
+    "fields": {
+      "title": "Polestar Introduces the Polestar 2: Cutting-Edge Electric Performance",
+      "summary": "The Polestar 2 offers cutting-edge electric performance with a focus on sustainability and technology. Designed to provide a dynamic driving experience, the Polestar 2 is a strong contender in the electric vehicle market.",
+      "image_url": "https://example.com/polestar-2.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/polestar-2-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 28,
+    "fields": {
+      "title": "Ford Reveals the New F-150 Lightning: Power Meets Efficiency",
+      "summary": "The new Ford F-150 Lightning combines the power of the iconic F-150 with the efficiency of electric propulsion. With its advanced features and impressive capabilities, the F-150 Lightning is set to lead the electric truck market.",
+      "image_url": "https://example.com/ford-f150-lightning.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/ford-f150-lightning-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 29,
+    "fields": {
+      "title": "Chevrolet Launches the Bolt EUV: Compact Electric SUV with Advanced Features",
+      "summary": "Chevrolet’s Bolt EUV offers a compact yet versatile electric SUV option. With its modern design and advanced features, the Bolt EUV is perfect for drivers looking for an efficient and stylish electric vehicle.",
+      "image_url": "https://example.com/chevrolet-bolt-euv.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/chevrolet-bolt-euv-news"
+    }
+  },
+  {
+    "model": "carshanders.news",
+    "pk": 30,
+    "fields": {
+      "title": "Hyundai Unveils the Ioniq 5: Futuristic Design and Electric Performance",
+      "summary": "The Hyundai Ioniq 5 showcases a futuristic design combined with advanced electric performance. With its spacious interior and innovative technology, the Ioniq 5 is designed to make a statement in the electric vehicle market.",
+      "image_url": "https://example.com/hyundai-ioniq-5.jpg",
+      "image": "images/iron_883.jpg",
+      "url": "https://example.com/hyundai-ioniq-5-news"
+    }
+  }
+]

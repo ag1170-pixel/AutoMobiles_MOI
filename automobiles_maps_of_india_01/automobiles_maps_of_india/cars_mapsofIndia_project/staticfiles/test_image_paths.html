@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Image Paths</title>
+</head>
+<body>
+    <h1>Testing Static Image Paths</h1>
+    
+    <h2>Image 1: compare car 2.jpg</h2>
+    <img src="/static/img/compare car/compare car 2.jpg" alt="Test Image 1" style="border: 2px solid red; width: 300px; height: 200px;">
+    
+    <h2>Image 2: compare car3.jpg</h2>
+    <img src="/static/img/compare car/compare car3.jpg" alt="Test Image 2" style="border: 2px solid blue; width: 300px; height: 200px;">
+    
+    <h2>Image 3: compare car4.jpg</h2>
+    <img src="/static/img/compare car/compare car4.jpg" alt="Test Image 3" style="border: 2px solid green; width: 300px; height: 200px;">
+    
+    <h2>Image 4: compare car6.jpg</h2>
+    <img src="/static/img/compare car/compare car6.jpg" alt="Test Image 4" style="border: 2px solid orange; width: 300px; height: 200px;">
+    
+    <h2>Debug Info</h2>
+    <p>Current URL: <span id="current-url"></span></p>
+    
+    <script>
+        document.getElementById('current-url').textContent = window.location.href;
+        
+        // Add error handling for images
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.style.border = '2px solid red';
+                this.alt = 'FAILED TO LOAD: ' + this.src;
+                console.error('Failed to load image:', this.src);
+            };
+            img.onload = function() {
+                console.log('Successfully loaded image:', this.src);
+            };
+        });
+    </script>
+</body>
+</html>

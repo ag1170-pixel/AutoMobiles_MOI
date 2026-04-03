@@ -1,0 +1,6 @@
+[
+  {"model": "carshanders.category", "pk": 1, "fields": {"name": "Auto Electrical Parts"}},
+  {"model": "carshanders.category", "pk": 2, "fields": {"name": "Nuts & Bolts"}},
+  {"model": "carshanders.category", "pk": 3, "fields": {"name": "Transmission Parts"}},
+  {"model": "carshanders.category", "pk": 4, "fields": {"name": "Brake Parts & Rubber Components"}}
+]

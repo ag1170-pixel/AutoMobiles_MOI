@@ -1,0 +1,130 @@
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .sidebar {
+            background-color: #9fadbd;
+            border: 1px solid #bac6d3;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .automobile-btn {
+    background-color: #F1F8F9 !important;
+    border: 1px solid #d7e4ef !important;
+    color: Black !important;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.automobile-btn:hover {
+    background-color: #c5d7e6;
+    border-color: #b8cedf;
+    color: #000000;
+}
+
+/* FOCUS */
+.automobile-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(215,228,239,0.6);
+}
+
+/* ACTIVE / DROPDOWN OPEN */
+.automobile-btn:active,
+.automobile-btn.show {
+    background-color: #b8cedf;
+    border-color: #a9c2d6;
+    color: #000000;
+}
+        </style>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-9">
+            <h2 class="mb-4">Automobile Information</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle w-100 automobile-btn" type="button" id="dropdownCars" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Automobile Company
+                        </button>
+                        <div class="dropdown-menu w-100" aria-labelledby="dropdownCars">
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=Audi">Audi</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=BMW">BMW</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=FIAT">Fiat</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=HYUNDAI">Hyundai</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=HONDA">Honda India</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=Jaguar">Jaguar</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=MARUTI">Maruti Suzuki</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=NISSAN">Nissan</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=SKODA">Skoda</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=TATA">Tata Motors</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=TOYOTA">Toyota</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=VOLKSWAGEN">Volkswagen</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=FORD">Ford</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=PORSCHE">Porsche</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=VOLVO">Volvo</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=MAHINDRA">Mahindra</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=MITSUBISHI">Mitsubishi</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=GENERAL MOTORS">General Motors</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=BENTLEY">Bentley Motors</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=Chevrolet India">Chevrolet India</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=HINDUSTAN MOTORS">Hindustan Motors</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=LAND ROVER">Land Rover</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=ROLLS ROYCE">Rolls Royce</a>
+                            <a class="dropdown-item" href="{% url 'cars' %}?category=DAIMLERCHRYSLER">Daimlerchrysler</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle w-100 automobile-btn" type="button" id="dropdownOthers" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Other Categories
+                        </button>
+                        <div class="dropdown-menu w-100" aria-labelledby="dropdownOthers">
+                            <a class="dropdown-item" href="{% url 'component_list' %}">Components & Spares</a>
+                            <a class="dropdown-item" href="{% url 'service_centers' %}">Service Stations</a>
+                            <a class="dropdown-item" href="{% url 'petrol_pump_finder' %}">Petrol Stations Finder</a>
+                            <a class="dropdown-item" href="{% url 'lubricants' %}">Lubricants</a>
+                            <a class="dropdown-item" href="{% url 'auto_accessories' %}">Car Accessories</a>
+                            <a class="dropdown-item" href="{% url 'second_hand_car_dealers' %}">Second Hand Car Market</a>
+                            <a class="dropdown-item" href="{% url 'article_list' %}">Car Finance and Insurance</a>
+                            <a class="dropdown-item" href="{% url 'useful_info_list' %}">Useful Information</a>
+                            <a class="dropdown-item" href="{% url 'auto_history_list' %}">Automobile History</a>
+                            <a class="dropdown-item" href="{%  url 'college_list' %}">Automobile Engineering Colleges</a>
+                            <a class="dropdown-item" href="/show/">Auto Shows</a>
+                            <a class="dropdown-item" href="/motors/">Motorsports</a>
+                            <a class="dropdown-item" href="{% url 'industry_overview' %}">Automobile_Industry_India</a>
+{#                            <a class="dropdown-item" href="{% url 'event_detail' %}">Auto events in India</a>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{#    <div id="selectedCarCompany" class="mt-4">#}
+{#        <h2 id="dreamCarTitle">Your Dream Ca</h2>#}
+{#    </div>#}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carDropdownItems = document.querySelectorAll('#dropdownCars .dropdown-item');
+        const dreamCarTitle = document.getElementById('dreamCarTitle');
+
+        carDropdownItems.forEach(function(item) {
+            item.addEventListener('click', function(event) {
+                // Allow normal navigation
+                const selectedCompanyName = this.textContent.trim();
+                console.log('Navigating to:', selectedCompanyName);
+            });
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

@@ -1,0 +1,402 @@
+[
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 1,
+    "fields": {
+      "name": "Mahindra and Mahindra",
+      "founded_year": 1945,
+      "description": "This flagship company of Mahindra group was built in 1945 to manufacture vehicles for general use. Today, it has become the 10th biggest car manufacturing company in India in the private sector. The company manufactures tractors and general & commercial utility vehicles.",
+      "logo": "http://example.com/logos/mahindra.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 2,
+    "fields": {
+      "name": "Maruti Suzuki",
+      "founded_year": 1983,
+      "description": "Maruti Suzuki India Ltd. was founded in the month of December in 1983. In the year 1994, the company outshined others by manufacturing 1 million vehicles. Maruti soon became a household name in the Indian car market coming up with affordable range of vehicles.",
+      "logo": "http://example.com/logos/maruti.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 3,
+    "fields": {
+      "name": "Hyundai Motors India Ltd",
+      "founded_year": 1996,
+      "description": "This Indian unit of the Hyundai Motor Company of South Korea was started in 1996. The car sales figure of the company jumped by 46.1% in 2010 as against 42.8% in 2009.",
+      "logo": "http://example.com/logos/hyundai.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 4,
+    "fields": {
+      "name": "Tata Motors",
+      "founded_year": 1945,
+      "description": "Among the top Indian car manufacturers, Tata Motors Ltd. in recent times is well recognized for providing us with 'Tata Nano' the cheapest car model ever in the nation. The company was built in 1945 to manufacture commercial as well as general utility vehicles.",
+      "logo": "http://example.com/logos/tata.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 5,
+    "fields": {
+      "name": "Skoda Auto India Private Ltd",
+      "founded_year": 2001,
+      "description": "Skoda Auto in India is a sub-division of the SkodaAuto a.s. (Volkswagen Group). In the year 2001, the car company started its operations with Greenfield plant in Aurangabad.",
+      "logo": "http://example.com/logos/skoda.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 6,
+    "fields": {
+      "name": "Honda Siel Cars India Ltd (HSCI)",
+      "founded_year": 1995,
+      "description": "HSCI is one of the prominent premium car manufacturers in India. This company was started in 1995 by Honda Motor Co. Ltd (Japan) in collaboration with Siel Limited to offer latest models of passenger vehicles to the customers in India.",
+      "logo": "http://example.com/logos/honda.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 7,
+    "fields": {
+      "name": "Fiat",
+      "founded_year": 1899,
+      "description": "Fiat is an Italian automobile manufacturer, a subsidiary of FCA Italy S.p.A., which is part of Fiat Chrysler Automobiles. It was founded in 1899 and has produced a range of cars in India.",
+      "logo": "http://example.com/logos/fiat.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 8,
+    "fields": {
+      "name": "Volkswagen",
+      "founded_year": 1937,
+      "description": "Volkswagen is a German automaker founded in 1937. It is one of the world's leading car manufacturers, known for producing vehicles with advanced technology and high quality.",
+      "logo": "http://example.com/logos/volkswagen.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 9,
+    "fields": {
+      "name": "Ford India Ltd.",
+      "founded_year": 1995,
+      "description": "Ford India Private Limited is a subsidiary of Ford Motor Company in India. The company was established in 1995 and produces a wide range of cars for the Indian market.",
+      "logo": "http://example.com/logos/ford.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 10,
+    "fields": {
+      "name": "Nissan",
+      "founded_year": 1933,
+      "description": "Nissan Motor Co., Ltd. is a Japanese multinational automobile manufacturer founded in 1933. It has a strong presence in the Indian market with a variety of cars.",
+      "logo": "http://example.com/logos/nissan.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 11,
+    "fields": {
+      "name": "Toyota",
+      "founded_year": 1937,
+      "description": "Toyota Motor Corporation is a Japanese multinational automotive manufacturer headquartered in Toyota City, Aichi, Japan. Founded in 1937, it is one of the largest automobile manufacturers in the world.",
+      "logo": "http://example.com/logos/toyota.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 12,
+    "fields": {
+      "name": "Renault",
+      "founded_year": 1899,
+      "description": "Groupe Renault is a French multinational automobile manufacturer established in 1899. The company produces a range of cars and vans, and has a presence in the Indian market.",
+      "logo": "http://example.com/logos/renault.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 13,
+    "fields": {
+      "name": "Chevrolet",
+      "founded_year": 1911,
+      "description": "Chevrolet, colloquially referred to as Chevy, is an American automobile division of the American manufacturer General Motors (GM). Founded in 1911, it offers a wide range of cars.",
+      "logo": "http://example.com/logos/chevrolet.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 14,
+    "fields": {
+      "name": "Mitsubishi",
+      "founded_year": 1870,
+      "description": "Mitsubishi Motors Corporation is a Japanese multinational automotive manufacturer headquartered in Tokyo, Japan. Founded in 1870, it is known for producing a variety of vehicles.",
+      "logo": "http://example.com/logos/mitsubishi.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 15,
+    "fields": {
+      "name": "Mercedes-Benz",
+      "founded_year": 1926,
+      "description": "Mercedes-Benz is a German luxury automobile manufacturer. The brand is known for producing premium vehicles and is a division of the German company Daimler AG.",
+      "logo": "http://example.com/logos/mercedes.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 16,
+    "fields": {
+      "name": "BMW",
+      "founded_year": 1916,
+      "description": "Bayerische Motoren Werke AG, commonly referred to as BMW, is a German multinational company which produces luxury vehicles and motorcycles. The company was founded in 1916.",
+      "logo": "http://example.com/logos/bmw.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 17,
+    "fields": {
+      "name": "Audi",
+      "founded_year": 1909,
+      "description": "Audi AG is a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles. Audi is a member of the Volkswagen Group and was founded in 1909.",
+      "logo": "http://example.com/logos/audi.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 18,
+    "fields": {
+      "name": "Jaguar",
+      "founded_year": 1922,
+      "description": "Jaguar is a British luxury vehicle brand of Jaguar Land Rover, a British multinational car manufacturer with its headquarters in Whitley, Coventry, England. Founded in 1922, Jaguar has a rich history in the automotive industry.",
+      "logo": "http://example.com/logos/jaguar.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 19,
+    "fields": {
+      "name": "Land Rover",
+      "founded_year": 1948,
+      "description": "Land Rover is a British brand of predominantly four-wheel drive, off-road capable vehicles, owned by multinational car manufacturer Jaguar Land Rover. The company was founded in 1948.",
+      "logo": "http://example.com/logos/landrover.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 20,
+    "fields": {
+      "name": "Volvo",
+      "founded_year": 1927,
+      "description": "Volvo Cars, stylized as VOLVO, is a Swedish luxury automobile marque founded in 1927 and headquartered in Gothenburg, Sweden. It is known for its premium cars and focus on safety.",
+      "logo": "http://example.com/logos/volvo.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 21,
+    "fields": {
+      "name": "Porsche",
+      "founded_year": 1931,
+      "description": "Dr. Ing. h.c. F. Porsche AG, usually shortened to Porsche AG, is a German automobile manufacturer specializing in high-performance sports cars, SUVs and sedans. The company was founded in 1931.",
+      "logo": "http://example.com/logos/porsche.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 22,
+    "fields": {
+      "name": "Ferrari",
+      "founded_year": 1939,
+      "description": "Ferrari S.p.A. is an Italian luxury sports car manufacturer based in Maranello, Italy. Founded in 1939, Ferrari is known for its high-performance vehicles and racing heritage.",
+      "logo": "http://example.com/logos/ferrari.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 23,
+    "fields": {
+      "name": "Lamborghini",
+      "founded_year": 1963,
+      "description": "Automobili Lamborghini S.p.A. is an Italian brand and manufacturer of luxury sports cars and SUVs. The company was founded in 1963 and is known for its high-performance vehicles.",
+      "logo": "http://example.com/logos/lamborghini.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 24,
+    "fields": {
+      "name": "Bentley",
+      "founded_year": 1919,
+      "description": "Bentley Motors Limited is a British manufacturer and marketer of luxury cars and SUVs, founded in 1919 and is a subsidiary of Volkswagen AG.",
+      "logo": "http://example.com/logos/bentley.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 25,
+    "fields": {
+      "name": "Rolls-Royce",
+      "founded_year": 1906,
+      "description": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker. The brand is known for its luxurious and high-performance vehicles. The company was founded in 1906.",
+      "logo": "http://example.com/logos/rollsroyce.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 26,
+    "fields": {
+      "name": "Tesla",
+      "founded_year": 2003,
+      "description": "Tesla, Inc. is an American electric vehicle and clean energy company based in Palo Alto, California. Founded in 2003, Tesla specializes in electric cars, battery energy storage from home to grid-scale, and, through its acquisition of SolarCity, solar energy generation and storage.",
+      "logo": "http://example.com/logos/tesla.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 27,
+    "fields": {
+      "name": "Mazda",
+      "founded_year": 1920,
+      "description": "Mazda Motor Corporation is a Japanese multinational automaker based in Fuchū, Hiroshima, Japan. Founded in 1920, Mazda is known for its innovative and fuel-efficient vehicles.",
+      "logo": "http://example.com/logos/mazda.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 28,
+    "fields": {
+      "name": "Kia",
+      "founded_year": 1944,
+      "description": "Kia Corporation, commonly known as Kia, is a South Korean multinational automotive manufacturer headquartered in Seoul. Founded in 1944, Kia is known for its stylish and reliable vehicles.",
+      "logo": "http://example.com/logos/kia.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 29,
+    "fields": {
+      "name": "Peugeot",
+      "founded_year": 1810,
+      "description": "Peugeot is a French automotive manufacturer, part of Groupe PSA. Founded in 1810, Peugeot has a rich history and produces a variety of cars and commercial vehicles.",
+      "logo": "http://example.com/logos/peugeot.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 30,
+    "fields": {
+      "name": "Citroen",
+      "founded_year": 1919,
+      "description": "Citroën is a French automobile manufacturer, part of Groupe PSA. Founded in 1919, Citroën is known for its innovative technology and unique designs.",
+      "logo": "http://example.com/logos/citroen.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 31,
+    "fields": {
+      "name": "Subaru",
+      "founded_year": 1953,
+      "description": "Subaru is the automobile manufacturing division of Japanese transportation conglomerate Subaru Corporation. Founded in 1953, Subaru is known for its use of boxer engines in most of its vehicles.",
+      "logo": "http://example.com/logos/subaru.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 32,
+    "fields": {
+      "name": "Suzuki",
+      "founded_year": 1909,
+      "description": "Suzuki Motor Corporation is a Japanese multinational corporation headquartered in Minami-ku, Hamamatsu. Founded in 1909, Suzuki produces automobiles, motorcycles, outboard motors, and a variety of other small internal combustion engines.",
+      "logo": "http://example.com/logos/suzuki.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 33,
+    "fields": {
+      "name": "Maserati",
+      "founded_year": 1914,
+      "description": "Maserati is an Italian luxury vehicle manufacturer established in 1914, known for its high-performance vehicles and luxurious designs.",
+      "logo": "http://example.com/logos/maserati.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 34,
+    "fields": {
+      "name": "Alfa Romeo",
+      "founded_year": 1910,
+      "description": "Alfa Romeo Automobiles S.p.A. is an Italian luxury car manufacturer, founded in 1910 in Milan. Alfa Romeo is known for its stylish and performance-oriented vehicles.",
+      "logo": "http://example.com/logos/alfaromeo.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 35,
+    "fields": {
+      "name": "Aston Martin",
+      "founded_year": 1913,
+      "description": "Aston Martin Lagonda Global Holdings plc is a British independent manufacturer of luxury sports cars and grand tourers. Founded in 1913, Aston Martin is known for its elegant and high-performance vehicles.",
+      "logo": "http://example.com/logos/astonmartin.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 36,
+    "fields": {
+      "name": "Bugatti",
+      "founded_year": 1909,
+      "description": "Automobiles Ettore Bugatti was a French car manufacturer of high-performance automobiles, founded in 1909. The name is now owned by Volkswagen AG and produces limited numbers of high-performance sports cars.",
+      "logo": "http://example.com/logos/bugatti.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 37,
+    "fields": {
+      "name": "Pagani",
+      "founded_year": 1992,
+      "description": "Pagani Automobili S.p.A. is an Italian manufacturer of high-performance hypercars and supercars. Founded in 1992, Pagani is known for its luxurious and technologically advanced vehicles.",
+      "logo": "http://example.com/logos/pagani.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 38,
+    "fields": {
+      "name": "Koenigsegg",
+      "founded_year": 1994,
+      "description": "Koenigsegg Automotive AB is a Swedish manufacturer of high-performance sports cars. Founded in 1994, Koenigsegg is known for its innovative technology and extreme performance.",
+      "logo": "http://example.com/logos/koenigsegg.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 39,
+    "fields": {
+      "name": "Genesis",
+      "founded_year": 2015,
+      "description": "Genesis Motor, LLC is the luxury vehicle division of the South Korean vehicle manufacturer Hyundai Motor Group. Founded in 2015, Genesis is known for its luxury and performance.",
+      "logo": "http://example.com/logos/genesis.jpg"
+    }
+  },
+  {
+    "model": "yourapp.carmanufacturer",
+    "pk": 40,
+    "fields": {
+      "name": "Chrysler",
+      "founded_year": 1925,
+      "description": "Chrysler is an American automobile manufacturer headquartered in Auburn Hills, Michigan, and a subsidiary of Stellantis. Founded in 1925, Chrysler is known for its innovative and high-quality vehicles.",
+      "logo": "http://example.com/logos/chrysler.jpg"
+    }
+  }
+]

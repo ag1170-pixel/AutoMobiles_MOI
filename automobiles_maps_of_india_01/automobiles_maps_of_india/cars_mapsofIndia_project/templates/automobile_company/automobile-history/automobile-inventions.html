@@ -1,0 +1,672 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #031420;
+            --secondary-color: #a5c4c1;
+            --accent-color: #e74c3c;
+            --text-color: #34495e;
+            --light-bg: #ecf0f1;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --card-hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: rgba(3, 20, 32, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .navbar-scrolled {
+            padding: 8px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .nav-link {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .hero {
+            color: white;
+            padding: 160px 0 100px;
+            margin-top: -76px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .lead {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            color:black;
+            margin-bottom: 10px;
+            font-weight: 700;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: f74e2a;
+        }
+
+        .feature {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .feature h3 {
+            color: #444;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature h3 span {
+            margin-right: 12px;
+            font-size: 1.5rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .card:hover {
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-title {
+            color: #444 !important;
+            text-shadow:none !important;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .card-title1 {
+        color: #444;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        }   
+
+        .btn-custom {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid #444 !important;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(192, 57, 43, 0.3);
+        }
+
+        .feature-icon-container {
+            background-color: #d7e4ef;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s;
+        }
+        .hero1 {
+            color: white;
+            padding: 160px 0 0px;
+            margin-top: -76px;
+            text-align: center;
+            position: relative;
+        }
+
+
+        .tech-item:hover .feature-icon-container {
+            background-color: var(--primary-color);
+        }
+
+        .tech-item:hover .feature-icon {
+            color: white;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #444 !important;
+            transition: all 0.3s;
+        }
+
+        .tech-item {
+            padding: 30px 15px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            background-color: white;
+            box-shadow: var(--card-shadow);
+            transform: translateY(-5px);
+        }
+
+        .tech-item h5 {
+            margin: 15px 0;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .section-padding {
+            padding: 35px 90px;
+        }
+
+        .section-bg {
+            background-color: white;
+        }   
+        .section-title1 {
+            position: relative;
+             display: inline-block;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+            padding-bottom: 20px;
+        }
+
+      .image-container {
+    width: 47% ;
+    line-height: 0;
+}
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .hero {
+                padding: 133px 0 0px;
+            }
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            .card-img-top {
+                height: 200px;
+            }
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+        .card-body .btn{
+            background-color:#ffffff;
+            color:#444;
+        }
+        .submit-type-btn{
+            border:2px solid #d7e4ef;
+            color:#d7e4ef;
+            background-color:#ffffff;
+            box-shadow:none;
+        }
+        .submit-type-btn:hover{
+            color:#ffffff;
+            background-color:#d7e4ef;
+            box-shadow:none;
+            transform:none;
+        }
+        .form-container .card-title{
+            color:#444 !important;
+        }
+    </style>
+</head>
+<body>
+    
+    <section id="home" class="hero1">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="mb-4 ">Revolutionizing Mobility</h1>
+            <p class="lead mb-5">Discover the latest automotive technologies shaping the future of transportation. The world of automobiles is evolving into something smarter, greener, and more inspiring.</p>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="feature" id="electric">
+                        <h3><span>🔋</span>Electric Evolution</h3>
+                        <p>Say goodbye to gas stations. The electric revolution is here—quieter, cleaner, and more powerful than ever. Today's electric vehicles (EVs) deliver breathtaking acceleration, extended range, and zero emissions—without compromise.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="feature" id="autonomous">
+                        <h3><span>🧠</span>Autonomous Intelligence</h3>
+                        <p>From advanced driver-assistance systems to fully autonomous prototypes, AI is reshaping mobility. Safety, comfort, and control—reimagined by technology that learns and adapts to your driving needs.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="feature" id="connected">
+                        <h3><span>🌐</span>Always Connected</h3>
+                        <p>Your car is now a smart device on wheels. Real-time navigation, over-the-air updates, remote diagnostics, and seamless app integration put you in total command—wherever the road leads.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="feature" id="safety">
+                        <h3><span>🛡️</span>Next-Level Safety</h3>
+                        <p>With features like predictive braking, 360° vision, and intelligent lane assist, today's cars don't just react—they anticipate. It's not just about safety anymore; it's about confidence behind the wheel.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-12">
+                    <div class="feature" id="sustainable">
+                        <h3><span>🌱</span>Sustainable by Design</h3>
+                        <p>From recycled interiors to carbon-neutral production, the new standard in automotive design is sustainability. Built with purpose, crafted for the planet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Section -->
+    <section id="cars" class="section-padding section-bg">
+        <div class="container">
+            <h2 class="section-title text-center">Cutting-Edge Automobiles</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/media/images/general/electric_bike.webp" class="card-img-top" alt="Solar Power Car" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Solar Power Car</div>
+                        <div class="card-body">
+                            <h5 class="card-title1">Solar-Powered Marvel</h5>
+                            <p class="card-text">Experience the future with Toyota's groundbreaking solar-powered vehicle, eliminating fuel costs and emissions.</p>
+                            <a href="#" class="btn btn-custom mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/media/images/general/electric_bike.webp" class="card-img-top" alt="Electric Car" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Electric Car</div>
+                        <div class="card-body">
+                            <h5 class="card-title1">Electric Revolution</h5>
+                            <p class="card-text">Discover India's first battery-powered car, the Reva, offering an impressive 120 km range per charge.</p>
+                            <a href="#" class="btn btn-custom mt-3">Explore Models</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/media/images/general/electric_bike.webp" class="card-img-top" alt="Autonomous Vehicle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Autonomous Vehicle</div>
+                        <div class="card-body">
+                            <h5 class="card-title1">Autonomous Driving</h5>
+                            <p class="card-text">Step into the future with driverless cars, revolutionizing transportation with AI-powered navigation.</p>
+                            <a href="#" class="btn btn-custom mt-3">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bikes Section -->
+    <section id="bikes" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Next-Gen Bikes</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/media/images/general/electric_bike.webp" class="card-img-top" alt="Smart Electric Bike" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Smart Electric Bike</div>
+                        <div class="card-body">
+                            <h5 class="card-title1">Smart Electric Bikes</h5>
+                            <p class="card-text">Experience the perfect blend of eco-friendly commuting and smart technology with our electric bikes.</p>
+                            <a href="#" class="btn btn-custom mt-3">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/media/images/general/hybrid_motorcycle.png" class="card-img-top" alt="Hybrid Motorcycle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Hybrid Motorcycle</div>
+                        <div class="card-body">
+                            <h5 class="card-title1">Hybrid Power</h5>
+                            <p class="card-text">Enjoy the best of both worlds with our hybrid motorcycles, combining traditional engines with electric motors.</p>
+                            <a href="#" class="btn btn-custom mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/media/images/bikes/Ai_powers.jpeg" class="card-img-top" alt="AI-Assisted Bike" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">AI-Assisted Bike</div>
+                        <div class="card-body">
+                            <h5 class="card-title1">AI-Assisted Riding</h5>
+                            <p class="card-text">Experience enhanced safety and performance with our AI-assisted motorcycles, featuring advanced rider assistance systems.</p>
+                            <a href="#" class="btn btn-custom mt-3">Explore Features</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="tech" class="section-padding section-bg">
+        <div class="container">
+            <h2 class="section-title text-center">Innovative Technologies</h2>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="tech-item text-center">
+                        <div class="feature-icon-container">
+                            <i class="fas fa-cogs feature-icon"></i>
+                        </div>
+                        <h5>CRDI Engine</h5>
+                        <p>Enhanced power and efficiency through advanced fuel injection.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="tech-item text-center">
+                        <div class="feature-icon-container">
+                            <i class="fas fa-gas-pump feature-icon"></i>
+                        </div>
+                        <h5>MPFI System</h5>
+                        <p>Precise fuel delivery for optimal performance and emissions control.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="tech-item text-center">
+                        <div class="feature-icon-container">
+                            <i class="fas fa-car-crash feature-icon"></i>
+                        </div>
+                        <h5>ABS Technology</h5>
+                        <p>Advanced braking system for enhanced safety and control.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="tech-item text-center">
+                        <div class="feature-icon-container">
+                            <i class="fas fa-car-battery feature-icon"></i>
+                        </div>
+                        <h5>Regenerative Braking</h5>
+                        <p>Energy recovery system for improved efficiency in electric vehicles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Stay Updated</h2>
+                    <p class="mb-4">Subscribe to our newsletter to receive the latest news and updates about automotive technology.</p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" placeholder="Your Email Address">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-custom w-100 h-100 submit-type-btn">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding section-bg">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-custom submit-type-btn">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Contact Information</h5>
+                            <p class="card-text">Feel free to reach out to us with any questions about our automotive technologies.</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> C-87 , Mapping Digiworld Pvt Ltd</li>
+                                <li class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +91 99998 82061</li>
+                                <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> solutions@mapsofindia.com
+                                </li>
+                                <li><i class="fas fa-clock me-2 text-primary"></i> Monday - Friday: 9am - 6pm</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-up');
+        
+        const checkFade = () => {
+            fadeElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        </script>
+        {% endblock %}

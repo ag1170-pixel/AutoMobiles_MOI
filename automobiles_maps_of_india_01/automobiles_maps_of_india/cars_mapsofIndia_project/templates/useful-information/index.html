@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Useful Information About Automobile{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container">
+    <h1>Useful Information About Automobile</h1>
+    <div class="info-grid">
+        {% for info in useful_info_list %}
+            <div class="info-card">
+                <h2><a href="{% url 'detail' info.slug %}">{{ info.title }}</a></h2>
+                <p>{{ info.content|truncatewords:30 }}</p>
+                <a href="{% url 'detail' info.slug %}" class="read-more">Read More</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="related-links">
+        <h2>Related Links</h2>
+        <ul>
+            <li><a href="{% url 'info_detail' 'automobile-tips' %}">Automobile Tips</a></li>
+            <li><a href="{% url 'info_detail' 'transmission-system' %}">Transmission System</a></li>
+            <li><a href="{% url 'info_detail' 'motor-policy' %}">Motor Policy</a></li>
+            <li><a href="{% url 'info_detail' 'know-your-car' %}">Know Your Car</a></li>
+            <li><a href="{% url 'info_detail' 'electrical-system' %}">The Electrical System</a></li>
+            <li><a href="{% url 'info_detail' 'modern-suspension-system' %}">Modern Suspension System</a></li>
+        </ul>
+    </div>
+    </div>
+{% endblock %}

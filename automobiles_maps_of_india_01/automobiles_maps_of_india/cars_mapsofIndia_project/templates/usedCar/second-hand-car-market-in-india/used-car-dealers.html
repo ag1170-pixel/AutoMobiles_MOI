@@ -1,0 +1,188 @@
+
+
+<!-- car_dealers.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <style>
+        :root {
+            --primary-color: #84a9d9;
+            --secondary-color: #f4a261;
+            --accent-color: #68798c;
+            --background-color: #a3b3c4;
+            --text-color: #eef1f5;
+            --card-bg: #79a4ce;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        .dealer{
+            background-color:#d7e4ef !important;
+            color:#ffffff !important;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dealer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .dealer-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .dealer-contact {
+            flex: 1;
+            min-width: 200px;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+            }
+
+            .dealer {
+                flex-direction: column;
+            }
+
+            .dealer-contact {
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    </style>
+
+    <div class="container">
+        <section id="top-dealers">
+            <h1>Top Car Dealers</h1>
+            <div class="heading-underline"></div>
+
+            {% for dealer in dealers %}
+                <div class="card dealer">
+                    <div class="dealer-info">
+                        <h2>{{ dealer.name }}</h2>
+                        <p>{{ dealer.address }}</p>
+                        <p>{{ dealer.city }}</p>
+                    </div>
+                    <div class="dealer-contact">
+                        <p>Phone: {{ dealer.phone }}</p>
+                        <p>Email: {{ dealer.email }}</p>
+                        <p>Rating: {{ dealer.rating }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No dealers found.</p>
+            {% endfor %}
+        </section>
+    </div>
+
+    {% comment %} <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseover', function() {
+                    this.style.backgroundColor = '#f0f0f0';
+                });
+                card.addEventListener('mouseout', function() {
+                    this.style.backgroundColor = 'var(--card-bg)';
+                });
+            });
+        });
+    </script> {% endcomment %}
+{% endblock %}

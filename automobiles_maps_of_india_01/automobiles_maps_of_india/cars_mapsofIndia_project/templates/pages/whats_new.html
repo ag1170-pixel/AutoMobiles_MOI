@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% block title %} | What's New{% endblock %}
+
+{% block content %}
+{% load static %}
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .whats-new-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .page-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 20px 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .page-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .news-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+    
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .news-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .news-image:hover img {
+        transform: scale(1.05);
+    }
+    
+    .news-image .image-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-size: 3rem;
+        opacity: 0.8;
+    }
+    
+    .news-content {
+        padding: 25px;
+    }
+    
+    .news-category {
+        display: inline-block;
+        padding: 5px 12px;
+        background: #3cb3df;
+        color: white;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+    
+    .news-category.care_tips {
+        background: #28a745;
+    }
+    
+    .news-category.industry_news {
+        background: #dc3545;
+    }
+    
+    .news-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+        line-height: 1.4;
+    }
+    
+    .news-excerpt {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    
+    .news-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #999;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+    
+    .read-more-btn {
+        background: #F1F8F9;
+        border:1px solid #d7e4ef;
+        color: #000000;
+        padding: 8px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        display: inline-block;
+    }
+    
+    .read-more-btn:hover {
+        background-color:#d7e4ef !important;
+    }
+    
+    .no-posts {
+        text-align: center;
+        padding: 80px 20px;
+        color: #666;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin: 40px 0;
+    }
+    
+    .no-posts i {
+        font-size: 5rem;
+        color: #ddd;
+        margin-bottom: 20px;
+        opacity: 0.6;
+    }
+    
+    .no-posts h3 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+        .whats-new-container {
+            padding: 15px;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+        }
+        
+        .news-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+</style>
+
+<div class="whats-new-container">
+    <div class="page-header">
+        <h1>What's New</h1>
+        <p>Latest updates and news from the automobile industry</p>
+    </div>
+    
+    {% if posts %}
+        <div class="news-grid">
+            {% for post in posts %}
+                <div class="news-card">
+                    <div class="news-image">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-car"></i>
+                            </div>
+                        {% else %}
+                            {% if post.category == 'care_tips' %}
+                                {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="Car Care Tips"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                {% elif auto_news_images %}
+                                    {% with image_index=forloop.counter0 %}
+                                        {% if image_index < auto_news_images|length %}
+                                            <img src="{{ auto_news_images.0.image_url }}" alt="Car Care Tips"
+                                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        {% else %}
+                                            <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Car Care Tips</div>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% else %}
+                                    <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Car Care Tips</div>
+                                {% endif %}
+                            {% elif post.category == 'industry_news' %}
+                                {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="Industry News"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                {% elif auto_news_images %}
+                                    {% with image_index=forloop.counter0 %}
+                                        {% if image_index < auto_news_images|length %}
+                                            <img src="{{ auto_news_images.0.image_url }}" alt="Industry News"
+                                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        {% else %}
+                                            <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Industry News</div>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% else %}
+                                    <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Industry News</div>
+                                {% endif %}
+                            {% else %}
+                                {% if post.image %}
+                                    <img src="{{ post.image.url }}" alt="Automobile News"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                {% elif auto_news_images %}
+                                    {% with image_index=forloop.counter0 %}
+                                        {% if image_index < auto_news_images|length %}
+                                            <img src="{{ auto_news_images.0.image_url }}" alt="Automobile News"
+                                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        {% else %}
+                                            <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Automobile News</div>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% else %}
+                                    <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Automobile News</div>
+                                {% endif %}
+                            <div class="image-placeholder" style="display: none;">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="news-content">
+                        <span class="news-category {{ post.category }}">
+                            {% if post.category == 'care_tips' %}Car Care Tips{% endif %}
+                            {% if post.category == 'industry_news' %}Industry News{% endif %}
+                        </span>
+                        
+                        <h3 class="news-title">{{ post.title }}</h3>
+                        
+                        <div class="news-excerpt">
+                            {{ post.content|truncatewords:30 }}
+                        </div>
+                        
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="far fa-calendar"></i>
+                                {{ post.pub_date|date:"F d, Y" }}
+                            </span>
+                            
+                            {% if post.content|length > 100 %}
+                                <a href="#" class="read-more-btn">Read More</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-posts">
+            <i class="fas fa-newspaper"></i>
+            <h3>No News Available</h3>
+            <p>Check back soon for the latest updates from the automobile industry!</p>
+            <p>We're working on bringing you the most recent news and insights.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

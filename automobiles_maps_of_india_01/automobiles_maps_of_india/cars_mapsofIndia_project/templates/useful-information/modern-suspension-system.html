@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block static %}
+/* Global Styles */
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+    }
+
+    #container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #twopanel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .breadcrumb {
+        background-color: #f7f7f7;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color: #337ab7;
+    }
+
+    .breadcrumb a:hover {
+        color: #23527c;
+    }
+
+    .content-text {
+        margin-top: 20px;
+    }
+
+    .content-text h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .dateupdated {
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+    }
+
+    .learn-more {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .learn-more:hover {
+        background-color: #3e8e41;
+    }
+</style>
+
+    <br>
+<div id="container">
+    <div id="twopanel">
+        <div id="bread-crumb" class="breadcrumb">
+            <!-- breadcrumb links -->
+            <a href="home">Home</a> > <a href="suspension_detail">Suspension</a>
+        </div>
+        <div class="content-text">
+            <h1>{{ suspension.title }}</h1>
+        </div>
+        <div class="CL"></div>
+        <div class="CL"></div>
+
+        <div class="content-text">
+            {{ suspension.content|safe }}
+        </div>
+        <div class="content-text">
+            <span class="dateupdated">Last Updated on {{ suspension.last_updated }}</span>
+        </div>
+        <button class="learn-more">Learn More</button>
+    </div>
+</div>
+
+<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56de761e91d668dc"></script>
+<script src="script.js"></script>
+{% endblock %}

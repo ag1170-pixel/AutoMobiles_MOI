@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike Image Test</title>
+</head>
+<body>
+    <h1>Bike Image Test</h1>
+    
+    <h2>Sample Bikes</h2>
+    {% for bike in test_bikes %}
+        <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+            <h3>{{ bike.Bikename }} {{ bike.Bikemodel }} - ₹{{ bike.price }}</h3>
+            <p><strong>Image Field:</strong> {{ bike.image }}</p>
+            {% if bike.image %}
+                <p><strong>Image URL:</strong> {{ bike.image.url }}</p>
+                <img src="{{ bike.image.url }}" alt="{{ bike.Bikename }} {{ bike.Bikemodel }}" style="max-width: 300px; height: auto;">
+                <br>
+                <img src="/media/{{ bike.image }}" alt="{{ bike.Bikename }} {{ bike.Bikemodel }} (direct)" style="max-width: 300px; height: auto;">
+            {% else %}
+                <p>No image uploaded</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    
+    <h2>Static Fallback Test</h2>
+    <img src="/static/img/car-2.jpg" alt="Static fallback" style="max-width: 300px;">
+    <img src="/static/img/bikes/compare_bikes.jpg" alt="Bike static fallback" style="max-width: 300px;">
+</body>
+</html>

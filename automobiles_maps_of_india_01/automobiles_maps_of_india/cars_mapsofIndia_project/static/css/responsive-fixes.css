@@ -1,0 +1,256 @@
+/* Responsive Fixes for Maps of India Automobile Platform */
+
+/* Mobile Menu Improvements */
+@media (max-width: 768px) {
+    .nav-wrapper .nav-component .right-components {
+        top: calc(100% + 174px) !important;
+    }
+    
+    .nav-input-component {
+        width: 100% !important;
+        margin-top: 10px;
+    }
+    .nav-input-component form{
+            width:100% !important;
+        }
+    .nav-input-search {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    
+    .nav-search-button {
+        width: 100% !important;
+    }
+}
+
+/* Show Page Card Fixes */
+@media (max-width: 768px) {
+    .card.h-100 {
+        min-height: 400px !important;
+    }
+    
+    .card-img-top-wrapper {
+        height: 150px !important;
+    }
+}
+
+/* Petrol Pump Search Mobile Fixes */
+@media (max-width: 576px) {
+    .search-section {
+        padding: 15px !important;
+    }
+    
+    .form-group {
+        margin-bottom: 15px !important;
+    }
+    
+    .petrol-pump-table {
+        font-size: 12px !important;
+    }
+    
+    .petrol-pump-table th,
+    .petrol-pump-table td {
+        padding: 8px 4px !important;
+    }
+}
+
+/* Car Detail Page Mobile Fixes */
+@media (max-width: 768px) {
+    .car-hero-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .car-hero-price {
+        font-size: 1rem !important;
+        margin-left: 0 !important;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .car-hero-location, .car-hero-location span {
+        font-size: 1rem !important;
+        margin-left: 0 !important;
+        text-align: center;
+        margin-top: 0px !important;
+    }
+    
+    .price-and-loc-container {
+        flex-direction: column !important;
+        gap: 10px;
+    }
+    
+    .content-details-container {
+        padding: 1rem 2rem !important;
+        width: 95% !important;
+    }
+    #inquiryModal .modal-content {
+    width: 95% !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+}
+#inquiryModal .modal-content .modal-header .modal-title, #inquiryModal .modal-content .modal-body .form-group label{
+    color: #444 !important;
+}
+    .main-tab-item {
+        padding: 0.8rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+}
+
+/* Contact Page Mobile Fixes */
+@media (max-width: 576px) {
+    .contact-2 .row {
+        flex-direction: column !important;
+    }
+    
+    .contact-2 .col-lg-7,
+    .contact-2 .col-lg-5 {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    
+    .ci-box {
+        margin-bottom: 15px;
+    }
+}
+
+/* About Us Page Mobile Fixes */
+@media (max-width: 768px) {
+    .about-car .row {
+        flex-direction: column !important;
+    }
+    
+    .about-car .col-xl-5,
+    .about-car .col-xl-7 {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    
+    .best-used-car h3 {
+        font-size: 1.5rem !important;
+        text-align: center;
+    }
+    
+    .best-used-car p {
+        font-size: 0.95rem !important;
+        text-align: center;
+    }
+}
+
+/* Footer Mobile Fixes */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column !important;
+    }
+    
+    .footer-company,
+    .footer-nav-column {
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .footer-company h3 {
+        text-align: center;
+    }
+    
+    .footer-nav-column h3 {
+        margin: 0 0 20px 0 !important;
+        text-align: center;
+    }
+    
+    .footer-nav-column ul {
+        text-align: center;
+    }
+}
+
+/* Search Results Mobile Fixes */
+@media (max-width: 576px) {
+    .search-container {
+        padding: 15px !important;
+    }
+    
+    .search-input {
+        min-width: auto !important;
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    
+    .btn-search {
+        width: 100% !important;
+    }
+}
+
+/* General Mobile Improvements */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px !important;
+    }
+    
+    .btn {
+        font-size: 0.9rem !important;
+        padding: 8px 16px !important;
+    }
+    
+    h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* Tablet Fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-wrapper .nav-component .right-components {
+        width: 42% !important;
+    }
+    
+    .nav-input-search {
+        width: 140px !important;
+    }
+    
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav-wrapper,
+    .footer-container,
+    .cta-section,
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+    
+    .car-content {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .tab-pane {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+}

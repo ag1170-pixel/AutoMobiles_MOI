@@ -1,0 +1,420 @@
+{#{% extends 'base.html' %}#}
+{#{% load static %}#}
+{##}
+{#{% block title %}{{ article.title }} - Automobile History{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="container mt-5">#}
+{#        <div class="row">#}
+{#            <div class="mx-auto">#}
+{#                <h2 class="mt-5 mb-4">{{ article.title }}</h2>#}
+{#                <div class="article-content">#}
+{#                    {{ article.content|safe }}#}
+{#                </div>#}
+{##}
+{#                {% if car_models %}#}
+{#                    <h3 class="mt-5 mb-3">Related Car Models</h3>#}
+{#                    <ul class="list-group">#}
+{#                        {% for model in car_models %}#}
+{#                            <li class="list-group-item">{{ model.name }}</li>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                {% endif %}#}
+{##}
+{#                <div class="mt-5">#}
+{#                    {% if prev_article %}#}
+{#                        <a href="{% url 'auto_history_detail' prev_article.slug %}" class="btn btn-outline-primary">&larr; Previous: {{ prev_article.title }}</a>#}
+{#                    {% endif %}#}
+{#                    {% if next_article %}#}
+{#                        <a href="{% url 'auto_history_detail' next_article.slug %}" class="btn btn-outline-primary float-end">Next: {{ next_article.title }} &rarr;</a>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{##}
+{#                <div class="list-group mt-5">#}
+{#                    {% for link in sidebar_links %}#}
+{#                        <a href="{{ link.url }}" class="list-group-item list-group-item-action">#}
+{#                            <div class="d-flex w-100 justify-content-between">#}
+{#                                <h5 class="mb-1">{{ link.title }}</h5>#}
+{#                                <small><i class="fas fa-chevron-right"></i></small>#}
+{#                            </div>#}
+{#                            <p class="mb-1">{{ link.description }}</p>#}
+{#                        </a>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+{##}
+{#{% block extra_css %}#}
+{#        <style>#}
+{#            :root {#}
+{#                --primary-color: #031623;#}
+{#                --secondary-color: #2c3e50;#}
+{#                --text-color: #333;#}
+{#                --background-color: #f4f4f4;#}
+{#                --light-blue: #add8e6;#}
+{#                --highlight-color: #f9c74f;#}
+{#            }#}
+{##}
+{#            body {#}
+{#                font-family: 'Roboto', sans-serif;#}
+{#                line-height: 1.6;#}
+{#                color: var(--text-color);#}
+{#                background-color: var(--background-color);#}
+{#            }#}
+{##}
+{#            .light-blue-bg {#}
+{#                background-color: var(--light-blue);#}
+{#                padding: 20px;#}
+{#                border-radius: 8px;#}
+{#                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#            }#}
+{##}
+{#            .container {#}
+{#                width: 90%;#}
+{#                max-width: 1200px;#}
+{#                margin: 0 auto;#}
+{#                padding: 20px;#}
+{#            }#}
+{##}
+{#            .card {#}
+{#                border: none;#}
+{#                border-radius: 8px;#}
+{#                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);#}
+{#                background-color: #fff;#}
+{#            }#}
+{##}
+{#            .card-body {#}
+{#                padding: 20px;#}
+{#            }#}
+{##}
+{#            .timeline {#}
+{#                position: relative;#}
+{#                padding: 20px 0;#}
+{#                background-color: #fff;#}
+{#                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);#}
+{#                border-radius: 8px;#}
+{#            }#}
+{##}
+{#            .timeline::before {#}
+{#                content: '';#}
+{#                position: absolute;#}
+{#                top: 0;#}
+{#                bottom: 0;#}
+{#                left: 50%;#}
+{#                width: 4px;#}
+{#                background-color: var(--primary-color);#}
+{#            }#}
+{##}
+{#            .timeline-item {#}
+{#                margin-bottom: 30px;#}
+{#                position: relative;#}
+{#            }#}
+{##}
+{#            .timeline-badge {#}
+{#                width: 60px;#}
+{#                height: 60px;#}
+{#                line-height: 60px;#}
+{#                text-align: center;#}
+{#                position: absolute;#}
+{#                top: 16px;#}
+{#                left: 50%;#}
+{#                margin-left: -30px;#}
+{#                border-radius: 50%;#}
+{#                background-color: var(--primary-color);#}
+{#                color: white;#}
+{#                font-size: 24px;#}
+{#            }#}
+{##}
+{#            .timeline-panel {#}
+{#                width: calc(50% - 40px);#}
+{#                float: left;#}
+{#                border: 1px solid #d0d0d0;#}
+{#                border-radius: 8px;#}
+{#                padding: 20px;#}
+{#                background-color: #f9f9f9;#}
+{#                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);#}
+{#            }#}
+{##}
+{#            .timeline-item:nth-child(even) .timeline-panel {#}
+{#                float: right;#}
+{#            }#}
+{##}
+{#            .timeline-item:nth-child(even) .timeline-panel::before {#}
+{#                border-left-width: 0;#}
+{#                border-right-width: 15px;#}
+{#                left: auto;#}
+{#                right: -15px;#}
+{#            }#}
+{##}
+{#            .timeline-item .timeline-panel::before {#}
+{#                content: "";#}
+{#                position: absolute;#}
+{#                top: 20px;#}
+{#                left: -15px;#}
+{#                border-style: solid;#}
+{#                border-width: 15px;#}
+{#                border-color: transparent #fff transparent transparent;#}
+{#            }#}
+{#            .card-title {#}
+{#                color: #5c8eca!important;#}
+{#                font-size: 24px;#}
+{#                font-weight: bold;#}
+{#                margin-bottom: 20px;#}
+{#                text-align: center;#}
+{#                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);#}
+{#            }#}
+{##}
+{##}
+{##}
+{#            @media (max-width: 768px) {#}
+{#                .timeline-panel {#}
+{#                    width: calc(100% - 60px);#}
+{#                    float: none;#}
+{#                    left: 30px;#}
+{#                }#}
+{#                .timeline-item:nth-child(even) .timeline-panel {#}
+{#                    left: 30px;#}
+{#                }#}
+{#                .timeline::before {#}
+{#                    left: 20px;#}
+{#                }#}
+{#                .timeline-badge {#}
+{#                    left: 10px;#}
+{#                    font-size: 18px;#}
+{#                }#}
+{#            }#}
+{##}
+{#            .btn-primary {#}
+{#                background-color: var(--highlight-color);#}
+{#                border-color: var(--highlight-color);#}
+{#            }#}
+{##}
+{#            .btn-primary:hover {#}
+{#                background-color: #f7b32b;#}
+{#                border-color: #f7b32b;#}
+{#            }#}
+{#        </style>#}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block extra_js %}#}
+{#    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>#}
+{#{% endblock %}#}
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ article.title }} - Automobile History{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="mx-auto">
+                <h2 class="mt-5 mb-4">{{ article.title }}</h2>
+                <div class="article-content">
+                    {{ article.content|safe }}
+                </div>
+
+                {% if car_models %}
+                    <h3 class="mt-5 mb-3">Related Car Models</h3>
+                    <ul class="list-group">
+                        {% for model in car_models %}
+                            <li class="list-group-item">{{ model.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <div class="mt-5">
+                    {% if prev_article %}
+                        <a href="{% url 'auto_history_detail' prev_article.slug %}" class="btn btn-outline-primary">&larr; Previous: {{ prev_article.title }}</a>
+                    {% endif %}
+                    {% if next_article %}
+                        <a href="{% url 'auto_history_detail' next_article.slug %}" class="btn btn-outline-primary float-end">Next: {{ next_article.title }} &rarr;</a>
+                    {% endif %}
+                </div>
+
+                <div class="list-group mt-5">
+                    {% for link in sidebar_links %}
+                        <a href="{{ link.url }}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ link.title }}</h5>
+                                <small><i class="fas fa-chevron-right"></i></small>
+                            </div>
+                            <p class="mb-1">{{ link.description }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        :root {
+            --primary-color: #031623;
+            --secondary-color: #2c3e50;
+            --text-color: #dfe6ee;
+            --background-color: #f4f4f4;
+            --light-blue: #add8e6;
+            --highlight-color: #f9c74f;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #5c8eca!important;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .btn-outline-primary{
+            color:#444 !important;
+        }
+        .btn-primary {
+            background-color: var(--highlight-color);
+            border-color: var(--highlight-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e1b12c;
+            border-color: #e1b12c;
+        }
+
+        .list-group-item-action {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .list-group-item-action:hover {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-badge {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            margin-left: -30px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 24px;
+        }
+
+        .timeline-panel {
+            width: calc(50% - 40px);
+            float: left;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(even) .timeline-panel {
+            float: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-panel::before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: auto;
+            right: -15px;
+        }
+
+        .timeline-item .timeline-panel::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -15px;
+            border-style: solid;
+            border-width: 15px;
+            border-color: transparent #fff transparent transparent;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-panel {
+                width: calc(100% - 60px);
+                float: none;
+                left: 30px;
+            }
+            .timeline-item:nth-child(even) .timeline-panel {
+                left: 30px;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-badge {
+                left: 10px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+{% endblock %}

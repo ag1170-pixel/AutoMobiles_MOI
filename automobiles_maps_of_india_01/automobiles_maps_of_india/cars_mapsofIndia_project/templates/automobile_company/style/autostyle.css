@@ -1,0 +1,101 @@
+h1,h2,h3
+{ 
+ font-family: verdana;
+ font-size: 22px;
+ font-weight: bold;
+}
+
+h2
+{ 
+ font-size: 16px;
+ font-weight: bold;
+}
+
+h3
+{ 
+ font-size: 12px;
+ font-weight: bold;
+}
+
+.footerlinks{font-family:verdana;font-size:11px;font-weight:normal;color:white;text-decoration:none;}
+.footerlinks:hover{font-family:verdana;font-size:11px;font-weight:normal;color:#EFD700;text-decoration:none;}
+
+.toplinks{font-family:verdana;color:#383438;font-size:11px;font-weight:bold;text-decoration:none;}
+.toplinks:hover{font-family:verdana;color:brown;font-size:11px;font-weight:bold;text-decoration:none;}
+
+.leftpanellinks{font-family:arial; width: 200px;font-size:11px;color:white;text-decoration:none;font-weight:bold;text-align: left;}
+.leftpanellinks:hover{font-family:arial;font-size:11px;color:silver;text-decoration:none;font-weight:bold;}
+
+.leftpanellinks1:hover{font-family:arial;font-size:10px;color:silver;text-decoration:none;font-weight:bold;}
+
+.indextext{font-family:verdana;color:#18185A;font-weight:bold;font-size:12px;text-decoration:none;}
+.indextext:hover{font-family:verdana;color:white;background-color:#18185A;font-weight:bold;font-size:12px;text-decoration:none;}
+
+.pathlink{font-family:verdana;font-size:11px;color:#18185A;text-decoration:none;font-weight:bold;}
+.pathlink:hover{font-family:verdana;font-size:11px;color:#18185A;text-decoration:underline;font-weight:bold;}
+
+.cement{font-family:verdana;font-size:11px;color:navy}
+
+.text{font-family:verdana;font-size:11px;}
+
+.heading{font-family:verdana;font-size:12px;font-weight:bold;color:#18185A;}
+
+/* Code Written By Kamal */
+table#LeftMenu
+{
+	width: 200px;
+	padding-left: 5px;
+}
+
+a#MainPageHeaderLink
+{
+	color: #7B656B;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+a#MainPageHeaderLink:hover
+{
+	color: d7d7d7;
+}	
+
+.leftpanellinks1,
+.leftpanellinks1New
+{
+	font-family:arial;
+	font-size:10px;
+	color:white;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.leftpanellinks1New
+{
+	font-family: verdana;
+	font-size: 11px;
+	width: 173px;
+	vertical-align: top;
+}
+
+.leftpanellinks1New:hover
+{
+	color:silver;
+}
+
+table.ShowLinks td a,
+table.ShowLinks td
+{
+	color: #000080;
+}	
+/* End of Code By Kamal */
+
+.related_link tr td a{color:#1e5b9d; font:bold 11px arial; padding-left:20px; }
+
+.related_link tr td a:hover{ color:red !important; }
+
+.related_link tr td {padding:2px;}
+
+.related_link{border:1px solid silver;}
+
+.related_link_header{color:#1e5b9d; font:bold 14px arial;}

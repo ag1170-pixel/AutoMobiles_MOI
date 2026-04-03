@@ -1,0 +1,302 @@
+[
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Cugnot's Steam-Powered Vehicle",
+      "content": "Nicolas-Joseph Cugnot invented the first self-propelled vehicle in 1769. It used steam power for locomotion and found military application in the French army. However, Cugnot's automobile was never commercially sold.",
+      "slug": "cugnots-steam-powered-vehicle",
+      "published_date": "2024-08-08T10:00:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Era of Steam-Powered Vehicles",
+      "content": "In the beginning, the automobile industry was dominated by steam-powered vehicles. These vehicles were expensive, difficult to maintain, and prone to boiler explosions, which deterred potential purchasers.",
+      "slug": "era-of-steam-powered-vehicles",
+      "published_date": "2024-08-08T10:05:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Karl Benz and the First Gasoline-Powered Vehicle",
+      "content": "The commercial history of automobiles started with the invention of gasoline-powered internal combustion engines. German inventor Karl Benz constructed his first gasoline-powered vehicle in 1885 at Mannheim, Germany.",
+      "slug": "karl-benz-first-gasoline-vehicle",
+      "published_date": "2024-08-08T10:10:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Commercial Production of Benz Cars",
+      "content": "Commercial production of Benz cars started in 1888, marking a significant milestone in automotive history.",
+      "slug": "commercial-production-benz-cars",
+      "published_date": "2024-08-08T10:15:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Panhard et Levassor: First Exclusive Car Manufacturer",
+      "content": "Panhard et Levassor of France was the first company to exclusively build and sell motor cars, starting in 1889.",
+      "slug": "panhard-et-levassor-first-car-manufacturer",
+      "published_date": "2024-08-08T10:20:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Rise of Automobile Manufacturing Companies",
+      "content": "The early 1900s saw many automobile manufacturing companies coming into existence in various European countries and the United States.",
+      "slug": "rise-of-automobile-manufacturing-companies",
+      "published_date": "2024-08-08T10:25:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Curved-Dash Oldsmobile",
+      "content": "The first mass-produced automobile in the United States was the curved-dash Oldsmobile. It was a three-horsepower machine and sold 5,000 units by 1904.",
+      "slug": "curved-dash-oldsmobile",
+      "published_date": "2024-08-08T10:30:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "Henry Ford and the Model T",
+      "content": "The economics of the US car market was disrupted by the arrival of Henry Ford and his Model T car. The Model T was the world's first mass-produced vehicle, with a million units sold by 1920, just 10 years after its introduction.",
+      "slug": "henry-ford-model-t",
+      "published_date": "2024-08-08T10:35:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Assembly Line Revolution",
+      "content": "In 1913, Henry Ford introduced the moving assembly line, revolutionizing automobile production and significantly reducing manufacturing time and costs.",
+      "slug": "assembly-line-revolution",
+      "published_date": "2024-08-08T10:40:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Rise of General Motors",
+      "content": "General Motors was founded in 1908 by William C. Durant. It grew to become one of the largest automobile manufacturers in the world.",
+      "slug": "rise-of-general-motors",
+      "published_date": "2024-08-08T10:45:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The First Electric Starter",
+      "content": "Charles Kettering invented the electric starter in 1911, eliminating the need for hand-cranking and making cars much easier to start.",
+      "slug": "first-electric-starter",
+      "published_date": "2024-08-08T10:50:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Advent of Four-Wheel Brakes",
+      "content": "In the 1920s, four-wheel brake systems were introduced, significantly improving vehicle safety.",
+      "slug": "advent-four-wheel-brakes",
+      "published_date": "2024-08-08T10:55:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The First Automatic Transmission",
+      "content": "General Motors introduced the first automatic transmission, called the Hydra-Matic, in 1940.",
+      "slug": "first-automatic-transmission",
+      "published_date": "2024-08-08T11:00:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Volkswagen Beetle",
+      "content": "The Volkswagen Beetle, designed in the 1930s, became one of the best-selling cars of all time, with production continuing until 2003.",
+      "slug": "volkswagen-beetle",
+      "published_date": "2024-08-08T11:05:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Rise of Japanese Automakers",
+      "content": "In the 1960s and 1970s, Japanese automakers like Toyota and Honda began to gain significant market share in the global automotive industry.",
+      "slug": "rise-of-japanese-automakers",
+      "published_date": "2024-08-08T11:10:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Oil Crisis and Fuel Efficiency",
+      "content": "The 1973 oil crisis led to a greater emphasis on fuel efficiency in automobile design and production.",
+      "slug": "oil-crisis-fuel-efficiency",
+      "published_date": "2024-08-08T11:15:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Introduction of Airbags",
+      "content": "Airbags were first introduced in the 1970s and became standard safety features in most vehicles by the 1990s.",
+      "slug": "introduction-of-airbags",
+      "published_date": "2024-08-08T11:20:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The First Hybrid Car",
+      "content": "The Toyota Prius, launched in 1997, was the first mass-produced hybrid electric vehicle.",
+      "slug": "first-hybrid-car",
+      "published_date": "2024-08-08T11:25:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Rise of Tesla and Electric Vehicles",
+      "content": "Tesla Motors, founded in 2003, played a significant role in popularizing electric vehicles in the 21st century.",
+      "slug": "tesla-and-electric-vehicles",
+      "published_date": "2024-08-08T11:30:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Development of Self-Driving Cars",
+      "content": "In the 2010s, major automakers and tech companies began developing and testing self-driving car technologies.",
+      "slug": "development-self-driving-cars",
+      "published_date": "2024-08-08T11:35:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Diesel Engine",
+      "content": "Rudolf Diesel invented the diesel engine in 1893, which later became widely used in trucks and some passenger vehicles.",
+      "slug": "diesel-engine",
+      "published_date": "2024-08-08T11:40:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The First Car Radio",
+      "content": "The first car radio was introduced in the 1930s, changing the driving experience forever.",
+      "slug": "first-car-radio",
+      "published_date": "2024-08-08T11:45:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Introduction of Power Steering",
+      "content": "Power steering was first introduced in the 1951 Chrysler Imperial, making driving easier and more comfortable.",
+      "slug": "introduction-power-steering",
+      "published_date": "2024-08-08T11:50:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Rotary Engine",
+      "content": "Mazda popularized the rotary engine in cars with its RX series, starting in the 1960s.",
+      "slug": "rotary-engine",
+      "published_date": "2024-08-08T11:55:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Rise of SUVs",
+      "content": "Sport Utility Vehicles (SUVs) gained immense popularity in the 1990s and 2000s, changing the landscape of the automotive market.",
+      "slug": "rise-of-suvs",
+      "published_date": "2024-08-08T12:00:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Development of Crash Tests",
+      "content": "Crash testing became standardized in the 1970s, leading to significant improvements in vehicle safety.",
+      "slug": "development-crash-tests",
+      "published_date": "2024-08-08T12:05:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The First Turbocharged Production Car",
+      "content": "The Oldsmobile Jetfire and the Chevrolet Corvair Monza were the first turbocharged production cars, both introduced in 1962.",
+      "slug": "first-turbocharged-production-car",
+      "published_date": "2024-08-08T12:10:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Introduction of Anti-lock Braking Systems",
+      "content": "Anti-lock Braking Systems (ABS) were first introduced in production cars in the 1970s, significantly improving vehicle safety.",
+      "slug": "introduction-abs",
+      "published_date": "2024-08-08T12:15:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The First GPS Navigation System in Cars",
+      "content": "The first GPS navigation system for automobiles was introduced in the 1990s, revolutionizing how people navigate while driving.",
+      "slug": "first-gps-navigation-system",
+      "published_date": "2024-08-08T12:20:00Z",
+      "last_updated": "2024-08-08"
+    }
+  },
+  {
+    "model": "automobile_company.HistoryArticle",
+    "fields": {
+      "title": "The Development of Catalytic Converters",
+      "content": "Catalytic converters were introduced in the 1970s to reduce harmful emissions from automobiles.",
+      "slug": "development-catalytic-converters",
+      "published_date": "2024-08-08T12:25:00Z",
+      "last_updated": "2024-08-08"
+    }
+  }
+  ]

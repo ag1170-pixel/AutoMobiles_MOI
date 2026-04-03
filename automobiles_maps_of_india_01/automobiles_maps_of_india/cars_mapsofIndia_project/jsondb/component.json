@@ -1,0 +1,1102 @@
+[
+  {
+    "model": "carshanders.component",
+    "pk": 1,
+    "fields": {
+      "name": "Alternator Assembly",
+      "description": "High-quality alternator assembly meeting international standards.",
+      "price": "150.00",
+      "category": 1,
+      "image": "components/alternator_assembly.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 2,
+    "fields": {
+      "name": "Starter Assembly",
+      "description": "Durable starter assembly designed for optimal performance.",
+      "price": "120.00",
+      "category": 1,
+      "image": "components/starter_assembly.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 3,
+    "fields": {
+      "name": "Electronic Relay",
+      "description": "Reliable electronic relay for various automotive applications.",
+      "price": "25.00",
+      "category": 2,
+      "image": "components/electronic_relay.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 4,
+    "fields": {
+      "name": "Heater Glow Plug",
+      "description": "Efficient heater glow plug ensuring quick engine starts.",
+      "price": "15.00",
+      "category": 2,
+      "image": "components/heater_glow_plug.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 5,
+    "fields": {
+      "name": "Engine Mounting",
+      "description": "Sturdy engine mounting for reduced vibration and noise.",
+      "price": "50.00",
+      "category": 3,
+      "image": "components/engine_mounting.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 6,
+    "fields": {
+      "name": "Suspension Rubber Bushing",
+      "description": "High-quality suspension rubber bushing for smooth rides.",
+      "price": "10.00",
+      "category": 3,
+      "image": "components/suspension_rubber_bushing.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 7,
+    "fields": {
+      "name": "Clutch Plate & Covers Assy",
+      "description": "Durable clutch plate and cover assembly for reliable performance.",
+      "price": "80.00",
+      "category": 4,
+      "image": "components/clutch_plate_covers.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 8,
+    "fields": {
+      "name": "Radiator",
+      "description": "High-efficiency radiator for optimal engine cooling.",
+      "price": "100.00",
+      "category": 5,
+      "image": "components/radiator.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 9,
+    "fields": {
+      "name": "Universal Cross Assembly",
+      "description": "Versatile universal cross assembly for various automotive applications.",
+      "price": "30.00",
+      "category": 6,
+      "image": "components/universal_cross_assembly.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 10,
+    "fields": {
+      "name": "Propeller Shaft Assy",
+      "description": "Robust propeller shaft assembly for smooth power transmission.",
+      "price": "200.00",
+      "category": 6,
+      "image": "components/propeller_shaft_assy.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 11,
+    "fields": {
+      "name": "Flywheel Ring Gears",
+      "description": "Precision-engineered flywheel ring gears for optimal performance.",
+      "price": "45.00",
+      "category": 7,
+      "image": "components/flywheel_ring_gears.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 12,
+    "fields": {
+      "name": "Brake Parts",
+      "description": "High-quality brake parts ensuring safe and reliable braking.",
+      "price": "35.00",
+      "category": 8,
+      "image": "components/brake_parts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 13,
+    "fields": {
+      "name": "Nut & Bolts",
+      "description": "Durable nuts and bolts for various automotive applications.",
+      "price": "5.00",
+      "category": 8,
+      "image": "components/nut_bolts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 14,
+    "fields": {
+      "name": "Bearings",
+      "description": "High-performance bearings for smooth and efficient operation.",
+      "price": "20.00",
+      "category": 9,
+      "image": "components/bearings.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 15,
+    "fields": {
+      "name": "Bearing Housings",
+      "description": "Sturdy bearing housings for reliable support and protection.",
+      "price": "15.00",
+      "category": 9,
+      "image": "components/bearing_housings.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 16,
+    "fields": {
+      "name": "Filters (Oil, Air, Fuel)",
+      "description": "High-efficiency filters ensuring clean and optimal engine performance.",
+      "price": "12.00",
+      "category": 10,
+      "image": "components/filters.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 17,
+    "fields": {
+      "name": "Diesel Pump Parts",
+      "description": "Precision diesel pump parts for reliable fuel delivery.",
+      "price": "25.00",
+      "category": 10,
+      "image": "components/diesel_pump_parts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 18,
+    "fields": {
+      "name": "Automobile Accessories",
+      "description": "Wide range of automobile accessories including wheel caps, car speakers, and fog lights.",
+      "price": "50.00",
+      "category": 11,
+      "image": "components/automobile_accessories.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 19,
+    "fields": {
+      "name": "Car AC Parts",
+      "description": "Comprehensive range of car AC parts including condensers, cooling coils, and hoses.",
+      "price": "100.00",
+      "category": 12,
+      "image": "components/car_ac_parts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 20,
+    "fields": {
+      "name": "Car Batteries",
+      "description": "High-performance car batteries for reliable power supply.",
+      "price": "150.00",
+      "category": 12,
+      "image": "components/car_batteries.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 21,
+    "fields": {
+      "name": "Piston Rings",
+      "description": "Durable piston rings for efficient engine performance.",
+      "price": "20.00",
+      "category": 13,
+      "image": "components/piston_rings.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 22,
+    "fields": {
+      "name": "Gaskets",
+      "description": "High-quality gaskets ensuring leak-free engine performance.",
+      "price": "8.00",
+      "category": 13,
+      "image": "components/gaskets.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 23,
+    "fields": {
+      "name": "Engine Valves",
+      "description": "Precision-engineered engine valves for optimal engine efficiency.",
+      "price": "15.00",
+      "category": 14,
+      "image": "components/engine_valves.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 24,
+    "fields": {
+      "name": "Fuel Pump Nozzles",
+      "description": "High-performance fuel pump nozzles for efficient fuel delivery.",
+      "price": "30.00",
+      "category": 14,
+      "image": "components/fuel_pump_nozzles.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 25,
+    "fields": {
+      "name": "Fuel Injection Parts",
+      "description": "Precision fuel injection parts ensuring optimal fuel delivery and performance.",
+      "price": "40.00",
+      "category": 15,
+      "image": "components/fuel_injection_parts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 26,
+    "fields": {
+      "name": "Head Lamps",
+      "description": "Bright and durable head lamps for improved visibility.",
+      "price": "60.00",
+      "category": 15,
+      "image": "components/head_lamps.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 27,
+    "fields": {
+      "name": "Auto Bulbs",
+      "description": "Reliable auto bulbs for various lighting needs.",
+      "price": "5.00",
+      "category": 16,
+      "image": "components/auto_bulbs.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 28,
+    "fields": {
+      "name": "Halogen Bulbs",
+      "description": "High-intensity halogen bulbs for improved illumination.",
+      "price": "10.00",
+      "category": 16,
+      "image": "components/halogen_bulbs.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 29,
+    "fields": {
+      "name": "Spark Plugs",
+      "description": "Efficient spark plugs for reliable ignition.",
+      "price": "7.00",
+      "category": 17,
+      "image": "components/spark_plugs.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 30,
+    "fields": {
+      "name": "Body Parts",
+      "description": "High-quality body parts for various automotive applications.",
+      "price": "100.00",
+      "category": 17,
+      "image": "components/body_parts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 31,
+    "fields": {
+      "name": "Leaf Springs",
+      "description": "Durable leaf springs for improved vehicle suspension.",
+      "price": "80.00",
+      "category": 18,
+      "image": "components/leaf_springs.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 32,
+    "fields": {
+      "name": "Brake Assemblies",
+      "description": "Reliable brake assemblies for safe and effective braking.",
+      "price": "75.00",
+      "category": 18,
+      "image": "components/brake_assemblies.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 33,
+    "fields": {
+      "name": "Clutch Facings",
+      "description": "Durable clutch facings for smooth and efficient transmission.",
+      "price": "20.00",
+      "category": 19,
+      "image": "components/clutch_facings.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 34,
+    "fields": {
+      "name": "Gearbox components",
+      "description": "Precision-engineered gearbox components for optimal transmission performance.",
+      "price": "150.00",
+      "category": 19,
+      "image": "components/gearbox_components.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 35,
+    "fields": {
+      "name": "Fuel Filters",
+      "description": "High-efficiency fuel filters for clean and optimal fuel delivery.",
+      "price": "10.00",
+      "category": 20,
+      "image": "components/fuel_filters.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 36,
+    "fields": {
+      "name": "Air Filters",
+      "description": "High-performance air filters for improved engine efficiency.",
+      "price": "12.00",
+      "category": 20,
+      "image": "components/air_filters.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 37,
+    "fields": {
+      "name": "Oil Filters",
+      "description": "Durable oil filters ensuring clean and optimal engine performance.",
+      "price": "15.00",
+      "category": 20,
+      "image": "components/oil_filters.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 38,
+    "fields": {
+      "name": "Propeller Shafts",
+      "description": "High-quality propeller shafts for reliable power transmission.",
+      "price": "200.00",
+      "category": 21,
+      "image": "components/propeller_shafts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 39,
+    "fields": {
+      "name": "Transmission components",
+      "description": "Precision transmission components for smooth and efficient operation.",
+      "price": "180.00",
+      "category": 21,
+      "image": "components/transmission_components.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 40,
+    "fields": {
+      "name": "Differential Gears",
+      "description": "Durable differential gears for optimal vehicle performance.",
+      "price": "120.00",
+      "category": 22,
+      "image": "components/differential_gears.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 41,
+    "fields": {
+      "name": "Axle Shafts",
+      "description": "High-performance axle shafts for reliable vehicle operation.",
+      "price": "250.00",
+      "category": 22,
+      "image": "components/axle_shafts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 42,
+    "fields": {
+      "name": "CV Joints",
+      "description": "Durable CV joints for smooth and reliable power transmission.",
+      "price": "100.00",
+      "category": 23,
+      "image": "components/cv_joints.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 43,
+    "fields": {
+      "name": "Steering components",
+      "description": "High-quality steering components for precise and reliable handling.",
+      "price": "180.00",
+      "category": 23,
+      "image": "components/steering_components.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 44,
+    "fields": {
+      "name": "Suspension components",
+      "description": "Durable suspension components for a smooth and comfortable ride.",
+      "price": "140.00",
+      "category": 24,
+      "image": "components/suspension_components.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 45,
+    "fields": {
+      "name": "Shock Absorbers",
+      "description": "High-performance shock absorbers for improved vehicle stability.",
+      "price": "70.00",
+      "category": 24,
+      "image": "components/shock_absorbers.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 46,
+    "fields": {
+      "name": "Wiper Blades",
+      "description": "Durable wiper blades for clear and reliable windshield wiping.",
+      "price": "10.00",
+      "category": 25,
+      "image": "components/wiper_blades.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 47,
+    "fields": {
+      "name": "Automotive Fuses",
+      "description": "Reliable automotive fuses for electrical system protection.",
+      "price": "5.00",
+      "category": 25,
+      "image": "components/automotive_fuses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 48,
+    "fields": {
+      "name": "Relays",
+      "description": "High-quality relays for reliable electrical system operation.",
+      "price": "7.00",
+      "category": 26,
+      "image": "components/relays.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 49,
+    "fields": {
+      "name": "Ignition Coils",
+      "description": "Efficient ignition coils for reliable engine ignition.",
+      "price": "50.00",
+      "category": 26,
+      "image": "components/ignition_coils.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 50,
+    "fields": {
+      "name": "Ignition Modules",
+      "description": "High-performance ignition modules for optimal engine performance.",
+      "price": "60.00",
+      "category": 27,
+      "image": "components/ignition_modules.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 51,
+    "fields": {
+      "name": "Spark Plug Wires",
+      "description": "Durable spark plug wires for reliable ignition system performance.",
+      "price": "25.00",
+      "category": 27,
+      "image": "components/spark_plug_wires.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 52,
+    "fields": {
+      "name": "Distributor Caps",
+      "description": "High-quality distributor caps for reliable ignition system operation.",
+      "price": "15.00",
+      "category": 28,
+      "image": "components/distributor_caps.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 53,
+    "fields": {
+      "name": "Brake Pads",
+      "description": "Durable brake pads for reliable braking performance.",
+      "price": "35.00",
+      "category": 28,
+      "image": "components/brake_pads.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 54,
+    "fields": {
+      "name": "Brake Rotors",
+      "description": "High-performance brake rotors for improved braking efficiency.",
+      "price": "50.00",
+      "category": 29,
+      "image": "components/brake_rotors.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 55,
+    "fields": {
+      "name": "Brake Calipers",
+      "description": "Reliable brake calipers for safe and effective braking.",
+      "price": "75.00",
+      "category": 29,
+      "image": "components/brake_calipers.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 56,
+    "fields": {
+      "name": "Brake Drums",
+      "description": "Durable brake drums for reliable braking performance.",
+      "price": "45.00",
+      "category": 30,
+      "image": "components/brake_drums.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 57,
+    "fields": {
+      "name": "Master Cylinders",
+      "description": "High-quality master cylinders for reliable braking system operation.",
+      "price": "60.00",
+      "category": 30,
+      "image": "components/master_cylinders.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 58,
+    "fields": {
+      "name": "Brake Lines",
+      "description": "Durable brake lines for safe and effective braking.",
+      "price": "20.00",
+      "category": 31,
+      "image": "components/brake_lines.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 59,
+    "fields": {
+      "name": "Hydraulic Hoses",
+      "description": "High-quality hydraulic hoses for reliable fluid transfer.",
+      "price": "30.00",
+      "category": 31,
+      "image": "components/hydraulic_hoses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 60,
+    "fields": {
+      "name": "Fuel Hoses",
+      "description": "Durable fuel hoses for reliable fuel transfer.",
+      "price": "25.00",
+      "category": 32,
+      "image": "components/fuel_hoses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 61,
+    "fields": {
+      "name": "Engine Mounts",
+      "description": "High-quality engine mounts for reliable engine support.",
+      "price": "50.00",
+      "category": 32,
+      "image": "components/engine_mounts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 62,
+    "fields": {
+      "name": "Timing Belts",
+      "description": "Durable timing belts for reliable engine timing.",
+      "price": "40.00",
+      "category": 33,
+      "image": "components/timing_belts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 63,
+    "fields": {
+      "name": "Drive Belts",
+      "description": "High-quality drive belts for reliable power transmission.",
+      "price": "35.00",
+      "category": 33,
+      "image": "components/drive_belts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 64,
+    "fields": {
+      "name": "V-Belts",
+      "description": "Durable V-belts for reliable power transmission.",
+      "price": "25.00",
+      "category": 34,
+      "image": "components/v_belts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 65,
+    "fields": {
+      "name": "Radiator Hoses",
+      "description": "High-quality radiator hoses for reliable cooling system operation.",
+      "price": "20.00",
+      "category": 34,
+      "image": "components/radiator_hoses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 66,
+    "fields": {
+      "name": "Heater Hoses",
+      "description": "Durable heater hoses for reliable heating system operation.",
+      "price": "15.00",
+      "category": 35,
+      "image": "components/heater_hoses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 67,
+    "fields": {
+      "name": "Spark Plug Boots",
+      "description": "High-quality spark plug boots for reliable ignition system operation.",
+      "price": "10.00",
+      "category": 35,
+      "image": "components/spark_plug_boots.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 68,
+    "fields": {
+      "name": "Distributor Rotors",
+      "description": "Durable distributor rotors for reliable ignition system operation.",
+      "price": "20.00",
+      "category": 36,
+      "image": "components/distributor_rotors.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 69,
+    "fields": {
+      "name": "PCV Valves",
+      "description": "High-quality PCV valves for efficient engine ventilation.",
+      "price": "10.00",
+      "category": 36,
+      "image": "components/pcv_valves.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 70,
+    "fields": {
+      "name": "EGR Valves",
+      "description": "Durable EGR valves for efficient exhaust gas recirculation.",
+      "price": "30.00",
+      "category": 37,
+      "image": "components/egr_valves.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 71,
+    "fields": {
+      "name": "Throttle Bodies",
+      "description": "High-quality throttle bodies for precise engine control.",
+      "price": "120.00",
+      "category": 37,
+      "image": "components/throttle_bodies.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 72,
+    "fields": {
+      "name": "Fuel Injectors",
+      "description": "Durable fuel injectors for efficient fuel delivery.",
+      "price": "80.00",
+      "category": 38,
+      "image": "components/fuel_injectors.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 73,
+    "fields": {
+      "name": "Fuel Pumps",
+      "description": "High-performance fuel pumps for reliable fuel delivery.",
+      "price": "150.00",
+      "category": 38,
+      "image": "components/fuel_pumps.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 74,
+    "fields": {
+      "name": "Fuel Tank Caps",
+      "description": "Durable fuel tank caps for secure fuel storage.",
+      "price": "15.00",
+      "category": 39,
+      "image": "components/fuel_tank_caps.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 75,
+    "fields": {
+      "name": "Oil Pumps",
+      "description": "High-quality oil pumps for reliable engine lubrication.",
+      "price": "100.00",
+      "category": 39,
+      "image": "components/oil_pumps.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 76,
+    "fields": {
+      "name": "Water Pumps",
+      "description": "Durable water pumps for reliable engine cooling.",
+      "price": "90.00",
+      "category": 40,
+      "image": "components/water_pumps.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 77,
+    "fields": {
+      "name": "Thermostats",
+      "description": "High-quality thermostats for precise engine temperature control.",
+      "price": "30.00",
+      "category": 40,
+      "image": "components/thermostats.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 78,
+    "fields": {
+      "name": "Radiators",
+      "description": "Durable radiators for efficient engine cooling.",
+      "price": "200.00",
+      "category": 41,
+      "image": "components/radiators.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 79,
+    "fields": {
+      "name": "Condenser",
+      "description": "High-performance condensers for efficient cooling system operation.",
+      "price": "180.00",
+      "category": 41,
+      "image": "components/condenser.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 80,
+    "fields": {
+      "name": "Heater Cores",
+      "description": "Durable heater cores for reliable heating system operation.",
+      "price": "150.00",
+      "category": 42,
+      "image": "components/heater_cores.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 81,
+    "fields": {
+      "name": "Evaporators",
+      "description": "High-quality evaporators for efficient cooling system operation.",
+      "price": "200.00",
+      "category": 42,
+      "image": "components/evaporators.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 82,
+    "fields": {
+      "name": "Compressor",
+      "description": "Durable compressors for reliable air conditioning system operation.",
+      "price": "250.00",
+      "category": 43,
+      "image": "components/compressor.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 83,
+    "fields": {
+      "name": "AC Hoses",
+      "description": "High-quality AC hoses for reliable air conditioning system operation.",
+      "price": "30.00",
+      "category": 43,
+      "image": "components/ac_hoses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 84,
+    "fields": {
+      "name": "AC Driers",
+      "description": "Durable AC driers for efficient air conditioning system operation.",
+      "price": "50.00",
+      "category": 44,
+      "image": "components/ac_driers.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 85,
+    "fields": {
+      "name": "AC Expansion Valves",
+      "description": "High-quality AC expansion valves for efficient cooling system operation.",
+      "price": "40.00",
+      "category": 44,
+      "image": "components/ac_expansion_valves.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 86,
+    "fields": {
+      "name": "AC Control Units",
+      "description": "Durable AC control units for precise air conditioning system control.",
+      "price": "70.00",
+      "category": 45,
+      "image": "components/ac_control_units.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 87,
+    "fields": {
+      "name": "AC Relays",
+      "description": "High-quality AC relays for reliable air conditioning system operation.",
+      "price": "15.00",
+      "category": 45,
+      "image": "components/ac_relays.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 88,
+    "fields": {
+      "name": "Blower Motors",
+      "description": "Durable blower motors for reliable heating and cooling system operation.",
+      "price": "100.00",
+      "category": 46,
+      "image": "components/blower_motors.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 89,
+    "fields": {
+      "name": "Cabin Air Filters",
+      "description": "High-quality cabin air filters for clean and fresh air inside the vehicle.",
+      "price": "20.00",
+      "category": 46,
+      "image": "components/cabin_air_filters.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 90,
+    "fields": {
+      "name": "Coolant Hoses",
+      "description": "Durable coolant hoses for reliable cooling system operation.",
+      "price": "25.00",
+      "category": 47,
+      "image": "components/coolant_hoses.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 91,
+    "fields": {
+      "name": "Radiator Fans",
+      "description": "High-quality radiator fans for efficient cooling system operation.",
+      "price": "80.00",
+      "category": 47,
+      "image": "components/radiator_fans.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 92,
+    "fields": {
+      "name": "Fan Belts",
+      "description": "Durable fan belts for reliable power transmission.",
+      "price": "15.00",
+      "category": 48,
+      "image": "components/fan_belts.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 93,
+    "fields": {
+      "name": "Oil Coolers",
+      "description": "High-quality oil coolers for efficient engine cooling.",
+      "price": "90.00",
+      "category": 48,
+      "image": "components/oil_coolers.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 94,
+    "fields": {
+      "name": "Transmission Coolers",
+      "description": "Durable transmission coolers for efficient cooling system operation.",
+      "price": "120.00",
+      "category": 49,
+      "image": "components/transmission_coolers.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 95,
+    "fields": {
+      "name": "Heater Valves",
+      "description": "High-quality heater valves for reliable heating system operation.",
+      "price": "25.00",
+      "category": 49,
+      "image": "components/heater_valves.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 96,
+    "fields": {
+      "name": "Heater Cores",
+      "description": "Durable heater cores for efficient heating system operation.",
+      "price": "70.00",
+      "category": 50,
+      "image": "components/heater_cores.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 97,
+    "fields": {
+      "name": "Thermostat Housings",
+      "description": "High-quality thermostat housings for reliable engine temperature control.",
+      "price": "40.00",
+      "category": 50,
+      "image": "components/thermostat_housings.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 98,
+    "fields": {
+      "name": "Thermostat Gaskets",
+      "description": "Durable thermostat gaskets for reliable engine temperature control.",
+      "price": "5.00",
+      "category": 51,
+      "image": "components/thermostat_gaskets.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 99,
+    "fields": {
+      "name": "Fan Shrouds",
+      "description": "High-quality fan shrouds for efficient cooling system operation.",
+      "price": "30.00",
+      "category": 51,
+      "image": "components/fan_shrouds.jpg"
+    }
+  },
+  {
+    "model": "carshanders.component",
+    "pk": 100,
+    "fields": {
+      "name": "Radiator Caps",
+      "description": "Durable radiator caps for reliable cooling system operation.",
+      "price": "10.00",
+      "category": 52,
+      "image": "components/radiator_caps.jpg"
+    }
+  }
+]

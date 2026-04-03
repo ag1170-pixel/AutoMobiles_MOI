@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #031b2c;
+            --secondary-color: #2c3e50;
+            --text-color: #98b4d0;
+            --background-color: #9cb4d5;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        article {
+            background-color: #d7e4ef;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .latest-articles {
+            margin-top: 40px;
+        }
+
+        .article-card {
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-card h3 {
+            margin-top: 0;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #444;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #666;
+        }
+
+
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    </style>
+
+<div class="container">
+    <h1>The Evolution of the Automobile</h1>
+        <p>The journey of the automobile is a fascinating tale of innovation spanning centuries.
+            It began with the invention of the wheel around 4,000 years ago in India, but the idea of a self-propelled vehicle took much longer to materialize.
+            Early attempts in the 15th century included designs by Guido da Vigevano and Leonardo da Vinci, yet it wasn't until 1769 that
+            Nicolas-Joseph Cugnot created the first true automobile—a steam-powered vehicle designed to move artillery.
+
+            The late 19th century saw the dawn of the petrol engine, thanks to pioneers like Carl Benz and Gottlieb Daimler.
+            Their breakthroughs laid the groundwork for the modern automotive industry. By 1890, automobiles powered by Daimler's
+            engines were being produced in France, and soon after, innovators like Charles Duryea and Elwood Haynes brought petrol engines to America.
+
+            The introduction of mass production methods by Henry Ford in 1908 revolutionized the industry, making cars affordable to the general public.
+            The Model T transformed the automobile from a luxury item to a necessity, driving the rapid expansion of the industry.
+
+            Throughout the 20th century, car manufacturers refined their designs, making vehicles more powerful, efficient, and accessible.
+            Today, the legacy of these early innovators lives on, as the automobile continues to evolve, driven by technological advancements and the ever-changing needs of society.</p>
+    <article>
+{#        <div class="article-meta">#}
+{#            Published on: {{ article.published_date|date:"F j, Y"}}#}
+{#        </div>#}
+        <div class="article-content">
+            {{ article.content|safe }}
+        </div>
+    </article>
+
+    <section class="latest-articles">
+        <h2>Latest Articles</h2>
+        {% for article in articles %}
+            <div class="article-card">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.content|truncatewords:50 }}</p>
+                <a href="{% url 'the-birth-of-automobiles-details' article.slug %}" class="read-more">Read More</a>
+            </div>
+        {% endfor %}
+    </section>
+</div>
+
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreLinks = document.querySelectorAll('.read-more');
+            readMoreLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') {
+                        e.preventDefault();
+                        alert('This is a demo. In a real application, this would link to the full article.');
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

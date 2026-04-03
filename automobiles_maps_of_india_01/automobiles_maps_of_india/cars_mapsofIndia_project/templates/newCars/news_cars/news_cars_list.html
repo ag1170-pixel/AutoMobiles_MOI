@@ -1,0 +1,466 @@
+{% extends 'base.html' %}
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+{% block content %}
+    <style>
+        .new-cars-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .car-card {
+            background-color: #d7e4ef;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgb(238, 241, 245);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .car-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.05);
+        }
+
+        .car-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .car-card:hover .car-overlay {
+            opacity: 1;
+        }
+
+        .btn-view-details {
+            background-color: #007bff;
+            color: #444;
+            padding: 0;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-view-details:hover {
+            background-color: #0056b3;
+        }
+
+        .car-info {
+            padding: 1rem;
+        }
+
+        .car-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+            text-align:left;
+        }
+
+        .car-brand {
+            font-size: 0.9rem;
+            color: #8f2a2a;
+            margin-bottom: 0rem;
+        }
+
+        .car-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #f74e2a;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .page-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border: 1px solid #007bff;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .page-link:hover,
+        .current-page {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .car-info {
+            padding: 1rem;
+        }
+
+        .car-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+            text-align:left;
+        }
+
+        .car-brand {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0rem;
+        }
+
+        .car-price-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .car-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #f74e2a;
+        }
+
+        .btn-view-details {
+            background-color: #d7e4ef;
+            color: #444;
+            padding: 0;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-view-details:hover {
+            background-color: #ffffff;
+            color:#d7e4ef;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .new-cars-container {
+                padding: 1rem;
+            }
+
+            
+
+            .car-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }        body {
+                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                     line-height: 1.6;
+                     color: var(--text-color);
+                     background-color: var(--background-color);
+                     margin: 0;
+                     padding: 0;
+                 }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgb(238, 241, 245);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        article {
+            background-color:White;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgb(223, 230, 238);
+            padding: 2rem;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top:10vmin;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .sidebar ul {
+            padding-left: 1.5rem;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-card i {
+            font-size: 2.5rem;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+.highlight-card p{
+    color:#444;
+}
+.highlight-card h3{
+    color:#444;
+}
+.image-container {
+    width: 50% ;
+    line-height: 0;
+}
+        @media (max-width: 480px) {
+            .car-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            .highlights{
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .car-title-price{
+                flex-direction:row !important;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2{
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1rem !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+.car-title-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.car-company-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+    </style>
+
+    <div class="new-cars-container">
+        <h1 class="page-title">India's Booming Automobile Market</h1>
+        <div class="heading-underline"></div>
+        <article>
+            <h2>India's Automotive Sector: Accelerating into the Future</h2>
+            <div class="heading-underline"></div>
+            <p>As we enter 2024, India's automobile market continues its remarkable ascent, solidifying its position as a global automotive powerhouse. Recent projections from industry experts suggest that India is on track to become the world's third-largest car market by 2030, with annual sales expected to surpass 20 million units.</p>
+
+            <h2>Market Dynamics and Growth Drivers</h2>
+            <div class="heading-underline"></div>
+            <p>The Indian automotive sector's robust growth is fueled by several key factors:</p>
+            <ul>
+                <li>Consistent GDP growth, averaging around 6-7% annually</li>
+                <li>Rising disposable incomes and an expanding middle class</li>
+                <li>Increasing urbanization and improved road infrastructure</li>
+                <li>Government initiatives promoting domestic manufacturing and electric vehicles</li>
+            </ul>
+
+            <h2>Emerging Trends Shaping the Industry</h2>
+            <div class="heading-underline"></div>
+            <p>The Indian automobile market is witnessing significant shifts in consumer preferences and technological advancements:</p>
+            <ul>
+                <li><strong>Electric Revolution:</strong> With a strong push towards sustainability, electric vehicles (EVs) are gaining rapid traction. Major players like Tata Motors, Mahindra, and international brands are expanding their EV offerings.</li>
+                <li><strong>Connected and Autonomous Vehicles:</strong> Advanced driver-assistance systems (ADAS) and connected car technologies are becoming increasingly common in mid-range and premium segments.</li>
+                <li><strong>Shared Mobility:</strong> The rise of ride-sharing and subscription-based car ownership models is reshaping urban mobility.</li>
+                <li><strong>Compact SUVs:</strong> The popularity of compact and mid-size SUVs continues to soar, with almost every manufacturer expanding their offerings in this segment.</li>
+            </ul>
+
+            <h2>Key Players and Market Share</h2>
+            <div class="heading-underline"></div>
+            <p>While Maruti Suzuki continues to dominate the market, there's increasing competition from both domestic and international brands. Tata Motors, Hyundai, and Mahindra are making significant strides, particularly in the EV and SUV segments. Luxury brands like Mercedes-Benz, BMW, and Audi are also seeing growth in the premium segment.</p>
+        </article>
+    <br>
+        <h1 class="page-title">New Cars Collection</h1>
+        <div class="heading-underline"></div>
+        <div class="car-grid">
+            {% for car in cars %}
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="{{ car.image.url }}" alt="{{ car.name }}">
+                    </div>
+                    <div class="car-info">
+                        <div class="car-title-price">
+                            <h2 class="car-name">{{ car.name }}</h2>
+                        <p class="car-price">₹{{ car.price|floatformat}}L</p>
+                        </div>
+                        <div class="car-company-details">
+                            <p class="car-brand">Brand: {{ car.brand }}</p>
+                        <div class="car-price-details">
+                            <a href="{% url 'news_cars_detail' car.slug %}" class="btn-view-details">View Details</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous</a>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <span class="page-link current-page">{{ num }}</span>
+                    {% else %}
+                        <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a>
+                {% endif %}
+            </div>
+        {% endif %}
+        <aside class="sidebar">
+            <h3>Quick Facts: Indian Auto Market 2024</h3>
+            <ul>
+                <li>Projected market size: $300 billion by 2026</li>
+                <li>Expected CAGR: 12.5% (2021-2026)</li>
+                <li>EV market share: Expected to reach 10% by 2025</li>
+                <li>Top-selling segments: Compact SUVs, Hatchbacks</li>
+                <li>Emerging hubs: Tamil Nadu, Gujarat, Maharashtra</li>
+            </ul>
+        </aside>
+
+
+        <section class="highlights">
+            <div class="highlight-card">
+                <i class="fas fa-car"></i>
+                <h3>20 Million+</h3>
+                <p>Projected annual car sales by 2030</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-industry"></i>
+                <h3>7.1%</h3>
+                <p>Contribution to India's GDP</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-battery-three-quarters"></i>
+                <h3>30%</h3>
+                <p>Expected EV penetration by 2030</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-users"></i>
+                <h3>37 Million</h3>
+                <p>Jobs created by the auto industry</p>
+            </div>
+        </section>
+    </div>
+{% endblock %}

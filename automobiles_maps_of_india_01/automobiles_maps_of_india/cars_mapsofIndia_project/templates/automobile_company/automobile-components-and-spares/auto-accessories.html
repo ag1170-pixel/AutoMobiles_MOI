@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            color: #333;
+            border-bottom: 2px solid #d7e4ef;
+            padding-bottom: 10px;
+        }
+
+        .intro {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .accessory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .accessory-card, .store-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .store-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .related-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .related-links li {
+            margin-bottom: 10px;
+        }
+
+        .related-links a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .related-links a:hover {
+            text-decoration: underline;
+        }
+         .image-container {
+            width: 50% ;
+            line-height: 0;
+}
+    </style>
+    <div class="container">
+        <h1 class="page-title">Automobile Accessories</h1>
+
+        <div class="intro">
+            <p>The auto industry in India is seeing high growth, with rising demands for automobile accessories among consumers. These accessories not only enhance the looks of your car but also help in its maintenance and longevity.</p>
+        </div>
+
+        <div class="accessory-types">
+            <h2>Types of Automobile Accessories</h2>
+            <div class="accessory-grid">
+                {% for accessory in accessories %}
+                    <div class="accessory-card">
+                        <h3>{{ accessory.name }}</h3>
+                        <p>{{ accessory.description }}</p>
+                        {% if accessory.price_range %}
+                            <p class="price-range">Price Range: {{ accessory.price_range }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="stores">
+            <h2>Automobile Accessories Stores in India</h2>
+            <div class="store-list">
+                {% for store in stores %}
+                    <div class="store-card">
+                        <h3>{{ store.name }}</h3>
+                        <p>{{ store.address }}</p>
+                        <p>Phone: {{ store.phone }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="related-links">
+            <h2>Related Links</h2>
+            <ul>
+                {% for link in related_links %}
+                    <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

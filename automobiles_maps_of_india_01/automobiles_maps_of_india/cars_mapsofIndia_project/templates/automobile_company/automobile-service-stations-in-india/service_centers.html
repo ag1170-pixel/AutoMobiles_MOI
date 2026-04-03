@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block title %}Automobile Service Stations in India{% endblock %}
+
+{% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .service-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-icon {
+            font-size: 40px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .service-number {
+            font-size: 120px;
+            font-weight: bold;
+            color: #d7e4ef;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            z-index: 0;
+        }
+        .service-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .service-description {
+            font-size: 14px;
+            color: #6c757d;
+            position: relative;
+            z-index: 1;
+        }
+        .info-container {
+            background-color: #ffffff;
+            border-left: 5px solid #888;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .info-icon {
+            color: #666;
+            margin-right: 20px;
+        }
+        .info-content {
+            flex: 1;
+        }
+        .info-title {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .info-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .info-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            display: block;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #888;
+        }
+        .brand-title {
+            background: #d7e4ef !important;
+        }
+        .state-title {
+            color: #343a40;
+            border-bottom: 2px solid #007bff;
+            padding-left: 10px;
+        }
+        .hover-shadow:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .transition {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .state-section .card-img-top{
+    display:none !important;
+}
+        .hover-card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+        .card-title {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .state-section .card-title{
+    text-shadow:none !important;
+}
+        .card-text {
+            font-size: 0.9rem;
+        }
+        .btn-outline-primary {
+            border-width: 2px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-primary:hover {
+            transform: scale(1.05);
+        }
+        h2.brand-title {
+            width: 32%;
+            font-size: 30px;
+            color:#000 !important;
+        }
+.alert-info{
+    background-color:#d7e4ef !important;
+}
+
+.info-text{
+    text-transform: initial !important;
+}
+.image-container {
+    width: 49% ;
+    line-height: 0;
+}
+@media (max-width: 768px) {
+           .service-number{
+            display:none !important;
+           }
+           .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+h2.brand-title {
+    width: 100%;
+    color:#000 !important;
+}
+.state-section .card-img-top{
+    display:none !important;
+}
+.state-section .card-title{
+    text-shadow:none !important;
+}
+
+        }
+    </style>
+
+    <div class="main-container">
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Automobile Service Stations in India</h1>
+
+            <div class="alert alert-info">
+                <div class="info-container">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle fa-3x"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-title">Industry Growth</h4>
+                        <p class="info-text">
+                            The Indian automobile industry has shown remarkable growth in the recent market scenario.
+                            As of January 2024, car sales in the domestic market have surged by 28.7%, reaching 185,000
+                            units compared to 143,700 units in the same month last year.
+                        </p>
+                        <p class="info-text">
+                            The competition is intensifying for all players, big and small. To stay ahead, industry leaders
+                            such as Maruti Suzuki, Hyundai, and General Motors are not only launching their latest models
+                            but also expanding their network of automobile service stations across India to ensure customer loyalty.
+                        </p>
+                        <div class="info-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">28.7%</span>
+                                <span class="stat-label">Sales Increase</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">185,000</span>
+                                <span class="stat-label">Units Sold</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-item">
+                    <div class="service-number">1</div>
+                    <i class="fas fa-snowflake service-icon"></i>
+                    <h3 class="service-title">AIR conditioning</h3>
+                    <p class="service-description">Specialized AC repair and maintenance services</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">2</div>
+                    <i class="fas fa-gas-pump service-icon"></i>
+                    <h3 class="service-title">Oil Change</h3>
+                    <p class="service-description">Regular oil changes to keep your engine running smoothly</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">3</div>
+                    <i class="fas fa-car service-icon"></i>
+                    <h3 class="service-title">Engine Repair</h3>
+                    <p class="service-description">Comprehensive engine diagnostics and repairs</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">4</div>
+                    <i class="fas fa-key service-icon"></i>
+                    <h3 class="service-title">Dealership</h3>
+                    <p class="service-description">Authorized dealership services and vehicle sales</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">5</div>
+                    <i class="fas fa-lock service-icon"></i>
+                    <h3 class="service-title">Security</h3>
+                    <p class="service-description">Vehicle security systems and anti-theft solutions</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-number">6</div>
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3 class="service-title">Trusted Agents</h3>
+                    <p class="service-description">Verified and trusted service agents for your needs</p>
+                </div>
+            </div>
+            <br>
+            {% regroup service_centers by brand as brand_list %}
+            {% for brand in brand_list %}
+                <div class="brand-section mb-5">
+                    <h2 class="brand-title text-center py-3 mb-4 text-white rounded">
+                        <i class="fas fa-car mr-2"></i>{{ brand.grouper }} Service Centers
+                    </h2>
+                    {% regroup brand.list by state as state_list %}
+                    {% for state in state_list %}
+                        <div class="state-section mb-4">
+                            <h3 class="state-title mb-3 pb-2 border-bottom">
+                                <i class="fas fa-map-marker-alt mr-2 text-danger"></i>{{ state.grouper }}
+                            </h3>
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                                {% for center in state.list %}
+                                    <div class="col mb-4">
+                                        <div class="card h-100 shadow-sm hover-shadow transition">
+                                            {% if center.image %}
+                                                <img src="{{ center.image.url }}" class="card-img-top img-fluid" alt="{{ center.name }}">
+                                            {% else %}
+                                                <img src="{% static 'images/default-service-center.jpg' %}" class="card-img-top img-fluid" alt="Default Service Center">
+                                            {% endif %}
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary">{{ center.name }}</h5>
+                                                <p class="card-text">
+                                                    <i class="fas fa-city mr-2 text-info"></i>{{ center.city }}<br>
+                                                    <i class="fas fa-map-pin mr-2 text-success"></i>{{ center.address }}
+                                                </p>
+                                                {% if center.description %}
+                                                    <p class="card-text"><small>{{ center.description|truncatewords:20 }}</small></p>
+                                                {% endif %}
+                                                {% if center.working_hours %}
+                                                    <p class="card-text">
+                                                        <i class="fas fa-clock mr-2 text-warning"></i>{{ center.working_hours }}
+                                                    </p>
+                                                {% endif %}
+                                                {% if center.rating %}
+                                                    <p class="card-text">
+                                                        <i class="fas fa-star mr-2 text-warning"></i>Rating: {{ center.rating|floatformat:1 }}
+                                                    </p>
+                                                {% endif %}
+                                            </div>
+                                            <div class="card-footer bg-white border-top-0">
+                                                {% if center.phone %}
+                                                    <a href="tel:{{ center.phone }}" class="btn btn-outline-primary btn-sm w-100 rounded-pill">
+                                                        <i class="fas fa-phone-alt mr-2"></i>{{ center.phone }}
+                                                    </a>
+                                                {% else %}
+                                                    <span class="text-muted">Phone not available</span>
+                                                {% endif %}
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                <small>Last updated: {{ center.updated_at|date:"F d, Y" }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('/search-service-centers/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),  // Agar form me ho toh
+            },
+            body: JSON.stringify({
+                brand: selectedBrand,
+                state: selectedState,
+                city: selectedCity
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+    </script>
+{% endblock %}
+

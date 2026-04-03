@@ -1,0 +1,602 @@
+[
+  {
+    "model": "usedCar.cardealer",
+    "pk": 1,
+    "fields": {
+      "name": "AutoBest Emporio",
+      "address": "1234, Main Road, Sector 15, Gurgaon, Haryana",
+      "phone": "0124-1234567",
+      "city": "Gurgaon",
+      "email": "info@autobest.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 2,
+    "fields": {
+      "name": "Galaxy Toyota",
+      "address": "5678, MG Road, Sector 14, Noida, Uttar Pradesh",
+      "phone": "0120-7654321",
+      "city": "Noida",
+      "email": "contact@galaxytoyota.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 3,
+    "fields": {
+      "name": "Sunny Motors",
+      "address": "9876, Ring Road, Rajouri Garden, New Delhi",
+      "phone": "011-2345678",
+      "city": "New Delhi",
+      "email": "support@sunnymotors.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 4,
+    "fields": {
+      "name": "Bike Bazaar",
+      "address": "34, City Centre, Sector 3, Mumbai, Maharashtra",
+      "phone": "022-9876543",
+      "city": "Mumbai",
+      "email": "sales@bikebazaar.com",
+      "rating": 4.1
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 5,
+    "fields": {
+      "name": "Karnataka Automobiles",
+      "address": "56, MG Road, Koramangala, Bangalore, Karnataka",
+      "phone": "080-5432167",
+      "city": "Bangalore",
+      "email": "karnataka@automobiles.com",
+      "rating": 4.7
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 6,
+    "fields": {
+      "name": "Hero MotoCorp",
+      "address": "78, Banjara Hills, Hyderabad, Telangana",
+      "phone": "040-6543219",
+      "city": "Hyderabad",
+      "email": "heromoto@dealer.com",
+      "rating": 4.3
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 7,
+    "fields": {
+      "name": "Royal Enfield Showroom",
+      "address": "90, Anna Salai, T. Nagar, Chennai, Tamil Nadu",
+      "phone": "044-8765432",
+      "city": "Chennai",
+      "email": "contact@royalenfield.com",
+      "rating": 4.6
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 8,
+    "fields": {
+      "name": "Honda Two Wheelers",
+      "address": "123, Gopalpura Bypass, Jaipur, Rajasthan",
+      "phone": "0141-9876543",
+      "city": "Jaipur",
+      "email": "honda@twowheelers.com",
+      "rating": 4.0
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 9,
+    "fields": {
+      "name": "Yamaha Bike World",
+      "address": "456, Park Street, Kolkata, West Bengal",
+      "phone": "033-1234567",
+      "city": "Kolkata",
+      "email": "info@yamahabike.com",
+      "rating": 4.4
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 10,
+    "fields": {
+      "name": "Suzuki Car House",
+      "address": "789, Ratu Road, Ranchi, Jharkhand",
+      "phone": "0651-7654321",
+      "city": "Ranchi",
+      "email": "support@suzukicarhouse.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 11,
+    "fields": {
+      "name": "Hyundai Motors",
+      "address": "123, GT Road, Kanpur, Uttar Pradesh",
+      "phone": "0512-1234567",
+      "city": "Kanpur",
+      "email": "contact@hyundaimotors.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 12,
+    "fields": {
+      "name": "Tata Motors",
+      "address": "456, Eastern Express Highway, Thane, Maharashtra",
+      "phone": "022-7654321",
+      "city": "Thane",
+      "email": "info@tatamotors.com",
+      "rating": 4.3
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 13,
+    "fields": {
+      "name": "Mahindra Automotive",
+      "address": "789, Race Course Road, Indore, Madhya Pradesh",
+      "phone": "0731-9876543",
+      "city": "Indore",
+      "email": "sales@mahindraautomotive.com",
+      "rating": 4.4
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 14,
+    "fields": {
+      "name": "Bajaj Auto",
+      "address": "123, FC Road, Shivajinagar, Pune, Maharashtra",
+      "phone": "020-1234567",
+      "city": "Pune",
+      "email": "support@bajajauto.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 15,
+    "fields": {
+      "name": "Volkswagen Showroom",
+      "address": "456, College Road, Nashik, Maharashtra",
+      "phone": "0253-7654321",
+      "city": "Nashik",
+      "email": "info@volkswagenshowroom.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 16,
+    "fields": {
+      "name": "KTM Bikes",
+      "address": "789, Ameerpet, Hyderabad, Telangana",
+      "phone": "040-9876543",
+      "city": "Hyderabad",
+      "email": "contact@ktmbikes.com",
+      "rating": 4.6
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 17,
+    "fields": {
+      "name": "TVS Motors",
+      "address": "123, Bannerghatta Road, Bangalore, Karnataka",
+      "phone": "080-1234567",
+      "city": "Bangalore",
+      "email": "support@tvsmotors.com",
+      "rating": 4.4
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 18,
+    "fields": {
+      "name": "Ford Showroom",
+      "address": "456, Park Avenue, Lucknow, Uttar Pradesh",
+      "phone": "0522-7654321",
+      "city": "Lucknow",
+      "email": "info@fordshowroom.com",
+      "rating": 4.1
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 19,
+    "fields": {
+      "name": "Chevrolet Dealer",
+      "address": "789, Circular Road, Chandigarh",
+      "phone": "0172-9876543",
+      "city": "Chandigarh",
+      "email": "contact@chevroletdealer.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 20,
+    "fields": {
+      "name": "Maruti Suzuki Showroom",
+      "address": "123, MG Road, Kochi, Kerala",
+      "phone": "0484-1234567",
+      "city": "Kochi",
+      "email": "sales@marutisuzuki.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 21,
+    "fields": {
+      "name": "Nissan Motors",
+      "address": "456, Marina Beach Road, Chennai, Tamil Nadu",
+      "phone": "044-7654321",
+      "city": "Chennai",
+      "email": "info@nissanmotors.com",
+      "rating": 4.3
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 22,
+    "fields": {
+      "name": "Toyota Kirloskar",
+      "address": "789, Jayanagar, Bangalore, Karnataka",
+      "phone": "080-9876543",
+      "city": "Bangalore",
+      "email": "support@toyotakirloskar.com",
+      "rating": 4.4
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 23,
+    "fields": {
+      "name": "Honda Cars",
+      "address": "123, MI Road, Jaipur, Rajasthan",
+      "phone": "0141-1234567",
+      "city": "Jaipur",
+      "email": "sales@hondacars.com",
+      "rating": 4.3
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 24,
+    "fields": {
+      "name": "Skoda Auto",
+      "address": "456, Golf Course Road, Gurgaon, Haryana",
+      "phone": "0124-7654321",
+      "city": "Gurgaon",
+      "email": "info@skodaauto.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 25,
+    "fields": {
+      "name": "Renault Showroom",
+      "address": "789, MG Road, Pune, Maharashtra",
+      "phone": "020-9876543",
+      "city": "Pune",
+      "email": "contact@renaultshowroom.com",
+      "rating": 4.1
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 26,
+    "fields": {
+      "name": "Datsun Motors",
+      "address": "123, Ashram Road, Ahmedabad, Gujarat",
+      "phone": "079-1234567",
+      "city": "Ahmedabad",
+      "email": "info@datsunmotors.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 27,
+    "fields": {
+      "name": "Jaguar Land Rover",
+      "address": "456, Banjara Hills, Hyderabad, Telangana",
+      "phone": "040-7654321",
+      "city": "Hyderabad",
+      "email": "support@jaguarlandrover.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 28,
+    "fields": {
+      "name": "Jeep Showroom",
+      "address": "789, Eastern Bypass, Kolkata, West Bengal",
+      "phone": "033-9876543",
+      "city": "Kolkata",
+      "email": "contact@jeepshowroom.com",
+      "rating": 4.3
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 29,
+    "fields": {
+      "name": "Mitsubishi Dealer",
+      "address": "123, Civil Lines, Nagpur, Maharashtra",
+      "phone": "0712-1234567",
+      "city": "Nagpur",
+      "email": "info@mitsubishidealer.com",
+      "rating": 4.1
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 30,
+    "fields": {
+      "name": "Fiat Showroom",
+      "address": "456, Cantonment, Trichy, Tamil Nadu",
+      "phone": "0431-7654321",
+      "city": "Trichy",
+      "email": "contact@fiatshowroom.com",
+      "rating": 4.2
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 31,
+    "fields": {
+      "name": "Tesla Motors",
+      "address": "789, Outer Ring Road, Bangalore, Karnataka",
+      "phone": "080-9876543",
+      "city": "Bangalore",
+      "email": "support@teslamotors.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 32,
+    "fields": {
+      "name": "Mercedes-Benz Showroom",
+      "address": "123, Nungambakkam, Chennai, Tamil Nadu",
+      "phone": "044-1234567",
+      "city": "Chennai",
+      "email": "sales@mercedesbenz.com",
+      "rating": 4.7
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 33,
+    "fields": {
+      "name": "Audi Showroom",
+      "address": "456, Rajaji Salai, Chennai, Tamil Nadu",
+      "phone": "044-7654321",
+      "city": "Chennai",
+      "email": "info@audishowroom.com",
+      "rating": 4.6
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 34,
+    "fields": {
+      "name": "BMW Showroom",
+      "address": "789, Hitech City, Hyderabad, Telangana",
+      "phone": "040-9876543",
+      "city": "Hyderabad",
+      "email": "contact@bmwshowroom.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 35,
+    "fields": {
+      "name": "Volvo Showroom",
+      "address": "123, Connaught Place, New Delhi",
+      "phone": "011-1234567",
+      "city": "New Delhi",
+      "email": "info@volvoshowroom.com",
+      "rating": 4.4
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 36,
+    "fields": {
+      "name": "Ferrari Showroom",
+      "address": "456, Worli, Mumbai, Maharashtra",
+      "phone": "022-7654321",
+      "city": "Mumbai",
+      "email": "contact@ferrarishowroom.com",
+      "rating": 4.9
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 37,
+    "fields": {
+      "name": "Lamborghini Showroom",
+      "address": "789, Marine Drive, Mumbai, Maharashtra",
+      "phone": "022-9876543",
+      "city": "Mumbai",
+      "email": "info@lamborghinishowroom.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 38,
+    "fields": {
+      "name": "Porsche Showroom",
+      "address": "123, Lavelle Road, Bangalore, Karnataka",
+      "phone": "080-1234567",
+      "city": "Bangalore",
+      "email": "sales@porscheshowroom.com",
+      "rating": 4.7
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 39,
+    "fields": {
+      "name": "Bentley Showroom",
+      "address": "456, Jubilee Hills, Hyderabad, Telangana",
+      "phone": "040-7654321",
+      "city": "Hyderabad",
+      "email": "info@bentleyshowroom.com",
+      "rating": 4.6
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 40,
+    "fields": {
+      "name": "Aston Martin Showroom",
+      "address": "789, MG Road, Gurgaon, Haryana",
+      "phone": "0124-9876543",
+      "city": "Gurgaon",
+      "email": "contact@astonmartinshowroom.com",
+      "rating": 4.5
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 41,
+    "fields": {
+      "name": "Maserati Showroom",
+      "address": "123, MG Road, Kochi, Kerala",
+      "phone": "0484-1234567",
+      "city": "Kochi",
+      "email": "info@maserati.com",
+      "rating": 4.4
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 42,
+    "fields": {
+      "name": "Rolls Royce Showroom",
+      "address": "456, Altamount Road, Mumbai, Maharashtra",
+      "phone": "022-7654321",
+      "city": "Mumbai",
+      "email": "contact@rollsroyceshowroom.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 43,
+    "fields": {
+      "name": "Bugatti Showroom",
+      "address": "789, Juhu Beach Road, Mumbai, Maharashtra",
+      "phone": "022-9876543",
+      "city": "Mumbai",
+      "email": "info@bugattishowroom.com",
+      "rating": 4.9
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 44,
+    "fields": {
+      "name": "Pagani Showroom",
+      "address": "123, Cyber Hub, Gurgaon, Haryana",
+      "phone": "0124-1234567",
+      "city": "Gurgaon",
+      "email": "sales@paganishowroom.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 45,
+    "fields": {
+      "name": "Koenigsegg Showroom",
+      "address": "456, Bandra West, Mumbai, Maharashtra",
+      "phone": "022-7654321",
+      "city": "Mumbai",
+      "email": "info@koenigseggshowroom.com",
+      "rating": 4.9
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 46,
+    "fields": {
+      "name": "Lotus Showroom",
+      "address": "789, Alwarpet, Chennai, Tamil Nadu",
+      "phone": "044-9876543",
+      "city": "Chennai",
+      "email": "contact@lotusshowroom.com",
+      "rating": 4.7
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 47,
+    "fields": {
+      "name": "McLaren Showroom",
+      "address": "123, Camac Street, Kolkata, West Bengal",
+      "phone": "033-1234567",
+      "city": "Kolkata",
+      "email": "info@mclarenshowroom.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 48,
+    "fields": {
+      "name": "Jaguar Showroom",
+      "address": "456, Banjara Hills, Hyderabad, Telangana",
+      "phone": "040-7654321",
+      "city": "Hyderabad",
+      "email": "contact@jaguarshowroom.com",
+      "rating": 4.7
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 49,
+    "fields": {
+      "name": "Lexus Showroom",
+      "address": "789, Marine Drive, Kochi, Kerala",
+      "phone": "0484-9876543",
+      "city": "Kochi",
+      "email": "info@lexusshowroom.com",
+      "rating": 4.8
+    }
+  },
+  {
+    "model": "usedCar.cardealer",
+    "pk": 50,
+    "fields": {
+      "name": "Maybach Showroom",
+      "address": "123, Jubilee Hills, Hyderabad, Telangana",
+      "phone": "040-1234567",
+      "city": "Hyderabad",
+      "email": "sales@maybachshowroom.com",
+      "rating": 4.9
+    }
+  }
+]

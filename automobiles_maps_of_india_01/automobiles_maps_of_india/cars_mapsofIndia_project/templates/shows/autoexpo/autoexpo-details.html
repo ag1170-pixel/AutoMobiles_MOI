@@ -1,0 +1,192 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block title %}Auto Expo 2014 in Delhi{% endblock %}#}
+{##}
+{#{% block extra_head %}#}
+{#    <meta name="description" content="Auto Expo 2014 in Delhi events, price, and schedule.">#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <style>#}
+{#        /* Global styles */#}
+{#        body {#}
+{#            font-family: Arial, sans-serif;#}
+{#            line-height: 1.6;#}
+{#            color: #333;#}
+{#        }#}
+{##}
+{#        /* Header styles */#}
+{#        header {#}
+{#            background-color: #065D96;#}
+{#            color: white;#}
+{#            padding: 1rem;#}
+{#        }#}
+{##}
+{#        /* Main content styles */#}
+{#        main {#}
+{#            padding: 1rem;#}
+{#        }#}
+{##}
+{#        /* Expo-specific styles */#}
+{#        .expo-info {#}
+{#            background-color: #f4f4f4;#}
+{#            padding: 1rem;#}
+{#            border-radius: 5px;#}
+{#        }#}
+{##}
+{#        /* Responsive design */#}
+{#        @media (max-width: 768px) {#}
+{#            /* Add responsive styles */#}
+{#        }#}
+{#    </style>#}
+{#    <h1>Auto Expo 2014 in Delhi</h1>#}
+{#    <div class="expo-info">#}
+{#        <p>{{ expo.description }}</p>#}
+{#        <h2>Event Details</h2>#}
+{#        <ul>#}
+{#            {% for event in expo.events.all %}#}
+{#                <li>{{ event.name }} - {{ event.date }}</li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    </div>#}
+{#    <script>#}
+{#        document.addEventListener('DOMContentLoaded', function() {#}
+{#            // Add event listeners and initialize components#}
+{#        });#}
+{##}
+{#        function showExpoDetails(expoId) {#}
+{#            // Fetch and display expo details dynamically#}
+{#        }#}
+{#    </script>#}
+{#{% endblock %}#}
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Expo</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #065D96;
+            color: white;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        .expo-list, .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .expo-item, .event-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .expo-list, .event-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'expo_app:search_expos' %}">Search</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+        <!-- Default content -->
+        <h1>Welcome to Auto Expo</h1>
+        <div class="expo-list">
+            {% for expo in expos %}
+                <div class="expo-item">
+                    <h2><a href="{% url 'expo_app:auto_expo_detail' expo.year %}">{{ expo.title }}</a></h2>
+                    <p>{{ expo.description|truncatewords:30 }}</p>
+                </div>
+                {% empty %}
+                <p>No expos available.</p>
+            {% endfor %}
+        </div>
+        <div class="expo-info">
+            <p>{{ expo.description }}</p>
+            <h2>Events</h2>
+            <ul>
+                {% for event in expo.events.all %}
+                    <li>{{ event.name }} - {{ event.date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    {% endblock %}
+</main>
+
+
+
+<script>
+    // JavaScript code
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Example of dynamic content loading
+        const loadMoreBtn = document.getElementById('load-more');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', function() {
+                console.log('Load more content...');
+                // Implement AJAX call to load more content
+            });
+        }
+    });
+
+    function showExpoDetails(expoId) {
+        console.log(`Fetching details for expo ${expoId}...`);
+        // Implement AJAX call to fetch and display expo details
+    }
+</script>
+</body>
+</html>

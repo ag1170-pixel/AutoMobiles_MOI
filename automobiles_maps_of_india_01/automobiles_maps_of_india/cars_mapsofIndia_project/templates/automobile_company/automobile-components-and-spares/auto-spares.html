@@ -1,0 +1,422 @@
+{% extends 'base.html' %}
+
+{% block title %}Components and Spares{% endblock %}
+{% block content %}
+    <style>
+        
+        :root {
+            --primary: #3a6ea5;
+            --primary-light: #eef4fa;
+            --secondary: #ff6b6b;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .page-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: black;
+            margin: 0;
+            position: relative;
+            text-align: center;
+            margin-bottom: auto;
+    
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .inventory-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-top: 4px solid #d7e4ef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inventory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .inventory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .inventory-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .inventory-card h2 {
+            color:#444;
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .inventory-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: #444;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #d7e4ef !important;
+            color: #000 !important;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #444 !important;
+            color:#d7e4ef !important;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e53e3e;
+            box-shadow: var(--shadow-md);
+        }
+
+        .detail-section {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-section h1 {
+            color: #444;
+            margin-top: 0;
+            font-size: 1.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-group {
+            margin-bottom: 1rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .info-value {
+            font-size: 1.125rem;
+            color: var(--text-dark);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--primary-light);
+            border-radius: var(--radius-md);
+        }
+
+        .quantity-display {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+            background-color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            min-width: 60px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .empty-state p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Animation effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .inventory-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .inventory-card:nth-child(2) { animation-delay: 0.1s; }
+        .inventory-card:nth-child(3) { animation-delay: 0.2s; }
+        .inventory-card:nth-child(4) { animation-delay: 0.3s; }
+        .inventory-card:nth-child(5) { animation-delay: 0.4s; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 1rem;
+            }
+            
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .inventory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .quantity-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+    
+    <div class="page-container">
+        <div class="page-header">
+            <h1 class="page-title">Components and Spares</h1>
+        </div>
+        
+        <div class="inventory-grid">
+            {% for spare in spares %}
+                <div class="inventory-card">
+                    <div class="card-content">
+                        <span class="tag">Stock Item</span>
+                        <h2>{{ spare.name }}</h2>
+                        <p>{{ spare.description|truncatewords:20 }}</p>
+                        <a href="{% url 'spare_detail' spare.id %}" class="btn-primary">View Details</a>
+                    </div>
+                </div>
+            {% empty %}
+                
+            {% endfor %}
+        </div>
+
+        {% if spare %}
+        <div class="detail-section">
+            <h1>{{ spare.name }}</h1>
+            <div class="detail-info">
+                <div class="info-group">
+                    <span class="info-label">Description</span>
+                    <div class="info-value">{{ spare.description }}</div>
+                </div>
+                
+                <div class="info-group">
+                    <span class="info-label">Quantity in Stock</span>
+                    <div class="info-value" id="quantity">{{ spare.quantity }}</div>
+                </div>
+            </div>
+            
+            <div class="quantity-controls">
+                <span class="quantity-display" id="quantity-display">{{ spare.quantity }}</span>
+                <button class="btn-primary" onclick="updateQuantity('spare', {{ spare.id }}, 1)">Increase Stock</button>
+                <button class="btn-secondary" onclick="updateQuantity('spare', {{ spare.id }}, -1)">Decrease Stock</button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <script>
+        
+        function updateQuantity(type, id, change) {
+            const quantityElement = document.getElementById('quantity');
+            const quantityDisplayElement = document.getElementById('quantity-display');
+            let currentQuantity = parseInt(quantityElement.textContent);
+
+            currentQuantity += change;
+
+            if (currentQuantity < 0) {
+                currentQuantity = 0;
+               
+                quantityDisplayElement.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+                quantityDisplayElement.style.backgroundColor = '#fed7d7';
+                quantityDisplayElement.style.transform = 'translateX(5px)';
+                
+                setTimeout(() => {
+                    quantityDisplayElement.style.backgroundColor = '';
+                    quantityDisplayElement.style.transform = 'translateX(0)';
+                }, 500);
+                
+                return;
+            }
+
+            
+            quantityElement.textContent = currentQuantity;
+            quantityDisplayElement.textContent = currentQuantity;
+            
+           
+            quantityDisplayElement.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+            quantityDisplayElement.style.backgroundColor = change > 0 ? '#c6f6d5' : '#feebc8';
+            quantityDisplayElement.style.transform = 'scale(1.1)';
+            
+            setTimeout(() => {
+                quantityDisplayElement.style.backgroundColor = '';
+                quantityDisplayElement.style.transform = 'scale(1)';
+            }, 500);
+
+          
+            fetch(`/api/${type}/${id}/update-quantity/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    quantity: currentQuantity
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Quantity updated successfully', data);
+            })
+            .catch(error => {
+                console.error('Error updating quantity:', error);
+               
+                quantityElement.textContent = currentQuantity - change;
+                quantityDisplayElement.textContent = currentQuantity - change;
+                quantityDisplayElement.style.backgroundColor = '#feb2b2';
+                
+                setTimeout(() => {
+                    quantityDisplayElement.style.backgroundColor = '';
+                }, 500);
+            });
+        }
+
+       
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | Contact Us {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<style>
+    @media(max-width:768px){
+        .sub-banner{
+        display:none !important;
+    }
+    }
+    .overview-bgi:before {
+    background: url("{% static 'img/contact_us.png' %}") 55% 0 no-repeat fixed;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 2px;
+    margin-top: 10px;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+}
+</style>
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        {% comment %} <div class="breadcrumb-areas">
+            <h1>Contact Us</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Contact Us</li>
+            </ul>
+        </div> {% endcomment %}
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Contact 2 start -->
+<div class="contact-2 content-area-5">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>Get in Touch</h1>
+            <p>We're here to help you with all your automotive information needs. Reach out to us for any queries, feedback, or assistance.</p>
+        </div>
+        
+        {% if messages %}
+            {% include 'includes/messages.html' %}
+        {% endif %}
+        
+        <form action="{% url 'contact_form' %}" method="POST" id="contactForm" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <div class="form-group name">
+                                <input type="text" name="name" class="form-control required" placeholder="Full Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group email">
+                                <input type="email" name="email" class="form-control required" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group subject">
+                                <input type="text" name="subject" class="form-control required" placeholder="Subject" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group number">
+                                <input type="text" name="phone" class="form-control" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group message">
+                                <textarea class="form-control required" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="send-btn text-center">
+                                <button type="submit" class="btn btn-md button-theme" aria-label="Send Message" style="background: #F1F8F9!important; border: 1px solid #d7e4ef !important; color: black !important;">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-info-2">
+                        <div class="ci-box">
+                            <div class="icon">
+                                <i class="flaticon-phone"></i>
+                            </div>
+                            <div class="detail">
+                                <h5>Phone:</h5>
+                                <p><a href="tel:+918899667788">+91 88996 67788</a></p>
+                                <p><a href="tel:+918899667789">+91 88996 67789</a></p>
+                            </div>
+                        </div>
+                        <div class="ci-box">
+                            <div class="icon">
+                                <i class="flaticon-mail"></i>
+                            </div>
+                            <div class="detail">
+                                <h5>Email:</h5>
+                                <p><a href="mailto:info@mapsofindia.com">info@mapsofindia.com</a></p>
+                                <p><a href="mailto:support@mapsofindia.com">support@mapsofindia.com</a></p>
+                            </div>
+                        </div>
+                        <div class="ci-box">
+                            <div class="icon">
+                                <i class="flaticon-earth"></i>
+                            </div>
+                            <div class="detail">
+                                <h5>Website:</h5>
+                                <p><a href="https://www.mapsofindia.com">www.mapsofindia.com</a></p>
+                                <p><a href="https://www.automobiles.mapsofindia.com">automobiles.mapsofindia.com</a></p>
+                            </div>
+                        </div>
+                        <div class="ci-box mb-0">
+                            <div class="icon">
+                                <i class="flaticon-fax"></i>
+                            </div>
+                            <div class="detail">
+                                <h5>Address:</h5>
+                                <p><strong>Maps of India Automobiles</strong><br>
+                                Mapping Digiworld Pvt Ltd<br>
+                                Connaught Place, New Delhi<br>
+                                Delhi 110001, India</p>
+                                <p><strong>Office Hours:</strong><br>
+                                Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                Saturday: 10:00 AM - 4:00 PM<br>
+                                Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Contact 2 end -->
+
+<!-- Additional Information Section -->
+<div class="content-area-5" style="background-color: #f8f9fa; padding: 60px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>Why <span>Contact Us?</span></h2>
+            <p>We're committed to providing the best automotive information service in India</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Our customer support team is available round the clock to assist you with any queries or issues you may have.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Expert Guidance</h4>
+                    <p>Get expert advice on car and bike purchases, pricing information, and automotive market trends.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Location Services</h4>
+                    <p>Find nearby dealers, service centers, and petrol pumps with our comprehensive location database.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="content-area" style="padding: 60px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p>Quick answers to common questions about our services</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="faq-item mb-4">
+                    <h5><i class="fas fa-question-circle"></i> How accurate is your pricing information?</h5>
+                    <p>We update our pricing data daily from authorized dealers and manufacturers across India to ensure accuracy.</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h5><i class="fas fa-question-circle"></i> Do you provide dealer contact information?</h5>
+                    <p>Yes, we provide comprehensive dealer information including contact details, address, and customer reviews.</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h5><i class="fas fa-question-circle"></i> Is your service free to use?</h5>
+                    <p>Yes, Maps of India Automobiles is completely free for users. No hidden charges or subscription fees.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="faq-item mb-4">
+                    <h5><i class="fas fa-question-circle"></i> How often is your data updated?</h5>
+                    <p>Our database is updated daily with new launches, price changes, and dealer information.</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h5><i class="fas fa-question-circle"></i> Can I advertise on your platform?</h5>
+                    <p>Yes, we offer various advertising options. Please contact our business team for more information.</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h5><i class="fas fa-question-circle"></i> Do you have a mobile app?</h5>
+                    <p>Yes, our mobile apps are available for both Android and iOS platforms with enhanced features.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/contact.js' %}" defer></script>
+{% endblock %}

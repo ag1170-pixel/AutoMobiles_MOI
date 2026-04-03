@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: #c8d4e3;
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .shadow-sm {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .section-title {
+            color: #333;
+            {#border-bottom: 2px solid #91a4be;#}
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .overview-image {
+            max-height: 400px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .card-body .card-title {
+            color: #333 !important;
+            text-shadow:none !important;
+        }
+
+        .card-text {
+            color: #d7e4ef;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom:2px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: left;
+            color: #333;
+            margin-bottom:2px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .heading-underline-bus{
+            width: 100px;
+            height: 3px;
+            background-color: #3b82f6;
+            margin: 0 0 30px;
+        }
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #3b82f6;
+            margin: 0 auto 50px;
+        }
+        .mb-5{
+            margin-bottom: 1rem !important;
+        }
+        .lead{
+            font-size:1rem !important;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+
+    </style>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-2 section-title">Buses in India</h1>
+        <div class="heading-underline"></div>
+
+        <div class="row align-items-center mb-5">
+            <div class="col-md-8">
+                <h2 class="mb-4 section-title">{{ overview.title }}</h2>
+                <div class="heading-underline-bus"></div>
+
+                <div class="lead">
+                    {{ overview.content|safe }}
+                </div>
+            </div>
+            <div class="col-md-4">
+                {% if overview.image %}
+                    <img src="{{ overview.image.url }}" alt="{{ overview.title }}" class="img-fluid rounded shadow-sm overview-image">
+                {% endif %}
+            </div>
+        </div>
+
+        <h2 class="mb-4 section-title">Types of Buses in India</h2>
+        <div class="row">
+            {% for bus_type in bus_types %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ bus_type.name }}</h5>
+                            <p class="card-text">{{ bus_type.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="mb-4 mt-5 section-title">Famous Buses in India</h2>
+        <div class="row">
+            {% for famous_bus in famous_buses %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ famous_bus.name }}</h5>
+                            <p class="card-text">Manufacturer: {{ famous_bus.manufacturer.name }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="mb-4 mt-5 section-title">Bus Manufacturing Companies in India</h2>
+        <div class="row">
+            {% for manufacturer in manufacturers %}
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ manufacturer.name }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{#{% extends "base.html" %}#}
+{#{% load static %}#}
+{##}
+{#{% block content %}#}
+{#    <style>#}
+{#        body {#}
+{#            font-family: 'Arial', sans-serif;#}
+{#        }#}
+{##}
+{#        .card {#}
+{#            transition: transform 0.3s;#}
+{#        }#}
+{##}
+{#        .card:hover {#}
+{#            transform: translateY(-5px);#}
+{#        }#}
+{##}
+{#        .shadow-sm {#}
+{#            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;#}
+{#        }#}
+{#    </style>#}
+{##}
+{#    <div class="container mt-5">#}
+{#        <h1 class="text-center mb-5">Buses in India</h1>#}
+{##}
+{#        <div class="row">#}
+{#            <div class="col-md-8">#}
+{#                <h2 class="mb-4">{{ overview.title }}</h2>#}
+{#                <div class="lead">#}
+{#                    {{ overview.content|safe }}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#                {% if overview.image %}#}
+{#                    <img src="{{ overview.image.url }}" alt="{{ overview.title }}" class="img-fluid rounded shadow">#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <hr class="my-5">#}
+{##}
+{#        <h2 class="mb-4">Types of Buses in India</h2>#}
+{#        <div class="row">#}
+{#            {% for bus_type in bus_types %}#}
+{#                <div class="col-md-4 mb-4">#}
+{#                    <div class="card h-100 shadow-sm">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">{{ bus_type.name }}</h5>#}
+{#                            <p class="card-text">{{ bus_type.description }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{##}
+{#        <hr class="my-5">#}
+{##}
+{#        <h2 class="mb-4">Famous Buses in India</h2>#}
+{#        <div class="row">#}
+{#            {% for famous_bus in famous_buses %}#}
+{#                <div class="col-md-4 mb-4">#}
+{#                    <div class="card h-100 shadow-sm">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">{{ famous_bus.name }}</h5>#}
+{#                            <p class="card-text">Manufacturer: {{ famous_bus.manufacturer.name }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{##}
+{#        <hr class="my-5">#}
+{##}
+{#        <h2 class="mb-4">List of Bus Manufacturing Companies in India</h2>#}
+{#        <div class="row">#}
+{#            {% for manufacturer in manufacturers %}#}
+{#                <div class="col-md-4 mb-3">#}
+{#                    <div class="card shadow-sm">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">{{ manufacturer.name }}</h5>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}

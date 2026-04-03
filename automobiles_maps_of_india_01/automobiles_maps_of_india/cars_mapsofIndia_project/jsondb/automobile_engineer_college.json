@@ -1,0 +1,363 @@
+[
+  {
+    "model": "carshanders.college",
+    "pk": 1,
+    "fields": {
+      "name": "Sathyabama University",
+      "location": "Chennai",
+      "placement_percentage": "100%",
+      "average_package": "Rs 2.75 lakhs",
+      "contact_details": "Jeppiaar Nagar, Old Mamallapuram Road, IT High Way, Chennai - 600019, Tamil Nadu, Phone: (44) 24501644 , 24500813",
+      "industry_interface": "VST Motors, Philips, PMR Technology"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 2,
+    "fields": {
+      "name": "Anna University",
+      "location": "Chennai",
+      "placement_percentage": "100%",
+      "average_package": "2.5 lakhs",
+      "contact_details": "Sardar Patel Road College Of Engineering, Chennai - 600025, Tamil Nadu, Phone: (44) 22351723 , 22351126",
+      "industry_interface": "Bharath Petroleum Corporation, IBM, Maruti Udyog"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 3,
+    "fields": {
+      "name": "Hindustan Institute of Engineering Technology",
+      "location": "Chennai",
+      "placement_percentage": "100%",
+      "average_package": "Rs 4 lakhs",
+      "contact_details": "40, G.S.T. Road, St. Thomas Mount, Chennai - 600016, Tamil Nadu, Phone: (44) 22342155 , 22341389 , 22340980",
+      "industry_interface": "Ashok Leyland, Cadbury, Shell Research International"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 4,
+    "fields": {
+      "name": "IIT Delhi",
+      "location": "Delhi",
+      "placement_percentage": "100%",
+      "average_package": "Rs 6.55 lakhs",
+      "contact_details": "Postal Address: Indian Institute of Technology Delhi, Hauz Khas, New Delhi - 110016, Fax no.: +91-11-26582037, 26592277",
+      "industry_interface": "Lehman Brothers, Ashok Leyland & Maruti Suzuki"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 5,
+    "fields": {
+      "name": "IIT Roorkee",
+      "location": "Roorkee",
+      "placement_percentage": "100%",
+      "average_package": "Rs 6.2 lakhs",
+      "contact_details": "Indian Institute of Technology Roorkee, Roorkee, Uttarakhand, India - 247667, Contact No. +91-1332-285311",
+      "industry_interface": "Hindalco, Jindal Steel, Maruti, Mahindra & Mahindra"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 6,
+    "fields": {
+      "name": "BITS Pilani",
+      "location": "Pilani",
+      "placement_percentage": "98%",
+      "average_package": "Rs 5.5 lakhs",
+      "contact_details": "BITS Pilani, Pilani - 333031, Rajasthan, Phone: +91-1596-242205",
+      "industry_interface": "Tata Motors, Bosch, Maruti Suzuki"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 7,
+    "fields": {
+      "name": "VIT University",
+      "location": "Vellore",
+      "placement_percentage": "95%",
+      "average_package": "Rs 4.8 lakhs",
+      "contact_details": "VIT University, Vellore - 632014, Tamil Nadu, Phone: +91-416-220 2168",
+      "industry_interface": "Hyundai, Bosch, Ford"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 8,
+    "fields": {
+      "name": "National Institute of Technology, Trichy",
+      "location": "Tiruchirappalli",
+      "placement_percentage": "97%",
+      "average_package": "Rs 5 lakhs",
+      "contact_details": "NIT Trichy, Tiruchirappalli - 620015, Tamil Nadu, Phone: +91-431-2503000",
+      "industry_interface": "Tata Consultancy Services, Infosys, Ashok Leyland"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 9,
+    "fields": {
+      "name": "Jawaharlal Nehru Technological University",
+      "location": "Hyderabad",
+      "placement_percentage": "92%",
+      "average_package": "Rs 4 lakhs",
+      "contact_details": "JNTU Hyderabad, Kukatpally, Hyderabad - 500085, Telangana, Phone: +91-40-23156113",
+      "industry_interface": "Microsoft, Google, DRDO"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 10,
+    "fields": {
+      "name": "Pune Institute of Computer Technology",
+      "location": "Pune",
+      "placement_percentage": "93%",
+      "average_package": "Rs 3.8 lakhs",
+      "contact_details": "PITC, Pune - 411009, Maharashtra, Phone: +91-20-25431621",
+      "industry_interface": "Wipro, Infosys, Persistent Systems"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 11,
+    "fields": {
+      "name": "Manipal Institute of Technology",
+      "location": "Manipal",
+      "placement_percentage": "94%",
+      "average_package": "Rs 4.2 lakhs",
+      "contact_details": "Manipal Institute of Technology, Manipal - 576104, Karnataka, Phone: +91-820-2571001",
+      "industry_interface": "Mahindra & Mahindra, Toyota, Tata Motors"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 12,
+    "fields": {
+      "name": "Shiv Nadar University",
+      "location": "Noida",
+      "placement_percentage": "90%",
+      "average_package": "Rs 3.5 lakhs",
+      "contact_details": "Shiv Nadar University, Noida - 201314, Uttar Pradesh, Phone: +91-120-2400854",
+      "industry_interface": "HCL Technologies, Dell, Qualcomm"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 13,
+    "fields": {
+      "name": "Amrita Vishwa Vidyapeetham",
+      "location": "Coimbatore",
+      "placement_percentage": "91%",
+      "average_package": "Rs 3.9 lakhs",
+      "contact_details": "Amrita University, Coimbatore - 641112, Tamil Nadu, Phone: +91-422-2685000",
+      "industry_interface": "Infosys, Wipro, Tech Mahindra"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 14,
+    "fields": {
+      "name": "Thapar Institute of Engineering and Technology",
+      "location": "Patiala",
+      "placement_percentage": "89%",
+      "average_package": "Rs 4 lakhs",
+      "contact_details": "Thapar Institute of Engineering and Technology, Patiala - 147004, Punjab, Phone: +91-175-2393021",
+      "industry_interface": "Cognizant, IBM, ZF Steering Systems"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 15,
+    "fields": {
+      "name": "Kalinga Institute of Industrial Technology",
+      "location": "Bhubaneswar",
+      "placement_percentage": "87%",
+      "average_package": "Rs 3.7 lakhs",
+      "contact_details": "KIIT University, Bhubaneswar - 751024, Odisha, Phone: +91-674-2725731",
+      "industry_interface": "Capgemini, Tech Mahindra, L&T"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 16,
+    "fields": {
+      "name": "Birla Institute of Technology and Science",
+      "location": "Goa",
+      "placement_percentage": "88%",
+      "average_package": "Rs 4 lakhs",
+      "contact_details": "BITS Goa, Goa - 403726, Phone: +91-832-2580101",
+      "industry_interface": "TCS, Infosys, Ashok Leyland"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 17,
+    "fields": {
+      "name": "Jadavpur University",
+      "location": "Kolkata",
+      "placement_percentage": "85%",
+      "average_package": "Rs 3.6 lakhs",
+      "contact_details": "Jadavpur University, Kolkata - 700032, West Bengal, Phone: +91-33-24573030",
+      "industry_interface": "Tata Consultancy Services, Siemens, HCL"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 18,
+    "fields": {
+      "name": "Delhi Technological University",
+      "location": "Delhi",
+      "placement_percentage": "86%",
+      "average_package": "Rs 3.8 lakhs",
+      "contact_details": "DTU, Delhi - 110042, Phone: +91-11-27871018",
+      "industry_interface": "Google, Microsoft, Infosys"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 19,
+    "fields": {
+      "name": "Rajiv Gandhi Institute of Technology",
+      "location": "Mumbai",
+      "placement_percentage": "84%",
+      "average_package": "Rs 3.5 lakhs",
+      "contact_details": "RGIT, Mumbai - 400071, Maharashtra, Phone: +91-22-25781091",
+      "industry_interface": "Cognizant, Accenture, Mahindra"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 20,
+    "fields": {
+      "name": "Kumaraguru College of Technology",
+      "location": "Coimbatore",
+      "placement_percentage": "83%",
+      "average_package": "Rs 3.4 lakhs",
+      "contact_details": "Kumaraguru College of Technology, Coimbatore - 641049, Tamil Nadu, Phone: +91-422-2662000",
+      "industry_interface": "HCL Technologies, TCS, Infosys"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 21,
+    "fields": {
+      "name": "Nirma University",
+      "location": "Ahmedabad",
+      "placement_percentage": "82%",
+      "average_package": "Rs 3.3 lakhs",
+      "contact_details": "Nirma University, Ahmedabad - 382481, Gujarat, Phone: +91-2717-241911",
+      "industry_interface": "L&T, Tata Motors, Wipro"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 22,
+    "fields": {
+      "name": "Sri Sivasubramaniya Nadar College of Engineering",
+      "location": "Chennai",
+      "placement_percentage": "81%",
+      "average_package": "Rs 3.2 lakhs",
+      "contact_details": "SSN College of Engineering, Chennai - 603110, Tamil Nadu, Phone: +91-44-27444000",
+      "industry_interface": "HCL Technologies, Infosys, CTS"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 23,
+    "fields": {
+      "name": "Sardar Patel College of Engineering",
+      "location": "Mumbai",
+      "placement_percentage": "80%",
+      "average_package": "Rs 3.1 lakhs",
+      "contact_details": "SPCE, Mumbai - 400058, Maharashtra, Phone: +91-22-24158143",
+      "industry_interface": "TCS, Tech Mahindra, L&T"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 24,
+    "fields": {
+      "name": "Sri Venkateswara College of Engineering",
+      "location": "Tirupati",
+      "placement_percentage": "79%",
+      "average_package": "Rs 3 lakhs",
+      "contact_details": "SVCE, Tirupati - 517102, Andhra Pradesh, Phone: +91-877-2257697",
+      "industry_interface": "Infosys, Wipro, HCL Technologies"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 25,
+    "fields": {
+      "name": "Rajalakshmi Engineering College",
+      "location": "Chennai",
+      "placement_percentage": "78%",
+      "average_package": "Rs 2.9 lakhs",
+      "contact_details": "REC, Chennai - 602105, Tamil Nadu, Phone: +91-44-27263060",
+      "industry_interface": "HCL, TCS, CTS"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 26,
+    "fields": {
+      "name": "MVJ College of Engineering",
+      "location": "Bangalore",
+      "placement_percentage": "77%",
+      "average_package": "Rs 2.8 lakhs",
+      "contact_details": "MVJCE, Bangalore - 560067, Karnataka, Phone: +91-80-28616282",
+      "industry_interface": "Accenture, Capgemini, Cognizant"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 27,
+    "fields": {
+      "name": "R. V. College of Engineering",
+      "location": "Bangalore",
+      "placement_percentage": "76%",
+      "average_package": "Rs 2.7 lakhs",
+      "contact_details": "RVCE, Bangalore - 560059, Karnataka, Phone: +91-80-26600299",
+      "industry_interface": "Bosch, SAP, Mahindra"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 28,
+    "fields": {
+      "name": "Sona College of Technology",
+      "location": "Salem",
+      "placement_percentage": "75%",
+      "average_package": "Rs 2.6 lakhs",
+      "contact_details": "Sona College of Technology, Salem - 636005, Tamil Nadu, Phone: +91-427-2433211",
+      "industry_interface": "Wipro, HCL Technologies, Infosys"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 29,
+    "fields": {
+      "name": "Shri Ramdeobaba College of Engineering and Management",
+      "location": "Nagpur",
+      "placement_percentage": "74%",
+      "average_package": "Rs 2.5 lakhs",
+      "contact_details": "SRCOEM, Nagpur - 440013, Maharashtra, Phone: +91-712-2221375",
+      "industry_interface": "L&T, TCS, Infosys"
+    }
+  },
+  {
+    "model": "carshanders.college",
+    "pk": 30,
+    "fields": {
+      "name": "BMS College of Engineering",
+      "location": "Bangalore",
+      "placement_percentage": "73%",
+      "average_package": "Rs 2.4 lakhs",
+      "contact_details": "BMSCE, Bangalore - 560019, Karnataka, Phone: +91-80-26622141",
+      "industry_interface": "Cognizant, Accenture, Tech Mahindra"
+    }
+  }
+
+]

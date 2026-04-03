@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ show.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ show.name }}</h1>
+    <p>Date: {{ show.date }}</p>
+    <p>Venue: {{ show.venue }}</p>
+    <p>Country: {{ show.country }}</p>
+    <p>{{ show.description }}</p>
+    <a href="{% url 'shows:show_home' %}">Back to Home</a>
+{% endblock %}

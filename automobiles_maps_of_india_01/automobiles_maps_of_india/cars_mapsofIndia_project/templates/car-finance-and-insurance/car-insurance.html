@@ -1,0 +1,397 @@
+{% extends 'base.html' %}
+
+{% block title %}Top Car Insurance Companies{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+        h1 {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .card .card-title {
+            font-weight: bold;
+            color:#444;
+            text-shadow:none !important;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.5rem !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+.image-container .card-title{
+    color:#ffffff !important;
+}
+.col-cards{
+    margin-bottom:3vmin !important;
+}
+.search-container {
+    background: #d7e4ef;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+.search-container h5 {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.search-input {
+    border-radius: 10px;
+    padding: 12px 20px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.search-input:focus {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    outline: none;
+}
+.btn-search {
+    background-color: #ffffff !important;
+    color: #000 !important;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-search:hover {
+    background-color: #8f1030;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-search i{
+    color:#000 !important;
+}
+.pagination-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.pagination .page-link {
+    color: #000;
+    border-color: #000;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+.pagination .page-item.active .page-link {
+    background-color: #444;
+    border-color: #d7e4ef;
+}
+.pagination .page-link:hover {
+    color: #fff;
+    background-color: #d7e4ef;
+    border-color: #d7e4ef;
+}
+
+/* Autocomplete Styles */
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #7099c7;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.autocomplete-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.2s ease;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item:focus {
+    background-color: #f8f9fa;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-main {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.autocomplete-details {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.4;
+}
+
+.autocomplete-no-results {
+    cursor: default;
+    opacity: 0.7;
+    padding: 15px 20px;
+}
+
+.autocomplete-no-results:hover {
+    background-color: transparent;
+}
+
+.autocomplete-no-results .autocomplete-main {
+    color: #6c757d;
+    font-style: italic;
+}
+    </style>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-2">Top Car Insurance Companies</h1>
+        <div class="heading-underline"></div>
+
+        <!-- Search Bar Section -->
+        <div class="search-container">
+            <h5><i class="fas fa-search"></i> Search Insurance Companies</h5>
+            <form method="GET" action="{% url 'car_insurance' %}">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group position-relative">
+                            <input type="text" 
+                                   name="search" 
+                                   class="form-control search-input" 
+                                   placeholder="Search for insurance companies by name..." 
+                                   value="{{ request.GET.search }}"
+                                   autocomplete="off">
+                            <!-- Autocomplete dropdown -->
+                            <div id="autocomplete-dropdown" class="autocomplete-dropdown" style="display: none;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-block btn-search">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for company in companies %}
+                <div class="col col-cards">
+                    <div class="card h-100 shadow-sm hover-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ company.name }}</h5>
+                            <p class="card-text">{{ company.description|truncatewords:30 }}</p>
+{#                            <a href="#" class="btn btn-outline-primary">Learn More</a>#}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        No insurance companies available at the moment. Please check back later.
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination Section -->
+        {% if companies.has_other_pages %}
+        <div class="pagination-container">
+            <nav aria-label="Insurance companies pagination">
+                <ul class="pagination">
+                    {% if companies.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" aria-label="First">
+                                <span aria-hidden="true">&laquo;&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ companies.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link" aria-hidden="true">&laquo;&laquo;</span>
+                        </li>
+                        <li class="page-item disabled">
+                            <span class="page-link" aria-hidden="true">&laquo;</span>
+                        </li>
+                    {% endif %}
+
+                    {% for num in companies.paginator.page_range %}
+                        {% if companies.number == num %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ num }}</span>
+                            </li>
+                        {% elif num > companies.number|add:'-3' and num < companies.number|add:'3' %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if companies.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ companies.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ companies.paginator.num_pages }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" aria-label="Last">
+                                <span aria-hidden="true">&raquo;&raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link" aria-hidden="true">&raquo;</span>
+                        </li>
+                        <li class="page-item disabled">
+                            <span class="page-link" aria-hidden="true">&raquo;&raquo;</span>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Autocomplete JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('input[name="search"]');
+            const autocompleteDropdown = document.getElementById('autocomplete-dropdown');
+            let debounceTimer;
+
+            // Autocomplete functionality
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+                
+                // Clear previous timer
+                clearTimeout(debounceTimer);
+                
+                if (query.length < 1) {
+                    hideAutocomplete();
+                    return;
+                }
+                
+                // Debounce API call (300ms)
+                debounceTimer = setTimeout(() => {
+                    fetchAutocompleteSuggestions(query);
+                }, 300);
+            });
+
+            // Hide autocomplete when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !autocompleteDropdown.contains(e.target)) {
+                    hideAutocomplete();
+                }
+            });
+
+            // Hide autocomplete when pressing Escape
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    hideAutocomplete();
+                }
+            });
+
+            function fetchAutocompleteSuggestions(query) {
+                fetch(`/finance/api/insurance-company-autocomplete/?q=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayAutocompleteSuggestions(data.suggestions);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching autocomplete suggestions:', error);
+                        hideAutocomplete();
+                    });
+            }
+
+            function displayAutocompleteSuggestions(suggestions) {
+                if (!suggestions || suggestions.length === 0) {
+                    showNoResults();
+                    return;
+                }
+
+                let html = '';
+                suggestions.forEach(suggestion => {
+                    html += `
+                        <div class="autocomplete-item" data-search="${suggestion.name}">
+                            <div class="autocomplete-main">${suggestion.display_text}</div>
+                            <div class="autocomplete-details">${suggestion.description}</div>
+                        </div>
+                    `;
+                });
+
+                autocompleteDropdown.innerHTML = html;
+                autocompleteDropdown.style.display = 'block';
+
+                // Add click handlers to suggestions
+                const items = autocompleteDropdown.querySelectorAll('.autocomplete-item');
+                items.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const searchValue = this.getAttribute('data-search');
+                        searchInput.value = searchValue;
+                        hideAutocomplete();
+                        // Trigger form submission to perform the search
+                        searchInput.closest('form').submit();
+                    });
+                });
+            }
+
+            function showNoResults() {
+                autocompleteDropdown.innerHTML = `
+                    <div class="autocomplete-item autocomplete-no-results">
+                        <div class="autocomplete-main">No matching insurance companies found</div>
+                        <div class="autocomplete-details">Try a different search term</div>
+                    </div>
+                `;
+                autocompleteDropdown.style.display = 'block';
+            }
+
+            function hideAutocomplete() {
+                autocompleteDropdown.style.display = 'none';
+                autocompleteDropdown.innerHTML = '';
+            }
+        });
+    </script>
+{% endblock %}

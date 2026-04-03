@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike Image Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .bike-test { border: 1px solid #ccc; margin: 10px; padding: 15px; }
+        .bike-test img { max-width: 200px; height: auto; }
+        .status { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Bike Search Image Test</h1>
+    
+    <h2>Sample Bikes from Database</h2>
+    {% for bike in bikes %}
+    <div class="bike-test">
+        <h3>{{ bike.name }}</h3>
+        <p><strong>Image Field:</strong> {{ bike.image_field }}</p>
+        <p><strong>Image URL:</strong> {{ bike.image_url }}</p>
+        <p><strong>File Exists:</strong> 
+            {% if bike.image_exists %}
+                <span class="status">✅ YES</span>
+            {% else %}
+                <span class="error">❌ NO</span>
+            {% endif %}
+        </p>
+        {% if bike.image_url %}
+            <div>
+                <h4>Image Preview:</h4>
+                <img src="{{ bike.image_url }}" alt="{{ bike.name }}">
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    
+    <div style="margin-top: 30px;">
+        <a href="/bikes/" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to Bike Search</a>
+        <a href="/bikes/test/detail/" style="background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-left: 10px;">Test Bike Detail</a>
+    </div>
+</body>
+</html>

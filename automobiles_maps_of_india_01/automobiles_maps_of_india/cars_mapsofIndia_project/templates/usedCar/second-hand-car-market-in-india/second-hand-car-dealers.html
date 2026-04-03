@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+
+{% block title %}Top Second Hand Car Dealers in India{% endblock %}
+
+{% block content %}
+<style>
+    .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+
+{% comment %} .feature-box{
+        border: 2px solid;
+    box-sizing: border-box;
+    padding: 10px;
+    height:40vmin;
+    border-radius:1rem !important;
+} {% endcomment %}
+.info-section{
+    margin:0 0 20vmin 0;
+}
+.content-section{
+    margin-top:10vmin;
+}
+</style>
+    <div class="container-fluid py-5">
+        <div class="container">
+                <section class="hero-section">
+                    <div class="container">
+                        <h1>Second Hand Car Dealers</h1>
+                        <div class="heading-underline"></div>
+
+                        <p class="lead">Discover premium used cars that combine quality, reliability, and affordability. Our certified vehicles undergo rigorous inspections to ensure you drive with confidence.</p>
+                    </div>
+                </section>
+                <div class="container content-section" id="explore">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="fas fa-car-alt"></i>
+                                <h3>Economical Choice</h3>
+                                <p>Save significantly compared to buying new, without compromising on quality and performance.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="fas fa-clipboard-check"></i>
+                                <h3>Rigorous Inspection</h3>
+                                <p>Every vehicle undergoes a 200-point inspection to ensure top-notch quality and reliability.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Certified Quality</h3>
+                                <p>Our certification process, in cooperation with manufacturers, guarantees the best value for your money.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="fas fa-tools"></i>
+                                <h3>Expert Guidance</h3>
+                                <p>Our team of mechanics and car experts provide thorough assessments and advice on each vehicle.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <h3>Flexible Financing</h3>
+                                <p>We offer tailored financing solutions and extended warranties to fit your budget and needs.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="fas fa-sync-alt"></i>
+                                <h3>Transparent History</h3>
+                                <p>Access detailed vehicle history reports to make an informed decision on your purchase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="info-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Understanding the Used Car Market</h3>
+                                <p>Second-hand cars are an integral part of the automotive market, offering a more economical alternative to brand new vehicles. At SecondChance Motors, we understand the importance of thorough research and expert guidance in making the right choice. Our team of experienced mechanics and car experts are here to help you identify any potential issues and ensure you're getting the best value for your investment.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>The Advantage of Certified Used Cars</h3>
+                                <p>To combat fraudulent practices and ensure customer satisfaction, we've partnered with reputable manufacturers to offer certified used cars. This certification process subjects vehicles to rigorous tests and thorough inspections. As a result, our certified cars come with additional benefits such as extended warranties, favorable financing terms, and service perks – similar to what you'd expect when purchasing a new car, but at a fraction of the cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="row justify-content-center">
+                    {% for dealer in dealers %}
+                        <div class="col-md-4 col-lg-3 mb-4">
+                            <div class="card dealer-card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <h2 class="card-title mb-3" style="text-shadow:none; font-size: 1.25rem; font-weight: 700; text-align: center;">{{ dealer.name }}</h2>
+                                    <p class="card-text mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i> {{ dealer.address }}</p>
+                                    <p class="card-text mb-2"><i class="fas fa-phone text-primary mr-2"></i> {{ dealer.phone }}</p>
+                                    <p class="card-text mb-3">
+                                        <span class="badge bg-warning text-dark" style="background-color:#f74e2a !important;color:#ffffff !important;">
+                                            <i class="fas fa-star"></i> {{ dealer.rating }}/5
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        .dealer-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+        }
+        .dealer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        .badge {
+            font-size: 0.9rem;
+        }
+        .gradient-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #ff0000, #0000ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: #3498db;
+            text-align: center;
+        }
+        .display-4 {
+            font-weight: 700;
+        }
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #558fc9;
+            --accent-color: #e74c3c;
+            --text-color: #dfe6ee;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+        .hero-section {
+            background: #ffffff;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .feature-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-box i {
+            font-size: 3rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000 !important;
+        }
+
+        .feature-box p {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .info-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+        }
+
+        .info-section h3 {
+            color: #000;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .info-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .dealer-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .dealer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .dealer-card .card-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .badge {
+            font-size: 0.9rem;
+        }
+
+        .dealers-section h2 {
+            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        @media (max-width: 768px){
+            .info-section, .content-section{
+                margin:0 !important;
+                padding:0 !important;
+            }
+            .info-section h3, .feature-box h3 {
+    font-size: 1.2rem !important;
+}
+.feature-box p{
+    font-size:14px !important;
+}
+        }
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        document.querySelectorAll('.contact-dealer').forEach(button => {
+            button.addEventListener('click', function() {
+                const dealerId = this.getAttribute('data-dealer-id');
+                alert(`Contacting dealer with ID: ${dealerId}`);
+            });
+        });
+    </script>
+{% endblock %}

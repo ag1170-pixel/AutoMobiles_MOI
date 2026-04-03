@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block title %}Automobile Industry In India{% endblock %}
+{% block content %}
+{% load custom_filters %}
+
+
+{% load static %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #444;
+        color: #fff;
+        padding: 1rem;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin-left: 1rem;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    h1, h2 {
+        color: #444;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        text-align: left;
+    }
+
+    footer {
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+</style>
+
+
+<br>
+<div class ="container">
+    <a href="{% url 'industry_overview' %}" class="logo">Auto India</a>
+    <main>
+        <section id="overview">
+            <h1>Automobile Industry in India</h1>
+            <p>The Indian automobile industry has become the 9th largest in the world with an annual production of over 2.3 million units in 2008. Following economic liberalization, the industry has shown impressive growth with many global players entering the market.</p>
+        </section>
+
+        <section id="manufacturers">
+            <h2>Key Automobile Manufacturers in India</h2>
+            {% if companies %}
+                <ul>
+                    {% for company in companies %}
+                        <li>{{ company.name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No manufacturer data available.</p>
+            {% endif %}
+        </section>
+
+        <section id="market-share">
+            <h2>Domestic Market Share (<span id="yearDisplay">2023</span>-<span id="yearDisplayNext">2024</span>)</h2>
+            {% if market_shares %}
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Market Share</th>
+                    </tr>
+                    {% for share in market_shares %}
+                        <tr>
+                            <td>{{ share.category }}</td>
+                            <td>{{ share.share }}%</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No market share data available.</p>
+            {% endif %}
+        </section>
+
+        <section id="export">
+            <h2>Indian Automobile Export Market</h2>
+            <p>India has emerged as Asia's fourth largest exporter of automobiles, behind Japan, South Korea, and Thailand. The Indian automobile exports registered significant growth in recent years.</p>
+            {% if export_data %}
+                <ul>
+                    {% for data in export_data %}
+                        <li>{{ data.year }}: {{ data.growth }}% growth</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No export data available.</p>
+            {% endif %}
+        </section>
+{#        <ul>#}
+{#            <li><a href="{% url '' %}">Overview</a></li>#}
+{#            <li><a href="{% url'manufacturers' %}">Manufacturers</a></li>#}
+{#            <li><a href="{% url 'market-share' %}">Market Share</a></li>#}
+{#            <li><a href="{% url 'export' %}">Export</a></li>#}
+{#        </ul>#}
+    </main>
+</div>
+<footer>
+    <p>&copy; 2024 Automobile Industry in India. All rights reserved.</p>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+<script>
+    let startYear = 2023;
+    let endYear = 2024;
+
+    function updateYears() {
+        document.getElementById('yearDisplay').textContent = startYear;
+        document.getElementById('yearDisplayNext').textContent = endYear;
+    }
+
+    // Optional: Update years periodically
+    function incrementYears() {
+        startYear++;
+        endYear++;
+        updateYears();
+    }
+
+    // Update years every 5 seconds (5000 milliseconds)
+    setInterval(incrementYears, 5000);
+
+    // Initial update
+    updateYears();
+</script>
+
+{% endblock %}

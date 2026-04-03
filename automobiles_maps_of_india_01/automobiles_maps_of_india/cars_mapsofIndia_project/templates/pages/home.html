@@ -1,0 +1,2486 @@
+{% extends 'base.html' %}
+{% block sidebar %}
+{% endblock %}
+{% block title %} | Home {% endblock %}
+{% block content %}
+{% load humanize %}
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<style>
+    body,html{
+        background-color: #ffffff !important;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        -webkit-text-size-adjust: 100%; /* Prevent iOS font scaling */
+        -ms-text-size-adjust: 100%; /* Prevent Windows font scaling */
+        width: 100%; /* Ensure full width */
+        min-width: 320px; /* Minimum width for small devices */
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: space-between;
+        padding: 0 15px; /* Add padding for mobile */
+        width: 100%; /* Ensure full width on mobile */
+        box-sizing: border-box; /* Include padding in width */
+    }
+    .pagination-box {
+        margin-bottom: 0px;
+    }
+    .btn-outline-primary {
+        color: #da89b2;
+        border-color: #5490d0;
+        width: 70%;
+        background: #519aea;
+        text-align: center;
+        max-width: 300px; /* Prevent overflow on small screens */
+    }
+    .auto-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px 10px; /* Reduce padding for mobile */
+        font-family: Arial, sans-serif;
+        max-width: 100%; /* Prevent overflow */
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .auto-menu-item {
+        margin: 8px 5px; /* Reduce margin for mobile */
+        text-align: center;
+        flex: 1 1 auto; /* Allow flexible sizing */
+        min-width: 120px; /* Minimum width for each item */
+    }
+    .auto-menu-item a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+        display: block;
+        background-color: #F1F8F9;
+        border:1px solid #d7e4ef;
+        padding: 10px 12px; /* Adjust padding */
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        white-space: nowrap; /* Prevent text wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px; /* Smaller font for mobile */
+    }
+    .auto-menu-item a:hover {
+        background-color: #d7e4ef;
+        text-decoration: none;
+    }
+    h5 {
+        color: #a43636;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 300;
+        font-size: 28px;
+    }
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+        background-color: #f0f0f0;
+        border-radius: 50px;
+        padding: 5px;
+    }
+    .btn-group .btn {
+        flex: 1;
+        border: none;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-radius: 50px;
+        background: transparent;
+        color: #ece5e5;
+    }
+    .btn-group .btn.active {
+        background-color: #4a90e2;
+        color: white;
+    }
+    .search-type label {
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .form-select {
+        height: 40px;
+        font-size: 12px;
+        border: 2px solid #282828;
+        border-radius: 25px;
+        padding: 0 20px;
+        transition: all 0.3s ease;
+        margin-bottom: 15px;
+        appearance: none;
+    }
+    .btn-check:checked + .btn-outline-primary {
+        background-color: #4a90e2;
+        color: white;
+    }
+    .btn-outline-primary {
+        color: #4a90e2;
+        border: 2px solid #4a90e2;
+        border-radius: 25px;
+        padding: 8px 20px;
+        transition: all 0.3s ease;
+    }
+    .btn-outline-primary:hover {
+        background-color: #886abd;
+        color: #a084cb;
+    }
+    @media (max-width: 992px) {
+        .auto-menu {
+            padding: 15px;
+        }
+        
+        .auto-menu-item {
+            margin: 8px;
+        }
+        
+        .auto-menu-item a {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        
+        h5 {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        
+        .containers {
+            flex-direction: column;
+            max-width: 100%;
+            margin: 10px;
+        }
+        
+        .sidebar {
+            width: 100%;
+            order: 2;
+        }
+        
+        .main-content {
+            order: 1;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 28px;
+        }
+        
+        h5 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .auto-menu {
+            padding: 10px;
+        }
+        
+        .auto-menu-item {
+            margin: 5px;
+            flex: 1 1 calc(50% - 10px);
+            min-width: 120px;
+        }
+        
+        .auto-menu-item a {
+            padding: 12px 8px;
+            font-size: 13px;
+        }
+        
+        .btn-group {
+            flex-direction: column;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        .btn-group .btn {
+            margin: 2px 0;
+            border-radius: 8px;
+        }
+        
+        .form-select {
+            height: 45px;
+            font-size: 14px;
+            padding: 0 15px;
+        }
+        
+        .btn-outline-primary {
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        
+        .containers {
+            margin: 5px;
+            border-radius: 8px;
+        }
+        
+        .sidebar {
+            padding: 15px 0;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .container {
+            padding: 15px 10px; /* Reduce padding more */
+        }
+        
+        h1 {
+            font-size: 24px;
+        }
+        
+        h5 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .auto-menu {
+            padding: 15px 5px; /* Minimal padding */
+            flex-direction: column; /* Stack vertically on small screens */
+            align-items: center;
+        }
+        
+        .auto-menu-item {
+            margin: 5px 0; /* Vertical spacing */
+            flex: 1 1 100%; /* Full width */
+            min-width: auto; /* Remove min width */
+            width: 100%; /* Full width */
+        }
+        
+        .auto-menu-item a {
+            padding: 12px 16px; /* Comfortable touch targets */
+            font-size: 12px;
+            white-space: normal; /* Allow text wrapping */
+            text-align: center;
+        }
+        
+        .form-select, .search-btn {
+            font-size: 13px;
+        }
+        
+        .form-select {
+            height: 40px;
+            padding: 0 12px;
+            width: 100%; /* Full width */
+            max-width: 100%;
+        }
+        
+        .btn-outline-primary {
+            padding: 8px 12px;
+            font-size: 13px;
+            width: 100%; /* Full width */
+            max-width: none;
+        }
+        
+        .containers {
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0 10px;
+        }
+        
+        .sidebar {
+            padding: 10px 0;
+        }
+        
+        .sidebar ul {
+            padding: 0;
+            margin: 0;
+        }
+    }
+    
+    /* Specific fix for Samsung Galaxy A51/71 and similar devices */
+    @media (max-width: 414px) and (min-height: 800px) {
+        .auto-menu {
+            flex-direction: column;
+            padding: 15px 5px;
+        }
+        
+        .auto-menu-item {
+            width: 100%;
+            margin: 3px 0;
+            min-width: auto;
+        }
+        
+        .auto-menu-item a {
+            padding: 12px 16px;
+            font-size: 12px;
+            white-space: normal;
+            text-align: center;
+        }
+        
+        .main-container {
+            padding: 0 8px;
+        }
+        
+        .btn-outline-primary {
+            width: 100%;
+            max-width: none;
+        }
+        
+        .form-select {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .auto-menu-item {
+            flex: 1 1 100%;
+            min-width: auto;
+            width: 100%;
+        }
+        
+        .auto-menu-item a {
+            padding: 10px 12px;
+            font-size: 11px;
+        }
+        
+        h5 {
+            font-size: 18px;
+        }
+        
+        .form-select {
+            height: 35px;
+            font-size: 12px;
+            padding: 0 10px;
+        }
+        
+        .btn-outline-primary {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+        
+        .main-container {
+            padding: 0 10px;
+        }
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #d8dbe0;
+    }
+    .containers {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+    .sidebar {
+        width: 25%;
+        padding: 20px 0;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 1px;
+        margin: 1px;
+    }
+    .sidebar li {
+        margin-bottom: 5px;
+    }
+    .sidebar a {
+        text-decoration: none;
+        font-weight: bold;
+        color:#000000;
+        display: block;
+        padding: 12px 20px;
+        transition: background-color 0.3s, color 0.3s;
+        border-left: 4px solid transparent;
+    }
+    .sidebar a:hover, .sidebar a.active {
+        background-color: #d7e4ef;
+        color: #1e6da2;
+        border-left-color: #3498db;
+    }
+    /* Mobile Dropdown Fix */
+    .sidebar li {
+        position: relative;
+    }
+    
+    .sidebar li > ul {
+    display: none;
+    position: absolute;
+    left: 0;          /* change this */
+    top: 100%;        /* change this */
+    background-color: #000000;
+    min-width: 250px;
+    z-index: 1000;
+}
+
+    
+    .sidebar li.dropdown-active > ul {
+        display: block;
+    }
+    
+    /* Mobile dropdown toggle */
+    .dropdown-toggle {
+        background: none;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        color: #000000;
+        font-size: 16px;
+    }
+    
+    .dropdown-toggle.active {
+        transform: rotate(180deg);
+    }
+    
+    /* Mobile dropdown styles */
+    @media (max-width: 768px) {
+        .sidebar li > ul {
+            position: static;
+            left: 0;
+            top: auto;
+            width: 100%;
+            min-width: auto;
+            box-shadow: none;
+            border: none;
+            border-radius: 0;
+            background-color: #f8f9fa;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .sidebar li.dropdown-active > ul {
+            display: block;
+            max-height: 500px;
+        }
+        
+        .dropdown-toggle {
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .sidebar > ul > li {
+            position: relative;
+            padding-right: 40px;
+        }
+        .carousel-item{
+            display:none !important;
+        }
+        .banner .banner-slider-inner {
+    background-color: #ffffff !important;
+}
+    }
+    
+    @media (max-width: 576px) {
+        .sidebar li > ul {
+            background-color: #000000;
+            padding-left: 20px;
+        }
+        
+        .sidebar > ul > li {
+            padding-right: 40px;
+            margin-bottom: 5px;
+        }
+        
+        .dropdown-toggle {
+            right: 5px;
+            font-size: 14px;
+        }
+    }
+    .main-content h1 {
+        color: #eef1f5;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .main-content p {
+        color: #34495e;
+        line-height: 1.8;
+    }
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #F1F8F9;
+        border: 1px solid #d7e4ef;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .button:hover {
+        background-color: #d7e4ef;
+        text-decoration: none;
+    }
+    .sidebar ul ul {
+    background-color: #fff;
+    max-height: 150px;
+    transition: max-height 0.3s ease-out;
+    overflow: auto;
+}
+    .sidebar ul ul a{
+        color: #282828 !important;
+    }
+    .sidebar {
+        width: 250px;
+        background-color: #F1F8F9;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .sidebar li {
+        margin-bottom: 10px;
+    }
+    .sidebar a {
+        text-decoration: none;
+        color: #000000;
+        display: block;
+        padding: 5px;
+        transition: background-color 0.3s;
+    }
+    .sidebar a:hover {
+        background-color: #d7e4ef;
+    }
+    .sidebar ul ul {
+        display: none;
+    }
+    .sidebar li.dropdown-active > ul {
+        display: block;
+    }
+    .auto-news-container {
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .news-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #aec1d3;
+        border-radius: 5px;
+    }
+    .news-item img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .read-more {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: rgba(244, 244, 248, 0.96);
+        text-decoration: none;
+        border-radius: 3px;
+    }
+    .form-group {
+        margin-bottom: 25px;
+        width: 100%;
+    }     
+
+
+
+    
+    .form-group {
+        margin-bottom: 25px;
+        width: 100%;
+    }
+    .select-one{
+        display:flex;
+        align-items:center;
+        justify-content:justify-evenly;
+    }
+    .read-more-btn:hover{
+        background-color:#d7e4ef !important;
+    }
+    .reduced-form .form-group {
+        margin-bottom: 10px;
+    }
+    .reduced-form select,
+    .reduced-form button {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+    .reduced-form h5 {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+    .reduced-form {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #afc4d9;
+    }
+    .reduced-form .form-group {
+        margin-bottom: 10px;
+    }
+    .reduced-form select,
+    .reduced-form button {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        color: #0056b3;
+    }
+    .reduced-form h5 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #0056b3;
+    }
+    .reduced-form button {
+        background-color: #5e92cb;
+        color: #77a1da;
+        border: none;
+    }
+    .reduced-form button i {
+        margin-right: 5px;
+    }
+    .reduced-form select option {
+        color: #0056b3;
+    }
+    .car-comparison-section {
+        background-color: #ffffff;
+        padding: 50px 0;
+    }
+    .comparison-title {
+        color: #e19393;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+        margin-bottom: 1rem !important;
+        margin-top: 0 !important;
+    }
+    .btn-theme {
+        background-color: #007bff;
+        color: #f38585;
+        transition: background-color 0.3s ease;
+    }
+    .btn-theme:hover {
+        background-color: #0056b3;
+        color: #e79696;
+    }
+    .car-image-container {
+        width: 100%;
+        height: 300px;
+        background-color: #82a1cb;
+        border-radius:7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .form-select {
+        font-size: 1.1rem;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+    .comparison-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem !important;
+        margin-top: 0!important;
+    }
+    .car-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    @media (max-width: 767px) {
+        .car-select-container {
+            margin-bottom: 30px;
+        }
+    }
+    .car-comparison-section {
+        background-color: #ffffff;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
+        padding: 50px 0;
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .comparison-title {
+        color: #282828;
+        font-weight: bold;
+    }
+    .search-contents {
+        background-color: rgb(238, 241, 245);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgb(238, 241, 245);
+    }
+    .btn-theme {
+        background-color: #007bff;
+        color: #cbba65;
+        transition: background-color 0.3s ease;
+    }
+    .btn-theme:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+    .car-ad {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .car-ad {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 15px;
+        transition: all 0.3s ease;
+    }
+    .car-ad:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+    }
+    .car-ad img {
+        border-radius: 6px;
+    }
+    .car-ad h4 {
+        font-size: large;
+        margin-bottom: 10px;
+        color:#282828;
+        font-weight:700;
+    }
+    .car-ad .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #f74e2a;
+        margin-bottom:0 !important;
+    }
+    .car-ad .btn-primary {
+        color:black;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .car-ad .btn-primary:hover {
+        color:black;
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+    .petrol-pump-image-container:hover .petrol-pump-image {
+        transform: scale(1.05);
+    }
+    .feature-car {
+        padding: 0 5px;
+    }
+    .car-card {
+        background-color: #b3b3da;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 7px solid #96abc2;
+        box-shadow: 0 6px 6px rgba(0,0,0,0.15);
+    }
+    .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .car-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+    .car-info {
+        padding: 15px;
+    }
+    .car-title-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .car-title {
+        margin: 0;
+        font-size: 0;
+        white-space: #7da9e3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .car-price {
+        font-weight: bold;
+        color: #f74e2a;
+    }
+    .car-location-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .car-location {
+        font-size: 0.9em;
+        color: #666;
+    }
+    .btn-primary {
+        background-color: blue;
+        border-color: blue;
+        color: black;
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+    .btn-primary:hover {
+        background-color: darkblue;
+        border-color: darkblue;
+    }
+    .comparison-title {
+        text-align: center;
+        position: relative;
+        padding-bottom: 5px;
+        margin-bottom: 1rem !important;
+        margin-top: 0 !important;
+    }
+    .petrol-pump-image-container:hover .petrol-pump-image {
+        transform: scale(1.05);
+    }
+    .btn-theme {
+        background-color: #007bff;
+        color: #150303;
+        transition: background-color 0.3s ease;
+        padding: 3px 7px;
+        font-size: 0.9rem;
+        line-height:0.7;
+        height: auto;
+        display: inline-block;
+    }
+    .compare-button-container .btn-theme {
+        padding: 10px 20px;
+        font-size: 1.9rem;
+        font-weight: bold;
+    }
+     .search-box-4 {
+         background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+         border: 1px solid #dee2e6;
+     }
+    .search-box-4 h5 {
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .btn-group .btn {
+        transition: all 0.3s ease;
+    }
+    .btn-group .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .form-select:focus, .btn:focus {
+        box-shadow: 0 0 0 0.25rem rgba(255,153,153,0.25);
+    }
+    .btn-group {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .banner-heading {
+        color: black;
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .banner h3{
+        font-size:35px !important;
+    }
+    .banner h5{
+        font-size:16px !important;
+    }
+    body {
+         background: #ffffff;
+         color: #e09898;
+         font-family: 'Josefin Sans', sans-serif;
+     }
+    .bike-comparison-section {
+        padding: 10px 0;
+        width:1200px;
+        margin:0 auto;
+    }
+    .comparison-title {
+        font-size: 35px;
+        font-weight: bold;
+        text: back;
+        margin-bottom: 1rem !important;
+    } 
+    .bike-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 05px;
+        padding: 20px;
+        box-shadow: 0 4px 4px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bike-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    }
+    .bike-image-container {
+        height: 250px;
+        overflow: hidden;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .bike-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .bike-card:hover .bike-image-container img {
+        transform: scale(1.05);
+    }
+    .form-select {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #000000;
+        border: 2px solid #282828;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    .form-select option {
+        background-color: #2a5298;
+        color: #000000;
+    }
+    .btn-compare {
+        background: #d7e4ef ;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+    .btn-compare:hover {
+        border:1px solid #d7e4ef !important;
+        background:#ffffff !important;
+    }
+    .versus-icon {
+        font-size: 2rem;
+        color: #066072;
+        text-shadow: 2px 2px 4px rgba(197, 186, 186, 0.5);
+    }
+    .car-comparison-section {
+        padding: 5px;
+    }
+    .comparison-title {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 1rem !important;
+        margin-top: 0 !important;
+    }
+    .car-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .car-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    }
+    .car-image-container {
+        height: 250px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .car-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    .car-card:hover .car-image-container img {
+        transform: scale(1.05);
+    }
+    .form-select {
+        background-color: rgba(255, 255, 255, 0.2);
+        width:100%;
+        color: #0e0101;
+        border: 2px solid #888888;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        padding: 3px 15px !important;
+    }
+    .form-select option {
+        background-color: #2a5298;
+        color: #000000;
+    }
+    .btn-compare {
+        background: #d7e4ef ;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+    .btn-compare:hover {
+         border:1px solid #d7e4ef !important;
+        background:#ffffff !important;
+    }
+    .versus-icon {
+        font-size: 2rem;
+        color: #282828;
+    }
+    .featured-car.content-area {
+        background-size: cover;
+        width:100%;
+        padding: 10px 0 ;
+        margin: 0 auto;
+    }
+    .hero-section {
+        background-color: #ffffff;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-section h1 {
+        color: #282828;
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    .hero-section h1 .heading-underline{
+        margin: 30px auto;
+        margin-bottom:50px;
+    }
+    .heading-underline {
+        width: 80px;
+        height: 4px;
+        background-color: #f74e2a;
+        margin: 0 auto 30px;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero-content p {
+        color: #4b5563;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 40px 0;
+        padding:0 70px;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #F1F8F9;
+        color: #000000 !important;
+        padding: 7px 24px;
+        border-radius: 10px !important;
+        text-decoration: none;
+        font-weight: bold;
+        border:1px solid #d7e4ef !important;
+        transition: all 0.3s ease;
+    }
+
+    .button:hover {
+        background-color:#d7e4ef !important;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+        .containers .sidebar .subcategories{
+            flex-direction:column;
+        }
+        #brandSearchFields .form-row {
+    width: 100% !important;
+    margin: 0;
+}
+
+#brandSearchFields .form-group {
+    width: 100% !important;
+    padding: 0;
+}
+
+#brandSearchFields select.form-control {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box !important;
+}
+#brandSearchFields {
+        overflow-x: hidden;
+    }
+
+    #brandSearchFields .form-row {
+        flex-direction: column;
+    }
+    }
+
+    .search-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(222, 180, 180, 0.6);
+    }
+
+    .search-content {
+        position: relative;
+        max-width: 400px;
+        float:right;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        height:500px;
+    }
+
+    .search-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 35px !important;
+        color: #ffffff;
+    }
+
+    .form-row {
+        margin-bottom: 0px !important;
+    }
+
+    .form-control {
+        width: 100%;
+        height:35px !important;
+        border: none;
+        padding:0 0 0 30px !important;
+        border-radius: 25px;
+        background: rgba(225, 61, 61, 0.2);
+        color: #fff;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="lightblue" height="10" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        background-position-x: 98%;
+        background-position-y: 50%;
+    }
+
+    .form-control:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .form-control option {
+        background: #ffffff;
+        color: #444;
+        padding: 8px;
+        width:50% !important;
+        max-width:50% !important;
+    }
+
+    .btn-search {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color:#d7e4ef !important;
+        color:black !important;
+    }
+
+    .btn-search:hover {
+        
+        box-shadow: 0 6px 12px rgba(256, 256, 256, 0.2);
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    
+    .form-group {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+    .radio-container {
+        display: flex;
+        align-items: center;
+        margin-top:5vmin;
+    }
+    .radio-container input[type="radio"] {
+        margin-right: 5px;
+    }
+    .radio-container label {
+        font-size: 3px;
+        cursor: pointer;
+        margin-bottom:0;
+    }
+    label[for="carRadio"],
+    label[for="bikeRadio"] {
+        display: inline-block;
+        padding: 2px 10px;
+        background-color: transparent;
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+        border-radius: 2px;
+        width: 10px auto;
+    }
+    label[for="carRadio"]{
+        margin-right:40px;
+    }
+    @media (min-width: 768px) {
+        .col-md-12 {
+            padding: 20px;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+.view-detais-btn{
+    background-color:#d7e4ef !important;
+    border-color:#d7e4ef !important;
+}
+.containers .sidebar .subcategories{
+    display:flex;
+    justify-content:space-between;
+}
+.vehicle-search-container {
+    width: 100%;
+    max-width: 400px;   /* desktop size */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .vehicle-search-container {
+        max-width: 100%;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+
+</style>
+ <div class = 'main-container'>
+    <div class="banner" id="banner">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner banner-slider-inner text-center">
+                <div class="carousel-item banner-max-height active item-bg">
+                    <img class="d-block w-100 h-100" src="{% static 'img/peakpx.jpg' %}" alt="banner">
+                    <div class="carousel-content container banner-info-2 bi-2 text-left">
+
+                        <h3>Drive Your Own Dreams</h3>
+                        <h5 class="banner-heading">Allow us to guide you through the innovative stress<br>
+                            free approach in finding your dream car.</h5>
+                        <a href="{% url 'services' %}" class="btn btn-lg btn-theme read-more-btn" style="background-color:  #F1F8F9 ; color: #000000; border:1px solid #d7e4ef">Read More</a>
+                    </div>
+                </div>
+                <div class="carousel-item banner-max-height item-bg">
+                    <img class="d-block w-100 h-100" src="{% static 'img/car23.jpg' %}" alt="banner">
+                    <div class="carousel-content container banner-info-2 bi-2 text-left">
+                        <h3>Fuel for Soul</h3>
+                        <h5 class="banner-heading">Allow us to guide you through the innovative stress<br>free approach in finding your dream car.</h5>
+                        <a href="{% url 'services' %}" class="btn btn-lg btn-theme read-more-btn" style="background-color: #F1F8F9 ; color: #000000; border:1px solid #d7e4ef">Read More</a>
+                    </div>
+                </div>
+                <div class="carousel-item banner-max-height item-bg">
+                    <img class="d-block w-100 h-100" src="{% static 'img/wallpaperflare.com_wallpaper.jpg' %}" alt="banner">
+                    <div class="carousel-content container banner-info-2 bi-2 text-left">
+                        <h3>Car for Everyone</h3>
+                        <h5 class="banner-heading">Allow us to guide you through the innovative stress<br>
+                            free approach in finding your dream car.</h5>
+                        <a href="{% url 'services' %}" class="btn btn-lg btn-theme read-more-btn" style="background-color: #F1F8F9 ; color: #000000; border:1px solid #d7e4ef">Read More</a>
+                    </div>
+                </div>
+                <div class="vehicle-search-container" style="position: absolute; top: 50%; right:3%; transform: translate(0, -50%);">
+                    <div class="search-overlay"></div>
+                    <div class="search-content">
+                        <h4 class="search-title" style=" color:#000000;  font-weight: bold;">Find Your Dream Vehicle</h4>
+                        <form id="vehicleSearchForm" action="{% url 'search' %}" method="GET">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <div class="select-one">
+                                        <div class="radio-container">
+                                            <input type="radio" id="carRadio" name="vehicleType" value="car" checked>
+                                            <label for="carRadio" >Car</label>
+                                        </div>
+                                        <div class="radio-container">
+                                            <input type="radio" id="bikeRadio" name="vehicleType" value="bike">
+                                            <label for="bikeRadio">Bike</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="hidden" id="searchType" name="searchType" value="brand" class="form-control">
+
+                                </div>
+                            </div>
+                            <div id="budgetSearchFields">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <select id="budgetRange" name="budgetRange" class="form-control">
+                                            <option value="">Select Budget Range</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <select id="budgetBrand" name="budgetBrand" class="form-control">
+                                            <option value="">Select Brand</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="brandSearchFields" style="display: none;">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <select id="brand" name="brand" class="form-control">
+                                            <option value="">Select Brand</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <select id="model" name="model" class="form-control">
+                                            <option value="">Select Model</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <select id="variant" name="variant" class="form-control">
+                                            <option value="">Select Variant</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+{#                                    <button type="submit" class="btn btn-search">Search Vehicles</button>#}
+                                    <button type="submit" class="btn btn-search">Search Vehicles</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- nav side bar-->
+
+            <div class="auto-menu">
+                <div class="auto-menu-item">
+                    <a href="{% url 'news_cars_list' %}">New Cars</a>
+                </div>
+                <div class="auto-menu-item">
+                    <a href="{% url 'upcoming_car_list' %}">Upcoming Cars</a>
+                </div>
+                <div class="auto-menu-item">
+                    <a href="{% url 'used_cars' %}">Used Cars</a>
+                </div>
+                <div class="auto-menu-item">
+                    <a href="{% url 'trucks_in_india' %}">Trucks</a>
+                </div>
+                <div class="auto-menu-item">
+                    <a href="{% url 'finance_companies' %}">Insurance_Finance</a>
+                </div>
+                <div class="auto-menu-item">
+                    <a href="{% url 'car_insurance' %}">Insurance Company</a>
+                </div>
+                <div class="auto-menu-item">
+                    <a href="{% url 'shows:show_home' %}">Auto Expo</a>
+                </div>
+
+            <div class="containers">
+                <div class="sidebar">
+                    <ul>
+                        <li class="subcategories">
+                            <a href="{% url 'auto_history_list' %}">Automobile History</a>
+                            <ul>
+                                <li><a href="{% url 'the-birth-of-automobiles-list' %}">Birth of Automobile</a></li>
+                                <li><a href="{% url 'changing_faces_of_car' %}">Changing faces of car</a></li>
+                                <li><a href="{% url 'automobile_inventions' %}">Automobile Inventions</a></li>
+                            </ul>
+                        </li>
+                        <li class="subcategories">
+                            <a href="{% url 'automobile_companies' %}">Automobile Companies</a>
+                            <ul>
+                                <li><a href="{% url 'car_manufacturers' %}">Car Manufacturers</a></li>
+                                <li><a href="{% url 'commercial_vehicles' %}">Commercial Vehicles</a></li>
+                            </ul>
+                        </li>
+                        <li class="subcategories">
+                            <a href="{% url 'category_list' %}">Components & Spares</a>
+                            <ul>
+                                <li><a href="{% url 'component_list' %}">Automobile Components</a></li>
+                                <li><a href="{% url 'spare_list' %}">Automobile Spares</a></li>
+                                <li><a href="{% url 'auto_accessories' %}">Auto Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'service_centers' %}">Service Stations</a></li>
+                        <li class="subcategories">
+                            <a href="{% url 'petrol_pump_finder' %}">Petrol Pumps Finder</a>
+                            <ul>
+                                <li><a href="{% url 'fuel_price_map' %}">Fuel Price Map</a></li>
+                                <li><a href="/petrolstations/delhi/">Petrol Stations in Delhi</a></li>
+                                <li><a href="/petrolstations/maharashtra/">Petrol Stations in Maharashtra</a></li>
+                                <li><a href="/petrolstations/tamil-nadu/">Petrol Stations in Tamilnadu</a></li>
+                                <li><a href="/petrolstations/uttar-pradesh/">Petrol Stations in Uttar Pradesh</a> </li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'lubricants' %}">Lubricants</a></li>
+                        <li class="subcategories">
+                            <a href="{% url 'car_accessories' %}">Car Accessories</a>
+                            <ul>
+                                <li><a href="{% url 'accessories_details' %}">Car Airconditioning</a></li>
+                                <li><a href="{% url 'auto_tyres_india' %}">Tyres</a></li>
+                            </ul>
+                        </li>
+                        <li class="subcategories">
+                            <a href="{% url 'second_hand_car_dealers' %}">Second Hand Car Market</a>
+                            <ul>
+                                <li><a href="{% url 'used_cars' %}">Used Car</a></li>
+                                <li><a href="{% url 'second_hand_car_buying' %}">Buying Used Car</a></li>
+                                <li><a href="{% url 'car_dealers' %}">Second Hand Car Dealers</a></li>
+                            </ul>
+                        </li>
+                        <li class="subcategories">
+                            <a href="{% url 'article_list' %}">Car Finance and Insurance</a>
+                            <ul>
+                                <li><a href="{% url 'finance_companies' %}">Finance Companies</a></li>
+                                <li><a href="{% url 'car_insurance' %}">Insurance</a></li>
+                                <li><a href="{% url 'insurance_company' %}">Insurance Company</a></li>
+                            </ul>
+                        </li>
+                        <li class="subcategories">
+                            <a href="{% url 'useful_info_list' %}">Useful Information</a>
+                            <ul>
+                                <li><a href="{% url 'motor-policy' %}">Motor Policy Know Your Car</a></li>
+                                <li><a href="{% url 'modern_suspension' %}">Modern Suspension System</a></li>
+                                <li><a href="{% url 'develop_transmission' %}">Development in Transmission System</a></li>
+                                <li><a href="{% url 'electrical_list' %}">The Electrical System</a></li>
+                                <li><a href="{% url 'vehicle_list' %}">Maintenance</a></li>
+                                <li><a href="{% url 'automobile_tips' %}">Tips</a></li>
+                            </ul>
+                        </li>
+                        <li class="subcategories">
+                            <a href="{% url 'whats_new' %}">What's New</a>
+                            <ul>
+                                <li><a href="#">Photographs from Auto Expo 2014</a></li>
+                                <li><a href="#">Mahindra Reva E2O</a></li>
+                                <li><a href="{% url 'petrol_price_map' %}">Petrol Price Map</a></li>
+                                <li><a href="{% url 'lpg_price_map' %}">Auto LPG Price Map</a></li>
+                                <li><a href="{% url 'fuel_price_map' %}">Fuel Price Map</a></li>
+                                <li><a href="{% url 'cng_price_map' %}">CNG Price Map</a></li>
+                                <li><a href="{% url 'diesel_price_map' %}">Diesel Price Map</a></li>
+
+                                {#<li><a href="{% url '#' %}">Ducati Diavel</a></li>#}
+                                {#<li><a href="{% url '#' %}">Mitsubishi Cars</a></li>#}
+                                {#<li><a href="{% url '#' %}">Honda CBR</a></li>#}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+{#                <div class="main-content">#}
+                <div class="hero-section">
+                    <h1>Welcome to Automobile Information</h1>
+                    <div class="heading-underline"></div>
+                    <div class="hero-content">
+                        <p>Discover the fascinating world of automobiles. From the birth of the first car to the latest innovations in automotive technology, we've got you covered. Explore our comprehensive guides on car manufacturers, components, and services.</p>
+                        <p>Whether you're a car enthusiast or just looking for practical information, you'll find valuable insights here.</p>
+                        <a href="{% url 'automobile_companies' %}" class="button">Explore Now</a>
+                    </div>
+                </div>
+{#                </div>#}
+            </div>
+            <!-- Search box 3 start -->
+
+            <div class="auto-news-container">
+                <h1>Auto News</h1>
+                <div class="heading-underline"></div>
+
+                <style>
+                    .auto-news-container {
+                        padding: 60px 20px 0 20px;
+                        margin-top: 40px;
+                        border-radius: 20px;
+                    }
+                    
+                    .auto-news-container h1 {
+                        text-align: center;
+                        color: #2c3e50;
+                        font-size: 36px;
+                        font-weight: 700;
+                        margin-bottom: 50px;
+                        position: relative;
+                    }
+                    
+                    .auto-news-container h1::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -15px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 80px;
+                        height: 4px;
+                        background: #f74e2a;
+                        border-radius: 2px;
+                    }
+                    
+                    .news-section {
+                        margin-bottom: 50px;
+                    }
+                    
+                    .news-section h2 {
+                        color: #2c3e50;
+                        font-size: 24px;
+                        font-weight: 600;
+                        margin-bottom: 30px;
+                        text-align: center;
+                        position: relative;
+                    }
+                    
+                    .news-section h2::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 40px;
+                        height: 3px;
+                        background: #f74e2a;
+                        border-radius: 2px;
+                    }
+                    
+                    .news-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 25px;
+                        margin-top: 40px;
+                    }
+                    
+                    .news-item {
+                        background: white;
+                        border-radius: 15px;
+                        padding: 15px;
+                        transition: all 0.3s ease;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    
+                    .news-item::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        height: 4px;
+                        background-color:#d7e4ef;
+                    }
+                    
+                    .news-item:hover {
+                        transform: translateY(-8px);
+                        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+                    }
+                    
+                    .news-item h3 {
+                        color: #2c3e50;
+                        font-size: 16px !important;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                        line-height: 1.3;
+                    }
+                    
+                    .news-item img {
+                        width: 100%;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 8px;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .news-item p {
+                        color: #6c757d;
+                        line-height: 1.6;
+                        margin-bottom: 20px;
+                        font-size: 14px;
+                    }
+                    
+                    .read-more {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        color: #000000;
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 13px;
+                        transition: all 0.3s ease;
+                        padding: 8px 16px;
+                        background-color:#d7e4ef;
+                        border-radius: 20px;
+                    }
+                    
+                    .read-more:hover {
+                        background: #ffffff;
+                        transform: translateY(-2px);
+                        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+                        color: #000000;
+                    }
+                    
+                    .read-more::after {
+                        content: '→';
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    .read-more:hover::after {
+                        transform: translateX(3px);
+                    }
+                    
+                    .news-meta {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 15px;
+                        font-size: 12px;
+                        color: #6c757d;
+                    }
+                    
+                    .news-category {
+                        background-color:#d7e4ef;
+                        color: #000000;
+                        padding: 4px 12px;
+                        border-radius: 15px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                </style>
+
+                <!-- Static News Section -->
+                <div class="news-grid">
+                    <article class="news-item">
+                        <div class="news-meta">
+                            <span class="news-category">Electric Vehicles</span>
+                            <span>Jan 13, 2026</span>
+                        </div>
+                        <img src="/media/electric_bike.webp" alt="Electric Vehicle Revolution in India">
+                        <h3>ELECTRIC VEHICLE REVOLUTION IN INDIA</h3>
+                        <p>India's shift towards electric vehicles is gaining momentum as major automakers invest in EV technology and infrastructure. The government's push for sustainable mobility...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </article>
+                    
+                    <article class="news-item">
+                        <div class="news-meta">
+                            <span class="news-category">Industry Growth</span>
+                            <span>Jan 13, 2026</span>
+                        </div>
+                        <img src="/media/BMW.jpg" alt="India Automobile Industry Growth">
+                        <h3>INDIA AUTOMOBILE INDUSTRY SEES RECORD GROWTH IN 2024</h3>
+                        <p>The Indian automobile sector has experienced unprecedented growth in 2024, with domestic sales and exports reaching new heights. Industry experts attribute this success...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </article>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const readMoreLinks = document.querySelectorAll('.read-more');
+
+                    readMoreLinks.forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const article = this.closest('article');
+                            const content = article.querySelector('p');
+
+                            if (content.classList.contains('expanded')) {
+                                content.classList.remove('expanded');
+                                this.textContent = 'Read More';
+                            } else {
+                                content.classList.add('expanded');
+                                this.textContent = 'Read Less';
+                            }
+                        });
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <div class="car-comparison-section">
+        <div class="container">
+            <h1 class="comparison-title text-center">Compare Car</h1>
+            <div class="heading-underline"></div>
+            <form method="GET" action="{% url 'compare_cars' %}" id="carComparisonForm">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5 mb-4">
+                        <div class="car-card">
+                            <div class="car-image-container">
+                                <img src="{% static 'img/compare car/compare car 2.jpg' %}" alt="Car 1" id="car-image-1">
+                            </div>
+                            <select class="form-select" name="category1" id="car-category1">
+                                <option value="" selected disabled>Select Cars Company Name</option>
+                                {% for category in category_search %}
+                                    <option value="{{ category }}">{{ category }}</option>
+                                {% endfor %}
+                            </select>
+                            <select class="form-select" name="name1" id="car-name1">
+                                <option value="" selected disabled>Select Car Model Name</option>
+                            </select>
+                            <select class="form-select" name="model1" id="car-model1">
+                                <option value="" selected disabled>Select Car Variant Name</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 mb-4 text-center">
+                        <div class="versus-icon">VS</div>
+                    </div>
+
+                    <div class="col-md-5 mb-4">
+                        <div class="car-card">
+                            <div class="car-image-container">
+                                <img src="{% static 'img/compare car/compare car3.jpg' %}" alt="Car 2" id="car-image-2">
+                            </div>
+                            <select class="form-select" name="category2" id="car-category2">
+                                <option value="" selected disabled>Select Cars Company Name</option>
+                                {% for category in category_search %}
+                                    <option value="{{ category }}">{{ category }}</option>
+                                {% endfor %}
+                            </select>
+                            <select class="form-select" name="name2" id="car-name2">
+                                <option value="" selected disabled>Select Car Model Name</option>
+                            </select>
+                            <select class="form-select" name="model2" id="car-model2">
+                                <option value="" selected disabled>Select Car Variant Name</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5 mb-20">
+                    <button class=" button btn btn-compare btn-large" type="submit">
+                        <i class="fas fa-flag-checkered me-2" style="margin-right:20px;"></i>Compare Cars
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="bike-comparison-section">
+        <div class="container">
+            <h1 class="comparison-title text-center">Compare Bikes</h1>
+            <div class="heading-underline"></div>
+
+            <form method="GET" action="{% url 'compare_bikes' %}" id="bikeComparisonForm">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5 mb-4">
+                        <div class="bike-card">
+                            <div class="bike-image-container">
+                                {% if all_bikes %}
+                                    <img src="{{ all_bikes.0.image.url }}" alt="Bike 1" id="bike-image-1">
+                                {% else %}
+                                    <img src="{% static 'img/bikes/compare_bike.jpg' %}" alt="Bike 1" id="bike-image-1">
+                                {% endif %}
+                            </div>
+                            <select class="form-select" name="category1" id="bike-category1">
+                                <option value="" selected disabled>Select Bike Company Name</option>
+                                {% for category in bike_category_search %}
+                                    <option value="{{ category }}">{{ category }}</option>
+                                {% endfor %}
+                            </select>
+                            <select class="form-select" name="name1" id="bike-name1">
+                                <option value="" selected disabled>Select Bike Model Name</option>
+                            </select>
+                            <select class="form-select" name="model1" id="bike-model1">
+                                <option value="" selected disabled>Select Bike Variant Name</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 mb-4 text-center">
+                        <div class="versus-icon">VS</div>
+                    </div>
+
+                    <div class="col-md-5 mb-4">
+                        <div class="bike-card">
+                            <div class="bike-image-container">
+                                {% if all_bikes %}
+                                    <img src="{{ all_bikes.1.image.url }}" alt="Bike 2" id="bike-image-2">
+                                {% else %}
+                                    <img src="{% static 'img/bikes/compare_bike.jpg' %}" alt="Bike 2" id="bike-image-2">
+                                {% endif %}
+                            </div>
+                            <select class="form-select" name="category2" id="bike-category2">
+                                <option value="" selected disabled>Select Bike Company Name</option>
+                                {% for category in bike_category_search %}
+                                    <option value="{{ category }}">{{ category }}</option>
+                                {% endfor %}
+                            </select>
+                            <select class="form-select" name="name2" id="bike-name2">
+                                <option value="" selected disabled>Select Bike Model Name</option>
+                            </select>
+                            <select class="form-select" name="model2" id="bike-model2">
+                                <option value="" selected disabled>Select Bike Variant Name</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <button class="button btn btn-compare" type="submit">
+                        <i class="fas fa-bolt me-2"></i> Compare Bikes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="featured-car content-area" style="background:#ffffff ;">
+            <div class="container">
+
+                <h1 class="comparison-title text-center">Latest Cars</h1>
+                <div class="heading-underline"></div>
+
+
+                <div class="main-title" style="margin-top: 0; padding-top: 0;"></div>
+
+                <div class="row">
+                    {% for car in all_cars|slice:":12" %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="car-ad">
+                                <div class="car-image">
+                                    {% if car.image %}
+                                        <img src="{{ car.image.url }}" alt="{{ car.category }} {{ car.name }}" style="width: 100%; height: 200px; object-fit: cover;">
+                                    {% else %}
+                                        {% if 'AUDI' in car.category %}
+                                            <img src="{% static 'img/car23.jpg' %}" alt="{{ car.category }} {{ car.name }}" style="width: 100%; height: 200px; object-fit: cover;">
+                                        {% elif 'BMW' in car.category %}
+                                            <img src="{% static 'img/car-4.jpg' %}" alt="{{ car.category }} {{ car.name }}" style="width: 100%; height: 200px; object-fit: cover;">
+                                        {% elif 'MERCEDES' in car.category %}
+                                            <img src="{% static 'img/car-6.jpg' %}" alt="{{ car.category }} {{ car.name }}" style="width: 100%; height: 200px; object-fit: cover;">
+                                        {% else %}
+                                            <img src="{% static 'img/car-2.jpg' %}" alt="{{ car.category }} {{ car.name }}" style="width: 100%; height: 200px; object-fit: cover;">
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                                <div class="car-info">
+                                    <div class="car-title-price">
+                                        <h1 class="car-title" style="font-size:large; color: Black; font-weight: bold;">{{car.category}}</h1>
+
+                                        {#                            <h3 class="car-title">{{car.category}}</h3>#}
+                                        <div class="car-price">₹ {{car.price | intcomma}} L</div>
+                                    </div>
+                                    <div class="car-location-details">
+                                        <span class="car-location">{{car.manufac_place}}</span>
+                                        <a href="{% url 'car_detail_seo' car.slug %}" class="btn btn-primary btn-sm view-detais-btn">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="pagination-box p-box-2 text-center">
+                    <nav aria-label="Page navigation example">
+                        {% if page_obj.has_other_pages %}
+                            <div class="pagination">
+                            </div>
+                        {% endif %}
+                    </nav>
+                    <button id="showAllCarsBtn" class="button " >Show All Cars</button>
+                </div>
+
+                <script>
+                    document.getElementById('showAllCarsBtn').addEventListener('click', function() {
+                        window.location.href = 'cars?show_all=true';
+                    });
+                </script>
+
+                <br>
+                <div class="col-md-12 feature-car" >
+                    <h1 class="comparison-title text-center mb-4">Featured Cars</h1>
+                    <div class="heading-underline"></div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="car-ad">
+                                <img src="{% static 'img/peakpx.jpg' %}" alt="Car 1" class="img-fluid mb-2">
+                                <h4>2023 Model X Sedan</h4>
+{#                                <p class="text-muted">Luxury redefined. Smooth ride, advanced features.</p>#}
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">₹59,999</span>
+                                    <a href="/cars/car/2023-model-x-sedan/" class="btn btn-primary btn-sm view-detais-btn">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="car-ad">
+                                <img src="{% static 'img/wallpaperflare.com_wallpaper.jpg' %}" alt="Car 2" class="img-fluid mb-2">
+                                <h4>2023 SUV Deluxe</h4>
+{#                                <p class="text-muted">Spacious interior, powerful engine, perfect for families.</p>#}
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">₹42,500</span>
+                                    <a href="/cars/car/2023-suv-deluxe/" class="btn btn-primary btn-sm view-detais-btn">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="car-ad">
+                                <img src="{% static 'img/pexels-mikebirdy-215528.jpg' %}" alt="Car 3" class="img-fluid mb-2">
+                                <h4>2023 EcoSport Hybrid</h4>
+{#                                <p class="text-muted">Eco-friendly, fuel-efficient, cutting-edge technology.</p>#}
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">₹28,750</span>
+                                    <a href="/cars/car/2023-ecosport-hybrid/" class="btn btn-primary btn-sm view-detais-btn">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'cars' %}" class="button btn-outline-primary" >View All Cars</a>
+                    </div>
+                </div>
+
+
+    </div>
+    <!-- Search bike car -->
+    <script>
+        let currentVehicleType = 'car';
+        function selectVehicleType(type) {
+            currentVehicleType = type;
+            updateSearchOptions();
+        }
+        function updateSearchOptions() {
+            const searchType = document.getElementById('searchType').value;
+            const budgetFields = document.getElementById('budgetSearchFields');
+            const brandFields = document.getElementById('brandSearchFields');
+
+            if (searchType === 'budget') {
+                budgetFields.style.display = 'block';
+                brandFields.style.display = 'none';
+                updateBudgetOptions();
+            } else {
+                budgetFields.style.display = 'none';
+                brandFields.style.display = 'block';
+                updateBrandOptions();
+            }
+        }
+
+        function updateBudgetOptions() {
+            const budgetRange = document.getElementById('budgetRange');
+            budgetRange.innerHTML = '<option value="">Select Budget Range</option>';
+
+            const budgetOptions = currentVehicleType === 'car' ?
+                [
+                    {value: '0-2', text: '0 - 2 Lakh'},
+                    {value: '2-5', text: '2 - 5 Lakh'},
+                    {value: '5-10', text: '5 - 10 Lakh'},
+                    {value: '10-20', text: '10 - 20 Lakh'},
+                    {value: '20-50', text: '20 - 50 Lakh'},
+                    {value: '50-100', text: '50 Lakh - 1 Crore'},
+                    {value: '100+', text: 'Above 1 Crore'}
+                ] :
+                [
+                    {value: '0-1', text: '0 - 1 Lakh'},
+                    {value: '1-2', text: '1 - 2 Lakh'},
+                    {value: '2-3', text: '2 - 3 Lakh'},
+                    {value: '3-5', text: '3 - 5 Lakh'},
+                    {value: '5-7', text: '5 - 7 Lakh'},
+                    {value: '7+', text: 'Above 7 Lakh'}
+                ];
+
+            budgetOptions.forEach(option => {
+                const opt = document.createElement('option');
+                opt.value = option.value;
+                opt.textContent = option.text;
+                budgetRange.appendChild(opt);
+            });
+
+            updateCompanyOptions('budgetBrand');
+        }
+
+        function updateBrandOptions() {
+            updateCompanyOptions('brand');
+        }
+
+        function updateCompanyOptions(elementId) {
+            const companySelect = document.getElementById(elementId);
+            companySelect.innerHTML = '<option value="">Select Company</option>';
+
+            fetch(`/${currentVehicleType}s/get_categories/`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(company => {
+                        const option = document.createElement('option');
+                        option.value = company;
+                        option.textContent = company;
+                        companySelect.appendChild(option);
+                    });
+                });
+        }
+
+        function updateCarNameOptions() {
+            const brandSelect = document.getElementById('brand');
+            const nameSelect = document.getElementById('model');
+            const variantSelect = document.getElementById('variant');
+
+            nameSelect.innerHTML = '<option value="">Select Name</option>';
+            variantSelect.innerHTML = '<option value="">Select Variant</option>';
+
+            const selectedBrand = brandSelect.value;
+
+            if (selectedBrand) {
+                fetch(`/${currentVehicleType}s/get_names/?category=${selectedBrand}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(name => {
+                            const option = document.createElement('option');
+                            option.value = name;
+                            option.textContent = name;
+                            nameSelect.appendChild(option);
+                        });
+                    });
+            }
+        }
+
+        function updateCarModelOptions() {
+            const brandSelect = document.getElementById('brand');
+            const nameSelect = document.getElementById('model');
+            const variantSelect = document.getElementById('variant');
+
+            variantSelect.innerHTML = '<option value="">Select Variant</option>';
+
+            const selectedBrand = brandSelect.value;
+            const selectedName = nameSelect.value;
+
+            if (selectedBrand && selectedName) {
+                fetch(`/${currentVehicleType}s/get_models/?category=${selectedBrand}&name=${selectedName}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(model => {
+                            const option = document.createElement('option');
+                            option.value = model;
+                            option.textContent = model;
+                            variantSelect.appendChild(option);
+                        });
+                    });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const vehicleTypeRadios = document.querySelectorAll('input[name="vehicleType"]');
+            const searchTypeSelect = document.getElementById('searchType');
+            const brandSelect = document.getElementById('brand');
+            const nameSelect = document.getElementById('model');
+
+            vehicleTypeRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    selectVehicleType(this.value);
+                });
+            });
+
+            searchTypeSelect.addEventListener('change', updateSearchOptions);
+            brandSelect.addEventListener('change', updateCarNameOptions);
+            nameSelect.addEventListener('change', updateCarModelOptions);
+
+            updateSearchOptions();
+        });
+
+        function handleSubmit(event) {
+            // Allow form to submit normally - remove preventDefault
+            console.log('Form submitted');
+        }
+
+        document.getElementById('vehicleSearchForm').addEventListener('submit', handleSubmit);
+    </script>
+
+    <!-- Search Start -->
+    <script>
+        document.getElementById('car-category').addEventListener('change',function() {
+            var category = this.value;
+            var nameSelect = document.getElementById('car-name1');
+            var modelSelect = document.getElementById('car-model1');
+
+            nameSelect.innerHTML = '<option selected="true" disabled="disabled">Name</option>'
+            modelSelect.innerHTML = '<option selected="true" disabled="disabled">Model</option>'
+
+            // fetch(`cars/get_names/?category=${category}`)
+            //     .then(response => response.json())
+            //     .then (data => {
+            //         data.forEach(function(name){
+            //             var option = document.createElement('option');
+            //             option.value = name;
+            //             option.text = name;
+            //             nameSelect.appendChild(option)
+            //             console.log(option)
+            //         });
+            //     });
+            fetch(`cars/get_names/?category=${category}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                data.forEach(function(name) {
+                    var option = document.createElement('option');
+                    option.value = name;
+                    option.text = name;
+                    nameSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+        });
+
+        document.getElementById('car-name').addEventListener('change',function(){
+            var category = document.getElementById('car-category').value;
+            var name = this.value;
+            var modelSelect = document.getElementById('car-model');
+
+            modelSelect.innerHTML = '<option selected="true" disabled="disabled">Model</option>'
+
+            fetch(`cars/get_models/?category=${category}&name=${name}`)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(function(model){
+                        var option = document.createElement('option');
+                        option.value = model;
+                        option.text = model;
+                        modelSelect.appendChild(option);
+                    });
+                });
+        });
+    </script>
+    <!-- Search Ends -->
+
+
+    <!-- petrol Pump -->
+    <script>
+        document.getElementById('state-select').addEventListener('change', function() {
+            var state = this.value;
+            var citySelect = document.getElementById('city-select');
+
+            fetch(`cars/get_cities/?state=${state}`)
+                .then(response => response.json())
+                .then(data => {
+                    citySelect.innerHTML = '<option selected="true" disabled="disabled">Select City</option>';
+                    data.forEach(function(city) {
+                        var option = document.createElement('option');
+                        option.value = city;
+                        option.text = city;
+                        citySelect.appendChild(option);
+                    });
+                });
+        });
+    </script>
+    <!-- Petrol Pump End -->
+
+
+    <!--
+     Start -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categorySelects = ['car-category1', 'car-category2'];
+            const nameSelects = ['car-name1', 'car-name2'];
+            const modelSelects = ['car-model1', 'car-model2'];
+
+            categorySelects.forEach((categoryId, index) => {
+                const categorySelect = document.getElementById(categoryId);
+                const nameSelect = document.getElementById(nameSelects[index]);
+                const modelSelect = document.getElementById(modelSelects[index]);
+
+                categorySelect.addEventListener('change', function() {
+                    const category = this.value;
+                    fetch(`/cars/get_names/?category=${encodeURIComponent(category)}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            populateSelect(nameSelect, data, 'Select Car Model');
+                            modelSelect.innerHTML = '<option value="" selected disabled>Select Car Variant</option>';
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+
+                nameSelect.addEventListener('change', function() {
+                    const category = categorySelect.value;
+                    const name = this.value;
+                    fetch(`/cars/get_models/?category=${encodeURIComponent(category)}&name=${encodeURIComponent(name)}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            populateSelect(modelSelect, data, 'Select Car Variant');
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            });
+
+            function populateSelect(selectElement, options, defaultText) {
+                selectElement.innerHTML = `<option value="" selected disabled>${defaultText}</option>`;
+                options.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option;
+                    optionElement.textContent = option;
+                    selectElement.appendChild(optionElement);
+                });
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categorySelects = ['bike-category1', 'bike-category2'];
+            const nameSelects = ['bike-name1', 'bike-name2'];
+            const modelSelects = ['bike-model1', 'bike-model2'];
+
+            categorySelects.forEach((categoryId, index) => {
+                const categorySelect = document.getElementById(categoryId);
+                const nameSelect = document.getElementById(nameSelects[index]);
+                const modelSelect = document.getElementById(modelSelects[index]);
+
+                categorySelect.addEventListener('change', function() {
+                    const category = this.value;
+                    fetch(`/bikes/get_names/?category=${encodeURIComponent(category)}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            populateSelect(nameSelect, data, 'Select Bike Model');
+                            modelSelect.innerHTML = '<option value="" selected disabled>Select Bike Variant</option>';
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+
+                nameSelect.addEventListener('change', function() {
+                    const category = categorySelect.value;
+                    const name = this.value;
+                    fetch(`/bikes/get_models/?category=${encodeURIComponent(category)}&name=${encodeURIComponent(name)}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            populateSelect(modelSelect, data, 'Select Bike Variant');
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            });
+
+            function populateSelect(selectElement, options, defaultText) {
+                selectElement.innerHTML = `<option value="" selected disabled>${defaultText}</option>`;
+                options.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option;
+                    optionElement.textContent = option;
+                    selectElement.appendChild(optionElement);
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle form submission
+            document.getElementById('vehicleSearchForm').addEventListener('submit', function(e) {
+                const vehicleType = document.querySelector('input[name="vehicleType"]:checked').value;
+                const searchType = document.getElementById('searchType').value;
+                
+                // Set the correct action URL based on vehicle type
+                if (vehicleType === 'car') {
+                    this.action = '/search/';
+                } else if (vehicleType === 'bike') {
+                    this.action = '/search/';
+                }
+                
+                // The form will submit normally to the search_redirect view
+                // which will handle the redirection to the appropriate search page
+            });
+            
+            // Handle search type change
+            document.getElementById('searchType').addEventListener('change', function() {
+                const budgetFields = document.getElementById('budgetSearchFields');
+                const brandFields = document.getElementById('brandSearchFields');
+                
+                if (this.value === 'budget') {
+                    budgetFields.style.display = 'block';
+                    brandFields.style.display = 'none';
+                } else {
+                    budgetFields.style.display = 'none';
+                    brandFields.style.display = 'block';
+                }
+            });
+            
+            // Handle vehicle type change
+            document.querySelectorAll('input[name="vehicleType"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    populateSearchOptions(this.value);
+                });
+            });
+            
+            // Initialize search options
+            populateSearchOptions('car');
+        });
+        
+        function populateSearchOptions(vehicleType) {
+            const apiUrl = vehicleType === 'car' ? '/cars/get_categories/' : '/bikes/get_categories/';
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(categories => {
+                    // Populate budget brand dropdown
+                    const budgetBrand = document.getElementById('budgetBrand');
+                    budgetBrand.innerHTML = '<option value="">Select Brand</option>';
+                    categories.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category;
+                        option.textContent = category;
+                        budgetBrand.appendChild(option);
+                    });
+                    
+                    // Populate brand dropdown
+                    const brand = document.getElementById('brand');
+                    brand.innerHTML = '<option value="">Select Brand</option>';
+                    categories.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category;
+                        option.textContent = category;
+                        brand.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching categories:', error));
+                
+            // Populate budget range options
+            const budgetRange = document.getElementById('budgetRange');
+            budgetRange.innerHTML = `
+                <option value="">Select Budget Range</option>
+                <option value="1-3">1 - 3 Lakhs</option>
+                <option value="3-5">3 - 5 Lakhs</option>
+                <option value="5-8">5 - 8 Lakhs</option>
+                <option value="8-12">8 - 12 Lakhs</option>
+                <option value="12-20">12 - 20 Lakhs</option>
+                <option value="20-30">20 - 30 Lakhs</option>
+                <option value="30+">30+ Lakhs</option>
+            `;
+        }
+    </script>
+
+    <!-- Mobile Dropdown JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add dropdown toggles to sidebar items with submenus
+            const sidebarItems = document.querySelectorAll('.sidebar li');
+            
+            sidebarItems.forEach(item => {
+                const submenu = item.querySelector('ul');
+                if (submenu) {
+                    // Create dropdown toggle button
+                    const toggle = document.createElement('button');
+                    toggle.className = 'dropdown-toggle';
+                    toggle.innerHTML = '▼';
+                    toggle.setAttribute('aria-expanded', 'false');
+                    
+                    // Add click event to the toggle button only
+                    toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isExpanded = item.classList.contains('dropdown-active');
+
+    // Close all dropdowns first
+    document.querySelectorAll('.sidebar li').forEach(li => {
+        li.classList.remove('dropdown-active');
+    });
+
+    document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+    });
+
+    // If it was NOT open, open it
+    if (!isExpanded) {
+        item.classList.add('dropdown-active');
+        toggle.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
+    }
+});
+
+                    
+                    // Append toggle to the link
+                    const link = item.querySelector('a');
+                    if (link) {
+                        item.insertBefore(toggle, item.querySelector('ul'));
+                    }
+                }
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.sidebar li')) {
+                    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                        toggle.setAttribute('aria-expanded', 'false');
+                        toggle.classList.remove('active');
+                    });
+                    document.querySelectorAll('.sidebar li').forEach(item => {
+                        item.classList.remove('dropdown-active');
+                    });
+                }
+            });
+            
+            // Handle hover for desktop
+            
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                const isMobile = window.innerWidth <= 768;
+                sidebarItems.forEach(item => {
+                    const toggle = item.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.style.display = isMobile ? 'inline-block' : 'none';
+                    }
+                });
+                
+                // Reset dropdown states on resize
+                if (!isMobile) {
+                    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                        toggle.setAttribute('aria-expanded', 'false');
+                        toggle.classList.remove('active');
+                    });
+                    document.querySelectorAll('.sidebar li').forEach(item => {
+                        item.classList.remove('dropdown-active');
+                    });
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% block title %}Top Automobile Engineering Colleges{% endblock %}
+{% block content %}
+    {% load static %}
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: #d7e4ef;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff !important;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #000 !important;
+            font-size: 1.5rem !important;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .content {
+            padding: 20px 0;
+        }
+        .college-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .college-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .college-header {
+            background-color: #ffffff;
+            color: #000;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .college-body {
+            padding: 20px;
+        }
+        .college-info {
+            margin-bottom: 10px;
+        }
+        .college-label {
+            font-weight: bold;
+            color: #444;
+        }
+        .college-details {
+            background-color: #eef1f5;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        .section-title {
+            color: #000;
+            border-bottom: 2px solid #d7e4ef;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+.search-container {
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(99, 141, 173, 0.1);
+    border-radius: 10px;
+    border: 1px solid #d7e4ef;
+}
+.search-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #d7e4ef;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.search-box:focus {
+    border-color: #f74e2a;
+}
+.search-button {
+    padding: 12px 30px;
+    min-width: 120px;
+    background: #d7e4ef;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.search-button:hover {
+    background: #d7e4ef;
+}
+.pagination-container {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+.pagination {
+    display: inline-flex;
+    gap: 5px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.pagination a, .pagination span {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #d7e4ef;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.pagination a:hover {
+    background: #d7e4ef;
+    color: white;
+    border-color: #d7e4ef;
+}
+.pagination .current {
+        background: #d7e4ef;
+        color: #444;
+        border-color: #f74e2a;
+    }
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 18px;
+}
+    </style>
+
+    <div class="content-wrapper">
+        <header>
+            <h1>Top Automobile Engineering Colleges in India</h1>
+        </header>
+
+        <div class="content">
+            <section id="about">
+                <h2 class="section-title">About Automobile Engineering</h2>
+                <p>Automobile Engineering is a dynamic branch of engineering focusing on the design, manufacturing, and operation of automobiles. India's booming automobile industry offers exciting career prospects and innovative challenges for aspiring engineers in this field.</p>
+            </section>
+
+            <div class="search-container">
+                <form method="GET" action="">
+                    <div style="display: flex; gap: 10px; justify-content: center; align-items: center;">
+                        <input type="text" 
+                               name="search" 
+                               class="search-box" 
+                               placeholder="Search colleges by name, location, or details..." 
+                               value="{{ search_query }}">
+                        <button type="submit" class="search-button">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <section id="colleges">
+                <h2 class="section-title">Premier Automobile Engineering Institutions</h2>
+                {% if colleges %}
+                    <div class="college-grid">
+                        {% for college in colleges %}
+                            <div class="college-card">
+                                <div class="college-header">
+                                    {{ college.name }}
+                                </div>
+                                <div class="college-body">
+                                    <div class="college-info">
+                                        <span class="college-label">Location:</span> {{ college.location }}
+                                    </div>
+                                    <div class="college-info">
+                                        <span class="college-label">Placement Rate:</span> {{ college.placement_percentage }}
+                                    </div>
+                                    <div class="college-info">
+                                        <span class="college-label">Avg. Package:</span> ₹{{ college.average_package }}
+                                    </div>
+                                    <div class="college-details">
+                                        <div class="college-info">
+                                            <span class="college-label">Contact Information:</span> {{ college.contact_details }}
+                                        </div>
+                                        <div class="college-info">
+                                            <span class="college-label">Industry Collaborations:</span> {{ college.industry_interface }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    {% if colleges.has_other_pages %}
+                        <div class="pagination-container">
+                            <div class="pagination">
+                                {% if colleges.has_previous %}
+                                    <a href="?page=1{% if search_query %}&search={{ search_query }}{% endif %}">&laquo; First</a>
+                                    <a href="?page={{ colleges.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}">&lsaquo; Previous</a>
+                                {% endif %}
+                                
+                                <span class="current">
+                                    Page {{ colleges.number }} of {{ colleges.paginator.num_pages }}
+                                </span>
+                                
+                                {% if colleges.has_next %}
+                                    <a href="?page={{ colleges.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}">Next &rsaquo;</a>
+                                    <a href="?page={{ colleges.paginator.num_pages }}{% if search_query %}&search={{ search_query }}{% endif %}">Last &raquo;</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <div class="no-results">
+                        {% if search_query %}
+                            <p>No colleges found matching "{{ search_query }}".</p>
+                            <p>Try searching with different keywords.</p>
+                        {% else %}
+                            <p>No colleges available at the moment.</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+
+{% endblock %}
+

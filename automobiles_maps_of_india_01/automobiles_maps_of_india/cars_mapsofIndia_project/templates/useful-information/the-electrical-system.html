@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% block static %}
+    <br>
+<div id="container" class="container-fluid">
+    <div class="row">
+        <div id="left-panel" class="col-md-3">
+            <!-- Google AdSense -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Add your AdSense code here -->
+        </div>
+
+        <div id="main-content" class="col-md-9">
+            <header class="mb-4">
+                <h1 class="display-4">The Electrical System</h1>
+            </header>
+
+            <div class="clearfix"></div>
+
+            <div class="content-text">
+                {% for article in articles %}
+                    <article class="mb-5">
+                        <h2 class="h3 mb-3">{{ article.title }}</h2>
+                        <div class="article-content">
+                            {{ article.content|safe }}
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #container {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+    }
+
+    #left-panel {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 1rem;
+    }
+
+    #main-content {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 2rem;
+    }
+
+    h1 {
+        color: #343a40;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 0.5rem;
+    }
+
+    h2 {
+        color: #495057;
+    }
+
+    .article-content {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #212529;
+    }
+
+    #google-ads-h1 {
+        background-color: #f1f3f5;
+        border-radius: 5px;
+        padding: 1rem;
+    }
+</style>
+
+{% endblock %}

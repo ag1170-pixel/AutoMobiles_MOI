@@ -1,0 +1,692 @@
+{
+ margin: 0;
+ padding: 0;
+}
+h1
+{ 
+ font-family: verdana;
+ font-size: 22px;
+ font-weight: bold;
+ color:#1e5bad;
+}
+
+h2
+{ 
+  font: normal 18px "Trebuchet MS";
+	color: #115198;
+	padding-left: 8px;
+	font-weight: bold;
+	display:inline;
+}
+
+h3 
+{ 
+
+ font: normal 12px "Trebuchet MS";
+	color: #000;
+	padding-left: 8px;
+	display:inline;
+}
+
+h3:hover
+{ 
+
+ font: normal 12px "Trebuchet MS";
+	color: #000;
+	padding-left: 8px;
+	display:inline;
+}
+
+body
+{
+	background-image: url("../Image/Background/bg.jpg");
+	background-repeat: repeat-x;
+	width: 95%;
+	height: 820px;
+	font-family: verdana, tahoma;
+	font-size: 11px;
+	font-weight: normal;
+}
+
+
+.header
+{
+	background-image: url(https://automobiles.mapsofindia.com/images/header.jpg);
+	background-repeat: no-repeat;
+	width: 1003px;
+	height: 100px;
+}
+
+.bannertext
+{
+	font: normal 16px "arial black";
+	color: #FFFFFF;
+	text-align:right;
+	font-weight:bold;
+	font-style:none;
+	border:none;
+}
+
+.bannertext1
+{
+	font: normal 16px "arial";
+	color: #FFFFFF;
+	text-align:right;
+	font-weight:bold;
+	font-style:none;
+}
+img,a
+{
+	order: none;
+	overflow: hidden;
+}
+
+a
+{
+ text-decoration: none;
+}
+
+a:hover,
+table#TopLinks td.AboutLinks a:hover,
+table#TopLinks td.MapsIndiaLinks a:hover,
+table.LeftNavLinks td a:hover,
+table.RightNavLinks td a:hover,
+table.BoxDetails table.BlueThickBorder td a:hover,
+table.BoxDetails td table td a:hover,
+table.BottomLinks td a:hover,
+#PetrolDetails td a:hover,
+p.moreinfo a:hover
+{
+	color: #72a0d1;
+}
+
+table#Master
+{
+	width: 1003;
+	height: auto;
+	margin: 0 auto;
+	background-color: #ffffff;
+}
+
+table tr td,
+table tr td a
+{
+	font-family: "verdana", "tahoma" ,"Trebuchet MS";
+	font-size: 12px;
+	font-weight: normal;
+	color: #000;
+}
+
+.ShortSpace,
+td.ShortSpace
+{
+	height: 4px;
+}
+
+.MedSpace,
+td.MedSpace
+{
+ height: 17px;
+}
+
+.LongSpace,
+td.LongSpace
+{
+	height: 22px;
+}
+
+#TopLinks
+{
+ margin-top: 8px;
+}
+
+.BorderNone,
+a.BorderNone,
+table#TopLinks tr td a.BorderNone,
+#NavList td a
+{
+	border: none;
+}
+
+#TopSpace
+{
+  padding: 5px 5px 0 5px;
+}
+  
+#TopLinks td a
+{
+	padding: 0 12px 0 12px;
+	border-right: 1px solid #a7a7a7;
+	height: auto;
+	height: 15px;
+	overflow: hidden;
+}
+
+td.AboutLinks
+{
+	padding: 0 0 0 30px;
+}
+
+table#TopLinks td.AboutLinks a
+{
+	color: #a7a7a7;
+	font-family: "Trebuchet MS";
+	font-size: 11px;
+	text-decoration: none;
+}
+
+td.MapsIndiaLinks
+{
+	padding: 0 20px 0 40px;
+}
+
+table#TopLinks td.MapsIndiaLinks a
+{
+ color: #123c77;
+ font-weight: bold;
+ font-size: 11px;
+ border-right: 2px solid #123c77;
+}
+
+/* Header Starts */
+div.HeadContainer
+{
+ width: 968px;
+ height: 124px;
+}
+
+div.LeftArea
+{
+ width: 467px;
+ height: 124px;
+ float: left;
+ margin: 0 0 0 0 ;
+}
+
+table#TopLinks p.BlueLeftArc
+{
+	background-image: url("../Image/Background/TopLeftArc.jpg");
+	background-repeat: no-repeat;
+	background-position: left;
+	width: 12px;
+	height: 123px;
+	float: left;
+	 margin: 0 0 0 0px;
+}
+
+table#TopLinks p.MapsIndiaLogo
+{
+
+ background-repeat: no-repeat;
+ width: 452px;
+ height: 125px;
+ float: left;
+ vertical-align:top;
+ margin: 0 0 0 0px;
+}
+
+table#TopLinks p.MapsIndiaLogo img
+{
+	margin: 20px 0 0 -10px;
+	position: relative;
+	float: left;
+}
+
+table#TopLinks p.Logo img
+{
+ position: relative;
+ z-index: 10000;
+ float:left;
+ margin: 0 0 0 30px;
+}
+
+table#TopLinks p.MapsIndiaLogo a,
+table#TopLinks p.Logo a
+{
+	height: auto;
+	border: none;
+}
+
+table#TopLinks p.Logo
+{
+	margin: -91px 0 0 45px;
+	float: left;
+	width: auto;
+	text-align: center;
+	font-weight: bold;
+}
+
+table#TopLinks p.Logo span
+{
+	width: 200px;
+	float: left;
+	margin: 0 0 0 37px;
+	padding-top: 2px;
+
+}
+
+div.HeadContainer div.RightArea
+{
+ width: 488px;	
+ height: 122px;
+ border-top: 1px solid #d4d4d4;
+ border-bottom: 1px solid #d4d4d4;
+ margin: 1px 0 0 0;
+ float: left;
+}
+
+div.HeadContainer p.Car
+{
+	width: 361px;
+	height: 173px;
+	position: absolute;
+	float: left;
+	margin: -5px 0 0 -123px;
+}		
+
+div.HeadContainer p.RightArc
+{
+ background-image: url("../Image/Background/Headerrightarc.jpg");
+ background-repeat: no-repeat;
+ background-position: left;
+ width: 13px;
+ height: 124px;
+ float: right;
+ margin: 0 0 0 0;
+ 
+}
+
+p.AllAbout
+{
+ background-image: url("../Image/Background/Allabout.jpg");
+ background-repeat: no-repeat;
+ background-position: right;
+ width: 231px;
+ height: 62px;
+ float: right;
+ margin: 27px 20px 0 0;
+}
+
+table#NavList td.NavLeftArc
+{
+ background-image: url("../Image/Generic/HeaderNavLeft.jpg");
+ background-repeat: no-repeat;
+ background-position: right;
+ width: 5px;
+ height: 27px;
+}
+
+table#NavList td.NavArcRepeat
+{
+ background-image: url("../Image/Background/HeaderNavRepeat.jpg");
+ background-repeat: repeat-x;
+ height: 27px;
+}
+
+table#NavList td.NavRightArc
+{
+ background-image: url("../Image/Generic/HeaderNavRight.jpg");
+ background-repeat: no-repeat;
+ height: 27px;
+}
+
+table.LeftNavLinks,
+table.RightNavLinks
+{
+	height: auto;
+	position: relative;
+	margin: 0 0 0 20px;
+}
+
+table.LeftNavLinks td,
+table.RightNavLinks td
+{
+	vertical-align: top; 
+}
+
+table.LeftNavLinks td a,
+table.RightNavLinks td a
+{
+	font-family: "Trebuchet MS";
+	font-size: 14px;
+	font-weight: bold;
+	color: #fffffe;
+}
+
+table#NavList
+{
+	margin: -1px 0 0 0;
+}
+
+#NavList td a
+{
+	border: none;
+	padding: 0;
+	margin: -2px 0 0 0;
+	overflow: hidden;
+}
+
+/* End Of Header */
+
+/* ContentArea Starts */
+
+table.BoxDetails
+{
+ margin-top: 9px;
+ height: auto;
+}
+
+table.BoxDetails td table.BlueThickBorder td,
+table.BoxDetails td table.BlueThickBorder td a,
+#PetrolDetails td a
+{
+	font: normal 12px "Trebuchet MS";
+	color: #000;
+	padding-left: 8px;
+}
+
+table.BoxDetails td table.BlueThickBorder td a,
+#PetrolDetails td a
+{
+	padding-left: 0;
+}
+
+.HeadingBG,
+table.BoxDetails td.HeadingBG
+{
+ background-image: url("../Image/Background/darkbluetop.jpg");
+ background-repeat: no-repeat;
+ width: 266px;
+ height: 33px;
+ font: normal 19px "Arial";
+ color: #fffffe;
+ position: relative;
+ padding: 0;
+ margin: 0;
+}
+
+table.BoxDetails table.BlueThickBorder,
+.BlueThickBorder
+{
+	border-style: solid;
+	border-color: #105097;
+	border-width: 0 8px 8px 8px;
+	width: 266px;
+}
+
+.BlueShadeStrip
+{
+ background-image: url("../Image/Background/bluestripbg.jpg");
+ background-repeat: no-repeat;
+ background-position: 5px 0;
+ width: 266px;
+ height: 20px;
+ font: 12px "Trebuchet MS";
+ color: #000;
+}
+
+span.Tips
+{
+	color: #b30c22;
+	font-weight: bold;
+}
+
+table.GreenBorder
+{
+	border: 6px solid #e1d8bb;
+	width: 336px;
+	position: relative;
+}
+
+td.PtStation
+{
+	height: 25px;
+	width: 100%;
+	background: #dfdfdf;
+	color: #1e5bad;
+	font: bold 23px "Trebuchet MS";
+	text-align: left;
+	padding-left: 10px;
+}
+
+td.PtStation a
+{
+	color: #1e5bad;
+	font: bold 23px "Trebuchet MS";
+	text-decoration: none;
+}
+
+td.PtStation a:hover {color:red;}
+
+/* Text Look and Feel Settings */
+table.Text tr td,
+p.Text,
+.Text
+{
+ font: normal 12px "Trebuchet MS";
+ color: #000;
+}
+
+table.Text
+{
+	margin: 6px 0 0 13px;
+	position: relative;
+}
+
+table.Text td
+{
+	padding-bottom: 4px;
+}
+/* End of Text Look and Feel Settings */
+
+img#PetrolImg
+{
+ margin: -51px 0 0 27px;
+ position: absolute;
+ z-index: -100;
+}
+
+table#PetrolDetails
+{
+	position: relative;
+	z-index: 0;
+}
+
+div.Text
+{
+	width: 95%;
+	padding-left: 15px;
+}
+
+div.Text span
+{
+	font-weight: bold;
+	color: #0e5096;
+}
+
+td#LocationMap
+{
+ background-image: url("../Image/Background/Locationmaps.jpg");
+ background-repeat: no-repeat;
+ width: 225px;
+ height: 260px;
+ margin: 0 0 0 0 ;
+ padding:0 0 0 5px;
+}
+
+div.LocationInfo
+{
+	margin: 80px 0 0 0;
+}
+
+div.LocationInfo p
+{
+	color: #fffffe;
+	font-size: 10px;
+	font-weight: bold; 
+	line-height: 1.5;
+	
+}
+
+div.LocationInfo p.moreinfo
+{
+	text-align: center;
+	position: absolute;
+	margin: 7px 0 0 20px;
+}
+
+div.LocationInfo p.moreinfo a
+{
+	color: #fffffe;
+	font: bold 11px arial;
+	text-decoration: none;
+}
+
+/* Maps CD Ads Start */
+table#MapCDAds
+{
+	width: 610px;
+	height: auto;
+}
+
+table#MapCDAds p
+{
+	font: normal 11px "Trebuchet MS";  
+}
+	
+table#MapCDAds table
+{
+	border-top: 1px solid #fff;
+	background: #e9edf0;
+	width: 100%;
+	margin: 0 0 0 0;
+}
+
+table#MapCDAds ul,
+table#MapCDAds ul li
+{
+ list-style-type: none;	
+ width: 610px;
+ height: 30px;
+ float: left;
+ color: #000;
+ margin: 0 10px 0 0;
+ font: bold 19px "Trebuchet MS";
+}
+
+table#MapCDAds ul li span
+{
+	font: bold 12px "Trebuchet MS";
+}
+
+table#MapCDAds ul li.MapCDLeftArc
+{
+ background-image: url("../Image/Generic/MapsCDLeftTopArc.jpg");
+ background-repeat: no-repeat;
+ width: 9px;
+ height: 30px;
+ margin: 0 0 0 0;
+}
+
+table#MapCDAds ul li.MapCDRightArc
+{
+ background-image: url("../Image/Generic/MapsCDRightTopArc.jpg");
+ background-repeat: no-repeat;
+ width: 10px;
+ height: 30px;
+ margin: 0 0 0 0;
+}
+
+table#MapCDAds ul li.Middle
+{
+	width: 590px;
+	height: 30px;
+	background: #c9d2d7;
+	font-weight: normal;
+	margin: 0 0 0 0;
+}
+
+table#MapCDAds div p.MapCDImage
+{
+	float: right;
+	position: relative;
+	margin: -137px 10px 0 -135px;
+}
+
+p.Text
+{
+	width: 410px;
+	padding-left: 10px;
+	text-align: justify;
+}
+
+p.Text span
+{
+	font: bold 17px "Trebuchet MS"; 
+}
+
+
+
+/* Maps CD Ads Ends Here */
+table.BottomLinks
+{
+	margin: 0 auto;
+}
+
+table.BottomLinks td
+{
+ padding: 16px 0 14px 0;
+}
+
+table.BottomLinks td a
+{
+	color: #646c6e;
+	font: normal 11px "Trebuchet MS"; 
+}
+
+
+/* ContentArea Ends */
+
+
+/* FooterArea Starts */
+td.FooterArc
+{
+ background-image: url("../Image/Background/Footerarc.jpg");
+ background-repeat: no-repeat;
+ width: 958px;
+ height: 6px;
+}
+
+.FooterAddress
+{
+	font-size: 11px;
+	color: #41869A;
+	line-height: 1.4;
+}
+
+.FooterAddress span
+{
+	font-weight: bold;
+}
+
+.FooterAddress a
+{
+	font-weight: bold;
+	color: #41869A;
+	font-size: 11px;
+}
+
+.text_format {font:11 verdana; padding:0 10px 0 2px;line-height:1.5;}
+
+.emi_calc { font:bold 13 verdana; padding:0 0px 0 0px;line-height:1.5; color:#1e5bad;}
+
+.emi_calc:hover {color:red ! important;}
+
+.home_car td ul li a {color:1e5bad;}
+
+.home_car td ul li a:hover {color:red;}
+
+.useful_tips{ font: normal 19px "Arial";color: #fffffe;}
+
+
+/* FooterArea Ends */

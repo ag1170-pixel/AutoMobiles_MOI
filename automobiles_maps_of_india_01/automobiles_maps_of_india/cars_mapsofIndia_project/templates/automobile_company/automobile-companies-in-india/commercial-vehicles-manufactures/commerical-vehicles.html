@@ -1,0 +1,99 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Commercial Vehicles{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    }
+
+    .intro {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    }
+
+    .manufacturers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    }
+
+    .manufacturer {
+    flex: 1 1 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    }
+
+    .vehicle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    }
+
+    .vehicle-card {
+    flex: 1 1 200px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 5px;
+    }
+
+    .price {
+    font-weight: bold;
+    color: #007bff;
+    }
+
+    .last-updated {
+    margin-top: 20px;
+    font-style: italic;
+    color: #777;
+    }
+    </style>
+
+
+    <div class="container">
+        <h1>Commercial Vehicles</h1>
+
+        <div class="intro">
+            <p>Commercial Vehicles form an essential part of the Indian automobile industry. They are manufactured in various models and designs, and are used for transporting industrial outputs and other commodities to their allocated destinations.</p>
+        </div>
+
+        <section class="manufacturers">
+            <h2>Major Commercial Vehicle Manufacturers in India</h2>
+
+            {% for manufacturer, vehicles in manufacturer_data.items %}
+                <div class="manufacturer">
+                    <h3>{{ manufacturer.name }}</h3>
+                    <p>{{ manufacturer.description }}</p>
+
+                    <h4>Popular {{ manufacturer.name }} Vehicles:</h4>
+                    <div class="vehicle-list">
+                        {% for vehicle in vehicles %}
+                            <div class="vehicle-card">
+                                <h5>{{ vehicle.model }}</h5>
+                                <ul>
+                                    {% for spec in vehicle.specifications.all %}
+                                        <li>{{ spec.name }}: {{ spec.value }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% if vehicle.price %}
+                                    <p class="price">Price: {{ vehicle.price }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+
+        <div class="last-updated">Last Updated on {{ last_updated|date:"d/m/Y" }}</div>
+    </div>
+{% endblock %}

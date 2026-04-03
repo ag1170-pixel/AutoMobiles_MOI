@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Machine Tool and Automation Expo 2012 - Coimbatore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #107196;
+            --secondary-color: #FF6B6B;
+            --bg-color: #F4F7F9;
+            --text-color: #1f83e7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #0077BE);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .event-date {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 15px;
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #FF4757;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Indian Machine Tool and Automation Expo 2012</h1>
+        <p class="event-date">June 15-17, 2012 | Coimbatore, Tamil Nadu</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="https://automobiles.mapsofindia.com/">Home</a> &raquo;
+            <a href="https://automobiles.mapsofindia.com/auto-shows/">Auto Shows</a> &raquo;
+            IMTAE 2012
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">About the Expo</div>
+                <div class="card-body">
+                    <p>The Indian Machine Tool and Automation Expo Coimbatore is a premier platform showcasing cutting-edge automation equipment and machine tools. This event brings together industry leaders, innovators, and professionals to explore the latest trends and technologies.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Exhibitor's Profile</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Automation product suppliers</li>
+                        <li>Machine tool manufacturers</li>
+                        <li>Material handling device producers</li>
+                        <li>Gearing and testing instrument providers</li>
+                        <li>Automation and machine tool service providers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Visitor's Profile</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Industry experts and engineers</li>
+                        <li>End-user community representatives</li>
+                        <li>Automation and machine tool professionals</li>
+                        <li>Potential customers and business partners</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="#" class="cta-button">Register Now</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2012 Indian Machine Tool and Automation Expo. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>

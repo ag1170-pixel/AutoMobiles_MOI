@@ -1,0 +1,879 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} | {{bike.name}} {% endblock %}
+
+{% block content %}
+
+<style>
+    :root {
+        --primary: #97b4f2;
+        --accent: #e9c791;
+        --light: #86a2e5;
+        --gray-100: #f8f9fa;
+        --gray-200: #e9ecef;
+        --gray-600: #010b14;
+        --gray-800: #93c0ed;
+        --shadow: 0 10px 30px rgba(241, 151, 151, 0.1);
+        --transition: all 0.3s ease;
+    }
+    .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    body {
+background-color: var(--gray-100);
+        font-family: 'Poppins', sans-serif;
+        color: var(--gray-800);
+    }
+    /* Main Content */
+    .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .car-content {
+        background-color: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        margin-bottom: 3rem;
+    }
+    .bike-details-page {
+        padding: 40px 0;
+    }
+    .bike-details-container {
+        background-color: #d3dbe5;
+        border-radius: 15px;
+        box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .bike-image-slider {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+    }
+    .bike-image-slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .bike-info-header {
+        background: linear-gradient(45deg, #e5e0c7, #4d7db7);
+        color: #b3c9c7;
+        padding: 20px;
+        position: relative;
+    }
+    .bike-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .bike-price {
+        font-size: 28px;
+        font-weight: 600;
+        color: #124c85;
+    }
+    .bike-location {
+        font-size: 16px;
+        margin-top: 5px;
+    }
+    .bike-details-content {
+        padding: 30px;
+    }
+    .specs-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #457bb2;
+    }
+    .specs-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+    .specs-table tr {
+        background-color: #ccd4de;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    .specs-table tr:hover {
+        background-color: #ded18f;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .specs-table th, .specs-table td {
+        padding: 15px;
+        border: none;
+    }
+    .specs-table th {
+        font-weight: 600;
+        color: #2c3e50;
+        width: 40%;
+    }
+    .specs-table td {
+        color: #34495e;
+    }
+    .btn-inquiry {
+        background: linear-gradient(45deg, #a7c2d5, #2980b9);
+        color: #ffffff;
+        border: none;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+    }
+    .btn-inquiry:hover {
+        background: linear-gradient(45deg, #2980b9, #3498db);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+    .bike-details-container{
+        border: 3px solid #becbd9;
+        border-radius: 5px;
+        padding: 15px;
+    }
+    .containers {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 2px solid white;
+        background-color: #e5edf8;
+    }
+    #inquiryModal .modal-content
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    #inquiryModal .modal-header {
+        background: linear-gradient(45deg, #3498db, #2c3e50);
+        color: white;
+        border-bottom: none;
+        padding: 20px;
+    }
+
+    #inquiryModal .modal-header img {
+        max-height: 50px;
+    }
+
+    #inquiryModal .close {
+        color: white;
+        opacity: 1;
+    }
+
+    #inquiryModal .modal-body {
+        padding: 30px;
+    }
+
+    #inquiryModal .form-group {
+        margin-bottom: 20px;
+    }
+
+    #inquiryModal label {
+        font-weight: 600;
+        color: #34495e;
+        margin-bottom: 8px;
+    }
+
+    #inquiryModal .form-control {
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        padding: 12px;
+        transition: all 0.3s ease;
+    }
+
+    #inquiryModal .form-control:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+
+    #inquiryModal select.form-control {
+        height: auto;
+        padding: 12px;
+    }
+
+    #inquiryModal textarea.form-control {
+        min-height: 100px;
+    }
+
+    #inquiryModal .btn-submit {
+        background-color: #ffffff;
+        color: #444;
+        border:2px solid #444;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: var(--transition);
+        width: 100%;
+    }
+
+    #inquiryModal .btn-submit:hover {
+        background-color: #444;
+        color:#ffffff;
+        transform: translateY(-3px);
+    }
+    .car-hero-image-wrapper{
+        width:100%;
+        text-align:center;
+    }
+    .send-inquiry-btn{
+        background-color:#ffffff !important;
+        color:#444 !important;
+    }
+    .content-details-container{
+        background-color:#d7e4ef;
+        width:85%;
+        padding: 1rem 20rem;
+      margin-top:5vmin;
+    }
+    .price-and-loc-container{
+        display:flex;
+        align-items:center;
+        justify-content:space-evenly;
+    }
+    .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+.car-hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 4px rgba(247, 125, 125, 0.3);
+        text-align: center;
+    }
+
+    .car-hero-price {
+        font-size: 2rem;
+        font-weight: 600;
+        color: black;
+        margin-left: 50px;
+
+    }
+
+    .car-hero-location {
+        font-size: 1.5rem;
+        color: #f0151f;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 50px;
+
+    }
+        .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .breadcrumb-container {
+        position: absolute;
+        top: 2rem;
+        left: 10%;
+        z-index: 10;
+    }
+
+    .breadcrumb {
+        background: rgba(241, 176, 176, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        margin: 0;
+    }
+
+    .breadcrumb-item {
+        font-size: 0.9rem;
+        color: var(--gray-200);
+    }
+
+    .breadcrumb-item a {
+        color: var(--light);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+.car-hero {
+        position: relative;
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+
+    .car-hero-image {
+    width: 85%;
+    height: 75%;
+    object-fit: cover;
+    margin:0 auto;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+    .breadcrumb-item a:hover {
+        color: var(--accent);
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: "›";
+        color: var(--gray-200);
+    }
+
+    .car-content {
+        background-color: var(--light);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        margin-bottom: 3rem;
+    }
+
+      .main-tabs {
+        background-color:#F1F8F9;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .main-tab-item {
+        padding: 1rem 2rem;
+        color: black;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 500;
+        border-bottom: 3px solid transparent;
+    }
+
+    .main-tab-item.active {
+        color: black;
+        border-bottom: 3px solid black;
+    }
+
+    .main-tab-item:hover:not(.active) {
+        color: grey;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .tab-content {
+        padding: 2.5rem;
+    }
+   .car-hero-image {
+    width: 85%;
+    height: 75%;
+    object-fit: cover;
+    margin:0 auto;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+.car-hero {
+        position: relative;
+        margin-bottom: 2rem;
+        overflow: hidden;
+    }
+    .specs-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+        color: var(--primary);
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background-color: var(--accent);
+    }
+
+    /* Specifications Table */
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .spec-card {
+        background-color: var(--gray-100);
+        border-radius: 10px;
+        padding: 1.25rem;
+        transition: var(--transition);
+    }
+
+    .spec-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(239, 237, 237, 0.05);
+    }
+
+    .spec-label {
+        font-size: 1.1rem;
+        color: #010b14;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+
+    }
+.image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    .spec-value {
+       font-size: 0.9rem;
+    font-weight: 500;
+        color: var(--primary);
+    }
+
+    /* Key Features */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background-color: var(--gray-100);
+        border-radius: 8px;
+        transition: var(--transition);
+    }
+
+    .feature-item:hover {
+        background-color: #599adc;
+    }
+
+    .feature-item:hover .feature-text {
+        color: var(--light);
+    }
+
+    .feature-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #d7e4ef;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.25rem;
+    }
+.feature-icon i{
+    color: #666;
+}
+    .feature-text {
+        font-weight: 1.2rem;
+        transition: var(--transition);
+        font-weight: bold;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: #d7e4ef;
+        border-radius: 12px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .cta-title {
+        color: #000;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .cta-text {
+        color: #000;
+        margin-bottom: 1.5rem;
+        max-width: 600px;
+    }
+
+    .btn-primary {
+        background-color: var(--accent);
+        color: var(--primary);
+        border: 1px solid #666 !important;
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+        padding: 0.9rem 2.4rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+.btn-outline:hover{
+    border:1px solid #666;
+    background:#ffffff;
+}
+
+    /* Inquiry Modal */
+    #inquiryModal .modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    #inquiryModal .modal-header {
+        background-color: var(--primary);
+        color: var(--light);
+        border-bottom: none;
+        padding: 1.5rem;
+        position: relative;
+    }
+
+    #inquiryModal .modal-header img {
+        max-height: 50px;
+    }
+
+    #inquiryModal .modal-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #444 !important;
+        margin: 0 auto;
+    }
+
+    #inquiryModal .close {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        color: var(--gray-200);
+        opacity: 0.8;
+        font-size: 1.5rem;
+        transition: var(--transition);
+        padding: 0;
+        margin: 0;
+    }
+
+    #inquiryModal .close:hover {
+        color: var(--light);
+        opacity: 1;
+    }
+
+    #inquiryModal .modal-body {
+        padding: 2rem;
+    }
+
+    #inquiryModal .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    #inquiryModal label {
+        font-weight: 500;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+    }
+
+    #inquiryModal .form-control {
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        transition: var(--transition);
+    }
+
+    #inquiryModal .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(20, 33, 61, 0.2);
+    }
+
+    #inquiryModal .form-select {
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        transition: var(--transition);
+        height: auto;
+    }
+
+    #inquiryModal textarea.form-control {
+        min-height: 120px;
+    }
+
+    #inquiryModal .btn-submit {
+        background-color: var(--accent);
+        color: var(--primary);
+        border: none;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: var(--transition);
+        width: 100%;
+    }
+
+    #inquiryModal .btn-submit:hover {
+        background-color: #e59100;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(252, 163, 17, 0.4);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .car-hero {
+            height: 400px;
+        }
+        .car-hero-title {
+            font-size: 2rem;
+        }
+        .specs-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .car-hero {
+            height: 350px;
+        }
+        .car-hero-overlay {
+            padding: 2rem 5%;
+        }
+        .car-hero-title {
+            font-size: 2rem;
+        }
+        .car-hero-price {
+            font-size: 1rem !important;
+        }
+        .breadcrumb-container {
+            left: 5%;
+        }
+        .tab-content {
+            padding: 1.5rem;
+        }
+        .main-tab-item {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        .specs-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .car-hero-title {
+            font-size: 1.75rem;
+        }
+        .cta-title {
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+        }
+    }
+    .car-hero-image-wrapper{
+        width:100%;
+        text-align:center;
+    }
+    .send-inquiry-btn{
+        background-color:#ffffff !important;
+        color:#444 !important;
+    }
+    .content-details-container{
+        background-color:#F1F8F9;
+        width:85%;
+        padding: 1rem 20rem ;
+      margin-top:5vmin;
+    }
+    .price-and-loc-container{
+        display:flex;
+        align-items:center;
+        justify-content:space-evenly;
+    }
+     .image-container {
+    width: 49% ;
+    line-height: 0;
+}
+</style>
+
+
+{% comment %} <div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>{{bike.categoryBike}}</h1>
+            <ul class="breadcrumbs">
+                <li><a href="/">Home</a></li>
+                <li class="active">{{bike.categoryBike}}</li>
+            </ul>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+<section class="car-hero">
+    <div class="car-hero-image-wrapper">
+        {% if bike.image %}
+            <img src="{{ bike.image.url }}" alt="{{bike.categoryBike}} {{bike.name}}" class="car-hero-image">
+        {% else %}
+            {% if 'Kawasaki' in bike.Bikename %}
+                <img src="{% static 'img/bikes/compare_bikes.jpg' %}" alt="{{bike.categoryBike}} {{bike.name}}" class="car-hero-image">
+            {% elif 'Royal' in bike.Bikename %}
+                <img src="{% static 'img/car-4.jpg' %}" alt="{{bike.categoryBike}} {{bike.name}}" class="car-hero-image">
+            {% elif 'Honda' in bike.Bikename %}
+                <img src="{% static 'img/car-6.jpg' %}" alt="{{bike.categoryBike}} {{bike.name}}" class="car-hero-image">
+            {% else %}
+                <img src="{% static 'img/car-2.jpg' %}" alt="{{bike.categoryBike}} {{bike.name}}" class="car-hero-image">
+            {% endif %}
+        {% endif %}
+    </div>
+        <!-- <div class="breadcrumb-container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">{{single_car.category}}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{single_car.name}}</li>
+                </ol>
+            </nav>
+        </div> -->
+        <div class="content-container content-details-container">
+            <!-- <div class="car-content"> -->
+        <h1 class="bike-title car-hero-title">{{bike.categoryBike}} {{bike.name}}</h1>
+<div class="price-and-loc-container">
+            <div class="car-hero-price">₹ {{bike.price | intcomma}} L</div>
+        <div class="car-hero-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{bike.manufac_place}}</span>
+            <!-- </div> -->
+            </div>
+</div>
+        </div>
+</section>
+
+
+<div class="content-container">
+    <div class="car-content">
+        <ul class="main-tabs">
+            <li class="main-tab-item active">Specifications</li>
+            <li class="main-tab-item">Features</li>
+            <li class="main-tab-item">Gallery</li>
+        </ul>
+        
+        <div class="tab-content">
+            <div class="specs-section">
+                <h2 class="section-title">Bike Specifications</h2>
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-label">Model</div>
+                        <div class="spec-value">{{ bike.model|default:"Not Available" }}</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Wheelbase</div>
+                        <div class="spec-value">{{ bike.wheelbase|default:"Not Available" }}</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Tyres</div>
+                        <div class="spec-value">{{ bike.type|default:"Not Available" }}</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Trunk Capacity</div>
+                        <div class="spec-value">{{ bike.trunk|default:"Not Available" }}</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Fuel Tank Capacity</div>
+                        <div class="spec-value">{{ bike.tank|default:"Not Available" }}</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Engine</div>
+                        <div class="spec-value">
+                            {% if bike.engine_capacity %}{{ bike.engine_capacity }}{% endif %}
+                            {% if bike.engine_type %}{{ bike.engine_type }}{% endif %}
+                            {% if not bike.engine_capacity and not bike.engine_type %}Not Available{% endif %}
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Transmission</div>
+                        <div class="spec-value">{% if bike.gears %}{{ bike.gears }}-gear{% else %}Not Available{% endif %}</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-label">Fuel Economy</div>
+                        <div class="spec-value">{{ bike.fueleconomy|default:"Not Available" }}</div>
+                    </div>
+                    {% if bike.speed %}
+                    <div class="spec-card">
+                        <div class="spec-label">Top Speed</div>
+                        <div class="spec-value">{{ bike.speed }}</div>
+                    </div>
+                    {% endif %}
+                    <div class="spec-card">
+                        <div class="spec-label">Manufacturer</div>
+                        <div class="spec-value">{{ bike.manufacturer|default:"Not Available" }}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specs-section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">{{ bike.features | safe }}</div>
+                    </div>
+                </div>
+            </div>
+             <div class="specs-section">
+                <h2 class="section-title">Description</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">{{ bike.Vehicle_overview | safe|default:"Not Available" }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2 class="cta-title">Interested in {{bike.categoryBike}} {{bike.Bikename}}?</h2>
+        <p class="cta-text">Send us an inquiry and our team will get in touch with you to arrange a test drive or provide more information about this vehicle.</p>
+        <div class="d-flex gap-3">
+            <button class="btn btn-primary send-inquiry-btn" data-toggle="modal" data-target="#inquiryModal">
+                <i class="fas fa-envelope me-2"></i> Send Inquiry
+            </button>
+            <button class="btn btn-outline">
+                <i class="fas fa-phone-alt me-2"></i> Call Dealer
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

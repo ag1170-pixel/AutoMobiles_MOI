@@ -1,0 +1,225 @@
+{#{% load static %}#}
+{##}
+{#<style>#}
+{#.petrol-pump-image-container {#}
+{#    width: 100%;#}
+{#    height: 0;#}
+{#    position: relative;#}
+{#    overflow: hidden;#}
+{#    border-radius: 1px;#}
+{#    box-shadow: 0 4px 4px rgba(0,0,0,0.1);#}
+{#}#}
+{##}
+{#.petrol-pump-image {#}
+{#    position: absolute;#}
+{#    top: 0;#}
+{#    left: 5%;#}
+{#    width: 90%;#}
+{#    height:65%;#}
+{#    object-fit: cover;#}
+{#    transition: transform 0.3s ease;#}
+{#    border: 4px solid #0b61bd;#}
+{#}#}
+{##}
+{#.petrol-pump-image-container:hover .petrol-pump-image {#}
+{#    transform: scale(1.05);#}
+{#}#}
+{#.card-container {#}
+{#    background: linear-gradient(135deg, #7099c7, #a4c0be);#}
+{#    border-radius: 15px;#}
+{#    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);#}
+{#    padding: 30px;#}
+{#    margin-top: 20px;#}
+{#}#}
+{#.card-title {#}
+{#    color: #ffffff;#}
+{#    font-size: 24px;#}
+{#    font-weight: bold;#}
+{#    margin-bottom: 20px;#}
+{#    text-align: center;#}
+{#    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);#}
+{#}#}
+{#.form-group {#}
+{#    margin-bottom: 25px;#}
+{#}#}
+{#.form-control {#}
+{#    border-radius: 10px;#}
+{#    padding: 12px;#}
+{#    border: none;#}
+{#    box-shadow: 0 4px 6px rgba(0,0,0,0.1);#}
+{#    transition: all 0.3s ease;#}
+{#}#}
+{#.form-control:focus {#}
+{#    box-shadow: 0 6px 8px rgba(0,0,0,0.15);#}
+{#    transform: translateY(-2px);#}
+{#}#}
+{#.btn-filter {#}
+{#    background-color: #700c23;#}
+{#    color: #010611;#}
+{#    font-weight: bold;#}
+{#    padding: 12px 20px;#}
+{#    border-radius: 10px;#}
+{#    border: none;#}
+{#    transition: all 0.3s ease;#}
+{#    box-shadow: 0 4px 6px rgba(0,0,0,0.1);#}
+{#}#}
+{#.btn-filter:hover {#}
+{#    background-color: #eee7e7;#}
+{#    transform: translateY(-2px);#}
+{#    box-shadow: 0 6px 8px rgba(0,0,0,0.15);#}
+{#}#}
+{#.icon-container {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    margin-bottom: 20px;#}
+{#}#}
+{#.icon-circle {#}
+{#    background-color: #f1eaea;#}
+{#    border-radius: 50%;#}
+{#    width: 80px;#}
+{#    height: 80px;#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    align-items: center;#}
+{#    box-shadow: 0 4px 6px rgba(0,0,0,0.1);#}
+{#}#}
+{#.fa-gas-pump {#}
+{#    color: #7099c7;#}
+{#    font-size: 40px;#}
+{#}#}
+{#.main-container {#}
+{#    display: flex;#}
+{#    justify-content: space-between;#}
+{#    align-items: flex-start;#}
+{#    margin-top: 10px;#}
+{#}#}
+{##}
+{#.image-container {#}
+{#    width:45%;#}
+{#    line-height: 0;#}
+{#}#}
+{##}
+{#.form-container {#}
+{#    width: 50%;#}
+{#}#}
+{##}
+{#</style>#}
+{#<br>#}
+{##}
+{##}
+{#<div class="container">#}
+{#    <h1 class="comparison-title text-center mb-4">Petrol Pump Finder</h1>#}
+{##}
+{#    <div class="main-container">#}
+{#        <!-- Left container for image -->#}
+{#        <div class="image-container">#}
+{#            <div class="petrol-pump-image-container">#}
+{#                <img src="{% static 'img/petrolpump.jpg' %}" alt="Petrol Pump Image" class="petrol-pump-image">#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <!-- Right container for form -->#}
+{#        <div class="form-container">#}
+{#            <div class="card-container">#}
+{#                <div class="icon-container">#}
+{#                    <div class="icon-circle">#}
+{#                        <i class="fas fa-gas-pump"></i>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <h5 class="card-title">Find Your Nearest Petrol Pump</h5>#}
+{#                <form id="petrol-pump-form" action="{% url 'petrol_pump_search' %}" method="get">#}
+{#                    <div class="form-group">#}
+{#                        <select class="form-control search-fields" name="state" id="state-select">#}
+{#                            <option value="" selected disabled>Select State</option>#}
+{#                            {% for state in state_search %}#}
+{#                                <option value="{{ state }}">{{ state }}</option>#}
+{#                            {% endfor %}#}
+{#                        </select>#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group">#}
+{#                        <select class="form-control search-fields" name="city" id="city-select">#}
+{#                            <option value="" selected disabled>Select City</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{##}
+{#                    <button type="submit" class="btn btn-block btn-filter">#}
+{#                        <i class="fa fa-filter"></i> Find Petrol Pumps#}
+{#                    </button>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#    document.addEventListener('DOMContentLoaded', function() {#}
+{#        var stateSelect = document.getElementById('state-select');#}
+{#        var citySelect = document.getElementById('city-select');#}
+{##}
+{#        if (stateSelect && citySelect) {#}
+{#            stateSelect.addEventListener('change', function() {#}
+{#                var state = this.value;#}
+{##}
+{#                fetch(`/cars/get_cities/?state=${encodeURIComponent(state)}`)#}
+{#                    .then(response => response.json())#}
+{#                    .then(data => {#}
+{#                        citySelect.innerHTML = '<option value="" selected disabled>Select City</option>';#}
+{#                        data.forEach(function(city) {#}
+{#                            var option = document.createElement('option');#}
+{#                            option.value = city;#}
+{#                            option.textContent = city;#}
+{#                            citySelect.appendChild(option);#}
+{#                        });#}
+{#                    })#}
+{#                    .catch(error => console.error('Error:', error));#}
+{#            });#}
+{#        }#}
+{#    });#}
+{#</script>#}
+{##}
+{##}
+
+
+        {#<div class="container">#}
+        {#    <h1 class="comparison-title text-center mb-4">Petrol Pump Finder</h1>#}
+        {##}
+        {#    <div class="row">#}
+        {#        <!-- Left column for image -->#}
+        {#        <div class="col-md-5">#}
+        {#            <img src="{% static 'img/petrolpump.jpg' %}" alt="Petrol Pump Image" class="img-fluid petrol-pump-image">#}
+        {#        </div>#}
+        {##}
+        {#        <!-- Center column for petrol pump form -->#}
+        {#        <div class="col-md-6">#}
+        {#            <div class="card" style="background-color: #bbd8f5;">#}
+        {#                <div class="card-body">#}
+        {#                    <h5 class="card-title">Search Petrol Pump</h5>#}
+        {#                    <form id="petrol-pump-form" action="{% url 'petrol_pump_search' %}" method="get">#}
+        {#                        <div class="form-group">#}
+        {#                            <select class="form-control search-fields" name="state" id="state-select">#}
+        {#                                <option value="" selected disabled>Select State</option>#}
+        {#                                {% for state in state_search %}#}
+        {#                                    <option value="{{ state }}">{{ state }}</option>#}
+        {#                                {% endfor %}#}
+        {#                            </select>#}
+        {#                        </div>#}
+        {##}
+        {#                        <div class="form-group">#}
+        {#                            <select class="form-control search-fields" name="city" id="city-select">#}
+        {#                                <option value="" selected disabled>Select City</option>#}
+        {#                            </select>#}
+        {#                        </div>#}
+        {#                        <div class="form-group"></div>#}
+        {#                        <button type="submit" class="btn btn-block button-theme btn-md" style="background-color: #7099c7; color: black; font-weight: bold;">#}
+        {#                            <i class="fa fa-filter"></i> Filter#}
+        {#                        </button>#}
+        {#                    </form>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#    </div>#}
+        {#</div>#}
+
+
+{

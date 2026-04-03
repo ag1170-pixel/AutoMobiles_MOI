@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Car Manufacturers{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mb-5">Car Manufacturers</h1>
+        <p>The Indian car industry has undergone tremendous change in recent times in terms of innovative designs, concepts and technology.
+            The efforts of the car manufacturers in India also started reflecting in the sales figures.
+            In 2009, the festive season brought cheers in the car market for major players like Honda Siel Cars India (HSCI), General Motors India (GMI) and Hyundai India boosting their sales records.
+            The trend is still ticking in the same spirit and the year 2010 is also expected to yield good results for the automobile industry in India with touching 10 to 12% growth.</p>
+        <p>There are some of the car manufacturing companies in India like Toyota, Hyundai, Maruti Suzuki, Ford and Skoda which hope to make it big in next few years.
+            These and other major players such as M&M and Hindustan Motors are devising new techniques to accelerate growth.
+            Many of them have already launched the new luxury to economic class car models in India and many others are in the process to tap the market with their new offerings.</p>
+        <p>To know what the top car manufacturing companies of India have offered us so far and what are their future plans, you can read below.</p>
+
+{#        <div id="loading" class="text-center">#}
+{#            <div class="spinner-border" role="status">#}
+{#                <span class="sr-only">Loading...</span>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="row" id="manufacturersList">
+            <!-- Manufacturers will be dynamically inserted here -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .manufacturer-logo {
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 15px;
+        }
+        .car-model:hover {
+            background-color: #f1f3f5;
+        }
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        const manufacturers = JSON.parse('{{ manufacturers_json|safe }}');
+
+        function createManufacturerCard(manufacturer) {
+            const fields = manufacturer.fields;
+            return `
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="${fields.logo}" alt="${fields.name} logo" class="manufacturer-logo lazy" data-src="${fields.logo}">
+                        <h5 class="card-title">${fields.name}</h5>
+                        <p class="card-text">Founded: ${fields.founded_year}</p>
+                        <p class="card-text">${fields.description}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+
+        function renderManufacturers() {
+            const manufacturersList = document.getElementById('manufacturersList');
+            manufacturersList.innerHTML = manufacturers.map(createManufacturerCard).join('');
+        }
+
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('img.lazy');
+            const options = {
+                rootMargin: '0px',
+                threshold: 0.1
+            }
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            }, options);
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingElement = document.getElementById('loading');
+            loadingElement.style.display = 'block';
+
+            setTimeout(() => {
+                renderManufacturers();
+                lazyLoadImages();
+                loadingElement.style.display = 'none';
+            }, 100);
+        });
+    </script>
+{% endblock %}
+

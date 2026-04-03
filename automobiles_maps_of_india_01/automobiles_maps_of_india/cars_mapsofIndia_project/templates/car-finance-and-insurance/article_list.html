@@ -1,0 +1,97 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+.card-title .text-primary{
+    text-shadow:none !important;
+}
+a.read-more-btn
+{
+    border:1px solid  #d7e4ef !important;
+    padding:0 1rem !important;
+}
+</style>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Car Finance and Insurance Articles</h1>
+        <div class="heading-underline"></div>
+
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm hover-card">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><a href="{% url 'article_detail' article.slug %}" class="text-decoration-none text-primary">{{ article.title }}</a></h5>
+                            <p class="card-text flex-grow-1">{{ article.content|truncatewords:20 }}</p>
+                            <div class="read-more-btn-wrapper d-flex justify-content-between align-items-center mt-3">
+                                <small class="text-muted"><i class="fas fa-clock"></i> {{ article.last_updated|date:"M d, Y" }}</small>
+                                <a href="{% url 'article_detail' article.slug %}" class="read-more-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle"></i> No articles available at the moment. Check back soon!
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .hover-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+        .card-title a {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .card-title a:hover {
+            color: #0056b3;
+        }
+        .btn-outline-primary {
+            border-color: #007bff;
+            color: #007bff;
+        }
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+    </style>
+{% endblock %}

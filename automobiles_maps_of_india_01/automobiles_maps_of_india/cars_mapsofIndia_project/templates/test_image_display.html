@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+</head>
+<body>
+    <h1>Car Image Test</h1>
+    
+    <h2>EcoSport Cars</h2>
+    {% for car in eco_cars %}
+        <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+            <h3>{{ car.name }} {{ car.model }} - ₹{{ car.price }} L</h3>
+            <p><strong>Image Field:</strong> {{ car.image }}</p>
+            {% if car.image %}
+                <p><strong>Image URL:</strong> {{ car.image.url }}</p>
+                <img src="{{ car.image.url }}" alt="{{ car.name }} {{ car.model }}" style="max-width: 300px; height: auto;">
+                <br>
+                <img src="/media/{{ car.image }}" alt="{{ car.name }} {{ car.model }} (direct)" style="max-width: 300px; height: auto;">
+            {% else %}
+                <p>No image uploaded</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    
+    <h2>Static Fallback Test</h2>
+    <img src="/static/img/car-2.jpg" alt="Static fallback" style="max-width: 300px;">
+</body>
+</html>

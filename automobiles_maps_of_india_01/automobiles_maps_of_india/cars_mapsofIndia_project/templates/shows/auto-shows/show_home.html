@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Auto Shows: The Ultimate Car Lover's Paradise{% endblock %}
+
+{% block content %}
+    <h1>Auto Shows: The Ultimate Car Lover's Paradise</h1>
+
+    <h2>What are Auto Shows?</h2>
+    <p>Auto shows are grand exhibitions where automobile manufacturers showcase their latest and future vehicles. These events are eagerly anticipated by car enthusiasts and industry professionals alike.</p>
+
+    <h3>Key Features:</h3>
+    <ul class="feature-list">
+        <li class="feature-item"><span class="emoji">🚗</span>Platform for unveiling new models and concept cars</li>
+        <li class="feature-item"><span class="emoji">👀</span>Opportunity for consumers to see and interact with vehicles</li>
+        <li class="feature-item"><span class="emoji">🤝</span>Venue for business deals and industry networking</li>
+        <li class="feature-item"><span class="emoji">🚀</span>Showcases of cutting-edge automotive technology</li>
+    </ul>
+
+    <h2>Major International Auto Shows</h2>
+    <div class="show-list">
+        {% for show in auto_shows %}
+            <div class="show-item">
+                <h3>{{ show.name }}</h3>
+                <p>🗓️ {{ show.date }}<br>
+                    🏙️ {{ show.venue }}<br>
+                    🌍 {{ show.country }}</p>
+                <a href="{% url 'shows:auto_show_detail' show.id %}">More details</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>Auto Shows on TV</h2>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Show</th>
+            <th>Channel</th>
+        </tr>
+        {% for show in tv_shows %}
+            <tr>
+                <td>{{ show.day }}</td>
+                <td>{{ show.time }}</td>
+                <td>{{ show.show_name }}</td>
+                <td>{{ show.channel }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Related Links</h2>
+    <div class="link-list">
+        {% for link in related_links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

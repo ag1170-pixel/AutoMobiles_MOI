@@ -1,0 +1,562 @@
+[
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 1,
+    "fields": {
+      "name": "New India Assurance Company Limited",
+      "description": "Offers car insurance under its Motor Policy. Covers natural mishaps such as lightning, rockslide, fire, outpouring, hailstorm, avalanche, tremor, detonation, etc., and other mishaps like robbery, uprising, strike, malevolent activities, accidents caused by external factors, rebellious activities, and damage during delivery by rail, lift, airways, or road. It also includes third-party liability for permanent injury, death, or damage caused to the vehicle."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 2,
+    "fields": {
+      "name": "Oriental Insurance Company Limited",
+      "description": "Offers comprehensive car insurance coverage including natural and other mishaps, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 3,
+    "fields": {
+      "name": "HSBC India",
+      "description": "Provides car insurance under its AutoSecure policy. Covers a wide range of incidents including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 4,
+    "fields": {
+      "name": "Bajaj Allianz",
+      "description": "Offers car insurance under Bajaj Allianz's Motor Policy. Provides coverage for natural calamities, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 5,
+    "fields": {
+      "name": "United India Insurance Co.",
+      "description": "Provides car insurance through its Motor Package and Liability only Policies, covering a wide range of incidents and liabilities."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 6,
+    "fields": {
+      "name": "The New India Assurance Co.",
+      "description": "Offers comprehensive motor coverage under its Motor Policy, including natural and other mishaps, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 7,
+    "fields": {
+      "name": "ICICI Lombard",
+      "description": "Provides car insurance through its Motor Plans, covering natural calamities, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 8,
+    "fields": {
+      "name": "Tata AIG General Insurance Company Limited",
+      "description": "Offers car insurance under its AutoSecure policy. Includes coverage for natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 9,
+    "fields": {
+      "name": "HDFC ERGO General Insurance Company Limited",
+      "description": "Provides comprehensive car insurance policies covering a wide range of incidents including natural and man-made disasters."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 10,
+    "fields": {
+      "name": "Reliance General Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 11,
+    "fields": {
+      "name": "Bharti AXA General Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 12,
+    "fields": {
+      "name": "SBI General Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural calamities, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 13,
+    "fields": {
+      "name": "Cholamandalam MS General Insurance Company Limited",
+      "description": "Provides car insurance coverage for natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 14,
+    "fields": {
+      "name": "IFFCO Tokio General Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 15,
+    "fields": {
+      "name": "Royal Sundaram General Insurance Co. Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 16,
+    "fields": {
+      "name": "Liberty General Insurance Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 17,
+    "fields": {
+      "name": "Future Generali India Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 18,
+    "fields": {
+      "name": "Kotak Mahindra General Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 19,
+    "fields": {
+      "name": "Raheja QBE General Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 20,
+    "fields": {
+      "name": "Shriram General Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 21,
+    "fields": {
+      "name": "Universal Sompo General Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 22,
+    "fields": {
+      "name": "Edelweiss General Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 23,
+    "fields": {
+      "name": "Go Digit General Insurance Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 24,
+    "fields": {
+      "name": "Acko General Insurance Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 25,
+    "fields": {
+      "name": "Aditya Birla General Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 26,
+    "fields": {
+      "name": "Agriculture Insurance Company of India Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 27,
+    "fields": {
+      "name": "Star Health and Allied Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 28,
+    "fields": {
+      "name": "Reliance Nippon Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 29,
+    "fields": {
+      "name": "PNB MetLife India Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 30,
+    "fields": {
+      "name": "Aviva Life Insurance Company India Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 31,
+    "fields": {
+      "name": "Max Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 32,
+    "fields": {
+      "name": "Kotak Mahindra Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 33,
+    "fields": {
+      "name": "SBI Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 34,
+    "fields": {
+      "name": "Tata AIA Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 35,
+    "fields": {
+      "name": "ICICI Prudential Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 36,
+    "fields": {
+      "name": "HDFC Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 37,
+    "fields": {
+      "name": "Bajaj Allianz Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 38,
+    "fields": {
+      "name": "Bharti AXA Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 39,
+    "fields": {
+      "name": "Reliance Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 40,
+    "fields": {
+      "name": "Exide Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 41,
+    "fields": {
+      "name": "Sahara India Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 42,
+    "fields": {
+      "name": "Shriram Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 43,
+    "fields": {
+      "name": "Canara HSBC Oriental Bank of Commerce Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 44,
+    "fields": {
+      "name": "Edelweiss Tokio Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 45,
+    "fields": {
+      "name": "Aegon Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 46,
+    "fields": {
+      "name": "IndiaFirst Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 47,
+    "fields": {
+      "name": "Star Union Dai-ichi Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 48,
+    "fields": {
+      "name": "IDBI Federal Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 49,
+    "fields": {
+      "name": "Pramerica Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 50,
+    "fields": {
+      "name": "DHFL Pramerica Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 51,
+    "fields": {
+      "name": "SUD Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 52,
+    "fields": {
+      "name": "Ageas Federal Life Insurance Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 53,
+    "fields": {
+      "name": "Future Generali India Life Insurance Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 54,
+    "fields": {
+      "name": "Reliance Capital Asset Management Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 55,
+    "fields": {
+      "name": "HDFC Asset Management Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 56,
+    "fields": {
+      "name": "ICICI Prudential Asset Management Company Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 57,
+    "fields": {
+      "name": "Birla Sun Life Asset Management Company Limited",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 58,
+    "fields": {
+      "name": "Kotak Mahindra Asset Management Company Limited",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 59,
+    "fields": {
+      "name": "Tata Asset Management Limited",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 60,
+    "fields": {
+      "name": "Reliance Nippon Life Asset Management Limited",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 61,
+    "fields": {
+      "name": "SBI Mutual Fund",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 62,
+    "fields": {
+      "name": "HDFC Mutual Fund",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 63,
+    "fields": {
+      "name": "ICICI Prudential Mutual Fund",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 64,
+    "fields": {
+      "name": "Birla Sun Life Mutual Fund",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 65,
+    "fields": {
+      "name": "Kotak Mahindra Mutual Fund",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 66,
+    "fields": {
+      "name": "Tata Mutual Fund",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 67,
+    "fields": {
+      "name": "Reliance Mutual Fund",
+      "description": "Provides comprehensive car insurance coverage including natural calamities, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 68,
+    "fields": {
+      "name": "SBI Life Mutual Fund",
+      "description": "Offers car insurance policies covering natural disasters, theft, third-party liability, and more."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 69,
+    "fields": {
+      "name": "HDFC Life Mutual Fund",
+      "description": "Provides comprehensive car insurance coverage including natural disasters, theft, and third-party liability."
+    }
+  },
+  {
+    "model": "finance_insurance.insurancecompany",
+    "pk": 70,
+    "fields": {
+      "name": "ICICI Life Mutual Fund",
+      "description": "Offers car insurance policies covering a wide range of incidents including natural disasters and theft."
+    }
+  }
+]

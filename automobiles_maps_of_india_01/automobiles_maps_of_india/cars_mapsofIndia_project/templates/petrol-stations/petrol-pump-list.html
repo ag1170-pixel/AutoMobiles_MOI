@@ -1,0 +1,584 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if state_slug %}
+        {{ state_slug|title }} Petrol Pump Finder
+    {% else %}
+        Petrol Pump Finder
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    {% load humanize %}
+
+    <!-- Sub banner start -->
+    <div class="sub-banner overview-bgi">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-area text-center">
+                        <h1 class="mb-3">
+                            {% if state_slug %}
+                                {{ state_slug|title }} Petrol Pumps
+                            {% else %}
+                                Petrol Pumps Finder
+                            {% endif %}
+                        </h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/petrolstations/">Petrol Pumps</a></li>
+                                {% if state_slug %}
+                                    <li class="breadcrumb-item active" aria-current="page">{{ state_slug|title }}</li>
+                                {% else %}
+                                    <li class="breadcrumb-item active" aria-current="page">All States</li>
+                                {% endif %}
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <div class="petrol-pump-finder-page py-5">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <h2 class="petrol-pump-heading">
+                            {% if state_slug %}
+                                Petrol Pumps in {{ state_slug|title }}
+                            {% else %}
+                                Petrol Pumps in India
+                            {% endif %}
+                        </h2>
+                        
+                        <!-- Search Bar -->
+                        <div class="search-section mb-4">
+                            <form method="GET" class="search-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="search-input" class="form-label font-weight-bold">Search Petrol Pumps:</label>
+                                            <div class="input-group">
+                                                <input type="text" 
+                                                       id="search-input" 
+                                                       name="search" 
+                                                       class="form-control form-control-lg" 
+                                                       placeholder="Search by name, address, company, location..."
+                                                       value="{{ search_query }}"
+                                                       autocomplete="off">
+                                            </div>
+                                            <!-- Autocomplete dropdown -->
+                                            <div id="autocomplete-dropdown" class="autocomplete-dropdown" style="display: none;"></div>
+                                            <small class="form-text text-muted">Search by petrol pump name, address, company name, or location</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="state-select" class="form-label font-weight-bold">Filter by State:</label>
+                                            <select id="state-select" name="state" class="form-control form-control-lg">
+                                                <option value="">All States</option>
+                                                {% for state in states %}
+                                                    <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="city-select" class="form-label font-weight-bold">Filter by City:</label>
+                                            <select id="city-select" name="city" class="form-control form-control-lg" {% if not cities %}disabled{% endif %} data-selected="{{ selected_city }}">
+                                                <option value="">Select City</option>
+                                                {% for city in cities %}
+                                                    <option value="{{ city }}" {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="input-group-append">
+                                                    <button type="submit" class="btn btn-primary btn-lg">
+                                                        <i class="fas fa-search"></i> Search
+                                                    </button>
+                                                </div>
+                                    </div>
+
+                                </div>
+                                {% if search_query or selected_state or selected_city %}
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <a href="/petrolstations/" class="btn btn-outline-secondary">
+                                                <i class="fas fa-times"></i> Clear All Filters
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <table class="table table-bordered petrol-pump-table">
+                            <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Location</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Company Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for p in petrolpumps %}
+                                <tr>
+                                    <td>{{ p.state }}</td>
+                                    <td>{{ p.location }}</td>
+                                    <td>{{ p.name }}</td>
+                                    <td>{{ p.address }}</td>
+                                    <td>{{ p.phone }}</td>
+                                    <td>{{ p.company_name }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="6" class="text-center">
+                                        <p class="text-muted">No petrol pumps found matching your criteria.</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    {% if petrolpumps.has_other_pages %}
+                    <div class="pagination-wrapper mt-4">
+                        <nav aria-label="Petrol pumps pagination">
+                            <ul class="pagination justify-content-center">
+                                {% if petrolpumps.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page=1{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if selected_state %}&state={{ selected_state }}{% endif %}{% if selected_city %}&city={{ selected_city }}{% endif %}">&lt;&lt;</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ petrolpumps.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if selected_state %}&state={{ selected_state }}{% endif %}{% if selected_city %}&city={{ selected_city }}{% endif %}">&lt;</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <span class="page-link">&lt;&lt;</span>
+                                    </li>
+                                    <li class="page-item disabled">
+                                        <span class="page-link">&lt;</span>
+                                    </li>
+                                {% endif %}
+
+                                {% for num in petrolpumps.paginator.page_range %}
+                                    {% if petrolpumps.number == num %}
+                                        <li class="page-item active">
+                                            <span class="page-link">{{ num }}</span>
+                                        </li>
+                                    {% elif num > petrolpumps.number|add:'-3' and num < petrolpumps.number|add:'3' %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ num }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if selected_state %}&state={{ selected_state }}{% endif %}{% if selected_city %}&city={{ selected_city }}{% endif %}">{{ num }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if petrolpumps.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ petrolpumps.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if selected_state %}&state={{ selected_state }}{% endif %}{% if selected_city %}&city={{ selected_city }}{% endif %}">&gt;</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ petrolpumps.paginator.num_pages }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if selected_state %}&state={{ selected_state }}{% endif %}{% if selected_city %}&city={{ selected_city }}{% endif %}">&gt;&gt;</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item disabled">
+                                        <span class="page-link">&gt;</span>
+                                    </li>
+                                    <li class="page-item disabled">
+                                        <span class="page-link">&gt;&gt;</span>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                        <div class="text-center mt-2">
+                            <small class="text-muted">
+                                Showing {{ petrolpumps.start_index }}-{{ petrolpumps.end_index }} of {{ petrolpumps.paginator.count }} petrol pumps
+                            </small>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include external JavaScript -->
+    <script src="{% static 'js/petrol-search.js' %}"></script>
+
+    <style>
+        .sub-banner {
+            {% if petrol_station_images %}
+                background: linear-gradient(rgb(241, 244, 248), rgb(194, 208, 227)), url('{{ petrol_station_images.0.image_url }}') center/cover no-repeat;
+            {% else %}
+                background: linear-gradient(rgb(241, 244, 248), rgb(194, 208, 227)), url('{% static "img/petrol-pump-banner.jpg" %}') center/cover no-repeat;
+            {% endif %}
+            padding: 100px 0;
+            color: #bb1212;
+        }
+        .breadcrumb {
+            background-color: transparent;
+            display: inline-flex !important;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: #abbbd0;
+        }
+        .card {
+            border: none;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background-color: #8a9eb9;
+            border-color: #559cfa;
+        }
+        .btn-primary:hover {
+            background-color: #9dabbe;
+            border-color: #889bb4;
+        }
+       /* ================================
+   PETROL PUMP TABLE - MODERN DARK HOVER UI
+================================= */
+
+.petrol-pump-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.petrol-pump-table thead {
+    background: linear-gradient(135deg, #397BB1, #7099c7);
+    color: #ffffff;
+}
+
+.petrol-pump-table th {
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+/* BODY CELLS */
+.petrol-pump-table td {
+    padding: 14px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eef2f7;
+    transition: all 0.2s ease;
+}
+
+/* ZEBRA ROWS */
+.petrol-pump-table tbody tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+/* ROW TRANSITION */
+.petrol-pump-table tbody tr {
+    transition: all 0.25s ease;
+}
+
+/* DARK HOVER EFFECT */
+.petrol-pump-table tbody tr:hover {
+    background: linear-gradient(135deg,#2f5f8f,#1f4466);
+    color: #ffffff;
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* MAKE TEXT WHITE ON HOVER */
+.petrol-pump-table tbody tr:hover td {
+    color: #ffffff;
+}
+
+/* REMOVE LAST BORDER */
+.petrol-pump-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ROUNDED CORNERS */
+.petrol-pump-table thead tr th:first-child {
+    border-top-left-radius: 14px;
+}
+
+.petrol-pump-table thead tr th:last-child {
+    border-top-right-radius: 14px;
+}
+
+.petrol-pump-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 14px;
+}
+
+.petrol-pump-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 14px;
+}
+
+/* RESPONSIVE TWEAK */
+@media(max-width:768px){
+    .petrol-pump-table th,
+    .petrol-pump-table td{
+        padding:10px;
+        font-size:13px;
+    }
+}
+
+        @media (max-width: 767px) {
+            .sub-banner {
+                display:none !important;
+            }
+            .petrol-pump-table {
+                font-size: 14px;
+            }
+            .petrol-pump-heading{
+                background:#ffffff !important;
+                box-shadow:none !important;
+                font-size:1.5rem !important;
+                margin:0 0 40px 0 !important;
+                border-radius:0 !important;
+            }
+            .search-section{
+                box-shadow:none !important;
+            }
+            .search-section .form-group select, .search-section .input-group input{
+                border-radius:0 !important;
+                box-shadow:none !important;
+            }
+            .petrol-pump-table th{
+                background-color:#d7e4ef !important;
+                color:#000 !important;
+            }
+        }
+        .petrol-pump-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 40px 0;
+            padding: 15px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 4px solid #d7e4ef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .petrol-pump-heading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent
+            );
+            transition: 0.5s;
+        }
+
+        .petrol-pump-heading:hover::before {
+            left: 100%;
+        }
+
+        /* Search Section Styles */
+        .search-section {
+            background: #d7e4ef;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #d7e4ef;
+            margin-bottom: 30px;
+        }
+
+        .search-form .form-label {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .search-form .form-control {
+            border: 2px solid #a8b3c2;
+            border-radius: 8px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+            height: 50px !important;
+        }
+
+        .search-form .form-control:focus {
+            border-color: #d7e4ef;
+            box-shadow: 0 0 0 0.2rem rgba(99, 141, 173, 0.25);
+            background-color: #f8f9fa;
+        }
+
+        .search-form .btn-primary {
+            background: #ffffff;
+            color:#444;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .search-form .btn-primary:hover {
+            background: linear-gradient(45deg, #4a6b8a, #385575);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 141, 173, 0.3);
+        }
+
+        .search-form .btn-outline-secondary {
+            border: 2px solid #6c757d;
+            color: #6c757d;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .search-form .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .input-group-append .btn {
+            border-left: none;
+        }
+
+        /* Pagination Styles */
+        .pagination-wrapper {
+            margin-top: 30px;
+        }
+        
+        .pagination .page-link {
+            background-color: #ffffff;
+            color: #000;
+            border: 1px solid #a8b3c2;
+            padding: 10px 16px;
+            margin: 0 2px;
+            transition: all 0.3s ease;
+            min-width: 49px;
+            text-align: center;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pagination .page-link:hover {
+            background-color: #d7e4ef;
+            color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #d7e4ef;
+            border-color: #f74e2a;
+            color:#000;
+            font-weight: bold;
+        }
+        
+        .pagination .page-item.disabled .page-link {
+            background-color: #bdc9d9;
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 767px) {
+            .pagination .page-link {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+
+        /* Autocomplete Styles */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #a8b3c2;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .autocomplete-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #e9ecef;
+            transition: background-color 0.2s ease;
+        }
+
+        .autocomplete-item:hover,
+        .autocomplete-item:focus {
+            background-color: #f8f9fa;
+        }
+
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+
+        .autocomplete-main {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .autocomplete-details {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .autocomplete-detail {
+            font-size: 12px;
+            color: #6c757d;
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .autocomplete-no-results {
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .autocomplete-no-results:hover {
+            background-color: transparent;
+        }
+
+        .autocomplete-no-results .autocomplete-main {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        /* Position the search input relative for autocomplete */
+        .form-group {
+            position: relative;
+        }
+
+    </style>
+{% endblock %}

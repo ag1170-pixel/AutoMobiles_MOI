@@ -1,0 +1,773 @@
+{% extends 'base.html' %}
+
+{% block title %} | About Us {% endblock %}
+
+{% block content %}
+
+{% load static %}
+<style>
+/* Hide page loader immediately */
+.page_loader {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    z-index: -9999 !important;
+}
+
+/* Ensure content is visible */
+body > *:not(.page_loader) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.heading-underline {
+    width: 100px;
+    height: 3px;
+    background-color: #3b82f6;
+    margin: 0 auto 30px;
+}
+
+.image-container {
+    width: 50% ;
+    line-height: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .image-container {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+    
+    .heading-underline {
+        margin: 0 auto 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .heading-underline {
+        width: 80px;
+        height: 2px;
+        margin: 0 auto 15px;
+    }
+    
+    .about-car {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .heading-underline {
+        width: 60px;
+        margin: 0 auto 10px;
+    }
+    
+    .about-car {
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .heading-underline {
+        width: 50px;
+    }
+}
+
+.mission-section h3, .values-section h3 {
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.mission-section h3 span, .values-section h3 span {
+    color: #e74c3c;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+}
+
+.values-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 1.1rem;
+}
+
+.values-list li:last-child {
+    border-bottom: none;
+}
+
+.stat-box {
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-box h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .stat-box h3 {
+        font-size: 2rem;
+    }
+    
+    .mission-section h3, .values-section h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Enhanced Styles */
+.feature-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon i {
+    font-size: 2rem;
+    color: #666;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e9ecef;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 45%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.team-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.team-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.team-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.team-info h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.team-info h5 {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667eea;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item::before {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+    }
+}
+</style>
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>About Us</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">About Us</li>
+                <div class="heading-underline"></div>
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Service center strat -->
+<div class="about-car content-area-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-6">
+                <div class="about-car-photo">
+                    <div id="carDetailsSlider" class="carousel car-details-sliders slide">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="https://via.placeholder.com/800x500/667eea/ffffff?text=Maps+of+India+Automobiles" class="img-fluid" alt="slider-car">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="1">
+                                <img src="https://via.placeholder.com/800x500/764ba2/ffffff?text=Premium+Vehicles" class="img-fluid" alt="slider-car">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="2">
+                                <img src="https://via.placeholder.com/800x500/667eea/ffffff?text=Expert+Service" class="img-fluid" alt="slider-car">
+                            </div>
+                        </div>
+                        <!-- main slider carousel nav controls -->
+                        <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                            <li class="list-inline-item active">
+                                <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#carDetailsSlider">
+                                    <img src="https://via.placeholder.com/150x100/667eea/ffffff?text=Auto" class="img-fluid" alt="small-car">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-1" data-slide-to="1" data-target="#carDetailsSlider">
+                                    <img src="https://via.placeholder.com/150x100/764ba2/ffffff?text=Cars" class="img-fluid" alt="small-car">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
+                                    <img src="https://via.placeholder.com/150x100/667eea/ffffff?text=India" class="img-fluid" alt="small-car">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 align-self-center">
+                <div class="best-used-car">
+                    <h3>Welcome to <span>Maps of India Automobiles</span></h3>
+                    <p>Established as India's most trusted automotive information portal, Maps of India Automobiles has been serving millions of users since 2010. Our mission is to provide comprehensive, accurate, and up-to-date automotive data that empowers Indian consumers to make informed decisions about their vehicle purchases and ownership experience.</p>
+                    
+                    <p>Our platform covers every aspect of the Indian automotive ecosystem - from the latest car and bike launches to detailed specifications, pricing information, dealer networks, service centers, and fuel stations across the country. We pride ourselves on maintaining the most extensive database of automotive information specifically tailored for the Indian market.</p>
+                    
+                    <p class="mb-0">With over 15 years of industry expertise, we've built strong relationships with major automobile manufacturers, dealerships, and service providers across India. This ensures our users get access to the most reliable and current information available. Whether you're a first-time car buyer, a seasoned automobile enthusiast, or simply looking for the nearest petrol pump, Maps of India Automobiles is your trusted companion for all things automotive in India.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service center end -->
+
+<!-- Our Mission & Values -->
+<div class="content-area-5" style="background-color: #f8f9fa; padding: 80px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mission-section">
+                    <h3>Our <span>Mission</span></h3>
+                    <p>To democratize automotive information in India by providing free, accessible, and comprehensive data that empowers consumers to make confident, well-informed decisions about their automotive needs.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="values-section">
+                    <h3>Our <span>Values</span></h3>
+                    <ul class="values-list">
+                        <li><strong>Accuracy:</strong> We ensure all data is verified and up-to-date</li>
+                        <li><strong>Transparency:</strong> Clear, honest information without hidden agendas</li>
+                        <li><strong>User-Centric:</strong> Every feature is designed with our users in mind</li>
+                        <li><strong>Innovation:</strong> Continuously improving our platform with cutting-edge technology</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Section -->
+<div class="content-area" style="padding: 60px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>Our <span>Impact</span></h2>
+            <p>Numbers that speak volumes about our reach and reliability</p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <div class="stat-box text-center">
+                    <h3>10+ Million</h3>
+                    <p>Happy Users</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-box text-center">
+                    <h3>50,000+</h3>
+                    <p>Vehicle Listings</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-box text-center">
+                    <h3>25,000+</h3>
+                    <p>Petrol Pumps</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-box text-center">
+                    <h3>500+</h3>
+                    <p>Cities Covered</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Features Section -->
+<div class="content-area-5" style="padding: 80px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>Why <span>Choose Us</span></h2>
+            <p>Discover what makes Maps of India Automobiles the preferred choice for millions of Indian consumers</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Comprehensive Database</h4>
+                    <p>Access India's most extensive collection of automotive information with over 50,000+ vehicle listings, detailed specifications, and real-time pricing data.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Nationwide Coverage</h4>
+                    <p>Find dealers, service centers, and petrol pumps across 500+ cities with our interactive mapping system and location-based search.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4>Real-Time Updates</h4>
+                    <p>Stay informed with the latest automotive news, new launches, price changes, and market trends updated daily by our expert team.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Expert Analysis</h4>
+                    <p>Get professional reviews, comparisons, and buying guides from our team of automotive experts with decades of industry experience.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobile Optimized</h4>
+                    <p>Seamlessly access our platform on any device with our responsive design and dedicated mobile apps for on-the-go automotive research.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Get assistance whenever you need it with our round-the-clock customer support via phone, email, and live chat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Journey Timeline -->
+<div class="content-area" style="background-color: #f8f9fa; padding: 80px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>Our <span>Journey</span></h2>
+            <p>From a small startup to India's leading automotive platform</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2010 - The Beginning</h4>
+                    <p>Started as a small blog with a mission to help Indian car buyers make informed decisions with just 500 monthly visitors.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2013 - Platform Launch</h4>
+                    <p>Launched our comprehensive platform with 10,000+ vehicle listings and expanded to include bike information and dealer networks.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2016 - Mobile Revolution</h4>
+                    <p>Introduced mobile apps and responsive design, reaching 1 million users and expanding coverage to 200+ cities across India.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2019 - AI Integration</h4>
+                    <p>Implemented AI-powered recommendation engine and price prediction tools, serving 5 million users with personalized experiences.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>2024 - Market Leadership</h4>
+                    <p>Became India's most trusted automotive platform with 10+ million users, 500+ cities coverage, and partnerships with all major manufacturers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Our Leadership Team -->
+<div class="our-team content-area" style="padding: 80px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>Our <span>Leadership Team</span></h2>
+            <p>Meet the visionaries driving Maps of India Automobiles forward</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x300/667eea/ffffff?text=CEO" alt="CEO">
+                    <div class="team-info">
+                        <h4>Rajesh Kumar</h4>
+                        <h5>Founder & CEO</h5>
+                        <p>Automotive industry veteran with 20+ years of experience in digital transformation and consumer technology.</p>
+                        <div class="social-links">
+                            <a href="#" onclick="event.preventDefault(); alert('LinkedIn profile coming soon!')"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Twitter profile coming soon!')"><i class="fab fa-twitter"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Email contact coming soon!')"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x300/764ba2/ffffff?text=CTO" alt="CTO">
+                    <div class="team-info">
+                        <h4>Priya Sharma</h4>
+                        <h5>Chief Technology Officer</h5>
+                        <p>Tech innovator specializing in AI, machine learning, and scalable web architectures for automotive platforms.</p>
+                        <div class="social-links">
+                            <a href="#" onclick="event.preventDefault(); alert('LinkedIn profile coming soon!')"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('GitHub profile coming soon!')"><i class="fab fa-github"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Email contact coming soon!')"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x300/667eea/ffffff?text=COO" alt="COO">
+                    <div class="team-info">
+                        <h4>Amit Patel</h4>
+                        <h5>Chief Operating Officer</h5>
+                        <p>Operations expert with extensive experience in scaling automotive platforms and managing nationwide dealer networks.</p>
+                        <div class="social-links">
+                            <a href="#" onclick="event.preventDefault(); alert('LinkedIn profile coming soon!')"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Twitter profile coming soon!')"><i class="fab fa-twitter"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Email contact coming soon!')"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x300/764ba2/ffffff?text=CMO" alt="CMO">
+                    <div class="team-info">
+                        <h4>Neha Gupta</h4>
+                        <h5>Chief Marketing Officer</h5>
+                        <p>Marketing strategist passionate about creating exceptional user experiences and building trusted automotive brands.</p>
+                        <div class="social-links">
+                            <a href="#" onclick="event.preventDefault(); alert('LinkedIn profile coming soon!')"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Twitter profile coming soon!')"><i class="fab fa-twitter"></i></a>
+                            <a href="#" onclick="event.preventDefault(); alert('Email contact coming soon!')"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Static Team Members Section -->
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="content-area-5" style="background: #d7e4ef; padding: 80px 0;">
+    <div class="container text-center">
+        <h2 style="color: #444; margin-bottom: 20px;">Ready to Explore India's Best Automotive Platform?</h2>
+        <p style="color: white; font-size: 1.2rem; margin-bottom: 30px;">Join millions of satisfied users who trust Maps of India Automobiles for their automotive needs</p>
+        <div class="cta-buttons">
+            <a href="{% url 'cars' %}" class="cta-button" style="background: white; color: #667eea;">Browse Cars</a>
+            <a href="{% url 'bikes' %}" class="cta-button" style="background: white; color: #667eea;">Explore Bikes</a>
+            <a href="{% url 'contact' %}" class="cta-button" style="background: transparent; color: white; border: 2px solid white;">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="content-area" style="padding: 80px 0;">
+    <div class="container">
+        <div class="main-title text-center">
+            <h2>What Our <span>Users Say</span></h2>
+            <p>Real experiences from millions of satisfied customers</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="rating" style="color: #ffc107; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Maps of India Automobiles helped me find my dream car within budget. The detailed specifications and dealer reviews were invaluable!"</p>
+                    <h6 style="margin-top: 15px; color: #667eea;"><strong>- Rahul Verma, Delhi</strong></h6>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="rating" style="color: #ffc107; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The petrol pump finder feature is a lifesaver during road trips. Accurate locations and real-time information make it so convenient!"</p>
+                    <h6 style="margin-top: 15px; color: #667eea;"><strong>- Priya Nair, Mumbai</strong></h6>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="rating" style="color: #ffc107; margin-bottom: 15px;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"As a first-time bike buyer, the comprehensive guides and expert reviews helped me make an informed decision. Highly recommended!"</p>
+                    <h6 style="margin-top: 15px; color: #667eea;"><strong>- Amit Singh, Bangalore</strong></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Hide page loader immediately
+(function() {
+    var loader = document.querySelector('.page_loader');
+    if (loader) {
+        loader.style.display = 'none';
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        loader.style.zIndex = '-9999';
+    }
+})();
+
+// Failsafe - force hide after 1 second
+setTimeout(function() {
+    var loader = document.querySelector('.page_loader');
+    if (loader) {
+        loader.style.display = 'none';
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        loader.remove();
+    }
+}, 1000);
+
+function showContactInfo(name) {
+    alert('Contact information for ' + name + ' will be available soon. Please use our main contact form for immediate assistance.');
+}
+
+// Smooth scrolling for anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < anchors.length; i++) {
+        anchors[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+});
+
+// Scroll animations
+window.addEventListener('scroll', function() {
+    var statBoxes = document.querySelectorAll('.stat-box');
+    for (var i = 0; i < statBoxes.length; i++) {
+        var rect = statBoxes[i].getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            statBoxes[i].style.animation = 'fadeInUp 0.6s ease forwards';
+        }
+    }
+});
+
+// Add fade in animation
+var style = document.createElement('style');
+style.textContent = '@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }';
+document.head.appendChild(style);
+</script>
+{% endblock %}

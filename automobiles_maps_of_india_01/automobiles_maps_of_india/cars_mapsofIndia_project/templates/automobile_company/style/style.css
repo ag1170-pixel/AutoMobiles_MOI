@@ -1,0 +1,822 @@
+/* CSS start here */
+body{margin:0;background-color:#FFFFFF;}
+#pagewidth{width:100%;}
+#main{width:1003px;margin:0 auto;text-align:center;border:solid 1px #000000;display:table;}
+.header{width:1003px;margin:0px 0px 0px 0px;height:auto;display:table;}
+div{margin:0px;padding:0px;font-size:1px;}
+#logo{background:url(../images/logo.gif);margin:10px 0 0 4px;width:262px;height:62px;float:left;}
+#google-ads-header{margin:0 5px 0 0px;width:728px;height:auto;float:right;}
+.CL{clear:both;}
+#top_Nav{float:left;width:1003px;}
+#topnav{background: url(../images/nav_bg.gif) top left;background-repeat:repeat-x;width:1003px;height:36px;margin:2px 0 0 0px;}
+#topnav_inner{width:auto;height:auto;margin:0 0 0 3px;float:left;}
+.usecar{width:auto;height:28px;margin:6px 0 0 4px;padding:0px;float:left;}
+.social-box {float: right;position: relative;top: 9px;right: 131px;}
+.share-wrp {background: url(https://automobiles.mapsofindia.com/images/share.png) no-repeat 77% 6px;background-color: #075cd1;color: #fff;padding-left: 0;font-size: 14px;text-transform: inherit;padding: 8px 44px 8px 15px;border-radius: 24px;margin-top: 1px;border: 0px;cursor: pointer;font-weight: bold;outline: 0;}
+.newsocial {position: absolute;z-index: 9999999;display: none;right: 10px;background: #fff;border-bottom: #DDD 1px solid;border-bottom: rgba(0, 0, 0, .13) 1px solid;box-shadow: 0 0 5px rgba(0, 0, 0, .1);padding: 0px 8px;width: 150px;border-radius: 5px;}
+.newsocial1 {width: auto;text-align: center;padding: 5px 0;position: relative;height: 32px;}
+
+span.fb{width: 34px;height: 30px;background: url(../images/social.png) no-repeat;background-color: #4B4B4B;border-right: 0.08em solid #222021;}
+span.fb:hover {
+background-color: #a15227;
+}
+.usecar_l{background:url(../images/nav_lt.jpg);background-repeat:no-repeat;width:7px;height:30px;margin:0px;padding:0px;float:left;}
+.usecar_m{background:url(../images/nav_mid.jpg);background-repeat:repeat-x;width:auto;height:30px;margin:0px;padding:0px 10px 0 10px;float:left;}
+.usecar_r{background:url(../images/nav_rt.jpg);background-repeat:no-repeat;width:7px;height:30px;margin:0px;padding:0px;float:left;}
+.linkTxt{margin:6px 0 0 0;padding:0px;font-family:arial;font-weight:bold;font-size:12px;color:#000000;text-align:center;text-decoration:none;}
+.search{width:239px;height:27px;margin:0px;padding:0px;float:right;}
+.search-button{background:url(../images/search_button.gif);background-repeat:no-repeat;width:58px;height:27px;margin:0px;padding:0px;}
+.search-left{width:175px;height:27px;margin:5px 0 0 3px;padding:0px;float:left;}
+.search-right{width:59px;height:27px;margin:3px 0px 0 0px;padding:0px;float:right;}
+#container{width:1003px;height:auto;margin:0px;padding:0px;float:left;}
+#left-panel{width:200px;height:auto;margin:5px 5px 0 5px;padding:0px;float:left;border:solid 0px yellow;}
+#left-thumnail{width:180px;height:87px;margin:7px 0px 0 0px;padding:0px;float:left;border:0px;}
+.left-panel-box{width:200px;height:auto;margin:8px 0 0 0px;padding:0px;float:left;border:solid 0px red;}
+.left-panel_l{background:url(../images/lt_nav_lt.gif);background-repeat:no-repeat;width:7px;height:27px;margin:0px;padding:0px;float:left;}
+.left-panel_m{background:url(../images/lt_nav_mid.gif);background-repeat:repeat-x;width:185px;height:27px;margin:0px;padding:0px;float:left;}
+.left-panel_link{width:200px;height:auto;margin:0px;padding:0px;float:left;text-align:left;border:solid 0px blue;}
+.left-panel_link ul{margin:0px 0 0 3px;padding:0px 0 0 0;list-style-type:none;}
+.left-panel_link ul li{margin:5px 0 0 0;padding:0px 0 0 15px;line-height:10px;text-align:left;width:177px;line-height:15px;list-style-type:none;text-decoration:none;border-bottom:1px dashed #000000;}
+.left-panel_link ul li a{font-family:arial;font-weight:normal;font-size:12px;color:#B80604;text-align:left;text-decoration:none;}
+.left-panel_link ul li a:hover{font-family:arial;font-weight:bold;font-size:12px;color:#B80604;text-align:left;text-decoration:none;}
+.line{width:177px;list-style-type:none;text-decoration:none;border-width:1px;border-style:dashed;border-color:#000000;}
+.left-panel_r{background:url(../images/lt_nav_rt.gif);background-repeat:no-repeat;width:7px;height:27px;margin:0px;padding:0px;float:left;}
+.leftTxt{margin:6px 0 0 2px;padding:0px;font-family:arial;font-weight:bold;font-size:12px;color:#000000;text-align:left;text-decoration:none;}
+#twopanel{width:790px !important;height:auto;margin:10px 0 0 0px;padding:0px;float:left;border:solid 0px yellow;}
+#middle-panel{width:470px;height:auto;margin:0 0px 0 0px;padding:0px;float:left;border:solid 0px yellow;}
+#middle-header{width:468px;height:auto;margin:0px;padding:0px;float:left;border:0px solid red}
+.content-text{margin:0 2px 0 2px;padding:0px;font-family:arial;font-weight:normal;font-size:12px;color:#000000;text-align:justify;line-height:18px;text-decoration:none;}
+.new-car-table{width:460px;height:auto;margin:5px 0 0 0px;padding:0px;float:left;border:solid 1px #000000;}
+#new-car-table1{width:460px;height:auto;margin:8px 0 0 0px;padding:0px;float:left;border:solid 0px #000000;}
+.new-car-box{width:100px;height:auto;margin:2px 0 0 2px;padding:0px;float:left;border:0px solid red;}
+.new-car-space{width:17px;height:66px;margin:0px;padding:0px;float:left;border:0px solid red;}
+.new-car-img{width:100px;height:66px;margin:0px;padding:0px;clear:both;border:0px solid red;}
+.new-car-text{width:100px;height:auto;margin:5px 0 0 0;padding:0px;float:left;font-family:arial;font-weight:bold;font-size:12px;color:#000000;text-align:center;line-height:18px;text-decoration:none;}
+.new-car-text a{font-family:arial;font-weight:bold;font-size:12px;color:#000000;text-align:center;line-height:18px;text-decoration:none;}
+.new-car-text a:hover{font-family:arial;font-weight:bold;font-size:11px;color:#000000;text-align:center;line-height:18px;text-decoration:none;}
+.car-section{width:450px;height:auto;margin:10px 0 0 0;padding:0px;float:left;border:solid 0px yellow;}
+.car-section-bg{width:450px;height:auto;margin:10px 0 0 0;padding:0px;background:#F3F3F3;float:left;border:solid 0px yellow;}
+.car-section-inner{width:370px;height:auto;margin:0px 0 0 5px;padding:0px;float:left;border:solid 0px yellow;}
+.car-border{background:url(../images/border.gif);background-repeat:no-repeat;width:122px;height:97px;margin:0px 0 0 0px;padding:4px 0 0 0;float:left;}
+.car-content{width:240px;height:auto;margin:0px;padding:0px;float:right;border:solid 0px yellow;}
+.car-heading{margin:0;padding:0px;font-family:arial;font-weight:bold;font-size:14px;color:#B40000;text-align:left;line-height:18px;text-decoration:none;}
+.car-text{margin:0;padding:0px;font-family:arial;font-weight:normal;font-size:12px;color:#000000;text-align:justify;line-height:18px;text-decoration:none;}
+.read-more{margin:0;padding:0px;font-family:arial;font-weight:normal;font-size:11px;color:#B90000;text-align:left;line-height:18px;}
+h1{font: 22px arial;color:#000000;font-weight: bold;float:left;margin:5px; 0 5px 0px;}
+.h1-header{font: 22px arial;color:#000000;font-weight: bold;text-decoration:none;text-align:left;}
+.h2-header{font: 20px arial;color:#000000;font-weight: bold;text-decoration:none;text-align:left;}
+h2{font:20px arial; color:#000000;font-weight:600;display:inline;margin:5px; 0 5px 0px;float:left;}
+h3{font:16px arial; color:#000000;font-weight:600;display:inline;}
+#right-panel{width:305px;height:auto;margin:0 5px 0 0px;padding:0px;float:right;border:solid 0px yellow;}
+#right-asds{width:300px;height:250;margin:10px 0 0 0px;padding:0px;}
+#middle-asds{width:728px;height:90px;margin:10px 0px 0px 0px;padding:0px;float:left;}
+.cars-section-2{width:760px;height:auto;margin:10px 0px 0px 0px;padding:0px;float:left;border:0px solid red;}
+.automobile-histroy{width:140px;height:auto;margin:10px 0 0 0px;padding:0px;float:left;border-right:solid 1px #000000;}
+.automobile-histroy-image{width:58px;background:url(../images/history.gif) top left;height:42px;margin:8px 40px 0 40px;padding:0px;float:left;border:solid 0px yellow;}
+.automobile-company{width:180px;height:auto;margin:10px 0 0 0px;padding:0px;float:left;border-right:solid 1px #000000;}
+.automobile-company-image{width:60px;background:url(../images/companies-in-india.gif) top left;height:43px;margin:8px 40px 0 40px;padding:0px;float:left;border:solid 0px yellow;}
+.car-finance{width:148px;height:auto;margin:10px 0 0 0px;padding:0px;float:right;}
+.car-finance-image{width:58px;background:url(../images/car-finance.gif) top left;height:47px;margin:8px 40px 0 40px;padding:0px;float:left;border:solid 0px yellow;}
+.automobile-histroy-text1{margin:0px;padding:0px;font-family:arial;font-weight:bold;font-size:12px;color:#000000;text-align:center;text-decoration:none;}
+.automobile-histroy-text{width:140px;height:auto;margin:10px 0 0 0px;padding:0px;float:left;}
+.automobile-histroy-text ul{margin:0px 0 0 0;padding:0px 0 0 5px;list-style-type:none;}
+.automobile-histroy-text ul li{margin:0;padding:0px;line-height:18px;text-align:left;font-family:arial;font-weight:normal;font-size:12px;color:#000000;text-decoration:none;}
+.automobile-histroy-text ul li a{margin:0;padding:0px;line-height:18px;text-align:left;font-family:arial;font-weight:normal;font-size:12px;color:#000000;text-decoration:none;}
+.automobile-histroy-text ul li a:hover{margin:0;padding:0px;line-height:18px;text-align:left;font-family:arial;font-weight:bold;font-size:12px;color:#000000;text-decoration:none;}
+.car-brands{margin:0px 0 0 0;padding:0px;font-family:arial;font-weight:bold;font-size:13px;color:#B40000;text-align:left;line-height:18px;text-decoration:none;}
+.dotted-line{border-width:1px;border-style:dotted;border-color:#000000;}
+.valk-row1{margin:5px 0 5px 0;padding:0px;width:100px;height:auto;float:left;border-right:solid 1px #000000;}
+.valk-image{margin:8px 30px 0 30px;padding:0px;background:url(../images/img-volkswagon.gif) top left;width:42px;height:42px;}
+.chevrolet-row1{margin:5px 0 5px 0;padding:0px;width:105px;height:auto;float:left;background:#F3F3F3;border-right:solid 1px #000000;}
+.chevrolet-image{margin:10px 15px 12px 15px;padding:0px;background:url(../images/img-chevrolet.gif) top left;width:71px;height:28px;}
+.audi-row1
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:98px;
+height:auto;
+float:right;
+}
+
+.audi-image
+{
+margin:8px 4px 7px 4px;
+padding:0px;
+background:url(../images/img-audi.gif) top left;
+width:80px;
+height:33px;
+}
+
+.tata-row2
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:100px;
+height:auto;
+float:left;
+background:#F3F3F3;
+border-right:solid 1px #000000;
+}
+
+.tata-image
+{
+margin:8px 18px 5px 18px;
+padding:0px;
+background:url(../images/img-tata.gif) top left;
+width:62px;
+height:41px;
+}
+
+.maruti-row2
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:105px;
+height:auto;
+float:left;
+background:#F3F3F3;
+border-right:solid 1px #000000;
+}
+
+.maruti-image
+{
+margin:10px 15px 8px 15px;
+padding:0px;
+background:url(../images/img-maruti.gif) top left;
+width:69px;
+height:36px;
+}
+
+.honda-row2
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:98px;
+height:auto;
+float:right;
+background:#F3F3F3;
+}
+
+.honda-image
+{
+margin:8px 20px 5px 20px;
+padding:0px;
+background:url(../images/img-honda.gif) top left;
+width:53px;
+height:43px;
+}
+
+.fiat-row3
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:98px;
+height:auto;
+float:left;
+border-right:solid 1px #000000;
+}
+
+.fiat-image
+{
+margin:8px 20px 2px 20px;
+padding:0px;
+background:url(../images/img-fiat.gif) top left;
+width:50px;
+height:50px;
+}
+
+.bmw-row3
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:105px;
+height:auto;
+float:left;
+background:#F3F3F3;
+border-right:solid 1px #000000;
+}
+
+.bmw-image
+{
+margin:8px 20px 2px 20px;
+padding:0px;
+background:url(../images/img-bmw.gif) top left;
+width:50px;
+height:51px;
+}
+
+.jaguar-row3
+{
+margin:5px 0 5px 0;
+padding:0px;
+width:98px;
+height:auto;
+float:right;
+}
+
+.jaguar-image
+{
+margin:8px 7px 20px 7px;
+padding:0px;
+background:url(../images/img-jaguar.gif) top left;
+width:84px;
+height:31px;
+}
+
+#twitter
+{
+margin:10px 0 0 0px;
+padding:0px;
+background:url(../images/twitter_bg.gif) top left;
+width:306px;
+height:60px;
+float:left;
+}
+
+/* Logo Mapping starts*/
+#twitter a
+{
+display:block;
+position:relative;
+float:left;
+} 
+
+ #twitter a#link1{
+width:42px;
+height:42px;
+margin:0 0 0 0;
+} 
+
+
+
+/* Logo Mapping ends*/
+
+
+.twitter-text1{
+margin:8px 0 0 40px;
+padding:0px;
+font-family:arial;
+font-weight:bold;
+font-size:14px;
+color:#000000;
+text-align:center;
+line-height:18px;
+text-decoration:none;
+}
+
+
+#care-car
+{
+width:302px;
+height:auto;
+margin:10px 0;
+padding:0px;
+float:left;
+}
+
+.care-car_L
+{
+width:227px;
+height:auto;
+margin:0px 0 0 0;
+padding:0px;
+float:left;
+}
+
+.care-car_LB
+{
+width:227px;
+height:auto;
+margin:0px 0 0 0;
+padding:0px;
+}
+
+.care-car_LH
+{
+width:299px;
+height:auto;
+margin:0px 0 0 0;
+padding:0px;
+float:left;
+border-left:1px solid #AEAEAE;
+border-right:1px solid #AEAEAE;
+border-bottom:1px solid #AEAEAE;
+}
+
+.care-car_lf
+{
+background:url(../images/car-care-lt.gif);
+background-repeat:no-repeat;
+width:9px;
+height:35px;
+margin:0px;
+padding:0px;
+float:left;
+}
+.care-car_md
+{
+background:url(../images/car-care-bg.gif);
+background-repeat:repeat-x;
+width:218px;
+height:35px;
+margin:0px;
+padding:0px;
+float:left;
+}
+
+.care-car_R
+{
+background:url(../images/car-care-rt.gif);
+background-repeat:no-repeat;
+width:74px;
+height:67px;
+margin:0px;
+padding:0px;
+float:left;
+}
+
+.care-car-heading{
+margin:5px 0 0 5px;
+padding:0px;
+font-family:arial;
+font-weight:bold;
+font-size:20px;
+color:#B90000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+.sub-heading{
+margin:5px 0 0 5px;
+padding:0px;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#000000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+.car_care-box
+{
+width:299px;
+height:auto;
+margin:0px;
+padding:0px;
+
+}
+
+.car_care-box ul
+{
+margin:0 0 0 20px;
+padding:0px;
+list-style-image:url(../images/bullet.gif);
+}
+.car_care-box ul li
+{
+margin:2px 0 0 5px;
+padding:0px;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#B90000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+.car_care-box ul li a
+{
+margin:0px;
+padding:0px;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#B90000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+.car_care-box ul li a:hover
+{
+margin:0px;
+padding:0px;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#B90000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+#news{
+margin:0;
+padding:0px;
+width:302px;
+height:auto;
+float:left;
+border:1px solid #AEAEAE;
+}
+
+.news-heading{
+margin:0;
+padding:0px;
+width:302px;
+height:auto;
+clear:both;
+border:0px solid blue;
+}
+
+
+#disp
+{
+margin:8px 0 0 0;
+padding:0px;
+width:302px;
+height:auto;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#000000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+border:0px solid green;
+}
+
+
+.feedTitle
+ {
+margin:0px;
+padding:0px;
+width:300px;
+height:auto;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#0000EE;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+ }
+
+ .feedDisc
+ {
+margin:0px;
+padding:0px;
+width:300px;
+height:auto;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#000000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+ }
+
+.petrol-station
+{
+background:url(../images/petrol-stations-bg.jpg);
+background-repeat:no-repeat;
+width:303px;
+height:138px;
+margin:5px 0 10px 0px;
+padding:0px;
+float:left;
+}
+
+.petrol-station-H
+{
+margin:10px 0 0 8px;
+padding:0px;
+font-family:arial;
+font-weight:bold;
+font-size:24px;
+color:#E1A630;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+.petrol-station-box ul
+{
+margin:10px 0 0 10px;
+padding:0px;
+list-style-type:none;
+}
+
+.petrol-station-box ul li
+{
+margin:5px 0px 0 5px;
+background:url(../images/petrol-stations-bullet.gif);
+background-repeat:no-repeat;
+background-position:0 52%;
+padding:0 0px 0 20px;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#FFFFFF;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+.petrol-station-box ul li a
+{
+margin:0px;
+padding:0px;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#FFFFFF;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+#footer
+{
+width:1000px;
+height:auto;
+margin:10px 0 0 0px;
+padding:0px;
+float:left;
+background:#F3F3F3;
+
+}
+
+#footer-logo
+{
+width:68px;
+height:100px;
+background:url(https://www.mapsofindia.com/stylenew-2016/images/compare-infobase-logo.png) top left;
+margin:10px 0 8px 10px;
+padding:0px;
+float:left;
+}
+
+#footer-text
+{
+width:450px;
+height:auto;
+margin:0px;
+padding:0px;
+float:left;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#000000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+}
+
+
+
+.footer-text1
+{
+margin:10px 0 0 20px;
+padding:0px;
+float:left;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#000000;
+text-align:left;
+line-height:18px;
+text-decoration:none;
+
+}
+
+
+#footer-links
+{
+width:480px;
+height:auto;
+margin:10px 0 0 0px;
+padding:0px;
+float:right;
+}
+
+.logo
+{
+width:300px;
+height:auto;
+margin:10px 0 0 0px;
+padding:0px;
+float:right;
+}
+
+#footer-links
+{
+width:1003px;
+height:30px;
+margin:10px 0 5px 0px;
+padding:0px;
+float:left;
+background-color: #b80604;
+}
+
+#footer-links ul
+{
+margin:5px 20px 0 0px;
+padding:0px;
+float:left;
+list-style-type:none;
+display:inline;
+}
+
+#footer-links ul li
+{
+margin:1px 3px 0 22px;
+padding:0px;
+float:left;
+font-family:arial;
+font-weight:normal;
+font-size:12px;
+color:#ffffff;
+text-align:center;
+line-height:18px;
+text-decoration:none;
+}
+#footer-links ul li a
+{
+margin:0px;
+padding:0px;
+float:left;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#ffffff;
+text-align:center;
+line-height:18px;
+text-decoration:none;
+}
+#footer-links ul li a:hover
+{
+margin:0px;
+padding:0px;
+float:left;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:rgb(235, 217, 231);
+text-align:center;
+line-height:18px;
+text-decoration:none;
+}
+
+
+.sliderwrapper{
+position: relative; /*leave as is*/
+overflow: hidden; /*leave as is*/
+width: 464px; /*width of featured content slider*/
+height: 212px;
+border:0px solid red;
+}
+
+
+
+.sliderwrapper .contentdiv{
+visibility: hidden; /*leave as is*/
+position: absolute; /*leave as is*/
+left: 0;  /*leave as is*/
+top: 0;  /*leave as is*/
+padding: 0px;
+background: white;
+width: 464px; /*width of content DIVs within slider. Total width should equal slider's inner width (390+5+5=400) */
+height: 212px;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
+-moz-opacity: 1;
+opacity: 1;
+}
+
+.pagination{
+width: 464px; /*Width of pagination DIV. Total width should equal slider's outer width (400+10+10=420)*/
+height:48px;
+margin:0px 0 0 0px;
+padding:10px 0 0 0px;
+background:url(../images/pagination_bg.gif) no-repeat left top;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#000000;
+text-align:center;
+text-decoration:none;
+
+}
+
+.pagination a{
+padding:0px 0 0 5px;
+text-decoration: none; 
+color: #00007D;
+background: white;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#000000;
+text-align:center;
+text-decoration:none;
+}
+
+.pagination a:hover, .pagination a.selected{
+color: #000;
+background-color: red;
+font-family:arial;
+font-weight:bold;
+font-size:12px;
+color:#000000;
+text-align:center;
+text-decoration:none;
+}
+/* footer tab***/
+.fot_bot1{width:1003px;height:auto;float:left;border:solid 0 red;display:block;position:fixed;bottom:0;margin:0px;padding:0;z-index:100;}
+#fot_bot2{width:969px;height:auto;float:left;border:solid 0 red;bottom:0;margin:0;padding:0;z-index:100;}
+.fotbot_l{width:11px;height:40px;float:left;background:url(../images/footer-tab-left.png) top left no-repeat;margin:0;padding:0}
+.fotbot_m{width:958px;height:40px;float:left;background:url(../images/footer-tab-mid.png) top left repeat-x;margin:0;padding:8px 0 0 0px}
+#fotbot_r{width:34px;height:40px;float:right;margin:0;padding:0}
+/* footer tab ends***/
+
+#div-gpt-ad-1424152012902-5{width: 100%;height: 60px;float: left;background: url(https://automobiles.mapsofindia.com/advertisement.png) 0% 0% no-repeat transparent;
+padding: 10px 0px 0px;}
+#div-gpt-ad-1424152012902-1{width: 336px;height: 280px;float: left;background: url(https://automobiles.mapsofindia.com/advertisement.png) 0% 0% no-repeat transparent;padding: 10px 10px 0px 0px;}
+#div-gpt-ad-1424152012902-0{width: 728px;height: 90px;text-align: center;float: left;background: url(https://automobiles.mapsofindia.com/advertisement.png) 0% 0% no-repeat transparent;padding: 10px 10px 10px 0px;}
+#div-gpt-ad-1424152012902-2{width: 728px;height: 90px;background: url(https://automobiles.mapsofindia.com/advertisement.png) 0% 0% no-repeat transparent;padding: 10px 10px 10px 0px;}
+.netgain{width:100%;float:left;}
+
+
+
+@media screen and (max-width:768px){
+#div-gpt-ad-1467800025982-1{width:100% !important;text-align:center;  background: url("https://automobiles.mapsofindia.com/advertisement.png") top left no-repeat;
+  padding: 10px 0 0;float: left;}
+#pagewidth{width: 98% !important;padding: 1%;}
+#main,.header,#top_Nav,#topnav,#middle-panel,#twopanel,#news,.cars-section-2,#new-car-table1,.new-car-table,.car-section-inner{width:100%;}
+#container{width:99%;}
+#google-ads-header,#topnav_inner,.netgain,.mobhide,#div-gpt-ad-1424152012902-0,#right-asds,#middle-header,#middle-asds,.left-thumnail,.netgainss{display:none;}
+.top_nav_menu {position: absolute;right: 0;top: 20px;}
+#logo {width: 85% !important;float: left;background: url(http://www.mapsofindia.com/images2009/mapsofindia-logo.png) no-repeat;margin: 15px 2px 0 4px;background-position: center;background-size: 95%;max-width: 254px;}
+.top-men-bg {display: none;position: absolute;width: 288px;background: #0066b7;right: 10px;z-index: 9999999;}
+.top-men-bg ul {list-style: none;margin: 0px auto;padding: 0;}
+.top-men-bg ul li {color: white !important;font-size: 16px !important;font-weight: 800 !important;padding: 5px;background: #1886c6;margin: 10px;text-align: left;}
+.top-men-bg ul li a {color: #fff;text-decoration: none;}
+.mob_h1{width:100% !important;}
+.car-border{background: url(../images/border.gif) center no-repeat;width: 48%;}
+.car-content {width: 52%;}
+#right-panel{width: 98%;padding: 1%;margin:0;}
+#twitter{width:100%;background-size: 100% 100%;}
+.twitter-text1{width: 100%;margin:0;}
+.valk-row1,.chevrolet-row1 ,.audi-row1 ,.tata-row2 ,.maruti-row2 ,.honda-row2 ,.fiat-row3 ,.bmw-row3 ,.jaguar-row3 {width:33%;}
+.news-heading,#disp{width:100%;text-align:center;}
+#news iframe{width:100%;float:left;}
+#frame1{width:100%;height: 170px;}
+#frame2{width:100%;height:415px;}
+#frame3{width:100%;height:250px;}
+.mobileads {background: url("https://automobiles.mapsofindia.com/advertisement-wht.png") top left no-repeat gray;padding: 10px 0 0;float: left;height: auto;position: fixed;bottom: 0;margin: 0 auto;width: 100%;text-align: center;}
+#footer {width: 100%;margin-bottom: 65px;}
+#footer-links{width: 100%;height: auto;}
+#footer-links ul{margin: 5px 0px 0 0px;}
+#footer-links ul li {margin: 1px 3px 0 2px;}
+#footer-text {width: 100%;}
+#footer-logo {width: 20%;background: url(https://www.mapsofindia.com/stylenew-2016/images/compare-infobase-logo.png) top left no-repeat;}
+.logo {width: 76%;margin: 20px 0 0 0px;}
+.logo img{width:100%;max-width:254px;}
+.hads {margin: 5px auto!important;text-align: center;width: 100%;height: auto;display: block;float: left;background: url("https://automobiles.mapsofindia.com/advertisement.png") top left no-repeat;padding: 10px 0 0;}
+.top_left_pan{width: 40px;float: left;margin: 5px 0 0 0;}
+#left-panel{position: absolute;background: mintcream;margin: 0;padding: 0;display:none;}
+#div-gpt-ad-1424152012902-3{width: 100%;height: 250px;float: left;text-align: center;background: url("https://automobiles.mapsofindia.com/advertisement.png") top left no-repeat;padding: 10px 0 0;}
+
+
+}
+
+@media screen and (max-width:400px){
+.new-car-space{display:none;}
+.new-car-box {width: 49%;}
+
+}
+
+
+@media screen and (max-width:320px){
+#div-gpt-ad-1424152012902-4{width:310px;overflow:hidden;}
+
+}
+
+
+@media screen and (max-width:300px){
+#div-gpt-ad-1424152012902-4{width:290px;overflow:hidden;}
+#div-gpt-ad-1424152012902-3{width: 285px !important;overflow: hidden;}
+}
+
+
+
+
+
+
+.moi-mobile-anchor { width: 300px; height: 50px; }
+@media(min-width: 500px) { .moi-mobile-anchor { width: 468px; height: 60px; } }
+@media(min-width: 800px) { .moi-mobile-anchor { width: 728px; height: 90px; } }
+.moi-responsive-top { width:300px; height: 50px;overflow:hidden;}
+@media(min-width: 500px) { .moi-responsive-top { width: 468px; height: 60px; } }
+@media(min-width: 800px) { .moi-responsive-top { width: 728px; height: 90px; } }

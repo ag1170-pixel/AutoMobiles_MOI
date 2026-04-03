@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <title>Diesel Prices in India</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #aab8cb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .diesel-prices-map-heading {
+            text-align: center;
+            color: #000 !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 30px;
+            margin:10vmin 0;
+        }
+        #map-container {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1.5;
+        }
+        #india-map {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .map-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #c8d3e1;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-image: {% if petrol_station_images %} url('{{ petrol_station_images.0.image_url }}') {% else %} none {% endif %};
+            background-size: cover;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .map-marker:hover {
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        #price-info {
+            display: none;
+            position: absolute;
+            background: #d7e4ef;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 200px;
+            font-size: 0.8rem;
+        }
+        #price-info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 5px;
+            font-size: 1rem;
+        }
+        #price-info p {
+            margin: 5px 0;
+            color: #34495e;
+        }
+        #price-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #price-table th, #price-table td {
+            padding: 15px;
+            text-align: left;
+        }
+        #price-table th {
+            background-color: #d7e4ef;
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #price-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        #price-table tr:hover {
+            background-color: #e8f4fc;
+        }
+        .price-change {
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .price-up {
+            color: #e74c3c;
+            background-color: #fadbd8;
+        }
+        .price-down {
+            color: #b6cdea;
+            background-color: #d5f5e3;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            #map-container {
+                max-width: 100%;
+                aspect-ratio: 1.2;
+            }
+            #price-table {
+                font-size: 0.9rem;
+            }
+            #price-table th, #price-table td {
+                padding: 10px;
+            }
+            .map-marker {
+                width: 15px;
+                height: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            #price-info {
+                max-width: 250px;
+            }
+            #price-table {
+                font-size: 0.8rem;
+            }
+            #map-container {
+                aspect-ratio: 1;
+            }
+            .map-marker {
+                width: 12px;
+                height: 12px;
+            }
+        }
+         .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    </style>
+
+    <div class="container">
+        <h1 class="diesel-prices-map-heading">Diesel Prices in India</h1>
+        <div id="map-container">
+            {% if petrol_station_images %}
+                <img src="{{ petrol_station_images.0.image_url }}" alt="India Map" id="india-map">
+            {% else %}
+                <div class="no-image-placeholder" style="width:100%; height:400px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:15px;">India Map</div>
+            {% endif %}
+            <div id="price-info"></div>
+        </div>
+
+        <table id="price-table">
+            <thead>
+            <tr>
+                <th>City</th>
+                <th>Diesel</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Table rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const locations = [
+            { name: 'Delhi', x: 39, y: 27 },
+            { name: 'Mumbai', x: 30, y: 57 },
+            { name: 'Kolkata', x: 60, y: 46 },
+            { name: 'Chennai', x: 45, y: 75 },
+            { name: 'Bangalore', x: 40, y: 75 },
+            { name: 'Hyderabad', x: 41, y: 62 },
+            { name: 'Ahmedabad', x: 30, y: 45 },
+            { name: 'Pune', x: 32, y: 60 }
+        ];
+
+        const mapContainer = document.getElementById('map-container');
+        const priceInfo = document.getElementById('price-info');
+        const priceTable = document.getElementById('price-table').getElementsByTagName('tbody')[0];
+
+        // Create markers on the map
+        locations.forEach(location => {
+            const marker = document.createElement('div');
+            marker.className = 'map-marker';
+            marker.style.left = `${location.x}%`;
+            marker.style.top = `${location.y}%`;
+            marker.title = location.name;
+
+            marker.addEventListener('mouseover', () => {
+                fetchFuelPrices(location.name, marker);
+            });
+
+            marker.addEventListener('mouseout', () => {
+                priceInfo.style.display = 'none';
+            });
+
+            mapContainer.appendChild(marker);
+        });
+
+        // Fetch fuel prices (mock data for testing)
+        function fetchFuelPrices(location, marker) {
+            setTimeout(() => {
+                const mockData = {
+                    diesel_price: (Math.random() * 10 + 80).toFixed(2),
+                    previous_diesel_price: (Math.random() * 10 + 80).toFixed(2),
+                    last_updated: new Date().toISOString()
+                };
+                displayPriceInfo(mockData, marker);
+                updatePriceTable(mockData, location);
+            }, 100);  // Reduced delay for quicker response
+        }
+
+        // Fetch fuel prices from API#}
+        {#function fetchFuelPrices(location, marker) {#}
+        {#    // Replace this with your actual API endpoint#}
+        {#    fetch(`/api/fuel-prices/?location=${encodeURIComponent(location)}`)#}
+        {#        .then(response => {#}
+        {#            if (!response.ok) {#}
+        {#                throw new Error(`HTTP error! status: ${response.status}`);#}
+        {#            }#}
+        {#            return response.json();#}
+        {#        })#}
+        {#        .then(data => {#}
+        {#            displayPriceInfo(data, marker);#}
+        {#            updatePriceTable(data, location);#}
+        {#        })#}
+        {#        .catch(error => {#}
+        {#            console.error('Error fetching fuel prices:', error);#}
+        {#            alert(`Failed to fetch fuel prices: ${error.message}. Please try again later.`);#}
+        {#        });#}
+        {#}{#}
+
+            // Display price info popup
+            function displayPriceInfo(data, marker) {
+                const content = `
+            <h3>${marker.title}</h3>
+            <p><strong>Diesel:</strong> ₹${data.diesel_price}</p>
+
+        `;
+                {#<p><small>Last updated: ${new Date(data.last_updated).toLocaleString()}</small></p>#}
+
+
+                priceInfo.innerHTML = content;
+                priceInfo.style.display = 'block';
+
+                const rect = marker.getBoundingClientRect();
+                const containerRect = mapContainer.getBoundingClientRect();
+
+                priceInfo.style.left = `${rect.left - containerRect.left + 25}px`;
+                priceInfo.style.top = `${rect.top - containerRect.top - 10}px`;
+            }
+
+            // Update price table
+            function updatePriceTable(data, location) {
+                let row = priceTable.querySelector(`tr[data-city="${location}"]`);
+                if (!row) {
+                    row = priceTable.insertRow();
+                    row.setAttribute('data-city', location);
+                }
+
+                const priceChange = (current, previous) => {
+                    const diff = (current - previous).toFixed(2);
+                    const className = diff > 0 ? 'price-up' : 'price-down';
+                    return `<span class="price-change ${className}">(${diff > 0 ? '+' : ''}${diff})</span>`;
+                };
+
+                row.innerHTML = `
+            <td>${location}</td>
+            <td>₹${data.diesel_price} ${priceChange(data.diesel_price, data.previous_diesel_price)}</td>
+        `;
+            }
+
+            // Initial load of all cities
+            locations.forEach(location => {
+                fetchFuelPrices(location.name);
+            });
+    </script>
+
+{% endblock %}
+

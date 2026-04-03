@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %} | Car Brands and Models {% endblock %}
+
+{% block content %}
+{% load humanize %}
+<style>
+    .brand-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .brand-button {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: none;
+        cursor: pointer;
+    }
+    .bike-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .bike-card {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    .bike-image {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+<h1>Bike Brands</h1>
+<div class="brand-list">
+    {% for brand in brands %}
+    <button class="brand-button" onclick="showModels('{{ brand }}')">{{ brand }}</button>
+    {% endfor %}
+</div>
+
+<h2 id="modelTitle" style="display: none;"></h2>
+<div id="bikeGrid" class="bike-grid">
+    <!-- bike models will be populated here -->
+</div>
+
+<div id="bikeDetails" style="display: none;">
+    <!-- bike details will be populated here -->
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function showModels(brand) {
+        $.ajax({
+            url: '/get_bike_models/' + brand + '/',
+            type: 'GET',
+            success: function(data) {
+                $('#modelTitle').text(brand + ' Models').show();
+                var gridHtml = '';
+                data.forEach(function(bike) {
+                    gridHtml += `
+                            <div class="bike-card">
+                                <img src="${bike.image}" alt="${bike.model}" class="bike-image">
+                                <h2>${bike.model}</h2>
+                                <p>Price: $${bike.price}</p>
+                                <p>Location: ${bike.manufac_place}</p>
+                                <button onclick="showDetails(${bike.id})">View Details</button>
+                            </div>
+                        `;
+                });
+                $('#bikeGrid').html(gridHtml);
+            }
+        });
+    }
+
+    function showDetails(bikeId) {
+        $.ajax({
+            url: '/get_bike_details/' + bikeId + '/',
+            type: 'GET',
+            success: function(data) {
+                var detailsHtml = `
+                        <h2>${data.name} ${data.model}</h2>
+                        <p>Price: $${data.price}</p>
+                        <p>Category: ${data.categoryBike}</p>
+                        <p>Length: ${data.length}</p>
+                        <p>Height: ${data.height}</p>
+                        <p>Width: ${data.width}</p>
+                        <p>Wheelbase: ${data.wheelbase}</p>
+                        <p>Kerb: ${data.kerb}</p>
+                        <p>Type: ${data.type}</p>
+                        <p>Ground Clearance: ${data.ground}</p>
+                        <p>Trunk Capacity: ${data.trunk}</p>
+                        <p>Fuel Tank Capacity: ${data.tank}</p>
+                        <p>Engine: ${data.engine}</p>
+                        <p>Gears: ${data.gears}</p>
+                        <p>Fuel Economy: ${data.fueleconomy}</p>
+                        <p>Top Speed: ${data.speed}</p>
+                        <p>Airbags: ${data.bags}</p>
+                        <p>Seat Belts: ${data.belt}</p>
+                        <p>Manufacturing Place: ${data.manufac_place}</p>
+                        <h3>Vehicle Overview</h3>
+                        <p>${data.Vehicle_overview}</p>
+                        <h3>Features</h3>
+                        <p>${data.features}</p>
+                    `;
+                $('#bikeDetails').html(detailsHtml).show();
+            }
+        });
+    }
+</script>
+

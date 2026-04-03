@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #pagewidth {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .tips-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tip {
+            width: 30%;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip img {
+            width: 100%;
+            height: auto;
+        }
+
+        .tip h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+    <br>
+    <div id="container">
+        <h1>Know Your Car</h1>
+        <div class="tips-container">
+            {% for tip in car_tips %}
+                <div class="tip">
+                    <h2>{{ tip.title }}</h2>
+                    <img src="{{ tip.image_url }}" alt="{{ tip.title }}">
+                    <p>{{ tip.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

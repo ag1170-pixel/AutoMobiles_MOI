@@ -1,0 +1,288 @@
+[
+  {
+    "model": "carshanders.spare",
+    "pk": 1,
+    "fields": {
+      "name": "Starter",
+      "description": "A device used to rotate an internal-combustion engine so as to initiate the engine's operation under its own power.",
+      "price": "120.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 2,
+    "fields": {
+      "name": "Armature",
+      "description": "The rotating coil or coils of a dynamo or electric motor.",
+      "price": "75.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 3,
+    "fields": {
+      "name": "Commutator",
+      "description": "A rotary switch in certain types of electric motors and electrical generators that periodically reverses the current direction between the rotor and the external circuit.",
+      "price": "50.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 4,
+    "fields": {
+      "name": "Field Coil",
+      "description": "An electromagnet used to generate a magnetic field in an electro-magnetic machine, typically a rotating electrical machine such as a motor or generator.",
+      "price": "80.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 5,
+    "fields": {
+      "name": "Starter Bendix Drive",
+      "description": "A starter drive which incorporates a one-way clutch and a helical drive spring to engage the engine's flywheel during starting.",
+      "price": "95.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 6,
+    "fields": {
+      "name": "Alternator",
+      "description": "A generator that produces alternating current.",
+      "price": "150.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 7,
+    "fields": {
+      "name": "Rotor",
+      "description": "The rotating part of an electrical or mechanical device.",
+      "price": "85.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 8,
+    "fields": {
+      "name": "Stator",
+      "description": "The stationary part of a rotary system, found in electric generators, electric motors, sirens, mud motors or biological rotors.",
+      "price": "90.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 9,
+    "fields": {
+      "name": "Housing",
+      "description": "A durable protective casing or enclosure for an electrical device or system.",
+      "price": "40.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 10,
+    "fields": {
+      "name": "Flash Relay",
+      "description": "A relay that interrupts the flow of electrical current at regular intervals to produce a flashing signal.",
+      "price": "20.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 11,
+    "fields": {
+      "name": "Carbon Brush",
+      "description": "An electrical contact which conducts current between stationary wires and moving parts, most commonly in a rotating shaft.",
+      "price": "10.00",
+      "category": 1,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 12,
+    "fields": {
+      "name": "Hub Bolt",
+      "description": "A bolt used to secure the wheel hub to the vehicle.",
+      "price": "5.00",
+      "category": 2,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 13,
+    "fields": {
+      "name": "T-Bolt",
+      "description": "A bolt with a T-shaped head that fits into a slot or channel.",
+      "price": "3.00",
+      "category": 2,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 14,
+    "fields": {
+      "name": "Washer",
+      "description": "A flat disk typically used to distribute the load of a threaded fastener, such as a bolt or nut.",
+      "price": "0.50",
+      "category": 2,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 15,
+    "fields": {
+      "name": "Nut",
+      "description": "A fastener with a threaded hole, typically used in conjunction with a mating bolt to fasten multiple parts together.",
+      "price": "0.75",
+      "category": 2,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 16,
+    "fields": {
+      "name": "U-Bolt",
+      "description": "A bolt in the shape of the letter U, typically used to support pipework or as a clamp.",
+      "price": "4.00",
+      "category": 2,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 17,
+    "fields": {
+      "name": "Gear",
+      "description": "A rotating machine part having cut teeth or cogs which mesh with another toothed part to transmit torque.",
+      "price": "30.00",
+      "category": 3,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 18,
+    "fields": {
+      "name": "Tie-Rod End",
+      "description": "A part of the steering mechanism in a vehicle that connects the steering rack to the steering knuckle.",
+      "price": "25.00",
+      "category": 3,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 19,
+    "fields": {
+      "name": "Ball Joint",
+      "description": "A spherical bearing that connects the control arms to the steering knuckles.",
+      "price": "20.00",
+      "category": 3,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 20,
+    "fields": {
+      "name": "U-J Cross",
+      "description": "A universal joint cross, a coupling in a rigid rod that allows the rod to 'bend' in any direction.",
+      "price": "15.00",
+      "category": 3,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 21,
+    "fields": {
+      "name": "Brake Hose",
+      "description": "A flexible hose that carries brake fluid from the brake line to the brake caliper.",
+      "price": "10.00",
+      "category": 4,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 22,
+    "fields": {
+      "name": "Fuel Line",
+      "description": "A hose or pipe used to transfer fuel from the fuel tank to the engine.",
+      "price": "12.00",
+      "category": 4,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 23,
+    "fields": {
+      "name": "Engine Mounting",
+      "description": "A support that secures the engine to the chassis and absorbs vibrations.",
+      "price": "30.00",
+      "category": 4,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 24,
+    "fields": {
+      "name": "Support",
+      "description": "A bracket or fixture used to support or secure an automotive component.",
+      "price": "8.00",
+      "category": 4,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 25,
+    "fields": {
+      "name": "Brake Pipe",
+      "description": "A rigid pipe that carries brake fluid from the master cylinder to the brake calipers or wheel cylinders.",
+      "price": "15.00",
+      "category": 4,
+      "image": ""
+    }
+  },
+  {
+    "model": "carshanders.spare",
+    "pk": 26,
+    "fields": {
+      "name": "Fuel Injection Pipe",
+      "description": "A pipe used to deliver fuel under high pressure from the fuel pump to the injectors.",
+      "price": "20.00",
+      "category": 4,
+      "image": ""
+    }
+  }
+]

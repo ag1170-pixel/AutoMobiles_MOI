@@ -1,0 +1,21 @@
+name: Deploy Django
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 13.204.26.77
+          username: kishore
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /home/kishore/automobiles/automobiles/automobiles_maps_of_india/cars_mapsofIndia_project
+            ./deploy.sh

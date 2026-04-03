@@ -1,0 +1,17 @@
+body{margin:auto 0px;}
+.toplink{font-family:arial;color:#6D6B6C;font-size:13px; font-weight:bold;text-align:center;vertical-align:middle;text-decoration:none;}
+.toplink:hover{font-family:arial;color:#6D6B6C;font-size:13px; font-weight:bold;text-align:center;vertical-align:middle;text-decoration:underline;}
+.footer{font-family:arial;color:#ffffff;font-weight:500;font-size:14px;vertical-align:middle;text-decoration:none;text-align:center;}
+.footer:hover{font-family:arial;color:#ffffff;font-weight:500;font-size:14px;vertical-align:middle;text-decoration:underline;text-align:center;}
+.lefttoplink{font-family:arial;color:#E1E5F1;font-size:14px;text-decoration:none;text-align:left;vertical-align:middle;padding:0 0 0 10;}
+.lefttoplink1{font-family:arial;color:#E1E5F1;font-size:14px;text-decoration:none;text-align:left;vertical-align:middle;}
+.lefttoplink1:hover{font-family:arial;color:#E1E5F1;font-size:14px;text-decoration:underline;text-align:left;vertical-align:middle;}
+.lefthead{font-family:arial;color:#9ABC08;font-size:22px;font-weight:500;text-decoration:none;text-align:left;vertical-align:middle;padding:0 0 0 40;}
+.leftlink{font-family:arial;color:#3D4252;font-size:13px;font-weight:700; line-height:20px;text-decoration:none;text-align:left;padding:0 6 0 10;}
+.leftlink1{font-family:arial;color:#3D4252;font-size:12px;font-weight:700; line-height:20px;text-decoration:none;text-align:left;}
+.texthead{font-family:arial;color:#9ABC08;font-size:22px;font-weight:1000;text-decoration:none;text-align:left;vertical-align:middle;padding:0 0 5 0;}
+.text{font-family:arial;color:#6C6C6C;font-size:12px;text-decoration:none;text-align:justify;}
+.lefthead1{font-family:arial;color:#9ABC08;font-size:22px;font-weight:500;text-decoration:none;text-align:center;vertical-align:middle;}
+.btext{font-family:arial;color:#000000;font-size:10px;font-weight:bold;text-align:center; vertical-align:middle;}
+.link{font-family:arial;color:#6C6C6C;font-size:13px;text-decoration:none;text-align:left;}
+.link:hover{font-family:arial;color:#6938EB;font-size:13px;text-decoration:underline;text-align:left;}

@@ -1,0 +1,736 @@
+{% extends 'base.html' %}
+
+{% block title %} | Search Results {% endblock %}
+{% block sidebar %}
+{% endblock %}
+{% block content %}
+{% load humanize %}
+{% load static %}
+
+<style>
+    .featured-bike {
+        background-color: #e6f3ff;
+        padding: 20px 0;
+    }
+
+    .bike-box-3 {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .bike-box-3:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .bike-thumbnail {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+    .btn-block i{
+                color:#000 !important;
+            }
+    .bike-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .bike-box-3:hover .bike-thumbnail img {
+        transform: scale(1.05);
+    }
+
+    .tag {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: red;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+        background-color:#f74e2a !important;
+    }
+
+    .detail {
+        padding: 15px;
+    }
+
+    .bike-info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .title {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #f74e2a;
+    }
+
+    .location {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .view-details-btn {
+        background-color: #d7e4ef !important;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+    
+    .view-details-btn:hover {
+        background-color: #4a6b8c !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        color: white;
+    }
+
+    .comparison-title {
+        text-align: center;
+        position: relative;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    .comparison-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #007bff;
+    }
+
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .pagination {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .pagination a, .pagination span {
+        padding: 5px 10px;
+        margin: 0 2px;
+        border: 1px solid #ddd;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .pagination .current-page {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+    .pagination-wrapper{
+        margin:0 auto !important;
+    }
+    .image-container {
+    width: 48% ;
+    line-height: 0;
+}
+.comparison-title{
+    margin-top:50px !important;
+    margin-bottom:100px !important;
+}
+.sub-banner.overview-bgi {
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        min-height: 450px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .bike-thumbnail {
+            height: 180px;
+        }
+        
+        .search-box-4 .form-control {
+            padding: 10px;
+            font-size: 13px;
+        }
+        
+        .search-box-4 .btn-block {
+            padding: 10px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .bike-thumbnail {
+            height: 160px;
+        }
+        
+        .bike-box-3 {
+            margin-bottom: 15px;
+        }
+        
+        .detail {
+            padding: 12px;
+        }
+        
+        .title {
+            font-size: 16px;
+        }
+        
+        .price {
+            font-size: 14px;
+        }
+        
+        .location {
+            font-size: 12px;
+        }
+        
+        .view-details-btn {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+        
+        .tag {
+            font-size: 11px;
+            padding: 4px 8px;
+        }
+        
+        .sub-banner.overview-bgi {
+            min-height: 350px;
+        }
+        
+        .comparison-title {
+            font-size: 24px;
+            margin: 30px 0 !important;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .featured-bike {
+            padding: 15px 0;
+        }
+        
+        .bike-thumbnail {
+            height: 140px;
+        }
+        
+        .bike-box-3 {
+            margin-bottom: 15px;
+            padding: 12px;
+        }
+        
+        .detail {
+            padding: 10px;
+        }
+        
+        .bike-info-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+        
+        .title {
+            font-size: 15px;
+            line-height: 1.3;
+        }
+        
+        .price {
+            font-size: 13px;
+        }
+        
+        .location {
+            font-size: 11px;
+        }
+        
+        .view-details-btn {
+            padding: 8px 16px;
+            font-size: 12px;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .tag {
+            font-size: 10px;
+            padding: 3px 6px;
+        }
+        
+        .comparison-title {
+            font-size: 20px;
+            margin: 20px 0 !important;
+        }
+        
+        .sub-banner.overview-bgi {
+            min-height: 300px;
+        }
+        
+        .pagination a, .pagination span {
+            padding: 8px 12px;
+            margin: 0 1px;
+            font-size: 14px;
+        }
+        
+        .image-container {
+            width: 100% !important;
+            margin-bottom: 20px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .featured-bike {
+            padding: 10px 0;
+        }
+        
+        .bike-thumbnail {
+            height: 120px;
+        }
+        
+        .bike-box-3 {
+            margin-bottom: 12px;
+            padding: 10px;
+        }
+        
+        .detail {
+            padding: 8px;
+        }
+        
+        .title {
+            font-size: 14px;
+        }
+        
+        .price {
+            font-size: 12px;
+        }
+        
+        .location {
+            font-size: 10px;
+        }
+        
+        .view-details-btn {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+        
+        .tag {
+            font-size: 9px;
+            padding: 2px 5px;
+        }
+        
+        .comparison-title {
+            font-size: 18px;
+            margin: 15px 0 !important;
+        }
+        
+        .sub-banner.overview-bgi {
+            min-height: 250px;
+        }
+        
+        .pagination {
+            display: flex !important;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .pagination a, .pagination span {
+            padding: 6px 10px;
+            margin: 2px;
+            font-size: 12px;
+        }
+        
+        .search-box-4 .form-control {
+            padding: 8px;
+            font-size: 12px;
+        }
+        
+        .search-box-4 .btn-block {
+            padding: 8px;
+            font-size: 12px;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .bike-thumbnail {
+            height: 100px;
+        }
+        
+        .bike-box-3 {
+            padding: 8px;
+        }
+        
+        .detail {
+            padding: 6px;
+        }
+        
+        .title {
+            font-size: 13px;
+        }
+        
+        .price {
+            font-size: 11px;
+        }
+        
+        .view-details-btn {
+            padding: 5px 10px;
+            font-size: 10px;
+        }
+        
+        .comparison-title {
+            font-size: 16px;
+        }
+    }
+
+    .search-container {
+        position: absolute;
+        /* top: 50%; */
+        right: 7%;
+        transform: translate(0, -50%);
+        max-width: 400px;
+        bottom: -225px;
+        z-index: 9999;
+    }
+
+    .search-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(222, 180, 180, 0.6);
+    }
+
+    .search-content {
+        width: 350px;
+        position: relative;
+        max-width: 400px;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    .search-box-4 {
+        position: relative !important;
+        left: 0 !important;
+        max-width: 350px;
+        margin: 0;
+        background: transparent !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .search-box-4 h5 {
+        color: #000;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 35px ;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .search-box-4 .form-control {
+        width: 100%;
+        height: 35px !important;
+        border: 1px solid #000;
+        padding: 0 15px !important;
+        border-radius: 25px;
+        background: #ffffff;
+        color: #333;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .search-box-4 .form-control:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .search-box-4 .form-control option {
+        background: #ffffff;
+        color: #333;
+        padding: 8px;
+    }
+
+    .search-box-4 .btn-block {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #d7e4ef !important;
+        color: black !important;
+        margin-top: 10px;
+    }
+
+    .search-box-4 .btn-block:hover {
+        box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+    }
+
+    .breadcrumb-area {
+        position: relative;
+        padding: 20px 0;
+        margin-top: 20px;
+        background: transparent;
+    }
+
+    .breadcrumb-areas {
+        text-align: center;
+    }
+
+    .breadcrumb-areas h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #083d73;
+    }
+</style>
+
+<div class="sub-banner overview-bgi">
+    <div class="search-container">
+        <div class="search-overlay"></div>
+        <div class="search-content">
+            <div class="search-box-4">
+                <h5>Search Bike</h5>
+                <form method="GET" action="{% url 'search' %}">
+                    <input type="hidden" name="vehicleType" value="bike">
+                    {% if selected_budget_range %}
+                        <input type="hidden" name="budgetRange" value="{{selected_budget_range}}">
+                    {% endif %}
+                    <div class="form-group">
+                        <select class="form-control search-fields" name="category" id="bike-category">
+                            <option value="">All Categories</option>
+                            {% for category in categoryBike_search %}
+                            <option value="{{category}}" {% if selected_categoryBike == category %}selected{% endif %}>{{category}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control search-fields" name="name" id="bike-name">
+                            <option value="">All Names</option>
+                            {% for name in name_options %}
+                            <option value="{{ name }}" {% if selected_name == name %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control search-fields" name="model" id="bike-model">
+                            <option value="">All Models</option>
+                            {% for model in model_options %}
+                            <option value="{{ model }}" {% if selected_model == model %}selected{% endif %}>{{ model }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block button-theme">
+                            <i class="fa fa-search" style="color:black;"></i> Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% comment %} <div class="breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Search Results{% if search_keyword %} for "{{ search_keyword }}"{% endif %}</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Search</li>
+            </ul>
+        </div>
+    </div> {% endcomment %}
+</div>
+
+<div class="featured-bike content-area">
+    <div class="container mt-4" style="padding: 100px 0 70px;">
+        <h1 class="comparison-title">Search Results{% if search_keyword %} for "{{ search_keyword }}"{% endif %}</h1>
+        <div class="row">
+            {% if bikes %}
+                {% for bike in bikes %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="bike-box-3">
+                        {% load static %}
+                        <div class="bike-thumbnail">
+                            {% if bike.image %}
+                                <img src="{{ bike.image.url }}" alt="{{ bike.Bikename }}">
+                            {% else %}
+                                {% if 'Kawasaki' in bike.Bikename %}
+                                    <img src="{% static 'img/bikes/compare_bikes.jpg' %}" alt="{{ bike.Bikename }}">
+                                {% elif 'Royal' in bike.Bikename %}
+                                    <img src="{% static 'img/car-4.jpg' %}" alt="{{ bike.Bikename }}">
+                                {% elif 'Honda' in bike.Bikename %}
+                                    <img src="{% static 'img/car-6.jpg' %}" alt="{{ bike.Bikename }}">
+                                {% else %}
+                                    <img src="{% static 'img/car-2.jpg' %}" alt="{{ bike.Bikename }}">
+                                {% endif %}
+                            {% endif %}
+                            {% comment %} <div class="tag">For Sale</div> {% endcomment %}
+                        </div>
+                        <div class="detail">
+                            <div class="bike-info-row">
+                                <h2 class="title">
+                                    {% if bike.slug %}
+                                        <a href="{% url 'bike_detail_seo' bike.slug %}">{{ bike.Bikename }} {{ bike.Bikemodel }}</a>
+                                    {% else %}
+                                        <a href="{% url 'bikes_detail' bike.id %}">{{ bike.Bikename }} {{ bike.Bikemodel }}</a>
+                                    {% endif %}
+                                </h2>
+                                <span class="price">₹ {{ bike.price|intcomma }}</span>
+                            </div>
+                            <div class="bike-info-row">
+                                <div class="location">
+                                    <i class="fa fa-map-marker"></i> {% if bike.manufacturing_place %}{{ bike.manufacturing_place }}{% else %}India{% endif %}
+                                </div>
+                                <a href="{% if bike.slug %}{% url 'bike_detail_seo' bike.slug %}{% else %}{% url 'bikes_detail' bike.id %}{% endif %}" class="view-details-btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12">
+                    <div style="text-align: center; padding: 50px 0;">
+                        <h3>No bikes found matching your criteria</h3>
+                        <p>Please try different search parameters</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Simple working solution for bike dropdowns
+console.log("Bike dropdown script starting...");
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM loaded");
+    
+    const categorySelect = document.getElementById('bike-category');
+    const nameSelect = document.getElementById('bike-name');
+    const modelSelect = document.getElementById('bike-model');
+    
+    if (!categorySelect || !nameSelect || !modelSelect) {
+        console.error("Bike dropdown elements not found!");
+        return;
+    }
+    
+    console.log("All bike dropdown elements found");
+    
+    // Category change event
+    categorySelect.addEventListener('change', function() {
+        const category = this.value;
+        console.log("Bike category selected:", category);
+        
+        // Clear name and model dropdowns
+        nameSelect.innerHTML = '<option value="">All Names</option>';
+        modelSelect.innerHTML = '<option value="">All Models</option>';
+        
+        if (category) {
+            // Simple hardcoded data for testing
+            const bikeData = {
+                'Cruiser': ['Harley-Davidson Iron 883', 'Harley-Davidson Fat Boy', 'Indian Scout'],
+                'Sport': ['Yamaha YZF-R3', 'Ducati Panigale V2', 'Bajaj Pulsar RS 200'],
+                'Adventure': ['KTM 390 Adventure', 'Royal Enfield Himalayan', 'BMW GS 310'],
+                'Commuter': ['Honda Activa', 'TVS Jupiter', 'Hero Splendor'],
+                'Sports Bike': ['Kawasaki Ninja 300', 'Yamaha YZF-R15', 'Bajaj Pulsar RS200']
+            };
+            
+            const names = bikeData[category] || [];
+            names.forEach(function(name) {
+                const option = document.createElement('option');
+                option.value = name;
+                option.text = name;
+                nameSelect.appendChild(option);
+            });
+        }
+    });
+    
+    // Name change event
+    nameSelect.addEventListener('change', function() {
+        const name = this.value;
+        console.log("Bike name selected:", name);
+        
+        // Clear model dropdown
+        modelSelect.innerHTML = '<option value="">All Models</option>';
+        
+        if (name) {
+            // Simple hardcoded models for testing
+            const modelData = {
+                'Harley-Davidson Iron 883': ['883 Iron', 'Iron 883 Custom'],
+                'Harley-Davidson Fat Boy': ['Fat Boy 114', 'Fat Boy S'],
+                'Indian Scout': ['Scout Bobber', 'Scout Classic'],
+                'Yamaha YZF-R3': ['R3 Standard', 'R3 MotoGP Edition'],
+                'Ducati Panigale V2': ['Panigale V2', 'Panigale V2 S'],
+                'Bajaj Pulsar RS 200': ['RS 200', 'RS 200 ABS'],
+                'KTM 390 Adventure': ['390 Adventure', '390 Adventure WP'],
+                'Royal Enfield Himalayan': ['Himalayan', 'Himalayan Sleet'],
+                'BMW GS 310': ['G 310 GS', 'G 310 R']
+            };
+            
+            const models = modelData[name] || [name + ' Standard', name + ' Premium'];
+            models.forEach(function(model) {
+                const option = document.createElement('option');
+                option.value = model;
+                option.text = model;
+                modelSelect.appendChild(option);
+            });
+        }
+    });
+    
+    // Load initial data if category is pre-selected
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const nameParam = urlParams.get('name');
+    const modelParam = urlParams.get('model');
+    
+    if (categoryParam) {
+        categorySelect.value = categoryParam;
+        categorySelect.dispatchEvent(new Event('change'));
+        
+        if (nameParam) {
+            setTimeout(() => {
+                nameSelect.value = nameParam;
+                nameSelect.dispatchEvent(new Event('change'));
+                
+                if (modelParam) {
+                    setTimeout(() => {
+                        modelSelect.value = modelParam;
+                    }, 100);
+                }
+            }, 100);
+        }
+    }
+});
+</script>
+{% endblock %}

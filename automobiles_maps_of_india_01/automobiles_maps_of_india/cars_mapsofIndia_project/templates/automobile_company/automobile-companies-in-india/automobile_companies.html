@@ -1,0 +1,505 @@
+{% extends 'base.html' %}
+
+{% block title %}Top Car Insurance Companies{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+        <style>
+            h1.text-center{
+                font-size:1.5rem !important:
+            }
+            .company-card {
+                transition: transform 0.3s ease-in-out;
+                background-color: #7fb9fc;
+            }
+            .company-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+            .profit-chart {
+                height: 300px;
+            }
+            .bg-light-gray {
+                background-color: #84afda;
+            }
+            .icon-large {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            .card-title {
+                color: #444!important;
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-shadow:none !important;
+                text-align: center;
+            }
+            body {
+                background-color: #89b1ee;
+            }
+            .badge{
+                background-color:#d7e4ef;
+            }
+            @media (max-width: 768px){
+.col-md-4.mb-3{
+                padding:0 !important;
+            }
+            .card-title{
+                font-size:16px !important;
+            }
+            }
+        </style>
+    <div class="container-fluid px-4 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="text-center mb-5">Automobile Companies in India</h1>
+                <div class="row justify-content-center align-items-center" style="border-bottom: 1px solid #d7e4ef; margin: 20px 0; padding-bottom: 10px;"></div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card mb-4" id="industry-overview">
+                            <div class="card-body">
+                                <h2 class="card-title">Industry Overview</h2>
+                                <p class="lead">The Indian automobile industry is one of the largest in the world, contributing significantly to the country's GDP and employment. With major manufacturers operating across various segments, the industry continues to grow with increasing domestic demand and export opportunities.</p>
+                            </div>
+                        </div>
+
+                        <form method="get" class="mb-4" id="yearForm">
+                            <div class="input-group">
+                                <select name="year" class="form-select" id="yearSelect">
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary">Select Year</button>
+                            </div>
+                        </form>
+
+                        <h2 class="mb-4">Top Automobile Companies</h2>
+                        <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+                            <div class="col">
+                                <div class="card h-100 company-card">
+                                    <div class="card-body">
+                                        <img src="https://logo.clearbit.com/marutisuzuki.com" alt="Maruti Suzuki logo" class="img-fluid mb-3" style="max-height: 50px;">
+                                        <h3 class="card-title h5">Maruti Suzuki</h3>
+                                        <p class="card-text">India's largest passenger car manufacturer with over 50% market share. Known for reliable and fuel-efficient vehicles.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 company-card">
+                                    <div class="card-body">
+                                        <img src="https://logo.clearbit.com/hyundai.com" alt="Hyundai logo" class="img-fluid mb-3" style="max-height: 50px;">
+                                        <h3 class="card-title h5">Hyundai Motor India</h3>
+                                        <p class="card-text">Second largest car manufacturer in India. Offers a wide range of vehicles from compact cars to SUVs.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 company-card">
+                                    <div class="card-body">
+                                        <img src="https://logo.clearbit.com/tatamotors.com" alt="Tata Motors logo" class="img-fluid mb-3" style="max-height: 50px;">
+                                        <h3 class="card-title h5">Tata Motors</h3>
+                                        <p class="card-text">Leading Indian automotive manufacturer with strong presence in commercial vehicles and passenger cars.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100 company-card">
+                                    <div class="card-body">
+                                        <img src="https://logo.clearbit.com/mahindra.com" alt="Mahindra logo" class="img-fluid mb-3" style="max-height: 50px;">
+                                        <h3 class="card-title h5">Mahindra & Mahindra</h3>
+                                        <p class="card-text">Major player in SUVs and commercial vehicles. Known for rugged and reliable vehicles for Indian conditions.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="mb-4" id="company-profits">Company Profits (<span id="selectedYear">2024</span>)</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <canvas id="profitChart" class="profit-chart"></canvas>
+                            </div>
+                            <div class="card-footer">
+                                <ul class="list-group list-group-flush" id="profitList">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Maruti Suzuki
+                                        <span class="badge rounded-pill" id="profit-maruti">8500 Crore Rs</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Hyundai Motor India
+                                        <span class="badge rounded-pill" id="profit-hyundai">6200 Crore Rs</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Tata Motors
+                                        <span class="badge rounded-pill" id="profit-tata">4800 Crore Rs</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Mahindra & Mahindra
+                                        <span class="badge rounded-pill" id="profit-mahindra">3900 Crore Rs</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Kia India
+                                        <span class="badge rounded-pill" id="profit-kia">2100 Crore Rs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h4 class="card-title">Quick Links</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a href="#industry-overview" class="text-decoration-none">Market Analysis</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#company-profits" class="text-decoration-none">Investment Reports</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="https://www.siam.in/" class="text-decoration-none" target="_blank">Industry Statistics</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="https://pib.gov.in/" class="text-decoration-none" target="_blank">Policy Updates</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#latest-news" class="text-decoration-none">Electric Vehicle Trends</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Industry Highlights</h4>
+                                <div class="row text-center">
+                                    <div class="col-6 mb-3">
+                                        <i class="fas fa-car icon-large text-primary"></i>
+                                        <h5>1 Million+</h5>
+                                        <p class="text-muted">Passenger Cars</p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <i class="fas fa-chart-line icon-large text-success"></i>
+                                        <h5>3x Growth</h5>
+                                        <p class="text-muted">In 5 Years</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="fas fa-industry icon-large text-info"></i>
+                                        <h5>Major</h5>
+                                        <p class="text-muted">GDP Contributor</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="fas fa-globe icon-large text-warning"></i>
+                                        <h5>Global</h5>
+                                        <p class="text-muted">Partnerships</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" p-4 mt-5 rounded" id="latest-news">
+                    <h2 class="mb-4">Latest Industry News</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="news-image-container" style="height: 200px; overflow: hidden;">
+                                    <img src="https://images.unsplash.com/photo-1593941707882-a5bac6861d75?w=400&h=200&fit=crop&auto=format" 
+                                         class="card-img-top" 
+                                         alt="Electric Vehicle Growth"
+                                         style="width: 100%; height: 100%; object-fit: cover;"
+                                         onerror="this.src='https://picsum.photos/seed/evgrowth/400/200.jpg'">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Electric Vehicle Sales Surge 45% in Q3</h5>
+                                    <p class="card-text">Indian electric vehicle market shows remarkable growth with major manufacturers expanding their EV portfolios...</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <a href="#" class="btn btn-link" target="_blank">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="news-image-container" style="height: 200px; overflow: hidden;">
+                                    <img src="https://images.unsplash.com/photo-1563298721-d50fc247cf95?w=400&h=200&fit=crop&auto=format" 
+                                         class="card-img-top" 
+                                         alt="Export News"
+                                         style="width: 100%; height: 100%; object-fit: cover;"
+                                         onerror="this.src='https://picsum.photos/seed/exportnews/400/200.jpg'">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Auto Exports Reach Record High</h5>
+                                    <p class="card-text">Indian automobile exports hit all-time high as demand increases in African and Southeast Asian markets...</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <a href="#" class="btn btn-link" target="_blank">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="news-image-container" style="height: 200px; overflow: hidden;">
+                                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=200&fit=crop&auto=format" 
+                                         class="card-img-top" 
+                                         alt="New Launch"
+                                         style="width: 100%; height: 100%; object-fit: cover;"
+                                         onerror="this.src='https://picsum.photos/seed/newlaunch/400/200.jpg'">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Multiple SUV Launches Scheduled</h5>
+                                    <p class="card-text">Leading automakers announce aggressive SUV launch plans for the upcoming festive season...</p>
+                                </div>
+                                <div class="card-footer bg-transparent">
+                                    <a href="#" class="btn btn-link" target="_blank">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+            (function() {
+                'use strict';
+                
+                // Year-specific profit data
+                var profitDataByYear = {
+                    '2024': [
+                        {company: 'Maruti Suzuki', profit: 8500},
+                        {company: 'Hyundai Motor India', profit: 6200},
+                        {company: 'Tata Motors', profit: 4800},
+                        {company: 'Mahindra & Mahindra', profit: 3900},
+                        {company: 'Kia India', profit: 2100}
+                    ],
+                    '2023': [
+                        {company: 'Maruti Suzuki', profit: 7200},
+                        {company: 'Hyundai Motor India', profit: 5800},
+                        {company: 'Tata Motors', profit: 4100},
+                        {company: 'Mahindra & Mahindra', profit: 3500},
+                        {company: 'Kia India', profit: 1800}
+                    ],
+                    '2022': [
+                        {company: 'Maruti Suzuki', profit: 6800},
+                        {company: 'Hyundai Motor India', profit: 5200},
+                        {company: 'Tata Motors', profit: 3800},
+                        {company: 'Mahindra & Mahindra', profit: 3200},
+                        {company: 'Kia India', profit: 1500}
+                    ],
+                    '2021': [
+                        {company: 'Maruti Suzuki', profit: 5500},
+                        {company: 'Hyundai Motor India', profit: 4600},
+                        {company: 'Tata Motors', profit: 3100},
+                        {company: 'Mahindra & Mahindra', profit: 2800},
+                        {company: 'Kia India', profit: 1200}
+                    ],
+                    '2020': [
+                        {company: 'Maruti Suzuki', profit: 4200},
+                        {company: 'Hyundai Motor India', profit: 3800},
+                        {company: 'Tata Motors', profit: 2600},
+                        {company: 'Mahindra & Mahindra', profit: 2200},
+                        {company: 'Kia India', profit: 800}
+                    ]
+                };
+                
+                var currentChart = null;
+                
+                // Get URL parameter
+                function getUrlParameter(name) {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
+                }
+                
+                // Update page content for selected year
+                function updatePageForYear(year) {
+                    console.log('DEBUG: Updating page for year:', year);
+                    
+                    // Update title
+                    document.getElementById('selectedYear').textContent = year;
+                    
+                    // Update dropdown
+                    document.getElementById('yearSelect').value = year;
+                    
+                    // Get data for selected year
+                    var chartData = profitDataByYear[year];
+                    
+                    if (!chartData) {
+                        console.warn('DEBUG: No data available for year:', year);
+                        showNoDataMessage(year);
+                        return;
+                    }
+                    
+                    console.log('DEBUG: Using chart data:', chartData);
+                    
+                    // Update profit list
+                    updateProfitList(chartData);
+                    
+                    // Update chart
+                    updateChart(chartData);
+                }
+                
+                // Update profit list values
+                function updateProfitList(data) {
+                    var profitElements = {
+                        'maruti': data[0].profit,
+                        'hyundai': data[1].profit,
+                        'tata': data[2].profit,
+                        'mahindra': data[3].profit,
+                        'kia': data[4].profit
+                    };
+                    
+                    for (var company in profitElements) {
+                        var element = document.getElementById('profit-' + company);
+                        if (element) {
+                            element.textContent = profitElements[company] + ' Crore Rs';
+                        }
+                    }
+                }
+                
+                // Update chart
+                function updateChart(data) {
+                    var ctx = document.getElementById('profitChart');
+                    if (!ctx) return;
+                    
+                    // Destroy existing chart
+                    if (currentChart) {
+                        currentChart.destroy();
+                    }
+                    
+                    var labels = [];
+                    var profits = [];
+                    
+                    for (var i = 0; i < data.length; i++) {
+                        labels.push(data[i].company);
+                        profits.push(data[i].profit);
+                    }
+                    
+                    currentChart = new Chart(ctx.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Profit in Crore Rs',
+                                data: profits,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'top'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return value + ' Cr';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                
+                // Show no data message
+                function showNoDataMessage(year) {
+                    var profitList = document.getElementById('profitList');
+                    profitList.innerHTML = '<li class="list-group-item text-center text-muted">No profit data available for ' + year + '</li>';
+                    
+                    var ctx = document.getElementById('profitChart');
+                    if (ctx && currentChart) {
+                        currentChart.destroy();
+                        currentChart = null;
+                    }
+                }
+                
+                // Initialize page
+                function initPage() {
+                    console.log('DEBUG: Initializing page');
+                    
+                    // Get year from URL or default to 2024
+                    var selectedYear = getUrlParameter('year') || '2024';
+                    console.log('DEBUG: Year from URL:', selectedYear);
+                    
+                    // Validate year
+                    var availableYears = ['2024', '2023', '2022', '2021', '2020'];
+                    if (availableYears.indexOf(selectedYear) === -1) {
+                        console.warn('DEBUG: Invalid year, defaulting to 2024');
+                        selectedYear = '2024';
+                    }
+                    
+                    updatePageForYear(selectedYear);
+                }
+                
+                // Handle form submission
+                document.getElementById('yearForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var selectedYear = document.getElementById('yearSelect').value;
+                    console.log('DEBUG: Form submitted with year:', selectedYear);
+                    
+                    // Update URL without page reload
+                    var newUrl = window.location.pathname + '?year=' + selectedYear;
+                    window.history.pushState({}, '', newUrl);
+                    
+                    // Update page content
+                    updatePageForYear(selectedYear);
+                });
+                
+                // Handle browser back/forward
+                window.addEventListener('popstate', function() {
+                    initPage();
+                });
+                
+                // Initialize on page load
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initPage);
+                } else {
+                    initPage();
+                }
+            })();
+        </script>
+{% endblock %}

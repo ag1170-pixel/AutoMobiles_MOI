@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <style>
+        {#body {#}
+        {#    font-family: Arial, sans-serif;#}
+        {#    line-height: 1.6;#}
+        {#    color: #333;#}
+        {#    max-width: 1200px;#}
+        {#    margin: 0 auto;#}
+        {#    padding: 20px;#}
+        {#}#}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            {#padding: 50px 20px;#}
+            background-color: #ffffff;
+            {#box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);#}
+        }
+
+        .main-heading {
+            color: #000;
+            font-size:1.5rem !important;
+        }
+        .article-meta {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .latest-articles {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .car-models {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        .car-models h3 {
+            margin: 0;
+            color: #007bff;
+        }
+         .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    </style>
+    <div class="container">
+    <br>
+    <h1 class="main-heading">A Carriage That Moves On Its Own</h1>
+    <p>It is accorded the distinction of being the first gasoline-powered vehicle.
+        This three-wheeler was the first car equipped with a differential gear and had a horizontal, four-cycle single-cylinder engine.
+        The engine was mounted horizontally behind the seat, over the rear axle, in a frame-developed form prevailing tricycles.
+        Its 0.9 horsepower was transmitted to the rear wheels via belt and chain, enabling a top speed of about 15 km/h.
+        A lever connected to a rack-and-pinion controlled the lone front wheel, which steered the car.</p>
+
+    <h1>{{ article.title }}</h1>
+    <p class="article-meta">Published on: {{ article.published_date|date:"F j, Y" }}</p>
+    <div class="article-content">
+        {{ article.content|safe }}
+    </div>
+
+    {% if article.carModels.exists %}
+        <h2>Car Models</h2>
+        <ul>
+            {% for car in article.carModels.all %}
+                <li class="car-models">
+                    <h3>{{ car.name }} ({{ car.year }})</h3>
+                    <p>{{ car.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %}{{ article.title }}{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#<style>#}
+{#        body {#}
+{#            font-family: Arial, sans-serif;#}
+{#            line-height: 1.6;#}
+{#            color: #333;#}
+{#            max-width: 1200px;#}
+{#            margin: 0 auto;#}
+{#            padding: 20px;#}
+{#        }#}
+{#        h1 {#}
+{#            color: #2c3e50;#}
+{#        }#}
+{#        .article-meta {#}
+{#            color: #7f8c8d;#}
+{#            font-style: italic;#}
+{#        }#}
+{#        .latest-articles {#}
+{#            margin-top: 40px;#}
+{#            border-top: 1px solid #eee;#}
+{#            padding-top: 20px;#}
+{#        }#}
+{#    </style>#}
+{#    <br>#}
+{#    <h1>A Carriage That Moves On Its Own</h1>#}
+{#    <p>It is accorded the distinction of being the first gasoline-powered vehicle.#}
+{#        This three-wheeler was the first car equipped with a differential gear and had a horizontal, four-cycle single-cylinder engine.#}
+{#        The engine was mounted horizontally behind the seat, over the rear axle, in a frame-developed form prevailing tricycles.#}
+{#        Its 0.9 horsepower was transmitted to the rear wheels via belt and chain, enabling a top speed of about 15 km/h.#}
+{#        A lever connected to a rack-and-pinion controlled the lone front wheel, which steered the car.</p>#}
+{##}
+{#    <h1>{{ article.title }}</h1>#}
+{#    <p class="article-meta">Published on: {{ article.published_date|date:"F j, Y" }}</p>#}
+{#    <div class="article-content">#}
+{#        {{ article.content|safe }}#}
+{#    </div>#}
+{##}
+{#    {% if article.carModels.exists %}#}
+{#        <h2>Car Models</h2>#}
+{#        <ul>#}
+{#            {% for car in article.carModels.all %}#}
+{#                <li class="car-models">#}
+{#                    <h3>{{ car.name }} ({{ car.year }})</h3>#}
+{#                    <p>{{ car.description }}</p>#}
+{#                </li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    {% endif %}#}
+{#    </article>#}
+{##}
+{#        <script>#}
+{#            document.addEventListener('DOMContentLoaded', function() {#}
+{#                // Add smooth scrolling to all links#}
+{#                document.querySelectorAll('a[href^="#"]').forEach(anchor => {#}
+{#                    anchor.addEventListener('click', function (e) {#}
+{#                        e.preventDefault();#}
+{##}
+{#                        document.querySelector(this.getAttribute('href')).scrollIntoView({#}
+{#                            behavior: 'smooth'#}
+{#                        });#}
+{#                    });#}
+{#                });#}
+{#            });#}
+{#        </script>#}
+{#{% endblock %}#}
+{##}

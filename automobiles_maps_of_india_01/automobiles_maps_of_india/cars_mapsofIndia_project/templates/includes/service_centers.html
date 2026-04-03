@@ -1,0 +1,331 @@
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<style>
+    *
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .search-form {
+            background-color: #b7daef;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .search-form:hover {
+            transform: translateY(-5px);
+        }
+
+        .left-side, .right-side {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .left-side {
+            padding-right: 15px;
+        }
+
+        .right-side {
+            padding-left: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            boder:9px;
+        }
+
+        .right-side img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1e3a8a;
+            font-size: 1.1rem;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #90cdf4;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        button {
+            display: block;
+            width: 70%;
+            padding: 15px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 30px auto 0;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-center {
+            background-color: #f0f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-center:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-center h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-center p {
+            margin-bottom: 10px;
+            color: #4b5563;
+        }
+
+        .service-center i {
+            margin-right: 10px;
+            color: #3b82f6;
+        }
+
+        #loading {
+            text-align: center;
+            display: none;
+        }
+
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3b82f6;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .search-form {
+                padding: 20px;
+            }
+
+            .left-side, .right-side {
+                flex: 100%;
+                padding: 0;
+            }
+
+            .right-side {
+                margin-top: 20px;
+            }
+
+            #results {
+                grid-template-columns: 1fr;
+            }
+        }
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+
+
+</style>
+<div class="container">
+    <br>
+    <h1><i class="fas fa-car-alt"></i> Service Center Finder</h1>
+    <div class="heading-underline"></div>
+
+    <form id="serviceCenterForm" class="search-form">
+        {% csrf_token %}
+        <div class="left-side">
+            <div class="form-group">
+                <label for="brand"><i class="fas fa-trademark"></i> Brand:</label>
+                <select id="brand" name="brand" required>
+<!--                    <option value="">Loading brands...</option>-->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="state"><i class="fas fa-map-marker-alt"></i> State:</label>
+                <input type="text" id="state" name="state" required placeholder="Enter state">
+            </div>
+
+            <div class="form-group">
+                <label for="city"><i class="fas fa-city"></i> City:</label>
+                <input type="text" id="city" name="city" required placeholder="Enter city">
+            </div>
+        </div>
+        <div class="right-side">
+            <img src="{% static 'img/service centre.jpg' %}" alt="Service Center Image">
+        </div>
+        <button type="submit"><i class="fas fa-search"></i> Find Service Centers</button>
+    </form>
+
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Searching for service centers...</p>
+    </div>
+
+    <div id="results"></div>
+</div>
+
+<script>
+    function fetchBrands() {
+        fetch('/carshanders/brands/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Brands data received:', data);
+                const brandSelect = document.getElementById('brand');
+                brandSelect.innerHTML = '<option value="">Select Brand</option>';
+                if (Array.isArray(data) && data.length > 0) {
+                    data.forEach(brand => {
+                        const option = document.createElement('option');
+                        option.value = brand.id;
+                        option.textContent = brand.name;
+                        brandSelect.appendChild(option);
+                    });
+                } else {
+                    throw new Error('No brands data received or data is not an array');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching brands:', error);
+                document.getElementById('brand').innerHTML = '<option value="">Error loading brands</option>';
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchBrands);
+
+    document.getElementById('serviceCenterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const brand = document.getElementById('brand').value;
+        const state = document.getElementById('state').value;
+        const city = document.getElementById('city').value;
+
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('results').innerHTML = '';
+
+        fetch('/carshanders/service-centers/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            },
+            body: JSON.stringify({ brand, state, city })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                const resultsDiv = document.getElementById('results');
+                if (data.length === 0) {
+                    resultsDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> No service centers found. Please try different search criteria.</div>';
+                } else {
+                    data.forEach(center => {
+                        resultsDiv.innerHTML += `
+                        <div class="service-center">
+                            <h3><i class="fas fa-tools"></i> ${center.name}</h3>
+                            <p><i class="fas fa-map-pin"></i> ${center.address}</p>
+                            <p><i class="fas fa-phone"></i> ${center.phone || 'Not available'}</p>
+                            <p><i class="fas fa-clock"></i> ${center.working_hours || 'Not specified'}</p>
+                            <p><i class="fas fa-star"></i> Rating: ${center.rating || 'Not rated'}</p>
+                        </div>
+                        `;
+                    });
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                console.error('Error:', error);
+                document.getElementById('results').innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> An error occurred. Please try again later.</div>';
+            });
+    });
+</script>

@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Used Cars{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #1814A8;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .car-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 15px;
+        }
+
+        .car-info h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #1814A8;
+            font-size: 16px;
+        }
+
+        .details-btn {
+            background-color: #1814A8;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .details-btn:hover {
+            background-color: #130e7a;
+        }
+
+        .info-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .info-section h2 {
+            {#border-bottom: 2px solid #1814A8;#}
+            padding-bottom: 10px;
+        }
+
+        .info-section ul, .info-section ol {
+            padding-left: 20px;
+        }
+
+        .info-section li {
+            margin-bottom: 10px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.5rem !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.2rem !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+        .car-info .first-row{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .car-info .first-row .price{
+            color:#f74e2a;
+        }
+        .image-container {
+    width: 50%;
+    line-height: 0;
+}
+@media (max-width: 768px){
+    .car-info h3, .car-info p{
+        margin-bottom:0 !important;
+    }
+}
+    </style>
+
+    <div class="container">
+        <h1><i class="fas fa-car"></i> Used Cars Marketplace</h1>
+        <div class="heading-underline"></div>
+
+        <section id="listings">
+            <div class="car-grid">
+                {% for car in cars %}
+                    <div class="car-card">
+                        {% if car.image %}
+                            <img src="{{ car.image.url }}" alt="{{ car.title }}">
+                        {% elif used_car_images %}
+                            {% with image_index=forloop.counter0 %}
+                                {% if image_index < used_car_images|length %}
+                                    <img src="{{ used_car_images.0.image_url }}" alt="{{ car.title }}">
+                                {% else %}
+                                    <div class="no-image-placeholder" style="width:100%; height:250px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666;">No Image Available</div>
+                                {% endif %}
+                            {% endwith %}
+                        {% else %}
+                            <div class="no-image-placeholder" style="width:100%; height:250px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666;">No Image Available</div>
+                        {% endif %}
+                        <div class="car-info">
+                            <div class="first-row">
+                                <h3>{{ car.title }}</h3>
+                            <p><i class="far fa-calendar-alt"></i> {{ car.year }}</p>
+                            </div>
+                            <div class="first-row">
+                                <p class="price">Price: ${{ car.price }}</p>
+
+                            {#                            <p class="price">₹{{ car.price|intcomma }}</p>#}
+                            <p><i class="fas fa-tachometer-alt"></i> {{ car.mileage }} km</p>
+                            </div>
+                            
+{#                            <button class="details-btn" data-id="{{ car.id }}">View Details</button>#}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="tips" class="info-section">
+            <h2><i class="fas fa-lightbulb"></i> Used Car Buying Tips</h2>
+            <div class="heading-underline"></div>
+
+            <ol>
+                <li><strong>Engine:</strong> Check for single reboring, it may lower value by ₹10,000 - ₹20,000.</li>
+                <li><strong>Tyres:</strong> Inspect for wear, budget ₹2,500 per tyre if needed.</li>
+                <li><strong>Chassis:</strong> Look for accident signs on undercarriage and bodyline.</li>
+                <li><strong>Battery:</strong> Factor ₹2,500 for replacement if not new.</li>
+                <li><strong>Documentation:</strong> Verify all necessary papers thoroughly.</li>
+            </ol>
+        </section>
+
+        <section id="documentation" class="info-section">
+            <h2><i class="fas fa-file-alt"></i> Required Documentation</h2>
+            <div class="heading-underline"></div>
+
+            <ul>
+                <li>Car Registration Papers</li>
+                <li>RTO Tax Receipt</li>
+                <li>Road Tax Papers</li>
+                <li>Car Insurance</li>
+                <li>Original Invoice</li>
+                <li>NOC (if bought on finance)</li>
+                <li>Form 35 (if applicable)</li>
+            </ul>
+        </section>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="Car image" style="max-width: 100%; height: auto;">
+            <p id="modal-description"></p>
+            <div id="modal-details"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalImage = document.getElementById('modal-image');
+            const modalDescription = document.getElementById('modal-description');
+            const modalDetails = document.getElementById('modal-details');
+            const closeBtn = document.getElementsByClassName('close')[0];
+
+            // Open modal with car details
+            document.querySelectorAll('.details-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const carId = this.getAttribute('data-id');
+                    // In a real app, you'd fetch car details from the server here
+                    // For this example, we'll use dummy data
+                    const carDetails = {
+                        title: this.parentElement.querySelector('h3').textContent,
+                        image: this.parentElement.querySelector('img').src,
+                        description: "This is a detailed description of the car. It would include information about the car's condition, features, and history.",
+                        details: this.parentElement.innerHTML
+                    };
+
+                    modalTitle.textContent = carDetails.title;
+                    modalImage.src = carDetails.image;
+                    modalDescription.textContent = carDetails.description;
+                    modalDetails.innerHTML = carDetails.details;
+                    modal.style.display = 'block';
+                });
+            });
+
+            // Close modal
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            // Close modal if clicked outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+{% endblock %}

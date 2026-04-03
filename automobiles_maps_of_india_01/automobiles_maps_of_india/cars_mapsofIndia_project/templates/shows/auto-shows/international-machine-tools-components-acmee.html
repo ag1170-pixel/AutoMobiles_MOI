@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACMEE 2012 - International Machine Tools and Auto Components Exhibition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #b1c3da;
+            --secondary-color: #b4c7da;
+            --accent-color: #ff6b6b;
+            --bg-color: #9bbfe3;
+            --text-color: #a9bed2;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 3em 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://source.unsplash.com/random/1600x900/?machinery') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        header * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            margin-bottom: 0.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .cta {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta:hover {
+            background-color: #ff4757;
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .highlight h2 {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>ACMEE 2012</h1>
+    <p class="tagline">International Machine Tools and Auto Components Exhibition</p>
+    <p>June 14-18, 2012 | Chennai, Tamil Nadu</p>
+</header>
+
+<div class="container">
+    <div class="highlight">
+        <h2>The 10th Edition of Excellence in Automotive Innovation</h2>
+        <p>Hosted by AIEMA Technology Centre</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">Event Overview</div>
+            <div class="card-body">
+                <p>ACMEE 2012 is a premier platform showcasing the latest advancements in the automotive and manufacturing industries. With over 10,000 visitors and 500 exhibitors expected, it's the ultimate networking and business opportunity in the sector.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Visitor Profile</div>
+            <div class="card-body">
+                <ul>
+                    <li>Maintenance operators and technicians</li>
+                    <li>System planners and operators</li>
+                    <li>Manufacturing industries managers</li>
+                    <li>Plant managers and instrumentation experts</li>
+                    <li>Research operators and engineering firms</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Exhibitor Profile</div>
+            <div class="card-body">
+                <ul>
+                    <li>Special purpose equipment</li>
+                    <li>Hand tools, power tools, and abrasives</li>
+                    <li>Hydraulics and pneumatics systems</li>
+                    <li>Automation and CNC machines</li>
+                    <li>Automobile parts and vehicle facilities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <h2>Event Highlights</h2>
+        <ul>
+            <li>Sanctioned by India Trade Promotion Organization</li>
+            <li>18,000 sq meters of display area</li>
+            <li>Global exposure for merchandise</li>
+            <li>Duty-free import and display of exhibits</li>
+            <li>Showcase of cutting-edge machinery and engineering innovations</li>
+        </ul>
+        <a href="#" class="cta">Register Now</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Venue</div>
+        <div class="card-body">
+            <p>Chennai Trade & Convention Centre, Chennai, Tamil Nadu</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

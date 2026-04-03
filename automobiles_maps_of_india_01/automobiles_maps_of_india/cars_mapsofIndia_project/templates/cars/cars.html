@@ -1,0 +1,847 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if selected_brand %}{{ selected_brand }} Cars in India | Maps of India{% else %}Cars in India | Maps of India{% endif %}
+{% endblock %}
+
+{% block head %}
+{% if selected_brand %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endif %}
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
+{% block content %}
+
+{% load humanize %}
+{% load static %}
+ <style>
+            .featured-car {
+                padding: 20px 0;
+            }
+
+            .car-box-3 {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-box-3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-container {
+    background: linear-gradient(135deg, #7099c7, #a4c0be);
+    padding: 46px 50px !important;
+}
+            .car-thumbnail {
+                position: relative;
+                height: 262px;
+                overflow: hidden;
+            }
+
+            .car-thumbnail img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            
+            .car-box-3:hover .car-thumbnail img {
+                transform: scale(1.05);
+            }
+
+            .tag {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: #d7e4ef;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 12px;
+                font-weight: bold;
+                z-index: 1;
+            }
+
+            .detail {
+                padding: 15px;
+            }
+
+            .car-info-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .title {
+                font-size: 18px;
+                margin: 0;
+            }
+
+            .price {
+                font-size: 16px;
+                font-weight: bold;
+                color: #f74e2a;
+            }
+
+            .location {
+                font-size: 14px;
+                color: #777;
+            }
+
+            .view-details-btn {
+                background-color:#d7e4ef !important;
+                border-color:#d7e4ef !important;
+                color: black;
+                padding: 8px 16px;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 5px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                text-align: center;
+            }
+            
+            .view-details-btn:hover {
+                background-color:#4a6b8c !important;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                color: white;
+            }
+
+            .comparison-title {
+                text-align: center;
+                position: relative;
+                padding-bottom: 5px;
+                margin:8vmin 0 !important;
+            }
+
+            .comparison-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 3px;
+                background-color:#84aee7;
+            }
+
+            body {
+                background-color: #c9dbf3;
+            }
+            .pagination {
+                text-align: center;
+                margin-top: 20px;
+                display: inline-block !important;
+                margin: 20px auto 0 !important;
+                padding-left: 0;
+                list-style: none;
+                border-radius: .25rem;
+            }
+
+            .pagination a, .pagination span {
+                padding: 5px 10px;
+                margin: 0 2px;
+                border: 1px solid #ddd;
+                color: #333;
+                text-decoration: none;
+            }
+
+            .pagination .current-page {
+                background-color: #007bff;
+                color: white;
+                border-color: #007bff;
+            }
+            
+            .sub-banner.overview-bgi {
+              position: relative;
+        background-position: center;
+        background-size: cover;
+        min-height: 450px;
+            }
+
+            .search-container {
+                position: absolute;
+        /* top: 50%; */
+        right: 7%;
+        transform: translate(0, -50%);
+        max-width: 400px;
+        bottom: -225px;
+        z-index: 9999;
+            }
+            
+            /* Responsive Design */
+            @media (max-width: 1200px) {
+                .card-container {
+                    padding: 30px 25px !important;
+                }
+                
+                .car-thumbnail {
+                    height: 220px;
+                }
+                
+                
+            }
+            
+            @media (max-width: 992px) {
+                .card-container {
+                    padding: 25px 20px !important;
+                }
+                
+                .car-thumbnail {
+                    height: 200px;
+                }
+                
+                .car-box-3 {
+                    margin-bottom: 15px;
+                }
+                
+                .detail {
+                    padding: 12px;
+                }
+                
+                .title {
+                    font-size: 16px;
+                }
+                
+                .price {
+                    font-size: 14px;
+                }
+                
+                .search-container {
+                    position: relative;
+                    right: auto;
+                    bottom: auto;
+                    transform: none;
+                    max-width: 100%;
+                     width:100%;
+                    margin: 20px 0;
+                }
+                
+                .sub-banner.overview-bgi {
+                    min-height: 350px;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .card-container {
+                    padding: 20px 15px !important;
+                }
+                
+                .car-thumbnail {
+                    height: 180px;
+                }
+                
+                .car-box-3 {
+                    margin-bottom: 15px;
+                    padding: 12px;
+                }
+                
+                .detail {
+                    padding: 10px;
+                }
+                
+                .title {
+                    font-size: 15px;
+                    line-height: 1.3;
+                }
+                
+                .price {
+                    font-size: 13px;
+                }
+                
+                .location {
+                    font-size: 12px;
+                }
+                
+                .view-details-btn {
+                    padding: 6px 12px;
+                    font-size: 13px;
+                }
+                
+                .tag {
+                    font-size: 11px;
+                    padding: 4px 8px;
+                }
+                
+                .comparison-title {
+                    font-size: 24px;
+                    margin: 30px 0 !important;
+                }
+                
+                .sub-banner.overview-bgi {
+                    min-height: 300px;
+                }
+                
+                .pagination a, .pagination span {
+                    padding: 8px 12px;
+                    margin: 0 1px;
+                    font-size: 14px;
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .card-container {
+                    padding: 15px 10px !important;
+                }
+                
+                .car-thumbnail {
+                    height: 160px;
+                }
+                
+                .car-box-3 {
+                    margin-bottom: 12px;
+                    padding: 10px;
+                }
+                
+                .detail {
+                    padding: 8px;
+                }
+                
+                .car-info-row {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 5px;
+                }
+                
+                .title {
+                    font-size: 14px;
+                }
+                
+                .price {
+                    font-size: 12px;
+                }
+                
+                .location {
+                    font-size: 11px;
+                }
+                
+                .view-details-btn {
+                    padding: 8px 16px;
+                    font-size: 12px;
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                }
+                
+                .tag {
+                    font-size: 10px;
+                    padding: 3px 6px;
+                }
+                
+                .comparison-title {
+                    font-size: 20px;
+                    margin: 20px 0 !important;
+                }
+                
+                .sub-banner.overview-bgi {
+                    min-height: 250px;
+                }
+                
+                .pagination {
+                    display: flex !important;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+                
+                .pagination a, .pagination span {
+                    padding: 6px 10px;
+                    margin: 2px;
+                    font-size: 12px;
+                }
+            }
+            
+            @media (max-width: 400px) {
+                .car-thumbnail {
+                    height: 140px;
+                }
+                
+                .car-box-3 {
+                    padding: 8px;
+                }
+                
+                .detail {
+                    padding: 6px;
+                }
+                
+                .title {
+                    font-size: 13px;
+                }
+                
+                .price {
+                    font-size: 11px;
+                }
+                
+                .view-details-btn {
+                    padding: 6px 12px;
+                    font-size: 11px;
+                }
+                
+                .comparison-title {
+                    font-size: 18px;
+                }
+            }
+
+            .search-overlay {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(222, 180, 180, 0.6);
+            }
+
+            .search-content {
+                    width: 350px;
+                position: relative;
+                max-width: 400px;
+                padding: 25px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            }
+
+            .search-box-4 {
+                position: relative !important;
+                left: 0 !important;
+                max-width: 350px;
+                margin: 0;
+                background: transparent !important;
+                padding: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            .search-box-4 h5 {
+                color: #000;
+                font-weight: 300;
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 35px;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            }
+
+            .search-box-4 .form-control {
+                width: 100%;
+                height: 35px !important;
+                border: 1px solid #000;
+                padding: 0 15px !important;
+                border-radius: 25px;
+                background: #ffffff;
+                color: #333;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            .search-box-4 .form-control:focus {
+                outline: none;
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+
+            .search-box-4 .form-control option {
+                background: #ffffff;
+                color: #333;
+                padding: 8px;
+            }
+
+            .custom-filter-button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                border-radius: 25px;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                background-color: #d7e4ef !important;
+                color: black !important;
+                margin-top: 10px;
+            }
+
+            .custom-filter-button:hover {
+                box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+            }
+
+            .breadcrumb-area {
+                position: relative;
+                padding: 20px 0;
+                margin-top: 20px;
+                background: transparent;
+            }
+
+            .breadcrumb-areas {
+                text-align: center;
+            }
+
+            .breadcrumb-areas h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+                color: #083d73;
+            }
+            select{
+    appearance:none;
+}
+            .form-group{
+        position:relative;
+    }
+    .form-group svg{
+        font-size:11px !important;
+        height:10px;
+        width:10px;
+        position:absolute;
+        right:20px;
+         top: 50%;
+    transform: translateY(-50%);
+    }
+        </style>
+
+
+        
+<div class="sub-banner overview-bgi">
+    <div class="search-container">
+        <div class="search-overlay"></div>
+        <div class="search-content">
+            <div class="search-box-4">
+                <h5>Search Car</h5>
+                        
+                            <form action="{% url 'cars' %}" method="GET">
+                                <input type="hidden" name="vehicleType" value="car">
+                                {% if selected_brand %}
+                                <input type="hidden" name="brand" value="{{ selected_brand }}">
+                                {% endif %}
+                                <div class="form-group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><path fill="currentColor" d="M831.9 340.9L512 652.7L192.1 340.9a30.6 30.6 0 0 0-42.7 0a29 29 0 0 0 0 41.6l340.3 331.7a32 32 0 0 0 44.6 0l340.3-331.7a29 29 0 0 0 0-41.7a30.6 30.6 0 0 0-42.7 0z"/></svg>
+                                    <select class="form-control search-fields" name="category" id="car-category">
+                                        <option value="">Select Category</option>
+                                        {% for category in category_search %}
+                                            <option value="{{category}}" {% if selected_category == category %}selected{% endif %}>{{category}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><path fill="currentColor" d="M831.9 340.9L512 652.7L192.1 340.9a30.6 30.6 0 0 0-42.7 0a29 29 0 0 0 0 41.6l340.3 331.7a32 32 0 0 0 44.6 0l340.3-331.7a29 29 0 0 0 0-41.7a30.6 30.6 0 0 0-42.7 0z"/></svg>
+                                    <select class="form-control search-fields" name="name" id="car-name">
+                                        <option value="">Select Name</option>
+                                        {% for name in name_options %}
+                                            <option value="{{name}}" {% if selected_name == name %}selected{% endif %}>{{name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><path fill="currentColor" d="M831.9 340.9L512 652.7L192.1 340.9a30.6 30.6 0 0 0-42.7 0a29 29 0 0 0 0 41.6l340.3 331.7a32 32 0 0 0 44.6 0l340.3-331.7a29 29 0 0 0 0-41.7a30.6 30.6 0 0 0-42.7 0z"/></svg>
+                                    <select class="form-control search-fields" name="model" id="car-model">
+                                        <option value="">Select Model</option>
+                                        {% for model in model_options %}
+                                            <option value="{{model}}" {% if selected_model == model %}selected{% endif %}>{{model}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-block button-theme btn-md custom-filter-button">
+                                        <i class="fa fa-filter" style="color:black;"></i> Filter
+                                    </button>
+                                </div>
+                            </form>
+            </div>
+        </div>
+    </div>
+    {% comment %} <div class="breadcrumb-area">
+
+        <div class="breadcrumb-areas">
+            <h1>Our Car Inventory</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Cars</li>
+            </ul>
+        </div>
+    </div> {% endcomment %}
+</div>
+
+<div class="featured-car content-area">
+    <h1 class="comparison-title text-center">Your Dream Cars</h1>
+    <div style="text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        {% for car in page_obj %}
+                        <div class="col-lg-4 col-md-4">
+                            <div class="car-box-3">
+                                <div class="car-thumbnail">
+                                    {% if car.image %}
+                                        <img src="{{ car.image.url }}" alt="{{ car.name }} {{ car.model }}">
+                                    {% else %}
+                                        {% if 'AUDI' in car.category %}
+                                            <img src="{% static 'img/car23.jpg' %}" alt="{{ car.name }} {{ car.model }}">
+                                        {% elif 'BMW' in car.category %}
+                                            <img src="{% static 'img/car-4.jpg' %}" alt="{{ car.name }} {{ car.model }}">
+                                        {% elif 'MERCEDES' in car.category %}
+                                            <img src="{% static 'img/car-6.jpg' %}" alt="{{ car.name }} {{ car.model }}">
+                                        {% else %}
+                                            <img src="{% static 'img/car-2.jpg' %}" alt="{{ car.name }} {{ car.model }}">
+                                        {% endif %}
+                                    {% endif %}
+                                    {% comment %} <div class="tag">For Sale</div> {% endcomment %}
+                                </div>
+                                <div class="detail">
+                                    <div class="car-info-row">
+                                        <h1 class="title">
+                                            <a href="{% url 'car_detail_seo' car.slug %}">{{car.name}} {{car.model}}</a>
+                                        </h1>
+                                        <span class="price">₹ {{car.price | intcomma }} L</span>
+                                    </div>
+                                    <div class="car-info-row">
+                                        <div class="location">
+                                            <i class="flaticon-pin"></i> {{car.manufac_place}}
+                                        </div>
+                                        <a href="{% url 'car_detail_seo' car.slug %}" class="view-details-btn">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% if not page_obj %}
+                        <div class="col-12">
+                            <div class="text-center py-5">
+                                <h4>No vehicles available for this brand</h4>
+                                <p>Please try selecting a different brand or browse all cars.</p>
+                                <a href="{% url 'cars' %}" class="btn btn-primary">View All Cars</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination-box p-box-2 text-center">
+        <nav aria-label="Page navigation example">
+            {% if page_obj.has_other_pages %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                <a href="?page=1{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_name %}&name={{ selected_name }}{% endif %}{% if selected_model %}&model={{ selected_model }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_name %}&name={{ selected_name }}{% endif %}{% if selected_model %}&model={{ selected_model }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}">&lsaquo; Prev</a>
+                {% endif %}
+
+                {% for page_number in page_range %}
+                {% if page_obj.number == page_number %}
+                <span class="current-page">{{ page_number }}</span>
+                {% else %}
+                <a href="?page={{ page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_name %}&name={{ selected_name }}{% endif %}{% if selected_model %}&model={{ selected_model }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}">{{ page_number }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_name %}&name={{ selected_name }}{% endif %}{% if selected_model %}&model={{ selected_model }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}">Next &rsaquo;</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_name %}&name={{ selected_name }}{% endif %}{% if selected_model %}&model={{ selected_model }}{% endif %}{% if selected_brand %}&brand={{ selected_brand }}{% endif %}">Last &rsaquo;</a>
+
+                {% endif %}
+            </div>
+            {% endif %}
+        </nav>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    console.log("Script loaded");
+    function handleFetchError(error, message) {
+        console.error(message, error);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded");
+        
+    
+        console.log("car-category element:", document.getElementById('car-category'));
+        console.log("car-name element:", document.getElementById('car-name'));
+        console.log("car-model element:", document.getElementById('car-model'));
+        
+        // If there's a selected category, load the names
+        var selectedCategory = "{{ selected_category|escapejs|default:'' }}";
+        var selectedName = "{{ selected_name|escapejs|default:'' }}";
+        
+        console.log("Selected category:", selectedCategory);
+        console.log("Selected name:", selectedName);
+        
+        if (selectedCategory) {
+            console.log("Loading names for category:", selectedCategory);
+            
+            // Load names for the selected category
+            fetch(`/cars/get_names/?category=${encodeURIComponent(selectedCategory)}`)
+                .then(response => {
+                    console.log("Names API response status:", response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Names received:", data);
+                    var nameSelect = document.getElementById('car-name');
+                    
+                    if (nameSelect) {
+                        // Clear previous options except the first one
+                        nameSelect.innerHTML = '<option value="">Select Name</option>';
+                        
+                        data.forEach(function(name) {
+                            var option = document.createElement('option');
+                            option.value = name;
+                            option.text = name;
+                            if (name === selectedName) {
+                                option.selected = true;
+                            }
+                            nameSelect.appendChild(option);
+                        });
+                        
+                        // If there's a selected name, load the models
+                        if (selectedName) {
+                            console.log("Loading models for category:", selectedCategory, "and name:", selectedName);
+                            
+                            fetch(`/cars/get_models/?category=${encodeURIComponent(selectedCategory)}&name=${encodeURIComponent(selectedName)}`)
+                                .then(response => {
+                                    console.log("Models API response status:", response.status);
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! Status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    console.log("Models received:", data);
+                                    var modelSelect = document.getElementById('car-model');
+                                    var selectedModel = "{{ selected_model|escapejs|default:'' }}";
+                                    
+                                    if (modelSelect) {
+                                        // Clear previous options except the first one
+                                        modelSelect.innerHTML = '<option value="">Select Model</option>';
+                                        
+                                        data.forEach(function(model) {
+                                            var option = document.createElement('option');
+                                            option.value = model;
+                                            option.text = model;
+                                            if (model === selectedModel) {
+                                                option.selected = true;
+                                            }
+                                            modelSelect.appendChild(option);
+                                        });
+                                    } else {
+                                        console.error("Model select element not found");
+                                    }
+                                })
+                                .catch(error => handleFetchError(error, "Error loading models:"));
+                        }
+                    } else {
+                        console.error("Name select element not found");
+                    }
+                })
+                .catch(error => handleFetchError(error, "Error loading names:"));
+        }
+    });
+
+    // Event listener for category change
+    document.getElementById('car-category').addEventListener('change', function() {
+        console.log("Category changed to:", this.value);
+        var category = this.value;
+        var nameSelect = document.getElementById('car-name');
+        var modelSelect = document.getElementById('car-model');
+
+        if (!category) {
+            console.log("No category selected");
+            return;
+        }
+
+        if (nameSelect) {
+            nameSelect.innerHTML = '<option value="">Select Name</option>';
+        }
+        
+        if (modelSelect) {
+            modelSelect.innerHTML = '<option value="">Select Model</option>';
+        }
+
+        fetch(`/cars/get_names/?category=${encodeURIComponent(category)}`)
+            .then(response => {
+                console.log("Names API response status:", response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Names received:', data);
+
+                if (nameSelect) {
+                    data.forEach(function(name) {
+                        var option = document.createElement('option');
+                        option.value = name;
+                        option.text = name;
+                        nameSelect.appendChild(option);
+                    });
+                } else {
+                    console.error("Name select element not found");
+                }
+            })
+            .catch(error => handleFetchError(error, "Error loading names:"));
+    });
+
+    // Event listener for name change
+    document.getElementById('car-name').addEventListener('change', function() {
+        console.log("Name changed to:", this.value);
+        var category = document.getElementById('car-category').value;
+        var name = this.value;
+        var modelSelect = document.getElementById('car-model');
+
+        if (!category || !name) {
+            console.log("Category or name not selected");
+            return;
+        }
+
+        if (modelSelect) {
+            modelSelect.innerHTML = '<option value="">Select Model</option>';
+
+            fetch(`/cars/get_models/?category=${encodeURIComponent(category)}&name=${encodeURIComponent(name)}`)
+                .then(response => {
+                    console.log("Models API response status:", response.status);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Models received:', data);
+                    
+                    data.forEach(function(model) {
+                        var option = document.createElement('option');
+                        option.value = model;
+                        option.text = model;
+                        modelSelect.appendChild(option);
+                    });
+                })
+                .catch(error => handleFetchError(error, "Error loading models:"));
+        } else {
+            console.error("Model select element not found");
+        }
+    });
+</script>
+{% endblock %}
+

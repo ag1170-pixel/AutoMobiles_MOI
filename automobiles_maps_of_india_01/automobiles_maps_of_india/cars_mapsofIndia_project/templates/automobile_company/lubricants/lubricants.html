@@ -1,0 +1,923 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<meta name="description" content="Comprehensive guide to automobile lubricants and engine oils. Learn about synthetic oils, diesel lubricants, transmission fluids and choose the right products for your vehicle.">
+<meta name="keywords" content="engine oil, synthetic oil, diesel engine oil, transmission fluid, automobile lubricants, car maintenance, vehicle protection">
+<meta property="og:title" content="Automobile Lubricants - Engine Oil Guide">
+<meta property="og:description" content="Enhancing Performance, Extending Engine Life, and Maximizing Efficiency with premium lubricants">
+<meta property="og:image" content="{% static 'image/synthetic_engine_oil.jpg' %}">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Automobile Lubricants - Complete Guide",
+  "description": "Comprehensive guide to automobile lubricants and engine oils. Learn about synthetic oils, diesel lubricants, transmission fluids.",
+  "image": "{% static 'image/synthetic_engine_oil.jpg' %}",
+  "author": {
+    "@type": "Organization",
+    "name": "Maps of India Automobiles"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maps of India Automobiles"
+  }
+}
+</script>
+{% endblock %}
+{% block content %}
+<style>
+    :root {
+        --primary: #444;
+        --primary-light: #57c5ea;
+        --secondary: #f39c12;
+        --dark: #1e2a3a;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+    }
+        
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        background-color: #f5f7fa;
+    }
+        
+        .hero-section {
+            padding: 4rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/static/image/India Map.jpg');
+            background-size: cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-section h1 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero-section p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .hero-cta {
+            margin-top: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67e22;
+            border-color: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card-title {
+            color: #000 !important;
+            text-shadow:none !important;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #d7e4ef;
+            padding-bottom: 0.5rem;
+        }
+        
+        .card-text {
+            color: #495057;
+            line-height: 1.6;
+        }
+        
+        .list-group-item {
+            padding: 1rem 1.25rem;
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+        
+        .list-icon {
+            color: #d7e4ef;
+            margin-right: 10px;
+        }
+        
+        .table thead {
+            background-color: #d7e4ef !important;
+            color: white;
+        }
+        
+        .table th, .table td {
+            padding: 1rem;
+            vertical-align: middle;
+        }
+        
+        .lubricant-type {
+            background-color: rgba(26, 95, 122, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lubricant-type:hover {
+            background-color: rgba(26, 95, 122, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .lubricant-type h5 {
+            color: #000;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .features-section {
+            padding: 5rem 0;
+            background-color: #fff;
+        }
+        .features-section h5{
+            color:#666 !important;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #666 !important;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sticky-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+        .card-body .table-responsive th{
+            color:#000 !important;
+        }
+        @media (max-width: 991.98px) {
+            .sticky-sidebar {
+                position: static;
+            }
+            
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.2rem;
+                color:#000 !important;
+            }
+            .hero-section::before {
+    background:#ffffff !important;
+}
+.hero-section h1, .hero-section p, .card-title {
+    text-shadow: none !important;
+}
+.card-body img, .product-card .product-image{
+    width:30% !important;
+}
+.card-title, .card-body .table-responsive th, .card-body .lubricant-type h5, .help-from-expert-wrapper .card-body h3, .help-from-expert-wrapper .card-body p, .product-card button{
+    color:#000 !important;
+}
+.card.text-white.shadow.mb-4.fade-in.help-from-expert-wrapper, .help-from-expert-wrapper .card-body{
+    box-shadow: none !important;
+}
+.features-section .row.g-4{
+    display:grid !important;
+    grid-template-columns:repeat(2,1fr);
+}
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Product showcase styling */
+        .product-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            width: 80%;
+            max-width: 200px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .badge-new {
+            background-color: var(--secondary);
+            color: white;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        .image-container {
+    width: 48% ;
+    line-height: 0;
+}
+.learn-more-btn {
+    color: #000 !important;
+    border-color: #d7e4ef !important;
+}
+.help-from-expert-wrapper{
+    background-color:#d7e4ef !important;
+}
+.help-from-expert-wrapper .card-body h3, .help-from-expert-wrapper .card-body p, .product-card button{
+    color:#000; !important
+}
+.subscribe-btn{
+    color: #000 !important;
+    background-color: #d7e4ef !important;
+    border-color: #d7e4ef !important;
+}
+.form-control{
+    box-shadow:none !important;
+}
+.card-container h5{
+    color: #ffffff !important;
+}
+
+/* Testimonial cards height fix - AGGRESSIVE */
+section.py-5 .card {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 0 0 auto !important;
+}
+
+section.py-5 .card-body {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 0.75rem !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+    margin: 0 !important;
+}
+
+section.py-5 .card-text.fst-italic {
+    margin-bottom: 0.5rem !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+}
+
+section.py-5 .mb-3 {
+    margin-bottom: 0.5rem !important;
+}
+
+section.py-5 .d-flex.align-items-start {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+}
+
+section.py-5 .flex-shrink-0 img {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+section.py-5 .flex-grow-1 {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+section.py-5 h6 {
+    margin-bottom: 0.25rem !important;
+    margin-top: 0 !important;
+}
+
+section.py-5 small {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+    </style>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container hero-content text-center">
+            <h1 class="display-3 mb-3">Automobile Lubricants</h1>
+            <p class="lead">Enhancing Performance, Extending Engine Life, and Maximizing Efficiency</p>
+        
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-4">
+            
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4 fade-in">
+                    <div class="card-body p-4">
+                        <h2 class="card-title">
+                            <i class="fas fa-tachometer-alt me-2"></i>
+                            The Importance of Lubricants
+                        </h2>
+                        <p class="card-text">
+                            Lubricants are the unsung heroes of every vehicle's mechanical system. They create a crucial protective film between moving parts, dramatically reducing friction and wear while ensuring smooth performance and enhanced longevity. Modern automotive lubricants are sophisticated blends of high-quality base oils combined with carefully formulated performance-enhancing additives, each designed for specific components like engines, transmissions, and differentials.
+                        </p>
+                        <p class="card-text">
+                            Beyond reducing friction, quality lubricants help dissipate heat, prevent corrosion, clean internal components, and improve fuel efficiency. With advancements in automotive technology and increasingly stringent environmental regulations, today's lubricants are more specialized and technologically advanced than ever before.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4 fade-in">
+                    <div class="card-header bg-white p-4">
+                        <h2 class="card-title mb-0">
+                            <i class="fas fa-oil-can me-2"></i>
+                            Engine Oil: The Lifeblood of Your Car
+                        </h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row mb-4">
+                            <div class="col-md-8">
+                                <p class="card-text">
+                                    Engine oil serves as the vital circulatory system of your vehicle's engine, performing multiple critical functions simultaneously. Modern formulations are designed to maintain performance under extreme conditions while extending drain intervals and protecting engine components.
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <img src="/media/images/lubricants/synthetic_engine_oil.jpg" alt="Synthetic engine oil bottle with modern packaging showing high-performance lubricant" class="img-fluid rounded" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Synthetic Engine Oil</div>
+                            </div>
+                        </div>
+                        
+                        <h5 class="mb-3">Key Functions:</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle list-icon mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Lubrication</h6>
+                                        <p class="small text-muted">Creates a protective film between moving parts to reduce friction and wear</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle list-icon mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Heat Transfer</h6>
+                                        <p class="small text-muted">Carries heat away from critical engine components</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle list-icon mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Sealing</h6>
+                                        <p class="small text-muted">Creates seals between piston rings and cylinder walls</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle list-icon mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Cleaning</h6>
+                                        <p class="small text-muted">Suspends and carries away contaminants to the oil filter</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle list-icon mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Corrosion Prevention</h6>
+                                        <p class="small text-muted">Neutralizes acids and prevents metal surface degradation</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle list-icon mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Shock Absorption</h6>
+                                        <p class="small text-muted">Dampens mechanical shocks in the engine</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow-sm mb-4 fade-in">
+                    <div class="card-body p-4">
+                        <h2 class="card-title">
+                            <i class="fas fa-truck me-2"></i>
+                            Diesel Engine Lubricants
+                        </h2>
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <p class="card-text">
+                                    Diesel engines operate under significantly higher compression ratios and stress levels than gasoline engines, requiring specialized lubricants with enhanced properties. These oils feature:
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-circle list-icon fa-xs"></i> Higher viscosity stability under extreme temperatures</li>
+                                    <li class="mb-2"><i class="fas fa-circle list-icon fa-xs"></i> Advanced anti-wear additives to protect high-pressure components</li>
+                                    <li class="mb-2"><i class="fas fa-circle list-icon fa-xs"></i> Elevated Total Base Number (TBN) to neutralize acidic byproducts</li>
+                                    <li class="mb-2"><i class="fas fa-circle list-icon fa-xs"></i> Enhanced soot handling capabilities for particulate control</li>
+                                    <li><i class="fas fa-circle list-icon fa-xs"></i> Specialized detergent packages to prevent deposit buildup</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="ratio ratio-1x1">
+                                    <img src="/media/images/lubricants/diesel_engine_oil.jpg" alt="Diesel engine oil container designed for heavy-duty engines" class="img-fluid rounded" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Diesel Engine Oil</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lubricant Additives -->
+                <div class="card shadow-sm mb-4 fade-in">
+                    <div class="card-body p-4">
+                        <h2 class="card-title">
+                            <i class="fas fa-flask me-2"></i>
+                            Lubricant Additives
+                        </h2>
+                        <p class="card-text mb-4">
+                            Modern lubricants contain up to 30% additives by volume, each with specific functions to enhance performance characteristics. These chemical compounds transform basic base oils into sophisticated engineering fluids capable of operating under extreme conditions.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Additive Type</th>
+                                        <th>Purpose</th>
+                                        <th>Benefits</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Anti-wear Agents (ZDDP)</td>
+                                        <td>Forms protective layer on metal surfaces</td>
+                                        <td>Prevents metal-to-metal contact under boundary lubrication conditions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Detergents</td>
+                                        <td>Neutralizes acids and prevents deposits</td>
+                                        <td>Keeps engine surfaces clean and prevents corrosion</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dispersants</td>
+                                        <td>Suspends contaminants in the oil</td>
+                                        <td>Prevents sludge formation and oil thickening</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Viscosity Index Improvers</td>
+                                        <td>Stabilizes viscosity across temperature ranges</td>
+                                        <td>Enables multi-grade performance in different conditions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Friction Modifiers</td>
+                                        <td>Reduces friction between moving surfaces</td>
+                                        <td>Improves fuel economy and reduces energy losses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anti-oxidants</td>
+                                        <td>Prevents oil oxidation</td>
+                                        <td>Extends oil life and prevents thickening</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Column -->
+            <div class="col-lg-4">
+                <div class="sticky-sidebar">
+                    <!-- Types of Lubricants -->
+                    <div class="card shadow-sm mb-4 fade-in">
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                <i class="fas fa-th-list me-2"></i>
+                                Types of Lubricants
+                            </h2>
+                            
+                            <div class="lubricant-type">
+                                <h5>Mineral Oil</h5>
+                                <p class="mb-0 text-muted">Refined from crude oil, provides basic lubrication at an economical price point. Suitable for older engines and less demanding applications.</p>
+                            </div>
+                            
+                            <div class="lubricant-type">
+                                <h5>Semi-Synthetic Oil <span class="badge badge-new">Popular</span></h5>
+                                <p class="mb-0 text-muted">Blend of mineral and synthetic oils, offering improved performance at a moderate price. Good balance for most modern vehicles.</p>
+                            </div>
+                            
+                            <div class="lubricant-type">
+                                <h5>Fully Synthetic Oil</h5>
+                                <p class="mb-0 text-muted">Chemically engineered molecules providing superior protection, longer life, and extreme temperature performance. Ideal for high-performance engines.</p>
+                            </div>
+                            
+                            <div class="lubricant-type">
+                                <h5>High-Mileage Oil</h5>
+                                <p class="mb-0 text-muted">Specially formulated for vehicles with over 75,000 miles, containing seal conditioners and additives to reduce oil consumption.</p>
+                            </div>
+                            
+                            <div class="lubricant-type">
+                                <h5>Racing Oil</h5>
+                                <p class="mb-0 text-muted">Designed for extreme conditions with maximum wear protection and minimal friction. Formulated for competition engines with shorter change intervals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Oil Viscosity Guide -->
+                    <div class="card shadow-sm mb-4 fade-in">
+                        <div class="card-header bg-white p-4">
+                            <h2 class="card-title mb-0">
+                                <i class="fas fa-tint me-2"></i>
+                                Viscosity Guide
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Viscosity is a crucial property of lubricants, indicating their resistance to flow. The SAE classification system uses numbers to denote thickness:
+                            </p>
+                            
+                            <div class="d-flex align-items-center justify-content-center mb-4">
+                                <div class="progress" style="height: 30px; width: 100%;">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #ccf2ff;">5W</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #99e6ff;">10W</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #66d9ff;">15W</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #33ccff;">20W</div>
+                                </div>
+                            </div>
+                            <div class="text-center small mb-4">
+                                <span>Thinner</span>
+                                <span class="float-end">Thicker</span>
+                            </div>
+                            
+                            <h6 class="mb-2">Common Grades:</h6>
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    5W-30
+                                    <span class="badge bg-primary rounded-pill">Most Popular</span>
+                                </li>
+                                <li class="list-group-item">10W-40</li>
+                                <li class="list-group-item">0W-20</li>
+                                <li class="list-group-item">15W-40</li>
+                            </ul>
+                            
+                            <div class="alert alert-info" role="alert">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Always follow your vehicle manufacturer's recommendations for viscosity grade.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action -->
+                    <div class="card text-white mb-4 fade-in help-from-expert-wrapper">
+                        <div class="card-body p-4 text-center">
+                            <h3 class="mb-3">Need Expert Advice?</h3>
+                            <p>Our technical team is ready to help you find the perfect lubricant solution.</p>
+                            <button class="btn btn-light">Contact Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Featured Products -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Products</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="product-card shadow-sm h-100">
+                        <img src="/media/images/lubricants/synthetic_engine_oil.jpg" alt="Premium synthetic engine oil bottle with advanced formula labeling" class="product-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Synthetic Engine Oil</div>
+                        <h4>Premium Synthetic</h4>
+                        <p class="text-muted mb-3">Ultimate engine protection for modern vehicles</p>
+                        <button class="btn btn-outline-primary learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card shadow-sm h-100">
+                        <img src="/media/images/lubricants/diesel_engine_oil.jpg" alt="Professional diesel engine oil for heavy-duty vehicles" class="product-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Diesel Engine Oil</div>
+                        <h4>Diesel Pro</h4>
+                        <p class="text-muted mb-3">Specialized formula for heavy-duty diesel engines</p>
+                        <button class="btn btn-outline-primary learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card shadow-sm h-100">
+                        <img src="/media/images/lubricants/transmission_fluid.jpg" alt="Transmission fluid bottle for smooth gear shifting" class="product-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="no-image-placeholder" style="display:none; width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Transmission Fluid</div>
+                        <h4>Trans-Guard</h4>
+                        <p class="text-muted mb-3">Advanced transmission fluid for smooth shifting</p>
+                        <button class="btn btn-outline-primary learn-more-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Customer Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Customers Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text fst-italic">
+                                "Since switching to LubriTech's synthetic oil, my engine runs quieter and my fuel economy has improved significantly. Highly recommended for any vehicle owner who values performance."
+                            </p>
+                            <div class="d-flex align-items-start mt-3">
+                                <div class="flex-shrink-0">
+                                    <img src="/media/images/general/customer_avatar.png" alt="Customer" class="rounded-circle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-image-placeholder" style="display:none; width:40px; height:40px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:50%; font-size:12px;">Customer</div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-0">Michael B.</h6>
+                                    <small class="text-muted">Fleet Manager</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text fst-italic">
+                                "As a mechanic with 20 years of experience, I trust LubriTech products with my customers' vehicles. Their diesel formulation has prevented countless issues in high-mileage trucks."
+                            </p>
+                            <div class="d-flex align-items-start mt-3">
+                                <div class="flex-shrink-0">
+                                    <img src="/media/images/general/customer_avatar.png" alt="Customer" class="rounded-circle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-image-placeholder" style="display:none; width:40px; height:40px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:50%; font-size:12px;">Customer</div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-0">Sarah K.</h6>
+                                    <small class="text-muted">Auto Shop Owner</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <p class="card-text fst-italic">
+                                "I've tried many premium oils for my sports car, but LubriTech's racing formula provides noticeably better throttle response and engine temperature stability during track days."
+                            </p>
+                            <!-- This continues from where the code was cut off -->
+                            <div class="d-flex align-items-start mt-3">
+                                <div class="flex-shrink-0">
+                                    <img src="/media/images/general/customer_avatar.png" alt="Customer" class="rounded-circle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-image-placeholder" style="display:none; width:40px; height:40px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:50%; font-size:12px;">Customer</div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-0">James R.</h6>
+                                    <small class="text-muted">Racing Enthusiast</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Our Products</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Superior Protection</h5>
+                        <p class="text-muted">Advanced formulations that protect vital engine components even under extreme conditions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h5>Research-Driven</h5>
+                        <p class="text-muted">Products developed through extensive laboratory testing and real-world validation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>Eco-Friendly</h5>
+                        <p class="text-muted">Formulated with environmental sustainability in mind to reduce carbon footprint.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h5>Performance Boost</h5>
+                        <p class="text-muted">Enhances engine efficiency and responsiveness while extending component life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Stay Updated</h2>
+                    <p class="lead mb-4">Subscribe to our newsletter for the latest product updates, technical bulletins, and industry insights.</p>
+                    <div class="input-group mb-3 mx-auto" style="max-width: 500px;">
+                        <input type="email" class="form-control" id="subscribeEmail" placeholder="Enter your email address" aria-label="Email address">
+                        <button class="btn subscribe-btn" type="button" id="subscribeBtn">Subscribe</button>
+                    </div>
+                    <p class="small text-muted">We respect your privacy and will never share your information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="successModalLabel">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Successfully Subscribed!
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="mb-3">
+                        <i class="fas fa-envelope text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <p class="mb-0">Your email has been successfully added to our newsletter list.</p>
+                    <p class="text-muted small mt-2">You'll receive our latest updates and industry insights soon.</p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+
+            // Subscribe button functionality
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            const subscribeEmail = document.getElementById('subscribeEmail');
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+            subscribeBtn.addEventListener('click', function() {
+                const email = subscribeEmail.value.trim();
+                
+                if (email) {
+                    // Basic email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailRegex.test(email)) {
+                        // Show success modal
+                        successModal.show();
+                        
+                        // Clear the email input after showing modal
+                        setTimeout(() => {
+                            subscribeEmail.value = '';
+                        }, 500);
+                    } else {
+                        // Show error for invalid email
+                        subscribeEmail.classList.add('is-invalid');
+                        subscribeEmail.focus();
+                        
+                        // Remove error after 3 seconds
+                        setTimeout(() => {
+                            subscribeEmail.classList.remove('is-invalid');
+                        }, 3000);
+                    }
+                } else {
+                    // Show error for empty email
+                    subscribeEmail.classList.add('is-invalid');
+                    subscribeEmail.focus();
+                    
+                    // Remove error after 3 seconds
+                    setTimeout(() => {
+                        subscribeEmail.classList.remove('is-invalid');
+                    }, 3000);
+                }
+            });
+
+            // Clear validation on input
+            subscribeEmail.addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+            });
+        });
+    </script>
+
+{% endblock %}

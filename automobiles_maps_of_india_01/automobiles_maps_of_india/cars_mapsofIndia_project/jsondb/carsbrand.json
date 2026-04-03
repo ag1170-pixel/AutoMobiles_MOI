@@ -1,0 +1,82 @@
+[
+  {
+    "model": "carshanders.carbrand",
+    "pk": 1,
+    "fields": {
+      "name": "Toyota",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 2,
+    "fields": {
+      "name": "Honda",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 3,
+    "fields": {
+      "name": "Ford",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 4,
+    "fields": {
+      "name": "Chevrolet",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 5,
+    "fields": {
+      "name": "Hyundai",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 6,
+    "fields": {
+      "name": "Nissan",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 7,
+    "fields": {
+      "name": "BMW",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 8,
+    "fields": {
+      "name": "Audi",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 9,
+    "fields": {
+      "name": "Mercedes",
+      "is_active": true
+    }
+  },
+  {
+    "model": "carshanders.carbrand",
+    "pk": 10,
+    "fields": {
+      "name": "Volkswagen",
+      "is_active": true
+    }
+  }
+  ]

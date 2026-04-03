@@ -1,0 +1,402 @@
+[
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 1,
+    "fields": {
+      "name": "Quantum Investments",
+      "description": "Pioneering quantum computing-based financial modeling for unprecedented market insights."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 2,
+    "fields": {
+      "name": "Green Horizon Capital",
+      "description": "Specializing in sustainable and renewable energy project financing."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 3,
+    "fields": {
+      "name": "Blockchain Financial Solutions",
+      "description": "Leveraging blockchain technology for secure, transparent financial transactions."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 4,
+    "fields": {
+      "name": "AI Wealth Advisors",
+      "description": "Using artificial intelligence to provide personalized wealth management strategies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 5,
+    "fields": {
+      "name": "Cyber Secure Banking",
+      "description": "Offering cutting-edge cybersecurity solutions for online banking platforms."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 6,
+    "fields": {
+      "name": "Global Micro Lending",
+      "description": "Facilitating microloans to entrepreneurs in developing countries."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 7,
+    "fields": {
+      "name": "Robo-Advisor Pro",
+      "description": "Automated investment management using advanced algorithms and machine learning."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 8,
+    "fields": {
+      "name": "Decentralized Finance Hub",
+      "description": "Platform for accessing various DeFi protocols and services."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 9,
+    "fields": {
+      "name": "EcoSystem Venture Capital",
+      "description": "Investing in startups focused on ecosystem restoration and biodiversity."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 10,
+    "fields": {
+      "name": "Space Economy Financiers",
+      "description": "Specialized funding for space exploration and satellite technology ventures."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 11,
+    "fields": {
+      "name": "Quantum Secure Payments",
+      "description": "Implementing quantum encryption for ultra-secure financial transactions."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 12,
+    "fields": {
+      "name": "Biotech Funding Initiative",
+      "description": "Providing capital for cutting-edge biotechnology and medical research projects."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 13,
+    "fields": {
+      "name": "Augmented Reality Banking",
+      "description": "Innovative AR-based solutions for immersive and interactive banking experiences."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 14,
+    "fields": {
+      "name": "Carbon Credit Exchange",
+      "description": "Facilitating the trading of carbon credits and emissions allowances."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 15,
+    "fields": {
+      "name": "Neural Network Traders",
+      "description": "High-frequency trading firm using advanced neural networks for market analysis."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 16,
+    "fields": {
+      "name": "Fusion Energy Investments",
+      "description": "Funding research and development in fusion energy technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 17,
+    "fields": {
+      "name": "Virtual Reality Financial Education",
+      "description": "Providing immersive VR experiences for financial literacy and education."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 18,
+    "fields": {
+      "name": "Autonomous Vehicle Leasing",
+      "description": "Specialized leasing and financing options for self-driving vehicles."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 19,
+    "fields": {
+      "name": "Vertical Farming Fund",
+      "description": "Investing in urban agriculture and vertical farming technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 20,
+    "fields": {
+      "name": "Neurotechnology Ventures",
+      "description": "Funding startups working on brain-computer interfaces and neurotechnology."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 21,
+    "fields": {
+      "name": "Drone Delivery Financing",
+      "description": "Providing capital for companies developing drone-based delivery systems."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 22,
+    "fields": {
+      "name": "Oceanic Resources Investment",
+      "description": "Focused on sustainable exploitation of deep-sea resources and ocean conservation."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 23,
+    "fields": {
+      "name": "Holographic Communication Funding",
+      "description": "Investing in companies developing holographic telecommunication technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 24,
+    "fields": {
+      "name": "Space Tourism Bonds",
+      "description": "Issuing bonds to finance the development of commercial space tourism."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 25,
+    "fields": {
+      "name": "Quantum Internet Investments",
+      "description": "Funding the development of quantum internet infrastructure and applications."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 26,
+    "fields": {
+      "name": "Bionic Enhancements Loans",
+      "description": "Providing financing for advanced prosthetics and bionic enhancements."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 27,
+    "fields": {
+      "name": "Hyperloop Infrastructure Bonds",
+      "description": "Issuing bonds to finance the construction of hyperloop transportation systems."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 28,
+    "fields": {
+      "name": "Asteroid Mining Ventures",
+      "description": "Investing in companies developing technologies for extraterrestrial resource extraction."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 29,
+    "fields": {
+      "name": "Synthetic Biology Fund",
+      "description": "Supporting research and commercialization of synthetic biology applications."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 30,
+    "fields": {
+      "name": "Quantum Sensing Investments",
+      "description": "Funding the development of quantum sensors for various industries."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 31,
+    "fields": {
+      "name": "Smart City Infrastructure Financing",
+      "description": "Providing capital for the development of intelligent urban infrastructure projects."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 32,
+    "fields": {
+      "name": "Gene Therapy Venture Capital",
+      "description": "Investing in companies developing gene therapies and personalized medicine."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 33,
+    "fields": {
+      "name": "Robotic Process Automation Lending",
+      "description": "Financing the implementation of RPA solutions across various industries."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 34,
+    "fields": {
+      "name": "Digital Twin Technology Fund",
+      "description": "Supporting the development of digital twin technologies for industrial applications."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 35,
+    "fields": {
+      "name": "Quantum Computing Cloud Services",
+      "description": "Financing the development of cloud-based quantum computing platforms."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 36,
+    "fields": {
+      "name": "Advanced Materials Research Funding",
+      "description": "Investing in the research and development of novel materials and nanotechnology."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 37,
+    "fields": {
+      "name": "Autonomous Drone Swarm Financing",
+      "description": "Providing capital for companies developing autonomous drone swarm technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 38,
+    "fields": {
+      "name": "Fog Computing Infrastructure Investment",
+      "description": "Funding the development of fog computing networks and applications."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 39,
+    "fields": {
+      "name": "Bioplastics Production Financing",
+      "description": "Supporting the scaling of biodegradable plastics production technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 40,
+    "fields": {
+      "name": "Exoskeleton Technology Funding",
+      "description": "Investing in the development of powered exoskeletons for various applications."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 41,
+    "fields": {
+      "name": "Cultured Meat Production Investment",
+      "description": "Financing the scaling of lab-grown meat production technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 42,
+    "fields": {
+      "name": "Neuromorphic Computing Ventures",
+      "description": "Funding startups developing brain-inspired computing architectures."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 43,
+    "fields": {
+      "name": "Atmospheric Water Generation Financing",
+      "description": "Supporting technologies that extract water from air in water-scarce regions."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 44,
+    "fields": {
+      "name": "Robotic Agriculture Investment",
+      "description": "Investing in the development of autonomous farming robots and systems."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 45,
+    "fields": {
+      "name": "Wireless Power Transfer Funding",
+      "description": "Financing research and commercialization of long-range wireless power transmission."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 46,
+    "fields": {
+      "name": "Programmable Matter Research Grants",
+      "description": "Providing grants for research into materials that can change properties on demand."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 47,
+    "fields": {
+      "name": "Artificial Photosynthesis Ventures",
+      "description": "Investing in technologies that mimic natural photosynthesis for clean energy production."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 48,
+    "fields": {
+      "name": "Sustainable Desalination Financing",
+      "description": "Funding the development of energy-efficient seawater desalination technologies."
+    }
+  },
+  {
+    "model": "finance_insurance.finance company",
+    "pk": 49,
+    "fields": {
+      "name": "Molecular Nanotechnology Fund",
+      "description": "Supporting research and development in molecular-scale engineering and manufacturing."
+    }
+  },
+  {
+    "model": "finance_insurance.financecompany",
+    "pk": 50,
+    "fields": {
+      "name": "Thorium Reactor Investment",
+      "description": "Financing the development and commercialization of thorium-based nuclear reactors."
+    }
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 1,
+    "fields": {
+      "name": "Engine Components",
+      "description": "Parts related to the engine including filters, belts, and sensors."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 2,
+    "fields": {
+      "name": "Transmission Components",
+      "description": "Parts related to the transmission system such as clutches and gears."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 3,
+    "fields": {
+      "name": "Brake Components",
+      "description": "Parts related to the braking system including pads, rotors, and calipers."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 4,
+    "fields": {
+      "name": "Cooling System Components",
+      "description": "Parts related to the cooling system such as radiators, water pumps, and thermostats."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 5,
+    "fields": {
+      "name": "Electrical Components",
+      "description": "Parts related to the electrical system including batteries, alternators, and starters."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 6,
+    "fields": {
+      "name": "Suspension Components",
+      "description": "Parts related to the suspension system including shock absorbers, struts, and springs."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 7,
+    "fields": {
+      "name": "Exhaust System Components",
+      "description": "Parts related to the exhaust system including mufflers, catalytic converters, and exhaust pipes."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 8,
+    "fields": {
+      "name": "Fuel System Components",
+      "description": "Parts related to the fuel system including fuel pumps, injectors, and filters."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 9,
+    "fields": {
+      "name": "Heating and Air Conditioning Components",
+      "description": "Parts related to the HVAC system including compressors, condensers, and evaporators."
+    }
+  },
+  {
+    "model": "carshanders.categorycomponent",
+    "pk": 10,
+    "fields": {
+      "name": "Miscellaneous Components",
+      "description": "Various components that do not fit into other categories."
+    }
+  }
+]

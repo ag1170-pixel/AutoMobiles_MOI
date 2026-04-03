@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block title %}Transmission System{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+{% endblock %}
+
+{% block content %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .content img {
+            max-width: 100%;
+            height: auto;
+        }
+        .system-card {
+            transition: all 0.3s ease-in-out;
+        }
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .manufacturer-row:nth-child(even) {
+            background-color: #f3f4f6;
+        }
+    </style>
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6 text-center text-black">Transmission System</h1>
+
+    <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold mb-4">What is Transmission System?</h2>
+        <p class="text-lg">The transmission systems in vehicles are installed to send signals from one part to another such as from engines to wheels to ensure mobility. In this process, several components that are fixed in the back of the engine in a car play integral part.</p>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-6 text-center">Types of Transmission System</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for system in systems %}
+                <div class="system-card bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-2">{{ system.name }}</h3>
+                    <p class="mb-4">{{ system.description }}</p>
+                    <div class="mb-2">
+                        <h4 class="font-semibold text-green-600">Advantages:</h4>
+                        <p>{{ system.advantages }}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-600">Disadvantages:</h4>
+                        <p>{{ system.disadvantages }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-xl font-semibold mb-4">Tips for Buying Transmission System Parts</h2>
+        <ul class="list-disc pl-5 space-y-2">
+            {% for tip in tips %}
+                <li>{{ tip.tip }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-6 text-center">Manufacturers and Suppliers of Transmission System Parts in India</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full bg-white rounded-lg shadow-md">
+                <thead>
+                <tr class="bg-black text-white">
+                    <th class="p-3 text-left">Manufacturers & Suppliers</th>
+                    <th class="p-3 text-left">Address & Telephone</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for manufacturer in manufacturers %}
+                    <tr class="manufacturer-row hover:bg-gray-100">
+                        <td class="p-3 border-t">{{ manufacturer.name }}</td>
+                        <td class="p-3 border-t">
+                            {{ manufacturer.address }}<br>
+                            Ph No: <a href="tel:{{ manufacturer.phone }}" class="text-blue-500 hover:underline">{{ manufacturer.phone }}</a>
+                            {% if manufacturer.additional_info %}
+                                <br>{{ manufacturer.additional_info }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const systemCards = document.querySelectorAll('.system-card');
+        systemCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('bg-blue-50');
+            });
+        });
+
+        const manufacturerRows = document.querySelectorAll('.manufacturer-row');
+        manufacturerRows.forEach(row => {
+            row.addEventListener('click', function() {
+                this.classList.toggle('bg-blue-50');
+            });
+        });
+    });
+</script>
+{% endblock %}
+{#<!-- templates/transmission_system.html -->#}
+{##}
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %}Transmission System{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <br>#}
+{#    <div class="container">#}
+{#    <h1>Transmission System</h1>#}
+{##}
+{#    <h2>What is Transmission System?</h2>#}
+{#    <p>The transmission systems in vehicles are installed to send signals from one part to another such as from engines to wheels to ensure mobility. In this process, several components that are fixed in the back of the engine in a car play integral part.</p>#}
+{##}
+{#    <h2>Types of Transmission System:</h2>#}
+{#    {% for system in systems %}#}
+{#        <h3>{{ system.name }}</h3>#}
+{#        <p>{{ system.description }}</p>#}
+{#        <h4>Advantages:</h4>#}
+{#        <p>{{ system.advantages }}</p>#}
+{#        <h4>Disadvantages:</h4>#}
+{#        <p>{{ system.disadvantages }}</p>#}
+{#    {% endfor %}#}
+{##}
+{#    <h2>Tips for Buying Transmission System Parts:</h2>#}
+{#    <ul>#}
+{#        {% for tip in tips %}#}
+{#            <li>{{ tip.tip }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{##}
+{#    <h2>List of Manufacturers and Suppliers of Transmission System Parts in India</h2>#}
+{#    <table>#}
+{#        <tr>#}
+{#            <th>Manufacturers & Suppliers</th>#}
+{#            <th>Address & Telephone</th>#}
+{#        </tr>#}
+{#        {% for manufacturer in manufacturers %}#}
+{#            <tr>#}
+{#                <td>{{ manufacturer.name }}</td>#}
+{#                <td>#}
+{#                    {{ manufacturer.address }}<br>#}
+{#                    Ph No: {{ manufacturer.phone }}#}
+{#                    {% if manufacturer.additional_info %}#}
+{#                        <br>{{ manufacturer.additional_info }}#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{#    </div>#}
+{#{% endblock %}#}

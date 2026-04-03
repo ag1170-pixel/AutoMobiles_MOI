@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Automobile service station in india{% endblock %}
+{% block content %}
+{% load custom_filters %}
+
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Second Hand Car Market in India{% endblock %}</title>
+    <link rel="stylesheet" href="/static/car_market/css/styles.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'used_cars' %}">Used Cars</a></li>
+            <li><a href="{% url 'buying_used_cars' %}">Buying Used Cars</a></li>
+            <li><a href="{% url 'second_hand_car_dealers' %}">Second Hand Car Dealers</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2024 Second Hand Car Market in India</p>
+</footer>
+
+<script src="/static/car_market/js/main.js"></script>
+</body>
+{% endblock %}

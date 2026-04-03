@@ -1,0 +1,254 @@
+[
+  {
+    "model": "carshanders.company",
+    "pk": 1,
+    "fields": {
+      "name": "Maruti Suzuki",
+      "logo_url": "https://example.com/maruti-suzuki-logo.png",
+      "description": "Maruti Suzuki is India's largest car manufacturer, known for producing affordable and reliable vehicles."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 2,
+    "fields": {
+      "name": "Hyundai",
+      "logo_url": "https://img/carsLogo/hyundai-logo.png",
+      "description": "Hyundai offers a range of stylish and high-quality vehicles, known for their innovative technology and design."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 3,
+    "fields": {
+      "name": "Honda",
+      "logo_url": "https://img/carsLogo/honda-logo.png",
+      "description": "Honda is known for its efficient and reliable cars, offering a range of vehicles from compact cars to SUVs."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 4,
+    "fields": {
+      "name": "Toyota",
+      "logo_url": "https://img/carsLogo/toyota-logo.png",
+      "description": "Toyota is a globally recognized brand known for its durable and high-performance vehicles, including sedans and SUVs."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 5,
+    "fields": {
+      "name": "Ford",
+      "logo_url": "https://img/carsLogo/Ford-logo.png",
+      "description": "Ford offers a diverse lineup of vehicles, from powerful trucks to fuel-efficient cars, known for their innovation and performance."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 6,
+    "fields": {
+      "name": "Nissan",
+      "logo_url": "https://img/carsLogo/Nissan-logo.png",
+      "description": "Nissan provides a wide range of vehicles with advanced technology and stylish designs, including electric cars and SUVs."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 7,
+    "fields": {
+      "name": "BMW",
+      "logo_url": "https://img/carsLogo/BMW.jpg",
+      "description": "BMW is known for its luxury vehicles that combine performance with cutting-edge technology and sophisticated design."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 8,
+    "fields": {
+      "name": "Audi",
+      "logo_url": "https://example.com/audi-logo.png",
+      "description": "Audi offers premium vehicles with advanced features and luxurious interiors, known for their performance and innovation."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 9,
+    "fields": {
+      "name": "Mercedes-Benz",
+      "logo_url": "https://example.com/mercedes-benz-logo.png",
+      "description": "Mercedes-Benz is a symbol of luxury and performance, providing high-end vehicles with exceptional quality and cutting-edge technology."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 10,
+    "fields": {
+      "name": "Volkswagen",
+      "logo_url": "https://example.com/volkswagen-logo.png",
+      "description": "Volkswagen offers a range of vehicles known for their quality, performance, and distinctive design, including hatchbacks and sedans."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 11,
+    "fields": {
+      "name": "Tata Motors",
+      "logo_url": "https://example.com/tata-motors-logo.png",
+      "description": "Tata Motors is known for its robust and affordable vehicles, ranging from compact cars to heavy-duty trucks and SUVs."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 12,
+    "fields": {
+      "name": "Mahindra & Mahindra",
+      "logo_url": "https://img/carsLogo/mahindra logo.jpg",
+      "description": "Mahindra & Mahindra specializes in rugged and versatile vehicles, including SUVs, trucks, and agricultural machinery."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 13,
+    "fields": {
+      "name": "Suzuki",
+      "logo_url": "https://example.com/suzuki-logo.png",
+      "description": "Suzuki is known for its economical and reliable cars, offering a range of models that cater to different needs and preferences."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 14,
+    "fields": {
+      "name": "Kia",
+      "logo_url": "https://example.com/kia-logo.png",
+      "description": "Kia offers a lineup of modern and stylish vehicles with advanced features and a focus on value for money."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 15,
+    "fields": {
+      "name": "Renault",
+      "logo_url": "https://example.com/renault-logo.png",
+      "description": "Renault is known for its innovative and stylish cars, offering a range of models from compact cars to SUVs and electric vehicles."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 16,
+    "fields": {
+      "name": "JLR (Jaguar Land Rover)",
+      "logo_url": "https://example.com/jlr-logo.png",
+      "description": "JLR combines luxury and performance, offering premium vehicles with sophisticated design and advanced technology."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 17,
+    "fields": {
+      "name": "Porsche",
+      "logo_url": "https://example.com/porsche-logo.png",
+      "description": "Porsche is renowned for its high-performance sports cars and luxury SUVs, known for their precision engineering and exhilarating driving experience."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 18,
+    "fields": {
+      "name": "Hero MotoCorp",
+      "logo_url": "https://example.com/hero-motocorp-logo.png",
+      "description": "Hero MotoCorp is a leading motorcycle manufacturer in India, known for its reliable and affordable bikes."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 19,
+    "fields": {
+      "name": "Bajaj Auto",
+      "logo_url": "https://example.com/bajaj-auto-logo.png",
+      "description": "Bajaj Auto is known for its wide range of motorcycles and scooters, offering performance and value for money."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 20,
+    "fields": {
+      "name": "TVS Motor",
+      "logo_url": "https://example.com/tvs-motor-logo.png",
+      "description": "TVS Motor provides a range of motorcycles and scooters known for their reliability, performance, and affordability."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 21,
+    "fields": {
+      "name": "Royal Enfield",
+      "logo_url": "https://example.com/royal-enfield-logo.png",
+      "description": "Royal Enfield offers classic and stylish motorcycles, known for their distinctive design and rugged performance."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 22,
+    "fields": {
+      "name": "Yamaha Motor",
+      "logo_url": "https://example.com/yamaha-motor-logo.png",
+      "description": "Yamaha Motor provides a range of motorcycles and scooters with a focus on performance, style, and innovation."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 23,
+    "fields": {
+      "name": "Kawasaki",
+      "logo_url": "https://example.com/kawasaki-logo.png",
+      "description": "Kawasaki is known for its high-performance motorcycles, offering a range of models from sport bikes to cruisers."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 24,
+    "fields": {
+      "name": "Suzuki Motorcycles",
+      "logo_url": "https://example.com/suzuki-motorcycles-logo.png",
+      "description": "Suzuki Motorcycles offers a diverse range of bikes known for their performance, reliability, and innovative technology."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 25,
+    "fields": {
+      "name": "Aprilia",
+      "logo_url": "https://example.com/aprilia-logo.png",
+      "description": "Aprilia is known for its high-performance motorcycles, offering a range of models with advanced technology and cutting-edge design."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 26,
+    "fields": {
+      "name": "Ducati",
+      "logo_url": "https://example.com/ducati-logo.png",
+      "description": "Ducati offers premium motorcycles with a focus on performance, innovation, and distinctive Italian design."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 27,
+    "fields": {
+      "name": "Benelli",
+      "logo_url": "https://example.com/benelli-logo.png",
+      "description": "Benelli is known for its stylish and high-performance motorcycles, offering a range of models with a unique design."
+    }
+  },
+  {
+    "model": "carshanders.company",
+    "pk": 28,
+    "fields": {
+      "name": "MV Agusta",
+      "logo_url": "https://example.com/mv-agusta-logo.png",
+      "description": "MV Agusta provides high-end motorcycles with a focus on performance, luxury, and Italian craftsmanship."
+    }
+  }
+]

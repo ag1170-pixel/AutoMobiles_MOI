@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+
+{% block title %}Top Car | Bike Finance Companies{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1140px;
+            padding: 0 15px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+            font-size: 1.5rem !important;
+        }
+        .company-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+        .company-card .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color:#444;
+            text-shadow:none !important;
+        }
+        .card-text {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .btn-outline-primary {
+            border-color: #3498db;
+            color: #3498db;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-primary:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            
+            .company-card .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .card-text {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                margin-bottom: 20px;
+            }
+            
+            .company-card {
+                margin-bottom: 20px;
+                box-shadow:none !important;
+                padding:0 !important;
+            }
+            
+            .company-card .card-title {
+                font-size: 1rem;
+            }
+            
+            .card-text {
+                font-size: 0.85rem;
+            }
+            
+            .btn-outline-primary {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                margin-bottom: 15px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .company-card {
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+            
+            .company-card .card-title {
+                font-size: 0.95rem;
+            }
+            
+            .card-text {
+                font-size: 0.8rem;
+            }
+            
+            .btn-outline-primary {
+                padding: 6px 12px;
+                font-size: 13px;
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            
+            
+            .company-card .card-title {
+                font-size: 0.9rem;
+            }
+            
+            .card-text {
+                font-size: 0.75rem;
+            }
+            
+            .btn-outline-primary {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 50px;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+.image-container .card-title{
+    color:#ffffff !important;
+}
+    </style>
+    <div class="container mt-5">
+        <h1 class="text-center mb-2"> Car | Bike Finance Companies</h1>
+        <div class="heading-underline"></div>
+
+        <div class="row">
+            {% for company in companies %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100  company-card">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ company.name }}</h5>
+                            <p class="card-text flex-grow-1">{{ company.description|truncatewords:30 }}</p>
+                            {#                            <div class="mt-3">#}
+                            {#                                <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>#}
+                            {#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle"></i> We're currently updating our list of finance companies. Please check back soon!
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}
+

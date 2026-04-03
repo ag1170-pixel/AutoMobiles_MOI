@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Second Hand Cars</title>
+    <!-- Add your CSS and other head elements here -->
+</head>
+<body>
+<h1>Second Hand Cars</h1>
+
+{% if cars %}
+    <ul>
+        {% for car in cars %}
+            <li>
+                <h2>{{ car.year }} {{ car.name }} {{ car.model }}</h2>
+                <p>Price: ${{ car.price }}</p>
+                <p>Mileage: {{ car.mileage }} miles</p>
+                <p>Description: {{ car.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No second hand cars are available at the moment.</p>
+{% endif %}
+
+<!-- Add your footer and other body elements here -->
+</body>
+</html>

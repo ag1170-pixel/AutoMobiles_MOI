@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<title>Auto Tyres India</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #031936;
+            --secondary-color: #617591;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--secondary-color);
+        }
+        .navbar {
+            background-color: var(--primary-color) !important;
+        }
+        .card-title{
+            color: #444  !important;
+            text-shadow: none !important;
+            text-align:left !important;
+        }
+        .card-title i{
+            color: #666 !important;
+        }
+        .jumbotron {
+            background-color: #ffffff !important;
+            color: #444;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0;
+        }
+        .jumbotron h1{
+            font-size:1.5rem !important;
+            color:#000 !important;
+            font-weight:500 !important;
+        }
+        .card {
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 1rem;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        #scrollToTopBtn:hover {
+            background-color: var(--secondary-color);
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            font-size:1.2rem !important;
+        }
+        h3{
+            font-size:1.2rem !important;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #d7e4ef;
+        }
+        @media (max-width: 768px) {
+            .jumbotron {
+                padding: 2rem 1rem;
+            }
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+.lead{
+    font-size:1rem !important;
+}
+    </style>
+    <br>
+<div class="container">
+{#<nav class="navbar navbar-expand-lg navbar-dark">#}
+{#    <div class="container">#}
+{#        <a class="navbar-brand" href="#home">#}
+{#            <i class="fas fa-tire fa-2x me-2"></i>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#manufacturers">Manufacturers</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#tyre-types">Tyre Types</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#</nav>#}
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Auto Tyres India</h1>
+    <p class="lead">Discover the rich history and innovation of the Indian tyre industry.</p>
+{#    <a href="#learn-more" class="btn btn-light btn-lg mt-3">Learn More</a>#}
+</div>
+
+<div class="container">
+    <section id="home">
+        <h2 class="section-title">Indian Tyre Industry</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p>The origin of the Indian tyre industry dates back to 1926 when Dunlop Rubber Limited set up the first tyre company in West Bengal. Soon after, MRF followed, setting the ball rolling for the tyre industry in India.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Key Facts</h3>
+                <ul class="list-group" id="keyFactsList">
+                    <!-- Key facts will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="manufacturers" class="mt-5">
+        <h2 class="section-title">Tyre Manufacturers in India</h2>
+        <div class="row" id="manufacturersList">
+            <!-- Manufacturers will be dynamically added here -->
+        </div>
+    </section>
+
+    <section id="tyre-types" class="mt-5">
+        <h2 class="section-title">Types of Tyres</h2>
+        <div class="row" id="tyreTypesList">
+            <!-- Tyre types will be dynamically added here -->
+        </div>
+    </section>
+</div>
+
+</div>
+
+<button id="scrollToTopBtn" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Scroll to top button
+        var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 100) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Sample data (replace with actual data from your backend)
+        const keyFacts = [
+            "Established in 1926",
+            "Major players: MRF, Apollo, JK Tyres",
+            "Produces a wide range of tyres for various vehicles",
+            "Significant contributor to India's economy",
+            "Employs over 1 million people"
+        ];
+
+        const manufacturers = [
+            { name: 'MRF Tyres', address: 'Chennai, Tamil Nadu', phone: '+91 44 2847 0000', icon: 'fa-solid fa-industry' },
+            { name: 'Apollo Tyres', address: 'Gurgaon, Haryana', phone: '+91 124 2383 888', icon: 'fa-solid fa-building' },
+            { name: 'JK Tyre', address: 'New Delhi', phone: '+91 11 3088 2624', icon: 'fa-solid fa-industry' },
+            { name: 'CEAT Tyres', address: 'Mumbai, Maharashtra', phone: '+91 22 2493 0621', icon: 'fa-solid fa-industry' }
+        ];
+
+        const tyreTypes = [
+            { name: 'Performance Tyres', description: 'Designed for high-speed performance and handling.', icon: 'fa-solid fa-gauge-high' },
+            { name: 'All-Season Tyres', description: 'Balanced performance in various weather conditions.', icon: 'fa-solid fa-cloud-sun' },
+            { name: 'Off-Road Tyres', description: 'Rugged design for challenging terrains.', icon: 'fa-solid fa-mountain' },
+            { name: 'Winter Tyres', description: 'Optimized for cold weather and snowy conditions.', icon: 'fa-solid fa-snowflake' }
+        ];
+
+        // Populate key facts
+        const keyFactsList = document.getElementById('keyFactsList');
+        keyFacts.forEach(fact => {
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.innerHTML = `<i class="fas fa-check-circle text-success me-2"></i>${fact}`;
+            keyFactsList.appendChild(listItem);
+        });
+
+        // Populate manufacturers
+        const manufacturersList = document.getElementById('manufacturersList');
+        manufacturers.forEach(manufacturer => {
+            const manufacturerCard = `
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="${manufacturer.icon} me-2 text-primary"></i>
+                                    ${manufacturer.name}
+                                </h5>
+                                <p class="card-text">${manufacturer.address}</p>
+                                <p class="card-text"><small class="text-muted">
+                                    <i class="fas fa-phone me-2"></i>${manufacturer.phone}
+                                </small></p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            manufacturersList.innerHTML += manufacturerCard;
+        });
+
+        // Populate tyre types
+        const tyreTypesList = document.getElementById('tyreTypesList');
+        tyreTypes.forEach(tyreType => {
+            const tyreTypeCard = `
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="${tyreType.icon} me-2"></i>
+                                    ${tyreType.name}
+                                </h5>
+                                <p class="card-text">${tyreType.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            tyreTypesList.innerHTML += tyreTypeCard;
+        });
+    });
+</script>
+{% endblock %}

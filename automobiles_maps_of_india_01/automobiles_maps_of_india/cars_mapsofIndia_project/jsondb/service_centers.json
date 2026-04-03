@@ -1,0 +1,342 @@
+[
+  {
+  "model": "carshanders.servicecenter",
+  "pk": 1,
+  "fields": {
+    "name": "AutoWorks",
+    "description": "High-quality auto service center.",
+    "phone": "+911234567890",
+    "address": "123 AutoWorks Street, Sector 1",
+    "state": "Delhi",
+    "city": "Delhi",
+    "brand": 1,
+    "image": "service_centers/autoworks.jpg",
+    "is_active": true,
+    "working_hours": "9 AM - 6 PM",
+    "rating": 4.5
+  }
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 2,
+"fields": {
+"name": "Speedy Repairs",
+"description": "Quick and reliable auto repairs.",
+"phone": "+919876543210",
+"address": "456 Speedy Lane, Sector 2",
+"state": "Noida",
+"city": "Noida",
+"brand": 2,
+"image": "service_centers/speedy_repairs.jpg",
+"is_active": true,
+"working_hours": "8 AM - 8 PM",
+"rating": 4.7
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 3,
+"fields": {
+"name": "Precision Auto",
+"description": "Precision repairs for your vehicle.",
+"phone": "+918888888888",
+"address": "789 Precision Avenue, Sector 3",
+"state": "Gurugram",
+"city": "Gurugram",
+"brand": 3,
+"image": "service_centers/precision_auto.jpg",
+"is_active": true,
+"working_hours": "9 AM - 5 PM",
+"rating": 4.6
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 4,
+"fields": {
+"name": "Elite Care",
+"description": "Elite service for all types of vehicles.",
+"phone": "+917777777777",
+"address": "123 Elite Road, Sector 4",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 4,
+"image": "service_centers/elite_care.jpg",
+"is_active": true,
+"working_hours": "10 AM - 7 PM",
+"rating": 4.8
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 5,
+"fields": {
+"name": "AutoCare Plus",
+"description": "Comprehensive care for your vehicle.",
+"phone": "+919999999999",
+"address": "456 AutoCare Street, Sector 5",
+"state": "Noida",
+"city": "Noida",
+"brand": 5,
+"image": "service_centers/autocare_plus.jpg",
+"is_active": true,
+"working_hours": "8 AM - 6 PM",
+"rating": 4.5
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 6,
+"fields": {
+"name": "Top Gear Service",
+"description": "Top-notch service for your car.",
+"phone": "+918111111111",
+"address": "678 Top Gear Road, Sector 6",
+"state": "Gurugram",
+"city": "Gurugram",
+"brand": 6,
+"image": "service_centers/top_gear_service.jpg",
+"is_active": true,
+"working_hours": "9 AM - 5 PM",
+"rating": 4.6
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 7,
+"fields": {
+"name": "QuickFix Auto",
+"description": "Fast and reliable auto service.",
+"phone": "+917555555555",
+"address": "123 QuickFix Avenue, Sector 7",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 7,
+"image": "service_centers/quickfix_auto.jpg",
+"is_active": true,
+"working_hours": "8 AM - 7 PM",
+"rating": 4.7
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 8,
+"fields": {
+"name": "Prime Auto",
+"description": "Premium services for premium cars.",
+"phone": "+919888888888",
+"address": "234 Prime Road, Sector 8",
+"state": "Gurugram",
+"city": "Gurugram",
+"brand": 8,
+"image": "service_centers/prime_auto.jpg",
+"is_active": true,
+"working_hours": "9 AM - 6 PM",
+"rating": 4.8
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 9,
+"fields": {
+"name": "Reliable Auto Center",
+"description": "Trustworthy service for all brands.",
+"phone": "+919444444444",
+"address": "789 Reliable Lane, Sector 9",
+"state": "Noida",
+"city": "Noida",
+"brand": 9,
+"image": "service_centers/reliable_auto_center.jpg",
+"is_active": true,
+"working_hours": "8 AM - 6 PM",
+"rating": 4.5
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 10,
+"fields": {
+"name": "Urban Auto Care",
+"description": "Urban service solutions for your vehicle.",
+"phone": "+919333333333",
+"address": "456 Urban Care Road, Sector 10",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 10,
+"image": "service_centers/urban_auto_care.jpg",
+"is_active": true,
+"working_hours": "9 AM - 5 PM",
+"rating": 4.4
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 11,
+"fields": {
+"name": "Metro Auto",
+"description": "Metro-level service for your car.",
+"phone": "+911122334455",
+"address": "123 Metro Street, Sector 11",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 1,
+"image": "service_centers/metro_auto.jpg",
+"is_active": true,
+"working_hours": "8 AM - 6 PM",
+"rating": 4.6
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 12,
+"fields": {
+"name": "Elite Auto Works",
+"description": "Elite auto care for your vehicle.",
+"phone": "+918777777777",
+"address": "456 Elite Road, Sector 12",
+"state": "Noida",
+"city": "Noida",
+"brand": 2,
+"image": "service_centers/elite_auto_works.jpg",
+"is_active": true,
+"working_hours": "9 AM - 7 PM",
+"rating": 4.7
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 13,
+"fields": {
+"name": "Precision Repairs",
+"description": "Precision auto repairs.",
+"phone": "+919666666666",
+"address": "789 Precision Road, Sector 13",
+"state": "Gurugram",
+"city": "Gurugram",
+"brand": 3,
+"image": "service_centers/precision_repairs.jpg",
+"is_active": true,
+"working_hours": "9 AM - 6 PM",
+"rating": 4.8
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 14,
+"fields": {
+"name": "Quick Service Center",
+"description": "Fast and reliable auto service.",
+"phone": "+919555555555",
+"address": "123 Quick Service Road, Sector 14",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 4,
+"image": "service_centers/quick_service_center.jpg",
+"is_active": true,
+"working_hours": "8 AM - 5 PM",
+"rating": 4.6
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 15,
+"fields": {
+"name": "Top Auto Services",
+"description": "Top services for all vehicles.",
+"phone": "+917888888888",
+"address": "456 Top Road, Sector 15",
+"state": "Noida",
+"city": "Noida",
+"brand": 5,
+"image": "service_centers/top_auto_services.jpg",
+"is_active": true,
+"working_hours": "8 AM - 6 PM",
+"rating": 4.7
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 16,
+"fields": {
+"name": "Fast Care",
+"description": "Quick care for your auto needs.",
+"phone": "+918222222222",
+"address": "678 Fast Care Avenue, Sector 16",
+"state": "Gurugram",
+"city": "Gurugram",
+"brand": 6,
+"image": "service_centers/fast_care.jpg",
+"is_active": true,
+"working_hours": "9 AM - 6 PM",
+"rating": 4.5
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 17,
+"fields": {
+"name": "Reliable Repairs",
+"description": "Reliable repairs for your vehicle.",
+"phone": "+919111111111",
+"address": "789 Reliable Street, Sector 17",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 7,
+"image": "service_centers/reliable_repairs.jpg",
+"is_active": true,
+"working_hours": "8 AM - 6 PM",
+"rating": 4.6
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 18,
+"fields": {
+"name": "Prime Auto Service",
+"description": "Prime service for your car.",
+"phone": "+918333333333",
+"address": "123 Prime Avenue, Sector 18",
+"state": "Noida",
+"city": "Noida",
+"brand": 8,
+"image": "service_centers/prime_auto_service.jpg",
+"is_active": true,
+"working_hours": "9 AM - 5 PM",
+"rating": 4.7
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 19,
+"fields": {
+"name": "Urban Care Center",
+"description": "Urban care for all vehicles.",
+"phone": "+919444444444",
+"address": "456 Urban Avenue, Sector 19",
+"state": "Gurugram",
+"city": "Gurugram",
+"brand": 9,
+"image": "service_centers/urban_care_center.jpg",
+"is_active": true,
+"working_hours": "9 AM - 5 PM",
+"rating": 4.5
+}
+},
+{
+"model": "carshanders.servicecenter",
+"pk": 20,
+"fields": {
+"name": "Metro Care",
+"description": "Metro-quality auto care.",
+"phone": "+917333333333",
+"address": "789 Metro Road, Sector 20",
+"state": "Delhi",
+"city": "Delhi",
+"brand": 10,
+"image": "service_centers/metro_care.jpg",
+"is_active": true,
+"working_hours": "8 AM - 6 PM",
+"rating": 4.6
+}
+}
+]

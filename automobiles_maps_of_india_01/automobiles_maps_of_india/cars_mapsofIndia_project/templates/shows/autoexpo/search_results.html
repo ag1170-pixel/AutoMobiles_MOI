@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results - Auto Expo{% endblock %}
+
+{% block content %}
+    <div class="search-container">
+        <h1>Search Results</h1>
+        <form action="{% url 'expo_app:search_expos' %}" method="get" class="search-form">
+            <input type="text" name="q" value="{{ query }}" placeholder="Search for expos...">
+            <button type="submit">Search</button>
+        </form>
+
+        {% if query %}
+            <h2>Results for "{{ query }}"</h2>
+            {% if results %}
+                <div class="search-results">
+                    {% for expo in results %}
+                        <div class="search-result-item">
+                            <h3><a href="{% url 'expo_app:auto_expo_detail' expo.year %}">{{ expo.title }}</a></h3>
+                            <p>{{ expo.description|truncatewords:30 }}</p>
+                            <span class="year-tag">{{ expo.year }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-results">No results found for "{{ query }}".</p>
+            {% endif %}
+        {% else %}
+            <p class="no-query">Enter a search query to find expos.</p>
+        {% endif %}
+    </div>
+
+    <style>
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .search-form input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #065D96;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #043d63;
+        }
+
+        .search-results {
+            display: grid;
+            gap: 20px;
+        }
+
+        .search-result-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .search-result-item h3 {
+            margin-top: 0;
+        }
+
+        .year-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #065D96;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .no-results, .no-query {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        .btn-block i{
+                color:#000 !important;
+            }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchForm = document.querySelector('.search-form');
+            const searchInput = searchForm.querySelector('input[type="text"]');
+
+            searchForm.addEventListener('submit', function(e) {
+                if (searchInput.value.trim() === '') {
+                    e.preventDefault();
+                    alert('Please enter a search query.');
+                }
+            });
+
+            // Highlight search terms in results
+            const query = '{{ query }}';
+            if (query) {
+                const resultItems = document.querySelectorAll('.search-result-item p');
+                resultItems.forEach(item => {
+                    item.innerHTML = item.textContent.replace(new RegExp(query, 'gi'), match => `<mark>${match}</mark>`);
+                });
+            }
+        });
+    </script>
+{% endblock %}

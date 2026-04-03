@@ -1,0 +1,65 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <style>
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            color: #333 !important;
+            font-weight: bold;
+            text-shadow:none !important;
+        }
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+    </style>
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h1 class="card-title display-4 mb-4">{{ article.title }}</h1>
+                <div class="heading-underline"></div>
+
+                <p class="text-muted mb-4">
+                    <i class="fas fa-clock"></i> Last updated: {{ article.last_updated|date:"F d, Y" }}
+                </p>
+                <div class="article-content">
+                    {{ article.content|linebreaks }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

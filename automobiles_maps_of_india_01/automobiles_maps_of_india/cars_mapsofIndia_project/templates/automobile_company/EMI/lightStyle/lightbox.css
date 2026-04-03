@@ -1,0 +1,18 @@
+#lightbox{
+	padding: 10px;
+	background:#fff;
+	border:1px solid #000;
+	z-index:1100;
+}
+
+#overlay{
+	background-image:url(overlay.png);
+	z-index:1000;
+}
+
+* html #overlay{
+	background-color: #333;
+	background-color: transparent;
+	background-image: url(blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="overlay.png", sizingMethod="scale");
+}

@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Automobile History{% endblock %}
+{% block extra_css %}
+    
+{% endblock %}
+{% block content %}
+<style>
+        :root {
+            --primary-color: #031623;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+            --light-blue: #add8e6;
+            --highlight-color: #f9c74f;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .light-blue-bg {
+            background-color: var(--light-blue);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+        .card-title {
+            color: #222!important;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: none !important;
+        }
+
+
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-sizing: border-box;
+    height: 70vmin;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #d7e4ef;
+        }
+
+        .timeline-item {
+            position: relative;
+            height:40vmin;
+        }
+
+        .timeline-badge {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            margin-left: -30px;
+            border-radius: 50%;
+            background-color: #d7e4ef;
+            color: white;
+            font-size: 24px;
+        }
+
+        .timeline-panel {
+            width: calc(50% - 40px);
+            float: left;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(even) .timeline-panel {
+            float: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-panel::before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: auto;
+            right: -15px;
+        }
+
+        .timeline-item .timeline-panel::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -15px;
+            border-style: solid;
+            border-width: 15px;
+            border-color: transparent #fff transparent transparent;
+        }
+
+        @media (max-width: 768px) {
+            .container p, .timeline{
+                padding:20px !important;
+            }
+            .timeline-panel {
+                width: calc(100% - 60px);
+                float: none;
+                left: 30px;
+            }
+            .timeline-item:nth-child(even) .timeline-panel {
+                left: 30px;
+            }
+            .timeline::before {
+                left: 20px;
+                height:350px !important;
+            }
+            .timeline-badge {
+                left: 10px;
+                font-size: 18px;
+            }
+            .timeline{
+                margin-bottom:16rem !important;
+            }
+            .timeline-item {
+    height: 70vmin;
+}
+        }
+
+        .btn-primary {
+            background-color: var(--highlight-color);
+            border-color: var(--highlight-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #f7b32b;
+            border-color: #f7b32b;
+        }
+        .main-title{
+            background-color:#ffffff !important;
+            padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 1.5rem !important;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color:#000;
+        }
+        .lead{
+            font-size:1rem !important;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    </style>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="mx-auto">
+                <h1 class="main-title">Welcome to Automobile History</h1>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">A Journey Through Time</h5>
+                        <p class="card-text">The automobile history dates back to the late 18th century.
+                            Nicolas Joseph Cugnot, a French engineer, invented the first self-propelled automobile, which used steam power for locomotion.</p>
+                    </div>
+                </div>
+
+                <p class="lead">In the early days, the automobile industry was dominated by steam-powered vehicles.
+                    However, these vehicles were expensive, difficult to maintain, and prone to boiler explosions.
+                    The commercial history of automobiles began with the invention of gasoline-powered internal combustion engines.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="fas fa-car"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">1885</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Karl Benz, a German inventor, constructed his first gasoline-powered vehicle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="fas fa-industry"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="timeline-title">1888</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Commercial production of Benz cars started.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more timeline items for other significant events -->
+                </div>
+
+                <p>The early 1900s saw the rise of many automobile manufacturing companies in Europe and the United States. The first mass-produced automobile in the US was the curved-dash Oldsmobile. Henry Ford's Model T car disrupted the US car market, selling a million units by 1920.</p>
+
+                <p>Mass production made cars more affordable, leading to a revolution in automobile manufacturing. The British industry was transformed by assembly line production methods. The 1960s saw rapid developments in technology, including fuel injection, independent suspensions, and turbochargers.</p>
+                <div class="list-group mb-5">
+                    {% for article in articles %}
+                        <a href="{% url 'auto_history_detail' article.slug %}" class="list-group-item list-group-item-action">
+                            {{ article.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="list-group mt-5">
+                    {% for link in sidebar_links %}
+                        <a href="{{ link.url }}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ link.title }}</h5>
+                                <small><i class="fas fa-chevron-right"></i></small>
+                            </div>
+                            <p class="mb-1">{{ link.description }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+{% endblock %}

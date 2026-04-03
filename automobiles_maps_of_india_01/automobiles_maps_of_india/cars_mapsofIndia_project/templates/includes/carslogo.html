@@ -1,0 +1,199 @@
+{% load static %}
+<style>
+    .logo-container {
+        max-width: 1200px;
+        margin: 20vmin auto;
+        padding: 2px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        gap:10px !important;
+    }
+    .logo-container h3{
+font-size:18px !important;
+    }
+    .logo-section {
+        flex: 1;
+        padding: 20px;
+        border:1px solid #282828;
+    }
+
+    .logo-section h3 {
+        color: #282828;
+        text-align: center;
+        margin: 50px 0;
+        font-size:40px;
+    }
+
+    .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .logo-item {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background:transparent;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-item img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+        .logo-grid {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .logo-item {
+            width: 150px;
+            height: 112px;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            justify-items: center;
+        }
+
+        .logo-item {
+            width: 100%;
+            max-width: 150px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .logo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .logo-item {
+                height: 90px;
+            }
+        }
+    }
+</style>
+
+<div class="logo-container">
+    <div class="logo-section">
+        <h3>Car Company Logos</h3>
+        <div class="logo-grid">
+            <a href="{% url 'cars' %}?brand=Mahindra" class="logo-item">
+                <img src="{% static 'img/carsLogo/mahindra logo.jpg' %}" alt="Mahindra">
+            </a>
+            <a href="{% url 'cars' %}?brand=BMW" class="logo-item">
+                <img src="{% static 'img/carsLogo/BMW.jpg' %}" alt="BMW">
+            </a>
+            <a href="{% url 'cars' %}?brand=Flare" class="logo-item">
+                <img src="{% static 'img/carsLogo/flare.jpg' %}" alt="Flare">
+            </a>
+            <a href="{% url 'cars' %}?brand=Hyundai" class="logo-item">
+                <img src="{% static 'img/carsLogo/hyundai-logo.png' %}" alt="Hyundai">
+            </a>
+            <a href="{% url 'cars' %}?brand=Toyota" class="logo-item">
+                <img src="{% static 'img/carsLogo/toyota.png' %}" alt="Toyota">
+            </a>
+            <a href="{% url 'cars' %}?brand=Honda" class="logo-item">
+                <img src="{% static 'img/carsLogo/Honda.jpeg' %}" alt="Honda">
+            </a>
+            <a href="{% url 'cars' %}?brand=Fiat" class="logo-item">
+                <img src="{% static 'img/carsLogo/flat.png' %}" alt="Fiat">
+            </a>
+            <a href="{% url 'cars' %}?brand=Lexus" class="logo-item">
+                <img src="{% static 'img/carsLogo/lexus.png' %}" alt="Lexus">
+            </a>
+            <a href="{% url 'cars' %}?brand=Maxus" class="logo-item">
+                <img src="{% static 'img/carsLogo/maxus.png' %}" alt="Maxus">
+            </a>
+            <a href="{% url 'cars' %}?brand=Nissan" class="logo-item">
+                <img src="{% static 'img/carsLogo/nissan.png' %}" alt="Nissan">
+            </a>
+            <a href="{% url 'cars' %}?brand=Audi" class="logo-item">
+                <img src="{% static 'img/carsLogo/Audi.png' %}" alt="Audi">
+            </a>
+            <a href="{% url 'cars' %}?brand=Ford" class="logo-item">
+                <img src="{% static 'img/carsLogo/ford.webp' %}" alt="Ford">
+            </a>
+            <a href="{% url 'cars' %}?brand=Haval" class="logo-item">
+                <img src="{% static 'img/carsLogo/haval-logo.png' %}" alt="Haval">
+            </a>
+            <a href="{% url 'cars' %}?brand=Mini" class="logo-item">
+                <img src="{% static 'img/carsLogo/mini-logo.png' %}" alt="Mini">
+            </a>
+            <a href="{% url 'cars' %}?brand=MG" class="logo-item">
+                <img src="{% static 'img/carsLogo/mg-logo.png' %}" alt="MG">
+            </a>
+            <a href="{% url 'cars' %}?brand=Infiniti" class="logo-item">
+                <img src="{% static 'img/carsLogo/infiniti-logo.png' %}" alt="Infiniti">
+            </a>
+            <a href="{% url 'cars' %}?brand=Volvo" class="logo-item">
+                <img src="{% static 'img/carsLogo/volvo-logo.png' %}" alt="Volvo">
+            </a>
+        </div>
+    </div>
+    <div class="logo-section">
+        <h3>Bike Company Logos</h3>
+        <div class="logo-grid">
+            <a href="{% url 'bikes' %}?brand=Bajaj" class="logo-item">
+                <img src="{% static 'img/bikes_logo/bajaj.webp' %}" alt="Bajaj">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Benelli" class="logo-item">
+                <img src="{% static 'img/bikes_logo/benelli.webp' %}" alt="Benelli">
+            </a>
+            <a href="{% url 'bikes' %}?brand=CFmoto" class="logo-item">
+                <img src="{% static 'img/bikes_logo/cfmoto.webp' %}" alt="Cfmoto">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Ducati" class="logo-item">
+                <img src="{% static 'img/bikes_logo/ducati.webp' %}" alt="Ducati">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Hero" class="logo-item">
+                <img src="{% static 'img/bikes_logo/Hero.webp' %}" alt="Hero">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Harley" class="logo-item">
+                <img src="{% static 'img/bikes_logo/harley.webp' %}" alt="Harley">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Honda" class="logo-item">
+                <img src="{% static 'img/bikes_logo/honda_logo.webp' %}" alt="Honda">
+            </a>
+            <a href="{% url 'bikes' %}?brand=KTM" class="logo-item">
+                <img src="{% static 'img/bikes_logo/KTM.webp' %}" alt="KTM">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Royal" class="logo-item">
+                <img src="{% static 'img/bikes_logo/royal_enfield.webp' %}" alt="Royal Enfield">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Kawasaki" class="logo-item">
+                <img src="{% static 'img/bikes_logo/kawasaki.webp' %}" alt="Kawasaki">
+            </a>
+            <a href="{% url 'bikes' %}?brand=Suzuki" class="logo-item">
+                <img src="{% static 'img/bikes_logo/suzuki.webp' %}" alt="Suzuki">
+            </a>
+            <a href="{% url 'bikes' %}?brand=TVS" class="logo-item">
+                <img src="{% static 'img/bikes_logo/tvs.webp' %}" alt="TVS">
+            </a>
+          
+        </div>
+    </div>
+</div>
+

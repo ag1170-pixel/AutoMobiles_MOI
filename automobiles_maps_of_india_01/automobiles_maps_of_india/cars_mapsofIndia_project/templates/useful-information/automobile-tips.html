@@ -1,0 +1,15 @@
+<!-- templates/automobile_tips.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Automobile Tips{% endblock %}
+
+{% block content %}
+    <div class ="container">
+    <h1>Automobile Tips</h1>
+    {% for tip in tips %}
+        <h2>{{ tip.title }}</h2>
+        <div>{{ tip.content|safe }}</div>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Services {% endblock %}
+{% block content %}
+
+
+<style>
+    .service-info{
+        border:1px solid #444;
+        box-shadow:none !important;
+    }
+    .service-info i {
+    color: #444 !important;
+}
+.main-title h1 span {
+    color: #444 !important;
+}
+.image-container {
+    width: 50% ;
+    line-height: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .image-container {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+    
+    .main-title h1 {
+        font-size: 32px;
+    }
+    
+    .service-info {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title h1 {
+        font-size: 28px;
+    }
+    
+    .main-title p {
+        font-size: 14px;
+    }
+    
+    .service-info {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .service-info .icon {
+        margin-bottom: 10px;
+    }
+    .overview-bgi:before{
+        display:none !important;
+    }
+    .sub-banner{
+        display:none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title h1 {
+        font-size: 24px;
+    }
+    
+    .main-title p {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    
+    .service-info {
+        padding: 12px;
+    }
+    
+    .service-info h3 {
+        font-size: 18px;
+    }
+    
+    .service-info p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-title h1 {
+        font-size: 20px;
+    }
+    
+    .service-info h3 {
+        font-size: 16px;
+    }
+}
+.overview-bgi:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 2px;
+    margin-top: 10px;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+}
+</style>
+
+
+<!-- Sub banner start -->
+<!-- Log on to codeastro.com for more projects -->
+<div class="sub-banner overview-bgi" style="{% if dynamic_images.general %}background: url('{{ dynamic_images.general.0.image_url }}') 55% 0 no-repeat fixed;{% endif %}">
+    <div class="container breadcrumb-area">
+        {% comment %} <div class="breadcrumb-areas">
+            <h1>Services</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Services</li>
+            </ul>
+        </div> {% endcomment %}
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Services start -->
+<div class="services content-area">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1>Our <span>Services</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">1</div>
+                    <div class="icon">
+                        <i class="flaticon-support-2"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Free Support</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">2</div>
+                    <div class="icon">
+                        <i class="flaticon-speed"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Super Fast</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">3</div>
+                    <div class="icon">
+                        <i class="flaticon-motor"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Repairing</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">4</div>
+                    <div class="icon">
+                        <i class="flaticon-air-conditioner"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>AIR conditioning</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+			<!-- Log on to codeastro.com for more projects -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">5</div>
+                    <div class="icon">
+                        <i class="flaticon-fuel"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Oil Change</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">6</div>
+                    <div class="icon">
+                        <i class="flaticon-wheel"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Engine Repair</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">7</div>
+                    <div class="icon">
+                        <i class="flaticon-car-2"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Dealership</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">8</div>
+                    <div class="icon">
+                        <i class="flaticon-lock"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Security</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+			<!-- Log on to codeastro.com for more projects -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="service-info">
+                    <div class="number">9</div>
+                    <div class="icon">
+                        <i class="flaticon-deal"></i>
+                    </div>
+                    <div class="detail">
+                        <h3>Trusted Agents</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services end -->
+
+
+
+<!-- Service center strat -->
+<!--<div class="service-center content-area-5">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">-->
+<!--                <div class="inside-car service-car">-->
+<!--                    <iframe src="https://www.youtube.com/embed/VA1DH4EiReY" allowfullscreen=""></iframe>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">-->
+<!--                <div class="about-text">-->
+<!--                    <h3>Our Services <span>Video</span></h3>-->
+<!--                    <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could</p>-->
+<!--                    <p class="mb-0">morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see himself transformed in his bed</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- Log on to codeastro.com for more projects -->
+<!-- Service center end -->
+
+{% endblock %}

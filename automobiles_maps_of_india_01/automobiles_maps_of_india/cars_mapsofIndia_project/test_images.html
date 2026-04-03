@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Images</title>
+</head>
+<body>
+    <h1>Testing Database Images</h1>
+    
+    <h2>Sample Car Images from Database:</h2>
+    {% if cars %}
+        {% for car in cars|slice:":4" %}
+            <div style="margin: 20px 0;">
+                <h3>{{ car.name }} - {{ car.model }}</h3>
+                {% if car.image %}
+                    <img src="{{ car.image.url }}" alt="{{ car.name }}" style="max-width: 300px; border: 1px solid red;">
+                {% else %}
+                    <p>No image available for {{ car.name }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No cars found in database. Please add some cars with images.</p>
+    {% endif %}
+    
+    <h2>Default Images from DynamicImage Model:</h2>
+    {% if default_images %}
+        {% for img in default_images|slice:":4" %}
+            <div style="margin: 20px 0;">
+                <h3>{{ img.name }}</h3>
+                <img src="{{ img.image_url }}" alt="{{ img.alt_text|default:'Default image' }}" style="max-width: 300px; border: 1px solid blue;">
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No default images found. Please upload some default images to the DynamicImage model.</p>
+    {% endif %}
+</body>
+</html>

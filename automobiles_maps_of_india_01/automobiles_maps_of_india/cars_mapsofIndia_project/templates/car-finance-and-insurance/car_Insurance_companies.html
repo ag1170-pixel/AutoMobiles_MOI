@@ -1,0 +1,105 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Top Car Finance Companies{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1140px;
+        }
+        .main-heading {
+            color: #000 !important;
+            text-shadow:none !important;
+            font-weight: 500 !important;
+            position: relative;
+            padding-bottom: 15px;
+            font-size:1.5rem !important;
+        }
+        .main-heading:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #d7e4ef;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .company-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+        .card-headings {
+            font-size: 1.2rem !important;
+            font-weight: 600;
+            color:#444 !important;
+            text-shadow:none !important;
+        }
+        .card-text {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        .btn-outline-primary {
+            border-color: #3498db;
+            color: #3498db;
+        }
+        .btn-outline-primary:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .heading-underline {
+            width: 100px;
+            height: 3px;
+            background-color: #d7e4ef;
+            margin: 0 auto 30px;
+        }
+        .image-container {
+    width: 50% ;
+    line-height: 0;
+}
+    </style>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5 main-heading">Leading Car | Bike Insurance Companies</h1>
+        <div class="row">
+            {% for company in companies %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow company-card">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title card-headings">{{ company.name }}</h5>
+                            <p class="card-text flex-grow-1">{{ company.description|truncatewords:30 }}</p>
+{#                            <div class="mt-3">#}
+{#                                <a href="#" class="btn btn-outline-primary btn-sm">Learn More</a>#}
+{#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle"></i> We're currently updating our list of finance companies. Please check back soon!
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

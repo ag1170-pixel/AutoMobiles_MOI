@@ -1,0 +1,251 @@
+<!-- @format -->
+
+{% load static %}
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+<style>
+.petrol-pump-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.petrol-pump-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+  .petrol-pump-image-container:hover .petrol-pump-image {
+    transform: scale(1.05);
+  }
+
+  .card-container {
+    background: linear-gradient(135deg, #7099c7, #a4c0be);
+    padding: 36px 50px;
+  }
+
+  .card-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .form-group {
+    margin-bottom: 25px;
+  }
+
+  .form-control {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .btn-filter {
+    background-color: #F1F8F9;
+    color: #000000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-filter:hover {
+    background-color:  #d7e4ef;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .icon-circle {
+    background-color: #f1eaea;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .fa-gas-pump {
+    color: #444;
+    font-size: 40px;
+  }
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* IMPORTANT */
+}
+
+
+.image-container {
+  width: 50%;
+  display: flex;
+}
+  .form-container {
+    width: 60%;
+    box-sizing: border-box;
+  }
+  .form-container form {
+    padding: 0 50px;
+  }
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+    }
+    .image-container,
+    .form-container {
+      width: 100%;
+    }
+  }
+</style>
+<div class="container">
+  <h1 class="comparison-title text-center" style="margin-top: 10vmin">
+    Petrol Pump Finder
+  </h1>
+  <div class="heading-underline" style="margin-bottom: 10vmin"></div>
+
+  <div class="main-container">
+    <!-- Left container for image -->
+    <div class="image-container">
+      <div class="petrol-pump-image-container">
+        <img
+          src="{% static 'img/petrolpump.jpg' %}"
+          alt="Petrol Pump Image"
+          class="petrol-pump-image"
+        />
+      </div>
+    </div>
+
+    <!-- Right container for form -->
+    <div class="form-container">
+      <div class="card-container">
+        <div class="icon-container">
+          <div class="icon-circle">
+            <i class="fas fa-gas-pump"></i>
+          </div>
+        </div>
+        <h5 class="card-title">Find Your Nearest Petrol Pump</h5>
+        <form
+          id="petrol-pump-form"
+          action="/petrolstations/petrol-pump-finder/"
+          method="get"
+        >
+          <div class="form-group">
+            <select
+              class="form-control search-fields"
+              name="state"
+              id="state-select"
+            >
+              <option value="" selected disabled>Select State</option>
+              {% for state in state_search %}
+              <option value="{{ state }}">{{ state }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select
+              class="form-control search-fields"
+              name="city"
+              id="city-select"
+            >
+              <option value="" selected disabled>Select City</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-block btn-filter">
+            <i class="fa fa-filter" style="color:black;"></i> Find Petrol Pumps
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<script>-->
+<!--    document.getElementById('state-select').addEventListener('change', function() {-->
+<!--        var state = this.value;-->
+<!--        var citySelect = document.getElementById('city-select');-->
+
+<!--        fetch(`cars/get_cities/?state=${state}`)-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                citySelect.innerHTML = '<option selected="true" disabled="disabled">Select City</option>';-->
+<!--                data.forEach(function(city) {-->
+<!--                    var option = document.createElement('option');-->
+<!--                    option.value = city;-->
+<!--                    option.text = city;-->
+<!--                    citySelect.appendChild(option);-->
+<!--                });-->
+<!--            });-->
+<!--    });-->
+<!--</script>-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const stateSelect = document.getElementById("state-select");
+    if (stateSelect) {
+      stateSelect.addEventListener("change", function () {
+        const state = this.value;
+        const citySelect = document.getElementById("city-select");
+
+        if (!citySelect) {
+          console.error("City select element not found");
+          return;
+        }
+
+        // Use absolute path for the API endpoint
+        fetch(`/petrolstations/get_cities_by_state/?state=${state}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            citySelect.innerHTML =
+              '<option value="" selected disabled>Select City</option>';
+            data.forEach(function (city) {
+              const option = document.createElement("option");
+              option.value = city;
+              option.text = city;
+              citySelect.appendChild(option);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching cities:", error);
+            citySelect.innerHTML =
+              '<option value="" selected disabled>Error loading cities</option>';
+          });
+      });
+    } else {
+      console.warn("State select element not found on this page");
+    }
+  });
+</script>

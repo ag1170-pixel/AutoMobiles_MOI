@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Petrol Pump Finder{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+
+<div class="container">
+    <h1 class="comparison-title text-center mb-4">Petrol Pump</h1>
+
+    <div class="row">
+
+        <!-- Left column for image -->
+        <div class="col-md-3">
+            {% if petrol_station_images %}
+                <img src="{{ petrol_station_images.0.image_url }}" alt="Petrol Pump Image" class="img-fluid petrol-pump-image">
+            {% else %}
+                <div class="no-image-placeholder" style="width:100%; height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; border-radius:5px;">Petrol Pump Image</div>
+            {% endif %}
+        </div>
+
+        <!-- Center column for petrol pump form -->
+        <div class="col-md-6">
+            <div class="card" style="background-color: #e6ffe6;">
+                <div class="card-body">
+                    <h5 class="card-title">Search Petrol Pump</h5>
+                    <form action="{% url 'petrol_pump_search' %}" method="get">
+                        <div class="form-group">
+                            <select class="form-control search-fields" name="state" id="state-select">
+                                <option selected="true" disabled="disabled">Select State</option>
+                                {% for state in state_search %}
+                                    <option value="{{ state }}">{{ state }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control search-fields" name="city" id="city-select">
+                                <option selected="true" disabled="disabled">Select City</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-block button-theme btn-md">
+                                <i class="fa fa-filter"></i> Filter
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

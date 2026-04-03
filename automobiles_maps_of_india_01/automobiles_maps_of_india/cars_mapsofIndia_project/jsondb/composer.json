@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/jsondb",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "bablukumar",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}

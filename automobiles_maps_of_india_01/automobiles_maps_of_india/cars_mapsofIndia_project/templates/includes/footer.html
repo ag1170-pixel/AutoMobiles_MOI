@@ -1,0 +1,175 @@
+{% load static %}
+<style>
+  .footer-container{
+    padding: 40px 20px; background-color: #f8f9fa; color: #333; font-family: 'Open Sans', Arial, sans-serif; max-width: 1200px; margin: 0 auto;
+  }
+  .footer-top{
+    display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;
+  }
+  .footer-company{
+    flex: 1; min-width: 200px; padding: 15px; text-align: left; margin-right:100px;
+  }
+  .footer-company h3{
+    margin: 15px 0 5px; font-size: 16px !important;color: #555;
+  }
+  .footer-company a{
+    color: #555; text-decoration: none; font-size: 14px;
+  }
+  .footer-nav-column{
+    flex: 1; min-width: 150px; padding: 15px;
+  }
+  .footer-nav-column h3{
+    margin: 0 0 45px; font-size: 18px; font-weight: 600; color: #222;
+  }
+  .footer-nav-column h3 a{
+    text-decoration: none; color: #555; font-size: 15px;
+  }
+  .footer-nav-column ul{
+    list-style-type: none; padding: 0; margin: 0;font-size:13px;
+  }
+  .footer-nav-column ul li{
+    margin-bottom: 8px;
+  }
+  .footer-nav-column ul li a{
+    text-decoration: none; color: #555; transition: all ease 0.2s;
+  }
+    .footer-nav-column ul li a:hover{
+      color:#000;
+    }
+  .footer-social{
+    text-align: center; margin-bottom: 20px;
+  }
+  .footer-social a{
+    display: inline-block; margin: 0 10px; text-decoration: none;border-radius:100%;
+  }
+  .footer-social a i{
+    font-size: 22px;
+    transition:all 0.3s ease;
+  }
+  .footer-social i:hover{
+    transform:scale(1.5);
+    border-radius:100%;
+  }
+  .footer-copyright{
+    text-align: center;
+  }
+  .footer-copyright p{
+    margin: 5px 0; font-size: 14px; color: #666;
+  }
+  .footer-copyright a{
+    color: #555; text-decoration: none; font-weight: 600;
+  }
+  .footer-bottom{
+    border-top: 1px solid #ddd; padding-top: 20px;
+  }
+  .footer-bottom .footer-validation{
+    text-align: center; margin-bottom: 15px;
+  }
+  .footer-bottom .footer-validation img{
+    margin-bottom: 10px;
+  }
+  .footer-bottom .footer-validation p{
+    margin: 5px 0; font-size: 14px; color: #666;
+  }
+</style>
+<footer>
+    <div class="footer-container">
+      <div class="footer-top">
+        <!-- Company Logo and Info -->
+        <div class="footer-company">
+          <a href="https://www.mapsofindia.com/">
+            {% comment %} <img src="../static/image/logo-m.png" alt="Mapping Digiworld Logo" width="110" height="110"> {% endcomment %}
+
+            <img src="{% static 'images/logo-m.png' %}">
+          </a>
+          <h3>Mapping Digiworld Pvt Ltd</h3>
+          <a href="mailto:solutions@mapsofindia.com">solutions@mapsofindia.com</a>
+        </div>
+  
+        <!-- Footer Columns -->
+        <div class="footer-nav-column">
+          <h3>
+            <a href="https://www.mapsofindia.com/aboutus.html">Who Are We?</a>
+          </h3>
+          <ul>
+            <li><a href="https://www.mapsofindia.com/aboutus.html">About Us</a></li>
+            <li><a href="https://www.mapsofindia.com/answers/">Answers</a></li>
+            <li><a href="https://www.mapsofindia.com/my-india/">My India</a></li>
+            <li><a href="https://www.mapsofindia.com/aboutus.html#contact">Contact Us</a></li>
+            <li><a href="https://www.mapsofindia.com/feedback.html">Feedback</a></li>
+            <li><a href="https://www.mapsofindia.com/the-story-of-mapsofindia.html">Our Story</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-nav-column">
+          <h3>
+            <a href="https://www.mapsofindia.com/become-our-sponsor.html">Partner With Us</a>
+          </h3>
+          <ul>
+            <li><a href="https://www.mapsofindia.com/sponsors/">Sponsors Directory</a></li>
+            <li><a href="https://www.mapsofindia.com/affiliatenetwork.htm">Our Affiliates</a></li>
+            <li><a href="https://www.mapsofindia.com/become-our-sponsor.html">Become Our Sponsors</a></li>
+            <li><a href="https://www.mapsofindia.com/productprofile.htm">Product Portfolio</a></li>
+            <li><a href="https://www.mapsofindia.com/advertisewithus.htm" style="text-decoration: none; color: #0e0b0b; background-color: #faf9f5; border-radius: 4px; display: inline-block; font-weight: 600;">Advertise With Us</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-nav-column">
+          <h3>
+            <a href="https://www.mapsofindia.com/copyright/">Legal Policy</a>
+          </h3>
+          <ul>
+            <li><a href="https://www.mapsofindia.com/disclaim.htm">Disclaimer</a></li>
+            <li><a href="https://www.mapsofindia.com/faq.html">FAQs</a></li>
+            <li><a href="https://www.mapsofindia.com/agree.htm">Surfing Agreement</a></li>
+            <li><a href="https://www.mapsofindia.com/copyright/">Copyright & Terms</a></li>
+            <li><a href="https://www.mapsofindia.com/privacy-policy/" style="text-decoration: none; color: #0a0a0a; background-color: #f5f4f0; border-radius: 4px; display: inline-block; font-weight: 600;">Privacy Policy</a></li>
+          </ul>
+        </div>
+  
+        <div class="footer-nav-column">
+          <h3>
+            <a href="https://www.mapsofindia.com/link/">Support Center</a>
+          </h3>
+          <ul>
+            <li><a href="https://www.mapsofindia.com/link/">Link to Us</a></li>
+            <li><a href="https://www.mapsofindia.com/suggestamap.htm">Suggest a Map</a></li>
+            <li><a href="https://www.mapsofindia.com/sitemap.htm">Site Map</a></li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <!-- Validation and Update Info -->
+        <div class="footer-validation">
+          <img src="https://www.mapsofindia.com/stylenew-2016/images/valid-html401-blue.png" alt="W3C Validation" width="88" height="31">
+          <p>Last Updated on: March 21, 2025</p>
+        </div>
+  
+        <!-- Social Media Links -->
+        <div class="footer-social">
+          <a href="https://www.facebook.com/mapsofindia" rel="nofollow" target="_blank">
+            <i class="fab fa-facebook" aria-label="Facebook" style="color: #3b5998;"></i>
+          </a>
+          <a href="https://twitter.com/mapsofindia" rel="nofollow" target="_blank">
+            <i class="fab fa-twitter" aria-label="Twitter" style="color: #1da1f2;"></i>
+          </a>
+          <a href="https://in.linkedin.com/in/mapsofindia" rel="nofollow" target="_blank">
+            <i class="fab fa-linkedin" aria-label="LinkedIn" style="color: #0077b5;"></i>
+          </a>
+          <a href="https://www.pinterest.com/mapsofindia/" rel="nofollow" target="_blank">
+            <i class="fab fa-pinterest" aria-label="Pinterest" style="color: #bd081c;"></i>
+          </a>
+        </div>
+  
+        <!-- Copyright and Editorial Policy -->
+        <div class="footer-copyright">
+          <p>© Copyright 2021-2025 Maps of India All Rights Reserved</p>
+          <p>
+            We follow <a href="https://www.editorialcalls.org/" rel="nofollow" target="_blank">editorialcalls.org</a> for border and boundary demarcations
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
