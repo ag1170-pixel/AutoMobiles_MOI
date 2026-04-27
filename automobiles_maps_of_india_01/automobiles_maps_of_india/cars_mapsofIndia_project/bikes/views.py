@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, EmptyPage
 from django.shortcuts import redirect
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
+from .models import Bike
 import os
 
 # Create your views here.
